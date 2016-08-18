@@ -1,6 +1,6 @@
 +++
 date = "2016-08-18T12:37:57+03:00"
-draft = true
+draft = false
 title = "About Me"
 menu = "main"
 
