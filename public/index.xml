@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Erkan Erol</title>
+    <link>http://replace-this-with-your-hugo-site.com/</link>
+    <description>Recent content on Erkan Erol</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tr-tr</language>
+    <lastBuildDate>Thu, 18 Aug 2016 12:37:57 +0300</lastBuildDate>
+    <atom:link href="http://replace-this-with-your-hugo-site.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About Me</title>
+      <link>http://replace-this-with-your-hugo-site.com/post/about/</link>
+      <pubDate>Thu, 18 Aug 2016 12:37:57 +0300</pubDate>
+      
+      <guid>http://replace-this-with-your-hugo-site.com/post/about/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://replace-this-with-your-hugo-site.com/img/pp.jpg&#34; alt=&#34;This is an image&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Software Developer&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/erkan-erol-26488b91&#34; target=&#34;_blank&#34;&gt;linkedin&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/erkan_erol_&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/user/show/15815041-erkan-erol&#34; target=&#34;_blank&#34;&gt;goodreads&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
