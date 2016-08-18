@@ -1,0 +1,9 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+languageCode = "tr-tr"
+title = "Erkan Erol"
+
+theme = "hyde"
+
+[params]
+	description = "Software Developer"
+	copyright = " "
