@@ -1,1 +1,0 @@
-# erkanerol.github.io
