@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog</title>
-    <link>https://erkanerol.github.io/</link>
-    <description>Recent content on Blog</description>
+    <title>Yazılım on Blog</title>
+    <link>https://erkanerol.github.io/categories/yaz%C4%B1l%C4%B1m/</link>
+    <description>Recent content in Yazılım on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
     <lastBuildDate>Sat, 20 Aug 2016 22:46:50 +0300</lastBuildDate>
-    <atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://erkanerol.github.io/categories/yaz%C4%B1l%C4%B1m/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>YAGNI Prensibi</title>
@@ -202,106 +202,6 @@ d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bil
 &lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Gölgede ve Güneşte Futbol - Eduardo Galeano</title>
-      <link>https://erkanerol.github.io/post/golgede-ve-guneste-futbol/</link>
-      <pubDate>Sat, 20 Aug 2016 20:23:06 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/golgede-ve-guneste-futbol/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;TL;DR   Kitabı okudum,beğendim.Tavsiye ediyorum.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Uzun betimlemelerden,derin analizlerden,anlaşılması güç metaforlardan yorulmuştum. Okuması kolay bir kitap arıyordum. Zihnimi yormayacak ama saçma sapan da olmayacak. Meritokrasi listemi gezerken Eduardo Galeano&amp;rsquo;nun Gölgede ve Güneşte Futbol isimli kitabı dikkatimi çekti. Kitabın girişindeki şu bölümü okuyunca Ntvspor&amp;rsquo;da  Bağış Erten ve Banu Yelkovan&amp;rsquo;ın sunduğu programının adının nereden esinlendiğini anlamış oldum ve tamamen okumaya karar verdim.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Okuyacağınız sayfalar, yıllar önce Calella de la Costa&amp;rsquo;da karşılaştığım çocuklara ithaf edilmiştir. Futbol oynamaktan dönen o çocuklar bir şarkı tutturmuşlardı:   &amp;ldquo;Yensek de, yenilsek de, değişmez eğlencemiz&amp;hellip;&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/golgede-guneste-futbol-kapak.jpg&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Kitap beklediğimden güzel çıktı. Galeano Uruguaylı sosyalist bir yazar. Ve bir futbol tutkunu. Futbola ortalama bir entelektüel gibi bakmıyor ve durumu şöyle ifade ediyor.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Futbol, Tanrıya ne yönüyle benzer? Hemen söyleyeyim: Birçok insanın ona inanmasıyla ve entelektüellerin ona kuşkuyla yaklaşmasıyla.&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;Ben basit bir &amp;lsquo;iyi futbol dilencisiyim&amp;rsquo;. Elimde şapkam, dünyanın dört bir yanını geziyor ve stadyumlarda yalvarıyorum: &amp;lsquo;Tanrı rızası için, güzel bir maç lütfen.&amp;rsquo; &amp;ldquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Kitabın başında futbolun ögeleri üzerine yorumlar var.Oyuncu,kaleci,yıldız,taraftar,teknik direktör,fanatik,hakem vb. Sonra biraz futbolun tarihinden söz ediyor Galeano. Kitap boyunca sık sık endüstriyel futboldan yakınıyor ve aslında eskiye nazaran estetikten yoksun ve makineleşmiş bir oyun izlediğimizden söz ediyor. Dediklerine bakılacak olursa oyun seneler içinde çok değişmiş.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Yirminci yüzyılda futbolun öyküsü olarak kabul edilen ve cesaretten korkuya doğru katedilen mesafe, esasında 2-3-5&amp;rsquo;ten yola çıkılarak, 4-3-3, 4-4-2 üzerinden 5-4-1&amp;rsquo;e varışın öyküsüdür.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Yukarıda bahsettiğim gibi Galeano bir sosyalist ve futbola dair siyasal perspektifli bir çok yorumu kitapta mevcut. FIFA&amp;rsquo;yı zalim bir devlet ve FIFA başkanlarını birer diktatör gibi anlatıyor kitap boyunca.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;FIFA futbolcularla muhatap olmaz,&amp;rdquo; diye cevap verdi Blatter. &amp;ldquo;Onlar kulüplerin işçileridir.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;João Havelange dünya futbolunun tahtından inerken yerine krallığın en kıdemli saraylısı Joseph Blatter kuruluyordu.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Kitabın devamı Dünya Kupaları tarihi gibi biraz. 1930&amp;rsquo;dan başlayarak günümüze doğru kupaları birer birer anlatıyor yazar ve her kupada öne çıkan maçları,takımları,yıldızları edebi bir dil ile aktarıyor bize. Kupalardan söz etmeden önce Dünya&amp;rsquo;nın o anki durumundan da bahsediyor.Kupa tarihine paralel bir Dünya tarihi mevcut sizin anlayacağınız. Fidel Castro ile ilgili olan kısım 1962&amp;rsquo;den 2010 kadar hep aynı kalması benim en çok ilgimi  çeken kısım oldu. 2002 anlatımlarında Türkiye de var ama açıkçası ben daha çok bahsetmesini beklerdim. Elediğimiz Senegal&amp;rsquo;i daha çok anlatmış :( Aşağıdaki paragraf 1978 Dünya Kupası&amp;rsquo;nın giriş bölümü.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Almanya&amp;rsquo;da halkın sevgilisi kaplumbağa Volkswagen, dönemini kapatırken İngiltere&amp;rsquo;de ilk tüp bebek dünyaya geliyordu. İtalya&amp;rsquo;da da çocuk düşürme yasallaşıyordu. Yüzyılın vebası AIDS ilk kurbanlarını veriyordu. Kızıl Tugaylar Aldo Moro&amp;rsquo;yu katlederlerken, Amerika Birleşik Devletleri yüzyılın başından beri kullandığı kanalı Panama&amp;rsquo;ya devretme vaadinde bulunuyordu. Miami&amp;rsquo;deki güvenilir kaynaklardan gelen haberlere bakılırsa Fidel Castro her an devrilebilirdi. Nikaragua&amp;rsquo;da Somoza&amp;rsquo;nın iktidarı son buluyor, İran&amp;rsquo;da da şahın saltanatı sallanıyordu. Guatemala&amp;rsquo;da askerler Panzos Köyünde halkı mitralyözlerle tarıyorlardı. Domitila Barrios, Bolivya&amp;rsquo;nın askeri diktatörüne karşı bakır madenlerinde çalışan dört kadınla birlikte açlık grevine başlıyor ve bütün Bolivya&amp;rsquo;nın onu desteklemesi üzerine diktatör devriliyordu. Arjantin&amp;rsquo;deki diktatörlük yerinde saymaya devam ederken, sanki gücünü kanıtlamak istercesine On Birinci Dünya Futbol Şampiyonasına ev sahipliği yapıyordu.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Bu da 2010 girişinden bir paragraf.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;İsrail, dünyada antisemitizmin dehşet verici sonuçlarının sorumluları, kendileri de Sami olan Filistinlilermişçesine yürüttüğü ve Filistinlileri cezalandırmayı hedefleyen alışılmış suç eylemlerinden birinde, Filistin&amp;rsquo;e yiyecek, ilaç ve oyuncak götüren gemileri uluslararası sularda makinalı tüfeklerle tarıyordu.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Neyse lafı uzatmayayım. Kitabı tavsiye ediyorum. Son olarak altını çizdiğim bir kaç yeri paylaşıyorum. Tamamı &lt;a href=&#34;https://www.goodreads.com/review/show/1386715632?type=review&#34;&gt;burada&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Artık daha çok koşuluyor, ama daha az riske giriliyor. Çünkü cesaret kâr sağlamamaktadır. 54 Dünya Kupası ile 94 Dünya Kupası arasında geçen kırk yılda atılan gollerin sayısında önemli bir azalma görülmektedir; bu sayı şimdi yarıya düşmüştür, bu yüzden 1994&amp;rsquo;te beraberlikleri azaltmak amacıyla galibiyetlere iki puan yerine üç puan verilmesi karara bağlandı.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Zoolog Roberto Fontanarrosa&amp;rsquo;nın dediği gibi, Pandalar ve forvet oyuncuları soyları tükenmekte olan türler!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Kendisi gibi Brezilyalı olan ünlü topçu Pelé&amp;rsquo;den bile daha fazla gol attı, profesyonel futbolun en fazla gol atan oyuncusu Brezilyalı Pelé 1.279 gol atmıştı. Friedenreich&amp;rsquo;in ise 1.329 golü vardı.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Buna rağmen hiçbir Uruguaylı yoktur ki kendini futbolda taktik ve strateji uzmanı ve futbol tarihi konusunda bilgin saymasın.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Gerçekten böyle bir insan varmış :)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Hindistan tarihinde ilk kez bir kadın iktidara geliyordu: İndira Gandi.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hakkımda</title>
-      <link>https://erkanerol.github.io/post/about/</link>
-      <pubDate>Thu, 18 Aug 2016 12:37:57 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/about/</guid>
-      <description>&lt;p&gt;Software Developer&lt;/p&gt;
 </description>
     </item>
     
