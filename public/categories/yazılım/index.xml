@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yazılım on Blog</title>
+    <link>https://erkanerol.github.io/categories/yaz%C4%B1l%C4%B1m/</link>
+    <description>Recent content in Yazılım on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tr-tr</language>
+    <lastBuildDate>Sat, 20 Aug 2016 22:46:50 +0300</lastBuildDate>
+    <atom:link href="https://erkanerol.github.io/categories/yaz%C4%B1l%C4%B1m/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>YAGNI Prensibi</title>
+      <link>https://erkanerol.github.io/post/yagniprinciple/</link>
+      <pubDate>Sat, 20 Aug 2016 22:46:50 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/yagniprinciple/</guid>
+      <description>
+
+&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
+
+&lt;h2 id=&#34;programlama-prensibi:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+
+&lt;p&gt;YAGNI&lt;/p&gt;
+
+&lt;h2 id=&#34;açılımlar:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açılımlar&lt;/h2&gt;
+
+&lt;p&gt;You Aren’t Gonna Need It
+You Aint Gonna Need It&lt;/p&gt;
+
+&lt;h2 id=&#34;açıklama:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açıklama&lt;/h2&gt;
+
+&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;Diyelim ki projemize bir &amp;ldquo;oturum açma&amp;rdquo; özelliği ekliyoruz. O anda bizden istenen şey kullanıcıların kullanıcı adı ve şifreleri ile giriş yapabilmelerini sağlayan bir özellik. Fakat biz &amp;ldquo;ilerde lazım olur&amp;rdquo; düşüncesi ile facebook ile de oturum açılmasını sağlayabilecek şekilde geliştiriyoruz arka taraftaki methodlarımızı. İşte tam bu noktada YAGNI diyor ki &amp;ldquo;YAPMA&amp;rdquo;.  Peki neden?&lt;/p&gt;
+
+&lt;p&gt;Yazılımcıların o an kullanmayacakları özellikleri geliştirmesinin en yaygın sebebi o özelliği o an geliştirmenin daha ucuz olacağını düşünmeleridir. Örneğimizden gidecek olursak geliştirici şöyle düşünür: &amp;ldquo;Şimdiden ben arka tarafta facebook entegrasyonunu yapayım. Yarın bir gün zaten istenecek bu benden. O zaman bu yazdıklarımı değiştirmem gerekmez.&amp;rdquo; Fakat bu özellik yazıldığı an itibari ile &amp;ldquo;varsayımsal özellik&amp;rdquo; kategorisindedir ve hiç bir zaman sizden talep edilmeyecek olabilir. Bu noktada bazıları bunun planlama olduğunu ve iyi analizler sonucu bu tip geliştirmeler yapılabileceğini iddia edebilir. Ne var ki gerçek hayat tecrübeleri bunun çok uzağındadır ve geliştiriciler yanlış öngördükleri varsayımsal özelliklerin geliştirme maliyetine katlanmak zorunda kalır. Bu özellik için harcanan analiz, programlama ve test etme süreleri boşa harcanmış olur.&lt;/p&gt;
+
+&lt;p&gt;Diyelim ki biz doğru tahmin ettik ve o özellik gerçekten bize lazım olacaktı. Bu durumda bile bu varsayımsal özelliğin bize getirdiği ciddi maliyetler vardır. Birincisi biz gelecekte lazım olacağını düşündüğümüz bu özelliği yaparken bugün yapmamız gereken işlerin bir kısmını geciktiririz. Örneğin, oturum açma özelliğinden sonra bir arama özelliği eklememiz gerekiyordu ve biz facebook entegrasyonunu da yaptığımız için bu özellik 2 gün gecikti. Yani varsayımsal bu özellik bize gecikme maliyeti getirdi. Yapılan araştırmalara göre geliştirilen özelliklerin ancak &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;&amp;rsquo;ünün gerçekten faydalı olduğu da düşünülürse hali hazırda gerekli olan bir özelliği varsayımlar üzerine geciktirmek yeniden düşünülmesi gereken bir eylemdir.&lt;/p&gt;
+
+&lt;p&gt;Doğru tahmin ettiğimiz durumdaki tek maliyet geciktirme maliyeti değildir. Taşıma maliyeti de en önemli sorunlardan biridir. Biz gelecekte işe yarayacağımız bu özelliğin kodunu projemizde taşımak zorunda kalırız. Bütün değişikliklerde kodun o kısmını da değiştirmemiz gerekir. O an hiç kullanmadığımız bu kod parçacığı hatalara sebep olabilir. Debug sırasında o kısmı da debug etmemiz gerekir. Özetle projeye eklenen her bir satır kodun bedellerini bu özellik için eklenen satırlar için de öderiz. Halbuki bu özelliği sonradan projeye ekleseydik bu süre içinde bu maliyete katlanmamız gerekmeyecekti.&lt;/p&gt;
+
+&lt;p&gt;Şu ana kadar varsayımımızın doğru ve yanlış olduğu durumları ele aldık. Fakat daha gerçekçi olan olasılık tahminimizin doğru olması ama geliştirmenin tam doğru olmamasıdır. Yazılımcıların sürekli öğrendiğini ve gereksinimlerin sürekli değiştiğini düşünürsek eklediğimiz bu özelliği ilerleyen dönemlerde kullanmak istesek bile bazı değişikler yapmamız gerekir. Örneğin facabook API&amp;rsquo;da bir değişiklik yapmış olabilir. Kullandığımız kütüphaneden daha güzel bir kütüphane çıkmış olabilir ve onu değiştirmek isteyebiliriz. Bu durumlarda da bakım maliyetine katlanmak zorunda kalırız. Geliştirdiğimizi düşündüğümüz özelliği projeye gerçekten dahil etmek için fazladan efor harcarız.&lt;/p&gt;
+
+&lt;p&gt;Aşağıda şu ana kadar anlattıklarımı özetleyen bir grafik mevcut.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/yagni.png&#34; title=&#34;YAGNI&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ölçü:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Ölçü&lt;/h2&gt;
+
+&lt;p&gt;YAGNI prensibinin ne zaman geçerli olduğu konusu biraz göreceli fakat kısaca şöyle denebilir: Varsaydığımız özelliğin büyüklüğü arttıkça YAGNI prensibinin önemi artar. 1-2 saatlik bir iş yapılacaksa ve bu ilerde bir kaç günlük bir geliştirmeyi karşılayacaksa bunda çok sakınca olmayabilir fakat bu süre uzadıkça riskleriniz artar.&lt;/p&gt;
+
+&lt;p&gt;Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına gelmez. Aksine YAGNI bir Extreme Programming prensibidir ve XP&amp;rsquo;nin en önemli pratiklerinden biri Refactoring&amp;rsquo;dir. XP kodun kolay değiştirilebilir olmasını öğütler. Bol bol refactoring yaparak kodumuzu temiz tuttuğumuzda, methodlarımızı parametrik yazdığımızda zaten özellikleri sonradan eklemek bize çok maliyet getirmez. Bu anlamda YAGNI esnek kod yazma ile çatışmaz, uyum içerisindedir.&lt;/p&gt;
+
+&lt;h2 id=&#34;kaynakça:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Kaynakça&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://martinfowler.com/bliki/Yagni.html&#34;&gt;http://martinfowler.com/bliki/Yagni.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#yagni&#34;&gt;http://webpro.github.io/programming-principles/#yagni&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.extremeprogramming.org/rules/early.html&#34;&gt;http://www.extremeprogramming.org/rules/early.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://c2.com/xp/YouArentGonnaNeedIt.html&#34;&gt;http://c2.com/xp/YouArentGonnaNeedIt.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dry Prensibi</title>
+      <link>https://erkanerol.github.io/post/dryprinciple/</link>
+      <pubDate>Sat, 20 Aug 2016 20:23:06 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/dryprinciple/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;NOT: Bu yazı The Pragmatic Programmer kitabındaki &amp;ldquo;The Evils of Duplication&amp;rdquo; bölümünden yararlanılarak yazılmıştır.&lt;/p&gt;
+
+&lt;h2 id=&#34;programlama-prensibi:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+
+&lt;p&gt;DRY&lt;/p&gt;
+
+&lt;p&gt;Keep It Dry&lt;/p&gt;
+
+&lt;p&gt;Keep Things Dry&lt;/p&gt;
+
+&lt;h2 id=&#34;açılımlar:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açılımlar&lt;/h2&gt;
+
+&lt;p&gt;Don&amp;rsquo;t repeat yourself&lt;/p&gt;
+
+&lt;h2 id=&#34;açıklama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açıklama&lt;/h2&gt;
+
+&lt;p&gt;DRY prensibi yazılımın en temel prensiplerinden biridir. &amp;ldquo;Kendini tekrar etme&amp;rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.&lt;/p&gt;
+
+&lt;p&gt;Programcılar olarak bizler bilgiyi toplar, organize eder, bakımını yapar ve programlarımızda kullanırız. Zaman zaman dökümanlar hazırlarız. Testlerde kontrol amaçlı kullanırız. Fakat maalesef bilgi durağan değildir, zaman içinde sıklıkla değişir. Bizler elimizdeki bilgiler her değiştiğinde yaptığımız işleri gözden geçirmek ve onları bu güncellemeye göre değiştirmek zorundayız.  Bu bakım sırasında bilginin sistem içindeki bütün gösterimlerini bulmamız gerekir. Eğer sistem içerisinde değişen bilgilerin bir çok yerde gösterimleri var ise bu bakım kabusa dönüşür. Bu nedenle yazılımın daha güvenilir olması, bakımının kolay yapılabilmesi ve anlaşılması adına şu prensibe ihtiyacımız vardır:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&amp;rdquo;
+Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir.  Şimdi bunu iki örnek ile açıklayalım.&lt;/p&gt;
+
+&lt;p&gt;Birincisi çok basit bir kod tekrar örneği. [4]&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-js&#34;&gt;
+// BAD
+if ( eventfade.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+    eventfade.stop();
+}
+ 
+if ( eventhover.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+    eventhover.stop();
+}
+ 
+if ( spans.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+    spans.stop();
+}
+ 
+// GOOD!!
+var elems = [ eventfade, eventhover, spans ];
+ 
+$.each( elems, function( i, elem ) {
+    if ( elem.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+        elem.stop();
+    }
+});
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz.  Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.&lt;/p&gt;
+
+&lt;p&gt;İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-java&#34;&gt;
+//BAD
+HashMap&lt;String,String&gt; pages = new HashMap&lt;String, String&gt;();
+pages.put(&#34;book&#34;,&#34;mybooks.xhtml&#34;);
+pages.put(&#34;author&#34;,&#34;myauthors.xhtml&#34;);
+pages.put(&#34;reader&#34;,&#34;myreaders.xhtml&#34;);
+pages.put(&#34;library&#34;,&#34;mylibraries.xhtml&#34;);
+
+HashMap&lt;String,String&gt; adminAuthority = new HashMap&lt;String,String&gt;();
+adminAuthority.put(&#34;book&#34;,&#34;all&#34;);
+adminAuthority.put(&#34;author&#34;,&#34;all&#34;);
+adminAuthority.put(&#34;reader&#34;,&#34;all&#34;);
+adminAuthority.put(&#34;library&#34;,&#34;all&#34;);
+
+HashMap&lt;String,String&gt; registeredUserAuthority = new HashMap&lt;String,String&gt;();
+registeredUserAuthority.put(&#34;book&#34;,&#34;create&#34;);
+registeredUserAuthority.put(&#34;author&#34;,&#34;create&#34;);
+registeredUserAuthority.put(&#34;reader&#34;,&#34;read&#34;);
+registeredUserAuthority.put(&#34;library&#34;,&#34;read&#34;);
+
+HashMap&lt;String,String&gt; guestUserAuthority = new HashMap&lt;String,String&gt;();
+adminAuthority.put(&#34;book&#34;,&#34;read&#34;);
+adminAuthority.put(&#34;author&#34;,&#34;read&#34;);
+adminAuthority.put(&#34;reader&#34;,&#34;read&#34;);
+adminAuthority.put(&#34;library&#34;,&#34;read&#34;);
+
+
+
+//GOOD
+public class MyEntity {
+    String page;
+    HashMap&lt;String,String&gt; authorities;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.&lt;/p&gt;
+
+&lt;p&gt;DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.&lt;/p&gt;
+
+&lt;p&gt;Tipler, Nedenler ve Çözüm Önerileri&lt;/p&gt;
+
+&lt;h3 id=&#34;1-zorla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.&lt;/p&gt;
+
+&lt;p&gt;a) Bilginin birden fazla gösteriminin zorunlu olması: Bazen yazılımın mimarisi tekrarlamayı sorunlu kılar. Örneğin, server-client yapısı kullandığımızda iki tarafta da aynı bilgiyi kullanmamız gerekir. Bu gibi durumlarda dilin metadata özelliklerini kullanarak kod üreten kodlar geliştirmeye, tekrarlamaları otomotik olarak üretmeye çalışmalıyız.
+b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yorum eklenen kod olduğunu düşünse de iyi kod çok yorum gerektirmez. Özellikle alt düzeylerde çok açık işlemleri yorumlamak tekrarlama olarak düşünülebilir. Bu nedenle sadece gerekli yerlerde yorumlar eklenmelidir.
+c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
+d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )&lt;/p&gt;
+
+&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.&lt;/p&gt;
+
+&lt;h3 id=&#34;kaynakça:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Kaynakça&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Hunt, Andrew, and David Thomas. &amp;ldquo;7. The Evils of Duplication.&amp;rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.kurumsaljava.com/2009/11/17/dry/&#34;&gt;http://www.kurumsaljava.com/2009/11/17/dry/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

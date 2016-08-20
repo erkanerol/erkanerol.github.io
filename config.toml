@@ -1,9 +1,80 @@
 baseurl = "https://erkanerol.github.io/"
 languageCode = "tr-tr"
-title = "Erkan Erol"
+title = "Blog"
 
-theme = "hyde"
+theme = "hyde-x"
+paginate = 10
+
+
+[author]
+    name = "Erkan Erol"
+
+[taxonomies]
+    # Optional. Use if you want tags and lists.
+    category = "categories"
 
 [params]
-	description = "Software Developer"
-	copyright = " "
+
+    # If false display full article contents in blog index.
+    # Otherwise show description and 'read on' link to individual blog post page.
+    # Default (if omitted) is true.
+    truncate = true
+
+    # Used when a given page doesn't set its own.
+    defaultDescription = "Your default page description"
+    defaultKeywords = "your,default,page,keywords"
+
+    # Hide estimated reading time for posts.
+    # Default (if omitted) is false.
+    hideReadingTime = true
+
+    # Changes sidebar background and link/accent colours.
+    # See below for more colour options.
+    # This also works: "theme-base-08 layout-reverse", or just "layout-reverse".
+    theme = ""
+
+    # Select a syntax highight.
+    # Check the static/css/highlight directory for options.
+    highlight = "monokai"
+
+    # Optional additional custom CSS file URL, will override other styles.
+    customCSS = ""
+
+    # Displays under the author name in the sidebar, keep it short.
+    # You can use markdown here.
+    tagline = "Software Developer"
+
+    # Text for the top menu link, which goes the root URL for the site.
+    # Default (if omitted) is "Blog".
+    home = "Blog"
+
+    # Metadata used to drive integrations.
+    googleAnalytics = "UA-57796113-2"
+    gravatarHash = "321108fd00753fd95baeddbc3abc8a76"
+
+    # Sidebar social links, these must be full URLs.
+    github = "https://github.com/erkanerol"
+    bitbucket = ""
+    stackOverflow = "http://stackoverflow.com/users/2900777/erkan-erol"
+    linkedin = "https://www.linkedin.com/in/erkan-erol-26488b91?"
+    googleplus = ""
+    facebook = ""
+    twitter = "https://twitter.com/erkan_erol_"
+    youtube = ""
+
+    # Other social-like sidebar links
+    rss = true  # switch to true to enable RSS icon link
+
+    [[menu.main]]
+    name = "Yazılım"
+    pre = " "
+    weight = -110
+    identifier = "yazilim"
+    url = "/categories/yazılım/"
+
+    [[menu.main]]
+    name = "Kitap"
+    pre = " "
+    weight = -100
+    identifier = "kitap"
+    url = "/categories/kitap/"
