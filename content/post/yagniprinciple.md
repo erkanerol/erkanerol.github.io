@@ -1,5 +1,5 @@
 +++
-categories = ["Yazılım","Principles"]
+categories = ["Yazılım","Prensipler"]
 date = "2016-08-20T22:46:50+03:00"
 description = ""
 Tags = ["Principles","Programlama Prensipleri","Programming Principles","XP","YAGNI"]

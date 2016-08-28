@@ -1,5 +1,5 @@
 +++
-Categories = ["Yazılım","Principles"]
+Categories = ["Yazılım","Prensipler"]
 Description = ""
 Tags = ["Development","DRY","Keep it Dry","Principles","Programlama Prensipleri","Software Engineering","Yazılım Mühendisliği"]
 

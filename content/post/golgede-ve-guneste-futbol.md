@@ -1,9 +1,9 @@
 +++
-Categories = ["Kitap"]
+Categories = ["Kitap","Futbol"]
 Description = ""
 Tags = []
 
-date = "2016-08-20T20:23:06+03:00"
+date = "2015-09-11T20:41:00+02:00"
 title = "Gölgede ve Güneşte Futbol - Eduardo Galeano"
 draft = false
 +++
@@ -17,6 +17,7 @@ Uzun betimlemelerden,derin analizlerden,anlaşılması güç metaforlardan yorul
 
 
 <img src="/img/golgede-guneste-futbol-kapak.jpg"/>
+
 <!--more-->
 
 
