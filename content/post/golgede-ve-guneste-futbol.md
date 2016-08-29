@@ -1,11 +1,7 @@
 +++
 Categories = ["Kitap","Futbol"]
-Description = ""
-Tags = []
-
 date = "2015-09-11T20:41:00+02:00"
 title = "Gölgede ve Güneşte Futbol - Eduardo Galeano"
-draft = false
 +++
 
 >TL;DR   Kitabı okudum,beğendim.Tavsiye ediyorum.

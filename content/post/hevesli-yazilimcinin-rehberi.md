@@ -1,10 +1,7 @@
 +++
 categories = ["Yazılım","Kitap"]
-date = "2016-08-28T15:56:13+03:00"
-description = ""
-keywords = []
+date = "2016-05-17T15:56:13+03:00"
 title = "Çıraklık Şablonları:  Hevesli Yazılım Ustasının Rehberi"
-draft=false
 
 +++
 

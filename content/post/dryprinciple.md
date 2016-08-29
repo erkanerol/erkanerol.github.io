@@ -1,11 +1,8 @@
 +++
 Categories = ["Yazılım","Prensipler"]
-Description = ""
-Tags = ["Development","DRY","Keep it Dry","Principles","Programlama Prensipleri","Software Engineering","Yazılım Mühendisliği"]
-
-date = "2016-08-20T20:23:06+03:00"
+date = "2016-06-02T20:23:06+03:00"
 title = "Dry Prensibi"
-draft = false
+
 +++
 
 >Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.

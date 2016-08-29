@@ -1,8 +1,6 @@
 +++
 categories = ["Yazılım","Prensipler"]
-date = "2016-08-28T16:15:53+03:00"
-description = ""
-keywords = []
+date = "2016-05-14T16:15:53+03:00"
 title = "KISS Prensibi"
 
 +++

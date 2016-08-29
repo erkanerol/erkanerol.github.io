@@ -1,10 +1,7 @@
 +++
 categories = ["Yazılım","Prensipler"]
-date = "2016-08-20T22:46:50+03:00"
-description = ""
-Tags = ["Principles","Programlama Prensipleri","Programming Principles","XP","YAGNI"]
+date = "2016-05-25T22:46:50+03:00"
 title = "YAGNI Prensibi"
-draft = false
 
 +++
 

@@ -1,9 +1,6 @@
 +++
 categories = ["Yazılım"]
-tags=["Software Engineering","Stackoverflow","Yazılım","Yazılım Mühendisliği"]
 date = "2015-08-24T20:40:00+02:00"
-description = ""
-keywords = []
 title = "Yazılım Mühendisi olmak veya Stackoverflow Google'lamak"
 
 +++

@@ -1,11 +1,7 @@
 +++
 categories = ["Yazılım"]
 date = "2015-08-24T20:31:00+02:00"
-description = ""
-keywords = []
-tags=["2 General Problemi","2 Ordu Problemi","Computer Networks","TCP","The Two Army Problem","Two Generals' Problem"]
 title = "2 General/Ordu Problemi"
-draft=false
 
 +++
 
