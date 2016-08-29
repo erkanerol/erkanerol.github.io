@@ -6,71 +6,446 @@
     <description>Recent content in Yazılım on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 28 Aug 2016 16:15:53 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jun 2016 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/yaz%C4%B1l%C4%B1m/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>KISS Prensibi</title>
-      <link>https://erkanerol.github.io/post/kiss/</link>
-      <pubDate>Sun, 28 Aug 2016 16:15:53 +0300</pubDate>
+      <title>Abstract Factory Tasarım Şablonu</title>
+      <link>https://erkanerol.github.io/post/abstract-factory-design-pattern/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0200</pubDate>
       
-      <guid>https://erkanerol.github.io/post/kiss/</guid>
+      <guid>https://erkanerol.github.io/post/abstract-factory-design-pattern/</guid>
+      <description>
+
+&lt;h2 id=&#34;amaç:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Amaç&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Elimizde benzer ve ilişkili nesneler var ve bunları somut sınıflarını belirtmeden oluşturmak için bir arayüz istiyoruz&lt;/li&gt;
+&lt;li&gt;Platformlara özgü özellikleri ve nesnelerin platformlara göre farklılık gösteren yaratılışını sarmalamak (encapsulation) istiyoruz.&lt;/li&gt;
+&lt;li&gt;new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;sorun:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Sorun&lt;/h2&gt;
+
+&lt;p&gt;Yazdığımız uygulamanın değişik platformlarda çalışmasını istediğimizde bu platformlara özgü farklılıklar sorun oluşturur ve nesne yaratımlarında bu farklılıkları ele almamız gerekir. Örneğin, windows işletim sistemindeki arayüz birleşenleri ile ubuntu işletim sistemindekler arasında ciddi farklar vardır ve biz her yeni birleşen oluşturma esnasında platformu kontrol etmek, ona göre farklı şekilde yaratmak istemeyiz. Bir arayüz tasarlamak ve bu ortak arayüz üzerinden bütün nesneleri yaratmak ve kullanmak isteriz. Platforma özgü sınıflar bu arayüzü destekleyecek şekilde kendi birleşenlerini oluşturacak işlevselliği sağlarlar.&lt;/p&gt;
+
+&lt;h2 id=&#34;yöntem:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Yöntem&lt;/h2&gt;
+
+&lt;p&gt;Bu tasarım şablonunda nesnelerin sınıflarını ve nesneleri üreten üretici sınıfları soyutlamamız gerekir. Bu nesneler kullanıcılar (clients) tarafından doğrudan oluşturulmayıp nesne üretici (fabrika) sınıflar vasıtası ile üretilirler.&lt;/p&gt;
+
+&lt;h2 id=&#34;yapı:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Yapı&lt;/h2&gt;
+
+&lt;p&gt;Abstract Factory her bir ürün için bir Factory Method (makeProductOne,makeProductTwo vb.) tanımlar. Her Factory Method new operatörünü ve platforma özgü ürün sınıflarını sarmalar. Her platform fabrika sınıflarıyla modellenir.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Abstract_Factory-2x.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;örnek:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Örnek&lt;/h2&gt;
+
+&lt;p&gt;Örneğimizde Ubuntu ve Windows platformları için UI birleşenleri üreten bir Abstract Factory şablonu oluşturalım. Bu örnekte platformlardan bağımsız bir şekilde pencere ve buton üreten bir yapı kuralım. Örneğin UML diagramı ve kodu aşağıda mevcuttur.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/abstract-factory-design-patterns-button.png&#34; /&gt;
+Buton arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;
+&lt;img src=&#34;https://erkanerol.github.io/img/abstract-factory-design-patterns-window.png&#34; /&gt;
+Pencere arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
+&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;
+&lt;img src=&#34;https://erkanerol.github.io/img/abstract-factory-design-patterns-factory.png&#34; /&gt;
+Abstract Factory ve Windows+Ubuntu Platformları için fabrika sınıfları
+&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;kod:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kod&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public interface Button {
+    public void click();
+    public void setLabel(String label);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public interface Window {
+    public void setHeader(String label);
+    public void openWindow();
+    public void closeWindow();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public interface AbstractUIFactory {
+    public Button createButton();
+    public Window createWindow();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class UbuntuButton implements Button {
+
+    @Override
+    public void click() {
+        System.out.println(&#34;UbuntuButton is  Clicked&#34;);
+    }
+
+    @Override
+    public void setLabel(String label) {
+        System.out.println(&#34;UbuntuButton label is set as &#34;+label);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class UbuntuWindow implements Window {
+
+    @Override
+    public void setHeader(String label) {
+        System.out.println(&#34;Ubuntu window header is set as &#34;+label);
+    }
+
+    @Override
+    public void openWindow() {
+        System.out.println(&#34;Ubuntu window is opened&#34;);
+    }
+
+    @Override
+    public void closeWindow() {
+        System.out.println(&#34;Ubuntu window is closed&#34;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class UbuntuUIFactory implements UIFactory {
+
+    @Override
+    public Button createButton() {
+        return new UbuntuButton();
+    }
+
+    @Override
+    public Window createWindow() {
+        return new UbuntuWindow();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class WindowsButton implements Button {
+
+    @Override
+    public void click() {
+        System.out.println(&#34;Windows Button is  Clicked&#34;);
+    }
+
+    @Override
+    public void setLabel(String label) {
+        System.out.println(&#34;WindowsButton Label is set as &#34;+label);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class WindowsWindow implements Window {
+
+    @Override
+    public void setHeader(String label) {
+        System.out.println(&#34;Windows window header is set as &#34;+label);
+    }
+
+    @Override
+    public void openWindow() {
+        System.out.println(&#34;Windows window is opened&#34;);
+    }
+
+    @Override
+    public void closeWindow() {
+        System.out.println(&#34;Windows window is closed&#34;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class WindowsUIFactory implements UIFactory {
+
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+
+    @Override
+    public Window createWindow() {
+        return new WindowsWindow();
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+public class Client {
+
+    public static void main(String[] args) {
+
+        /**
+         *  buradan sonra abstractUiFactory üzerinden nesneleri olusturuyoruz.
+         *  windows mu ubuntu mu umrumuzda değil.
+         */
+        AbstractUIFactory abstractUiFactory =  createUIFactoryAccordingToOS();
+
+        doButtonOperations(abstractUiFactory);
+        doWindowOperations(abstractUiFactory);
+    }
+
+    private static void doWindowOperations(AbstractUIFactory abstractUiFactory) {
+        Window window = abstractUiFactory.createWindow();
+        window.setHeader(&#34;Header of Window&#34;);
+        window.openWindow();
+        window.closeWindow();
+    }
+
+    private static void doButtonOperations(AbstractUIFactory abstractUiFactory) {
+        Button button = abstractUiFactory.createButton();
+        button.setLabel(&#34;Click me&#34;);
+        button.click();
+    }
+
+    private static AbstractUIFactory createUIFactoryAccordingToOS() {
+        if (System.getProperty(&#34;os.name&#34;).startsWith(&#34;Windows&#34;)) {
+            return new WindowsUIFactory();
+        } else {
+            return new UbuntuUIFactory();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;kontrol-listesi:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kontrol Listesi&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Platformdan bağımsızlık ve nesnelerin oluşturulması sorun oluşturuyor ise bu şablonu kullanın&lt;/li&gt;
+&lt;li&gt;Platform vs. nesne matrisi oluşturun&lt;/li&gt;
+&lt;li&gt;Her bir nesnenin yaratma metodlarını içeren  bir fabrika arayüzü tanımlayın&lt;/li&gt;
+&lt;li&gt;Her bir platform için new operatörünü kapsülleyen fabrika sınıfları tanımlayın&lt;/li&gt;
+&lt;li&gt;Kullanıcı sınıflar (clients) bu nesneleri new  operatörü ile oluşturmamalı ve fabrika sınıflarının arayüzlerini kullanmalı&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;genel-kabul-görmüş-kurallar:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Genel Kabul Görmüş Kurallar&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Zaman zaman aynı sorunu çözmek için farklı oluştucu tasarım şablonları kullanılabilir. Prototype veya Abstract Factory şablonlarından hangisi daha uygunsa o kullanılır. Diğer zamanlarda oluşturucu tasarım şablonları birbirlerinin tamamlayıcısıdırlar. Abstract Factory şablonunda nesne yaratmak için Prototype şablonu kullanılabilir. Builder şablonu hangi birleşenlerin yaratılacağına karar verme kısmında kullanılabilir. Abstract Factory, Builder ve Prototype şablonları kendi uygulamalarında (implementation) Singleton şablonunu kullanabilirler.&lt;/li&gt;
+&lt;li&gt;Abstract Factory, Builder ve Prototype şablonları ürün nesnelerini bilen ve yaratan, sistem içinde parametrik bir şekilde yaratılmasını sağlayan fabrika nesneleri tanımlarlar. Benzer gözükmekle beraber aralarında önemli farklar vardır. * Abstract Factory bir çok sınıfa ait nesne yaratan fabrika nesnelerine sahiptir. Builder şablonu karmışık bir ürünü, ilişkili karmaşık bir protokolü takip ederek oluşturan fabrika nesnesine sahiptir. Prototype şablonu ise prototip objeden kopyalarak yeni nesne yaratan fabrika nesnesine sahiptir.&lt;/li&gt;
+&lt;li&gt;Abstract Factory sınıfları genellikle Factory Methods kullanılarak uygulanır (implemented). Ancak Prototype kullanılarak da uygulanabilir.&lt;/li&gt;
+&lt;li&gt;Abstract Factory şablonu platforma özgü sınıfları gizlemek amacıyla Facade şablonuna alternatif olarak da kullanılabilir.&lt;/li&gt;
+&lt;li&gt;Builder şablonu karmaşık bir nesneyi adım adım oluşturmaya odaklanır. Abstract Factory şablonu ise benzer ürün ailelerin* i karmaşık veya basit farketmeksizin oluşturmak için kullanılır. Builder şablonu ürünü son adımda kullanıcıya teslim ederken Abstract Factory şablonu anında ürünü verir.&lt;/li&gt;
+&lt;li&gt;Tasarımlar genelde Factory Method (daha basit, daha özelleştilebilir) kullanılarak başlasa da tasarımcılar daha fazla esnekliğe*  ihtiyaç duyduklarını farkettiklerinde tasarım zamanla Abstract Factory, Prototype veya Builder (daha esnek ve daha karmaşık) şablonlarına evrilir.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;repo:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Repo&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/design-patterns/tree/master/src/com/erkanerol/examples/abstractfactory&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;kaynakça:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kaynakça&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcemaking.com&#34;&gt;https://sourcemaking.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Önemli Not 1:&lt;/strong&gt; sourcemaking.com sitesinde  About Us sayfasında &amp;ldquo;We also welcome translation.&amp;rdquo; ibaresi yer almaktadır. Bu yazının yazılmasında/çevrilmesinde herhangi bir ticari amaç bulunmamaktadır.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Önemli Not 2:&lt;/strong&gt; Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dry Prensibi</title>
+      <link>https://erkanerol.github.io/post/dryprinciple/</link>
+      <pubDate>Thu, 02 Jun 2016 20:23:06 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/dryprinciple/</guid>
       <description>
 
 &lt;blockquote&gt;
-&lt;p&gt;Basitlik nihai karmaşıklıktır.&lt;/p&gt;
+&lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;NOT: Bu yazı The Pragmatic Programmer kitabındaki &amp;ldquo;The Evils of Duplication&amp;rdquo; bölümünden yararlanılarak yazılmıştır.&lt;/p&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;h2 id=&#34;programlama-prensibi:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
-&lt;p&gt;KISS&lt;/p&gt;
+&lt;p&gt;DRY&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;p&gt;Keep It Dry&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;Keep It Simple, Stupid&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep it Simple, Silly&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep It Short and Simple&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep It Simple and Straightforward&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep It Small and Simple&amp;rdquo;.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Keep Things Dry&lt;/p&gt;
 
-&lt;h2 id=&#34;açıklama:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açılımlar:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açılımlar&lt;/h2&gt;
 
-&lt;p&gt;KISS, basitlik için çabalamayı öneren bir prensiptir. 1960&amp;rsquo;lı yıllarda Amerikan donanmasında ilk olarak ifade edilen bu prensip günümüzde en önemli programlama prensiplerinden biridir. Bir problemi çözerken olabilecek en basit ve yalın çözümü seçmeyi önerir. Hatta o kadar basit olmalıdır ki ilk bakışta &amp;ldquo;Bunu bir aptal bile yapar ve anlar&amp;rdquo; demeliyiz.&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t repeat yourself&lt;/p&gt;
 
-&lt;p&gt;KISS, karmaşık çözümlerin daha &amp;ldquo;zekice&amp;rdquo;  çözümler olduğu fikrini reddeder. Çoğu mühendis/yazılımcı karmaşık çözümler bularak, karmaşık yapılar inşa ederek &amp;ldquo;zekice&amp;rdquo; işler yaptığını düşünür. Dışarıdan bakan bir insan ne kadar zor anlar ise o kadar artı değer ürettiğini sanır. Ancak zor olan basitleştirmektir. Yazılım süreçlerinde kod/yazılım mimarisi zaten zaman içinde büyüme ve karmaşıklaşma eğilimindedir. Önemli ve zor olan istenen işlevselliği asgari karmaşıklık düzeyinde sağlayabilmektir.&lt;/p&gt;
+&lt;h2 id=&#34;açıklama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açıklama&lt;/h2&gt;
 
-&lt;p&gt;Basit çözümler daha iyidir çünkü:&lt;/p&gt;
+&lt;p&gt;DRY prensibi yazılımın en temel prensiplerinden biridir. &amp;ldquo;Kendini tekrar etme&amp;rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.&lt;/p&gt;
+
+&lt;p&gt;Programcılar olarak bizler bilgiyi toplar, organize eder, bakımını yapar ve programlarımızda kullanırız. Zaman zaman dökümanlar hazırlarız. Testlerde kontrol amaçlı kullanırız. Fakat maalesef bilgi durağan değildir, zaman içinde sıklıkla değişir. Bizler elimizdeki bilgiler her değiştiğinde yaptığımız işleri gözden geçirmek ve onları bu güncellemeye göre değiştirmek zorundayız.  Bu bakım sırasında bilginin sistem içindeki bütün gösterimlerini bulmamız gerekir. Eğer sistem içerisinde değişen bilgilerin bir çok yerde gösterimleri var ise bu bakım kabusa dönüşür. Bu nedenle yazılımın daha güvenilir olması, bakımının kolay yapılabilmesi ve anlaşılması adına şu prensibe ihtiyacımız vardır:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&amp;rdquo;
+Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir.  Şimdi bunu iki örnek ile açıklayalım.&lt;/p&gt;
+
+&lt;p&gt;Birincisi çok basit bir kod tekrar örneği. [4]&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-js&#34;&gt;
+// BAD
+if ( eventfade.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+    eventfade.stop();
+}
+ 
+if ( eventhover.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+    eventhover.stop();
+}
+ 
+if ( spans.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+    spans.stop();
+}
+ 
+// GOOD!!
+var elems = [ eventfade, eventhover, spans ];
+ 
+$.each( elems, function( i, elem ) {
+    if ( elem.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
+        elem.stop();
+    }
+});
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz.  Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.&lt;/p&gt;
+
+&lt;p&gt;İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code class=&#34;language-java&#34;&gt;
+//BAD
+HashMap&lt;String,String&gt; pages = new HashMap&lt;String, String&gt;();
+pages.put(&#34;book&#34;,&#34;mybooks.xhtml&#34;);
+pages.put(&#34;author&#34;,&#34;myauthors.xhtml&#34;);
+pages.put(&#34;reader&#34;,&#34;myreaders.xhtml&#34;);
+pages.put(&#34;library&#34;,&#34;mylibraries.xhtml&#34;);
+
+HashMap&lt;String,String&gt; adminAuthority = new HashMap&lt;String,String&gt;();
+adminAuthority.put(&#34;book&#34;,&#34;all&#34;);
+adminAuthority.put(&#34;author&#34;,&#34;all&#34;);
+adminAuthority.put(&#34;reader&#34;,&#34;all&#34;);
+adminAuthority.put(&#34;library&#34;,&#34;all&#34;);
+
+HashMap&lt;String,String&gt; registeredUserAuthority = new HashMap&lt;String,String&gt;();
+registeredUserAuthority.put(&#34;book&#34;,&#34;create&#34;);
+registeredUserAuthority.put(&#34;author&#34;,&#34;create&#34;);
+registeredUserAuthority.put(&#34;reader&#34;,&#34;read&#34;);
+registeredUserAuthority.put(&#34;library&#34;,&#34;read&#34;);
+
+HashMap&lt;String,String&gt; guestUserAuthority = new HashMap&lt;String,String&gt;();
+adminAuthority.put(&#34;book&#34;,&#34;read&#34;);
+adminAuthority.put(&#34;author&#34;,&#34;read&#34;);
+adminAuthority.put(&#34;reader&#34;,&#34;read&#34;);
+adminAuthority.put(&#34;library&#34;,&#34;read&#34;);
+
+
+
+//GOOD
+public class MyEntity {
+    String page;
+    HashMap&lt;String,String&gt; authorities;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.&lt;/p&gt;
+
+&lt;p&gt;DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.&lt;/p&gt;
+
+&lt;p&gt;Tipler, Nedenler ve Çözüm Önerileri&lt;/p&gt;
+
+&lt;h3 id=&#34;1-zorla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.&lt;/p&gt;
+
+&lt;p&gt;a) Bilginin birden fazla gösteriminin zorunlu olması: Bazen yazılımın mimarisi tekrarlamayı sorunlu kılar. Örneğin, server-client yapısı kullandığımızda iki tarafta da aynı bilgiyi kullanmamız gerekir. Bu gibi durumlarda dilin metadata özelliklerini kullanarak kod üreten kodlar geliştirmeye, tekrarlamaları otomotik olarak üretmeye çalışmalıyız.
+b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yorum eklenen kod olduğunu düşünse de iyi kod çok yorum gerektirmez. Özellikle alt düzeylerde çok açık işlemleri yorumlamak tekrarlama olarak düşünülebilir. Bu nedenle sadece gerekli yerlerde yorumlar eklenmelidir.
+c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
+d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )&lt;/p&gt;
+
+&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
+
+&lt;p&gt;Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.&lt;/p&gt;
+
+&lt;h3 id=&#34;kaynakça:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Kaynakça&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Basit çözümlerin uygulanması daha kolaydır.&lt;/li&gt;
-&lt;li&gt;Basit çözümler hataya daha az açıktır.&lt;/li&gt;
-&lt;li&gt;Basit çözümlerin bakımını yapmak daha kolaydır. Zaman tasarrufu sağlar.&lt;/li&gt;
-&lt;li&gt;Basit çözümler kolay değiştirilebilir. Çevik olma açısından gereklidir.&lt;/li&gt;
+&lt;li&gt;Hunt, Andrew, and David Thomas. &amp;ldquo;7. The Evils of Duplication.&amp;rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.kurumsaljava.com/2009/11/17/dry/&#34;&gt;http://www.kurumsaljava.com/2009/11/17/dry/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>YAGNI Prensibi</title>
+      <link>https://erkanerol.github.io/post/yagniprinciple/</link>
+      <pubDate>Wed, 25 May 2016 22:46:50 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/yagniprinciple/</guid>
+      <description>
 
-&lt;h2 id=&#34;yöntemler:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Yöntemler&lt;/h2&gt;
+&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
+
+&lt;h2 id=&#34;programlama-prensibi:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+
+&lt;p&gt;YAGNI&lt;/p&gt;
+
+&lt;h2 id=&#34;açılımlar:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açılımlar&lt;/h2&gt;
+
+&lt;p&gt;You Aren’t Gonna Need It
+You Aint Gonna Need It&lt;/p&gt;
+
+&lt;h2 id=&#34;açıklama:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açıklama&lt;/h2&gt;
+
+&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;Diyelim ki projemize bir &amp;ldquo;oturum açma&amp;rdquo; özelliği ekliyoruz. O anda bizden istenen şey kullanıcıların kullanıcı adı ve şifreleri ile giriş yapabilmelerini sağlayan bir özellik. Fakat biz &amp;ldquo;ilerde lazım olur&amp;rdquo; düşüncesi ile facebook ile de oturum açılmasını sağlayabilecek şekilde geliştiriyoruz arka taraftaki methodlarımızı. İşte tam bu noktada YAGNI diyor ki &amp;ldquo;YAPMA&amp;rdquo;.  Peki neden?&lt;/p&gt;
+
+&lt;p&gt;Yazılımcıların o an kullanmayacakları özellikleri geliştirmesinin en yaygın sebebi o özelliği o an geliştirmenin daha ucuz olacağını düşünmeleridir. Örneğimizden gidecek olursak geliştirici şöyle düşünür: &amp;ldquo;Şimdiden ben arka tarafta facebook entegrasyonunu yapayım. Yarın bir gün zaten istenecek bu benden. O zaman bu yazdıklarımı değiştirmem gerekmez.&amp;rdquo; Fakat bu özellik yazıldığı an itibari ile &amp;ldquo;varsayımsal özellik&amp;rdquo; kategorisindedir ve hiç bir zaman sizden talep edilmeyecek olabilir. Bu noktada bazıları bunun planlama olduğunu ve iyi analizler sonucu bu tip geliştirmeler yapılabileceğini iddia edebilir. Ne var ki gerçek hayat tecrübeleri bunun çok uzağındadır ve geliştiriciler yanlış öngördükleri varsayımsal özelliklerin geliştirme maliyetine katlanmak zorunda kalır. Bu özellik için harcanan analiz, programlama ve test etme süreleri boşa harcanmış olur.&lt;/p&gt;
+
+&lt;p&gt;Diyelim ki biz doğru tahmin ettik ve o özellik gerçekten bize lazım olacaktı. Bu durumda bile bu varsayımsal özelliğin bize getirdiği ciddi maliyetler vardır. Birincisi biz gelecekte lazım olacağını düşündüğümüz bu özelliği yaparken bugün yapmamız gereken işlerin bir kısmını geciktiririz. Örneğin, oturum açma özelliğinden sonra bir arama özelliği eklememiz gerekiyordu ve biz facebook entegrasyonunu da yaptığımız için bu özellik 2 gün gecikti. Yani varsayımsal bu özellik bize gecikme maliyeti getirdi. Yapılan araştırmalara göre geliştirilen özelliklerin ancak &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;&amp;rsquo;ünün gerçekten faydalı olduğu da düşünülürse hali hazırda gerekli olan bir özelliği varsayımlar üzerine geciktirmek yeniden düşünülmesi gereken bir eylemdir.&lt;/p&gt;
+
+&lt;p&gt;Doğru tahmin ettiğimiz durumdaki tek maliyet geciktirme maliyeti değildir. Taşıma maliyeti de en önemli sorunlardan biridir. Biz gelecekte işe yarayacağımız bu özelliğin kodunu projemizde taşımak zorunda kalırız. Bütün değişikliklerde kodun o kısmını da değiştirmemiz gerekir. O an hiç kullanmadığımız bu kod parçacığı hatalara sebep olabilir. Debug sırasında o kısmı da debug etmemiz gerekir. Özetle projeye eklenen her bir satır kodun bedellerini bu özellik için eklenen satırlar için de öderiz. Halbuki bu özelliği sonradan projeye ekleseydik bu süre içinde bu maliyete katlanmamız gerekmeyecekti.&lt;/p&gt;
+
+&lt;p&gt;Şu ana kadar varsayımımızın doğru ve yanlış olduğu durumları ele aldık. Fakat daha gerçekçi olan olasılık tahminimizin doğru olması ama geliştirmenin tam doğru olmamasıdır. Yazılımcıların sürekli öğrendiğini ve gereksinimlerin sürekli değiştiğini düşünürsek eklediğimiz bu özelliği ilerleyen dönemlerde kullanmak istesek bile bazı değişikler yapmamız gerekir. Örneğin facabook API&amp;rsquo;da bir değişiklik yapmış olabilir. Kullandığımız kütüphaneden daha güzel bir kütüphane çıkmış olabilir ve onu değiştirmek isteyebiliriz. Bu durumlarda da bakım maliyetine katlanmak zorunda kalırız. Geliştirdiğimizi düşündüğümüz özelliği projeye gerçekten dahil etmek için fazladan efor harcarız.&lt;/p&gt;
+
+&lt;p&gt;Aşağıda şu ana kadar anlattıklarımı özetleyen bir grafik mevcut.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/yagni.png&#34; title=&#34;YAGNI&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ölçü:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Ölçü&lt;/h2&gt;
+
+&lt;p&gt;YAGNI prensibinin ne zaman geçerli olduğu konusu biraz göreceli fakat kısaca şöyle denebilir: Varsaydığımız özelliğin büyüklüğü arttıkça YAGNI prensibinin önemi artar. 1-2 saatlik bir iş yapılacaksa ve bu ilerde bir kaç günlük bir geliştirmeyi karşılayacaksa bunda çok sakınca olmayabilir fakat bu süre uzadıkça riskleriniz artar.&lt;/p&gt;
+
+&lt;p&gt;Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına gelmez. Aksine YAGNI bir Extreme Programming prensibidir ve XP&amp;rsquo;nin en önemli pratiklerinden biri Refactoring&amp;rsquo;dir. XP kodun kolay değiştirilebilir olmasını öğütler. Bol bol refactoring yaparak kodumuzu temiz tuttuğumuzda, methodlarımızı parametrik yazdığımızda zaten özellikleri sonradan eklemek bize çok maliyet getirmez. Bu anlamda YAGNI esnek kod yazma ile çatışmaz, uyum içerisindedir.&lt;/p&gt;
+
+&lt;h2 id=&#34;kaynakça:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Zekanızı kodun karmaşıklığı üzerinden göstemeyin.&lt;/li&gt;
-&lt;li&gt;Ufak çaplı performans kazançları için basit çözümler yerine karmaşık çözümleri tercih etmeyin.&lt;/li&gt;
-&lt;li&gt;Problemleri alt problemlere ayırın. Alt problemleri az parametreli, kısa methodlar ile çözün.&lt;/li&gt;
-&lt;li&gt;İstisnai durumları çok fazla düşünüp yapıyı karmaşıklaştırmayın.&lt;/li&gt;
-&lt;li&gt;Geleceğin problemlerini bugünden çözmeye çalışmayın. (bkz: YAGNI)&lt;/li&gt;
-&lt;li&gt;Kod silmekten çekinmeyin. En iyi kod en kısa koddur.&lt;/li&gt;
-&lt;li&gt;Kodu yeniden düzenlemekten çekinmeyin. IDE&amp;rsquo;lerin de yardımıyla kodunuzu sık sık bölüp, sadeleştirin.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;kaynakça:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Kaynakça&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://principles-wiki.net/principles:keep_it_simple_stupid&#34;&gt;http://principles-wiki.net/principles:keep_it_simple_stupid&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/KISS_principle&#34;&gt;https://en.wikipedia.org/wiki/KISS_principle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://people.apache.org/~fhanik/kiss.html&#34;&gt;https://people.apache.org/~fhanik/kiss.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&#34;&gt;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://martinfowler.com/bliki/Yagni.html&#34;&gt;http://martinfowler.com/bliki/Yagni.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#yagni&#34;&gt;http://webpro.github.io/programming-principles/#yagni&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.extremeprogramming.org/rules/early.html&#34;&gt;http://www.extremeprogramming.org/rules/early.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://c2.com/xp/YouArentGonnaNeedIt.html&#34;&gt;http://c2.com/xp/YouArentGonnaNeedIt.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -78,7 +453,7 @@
     <item>
       <title>Çıraklık Şablonları:  Hevesli Yazılım Ustasının Rehberi</title>
       <link>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</link>
-      <pubDate>Sun, 28 Aug 2016 15:56:13 +0300</pubDate>
+      <pubDate>Tue, 17 May 2016 15:56:13 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</guid>
       <description>
@@ -471,198 +846,595 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
     </item>
     
     <item>
-      <title>YAGNI Prensibi</title>
-      <link>https://erkanerol.github.io/post/yagniprinciple/</link>
-      <pubDate>Sat, 20 Aug 2016 22:46:50 +0300</pubDate>
+      <title>KISS Prensibi</title>
+      <link>https://erkanerol.github.io/post/kiss/</link>
+      <pubDate>Sat, 14 May 2016 16:15:53 +0300</pubDate>
       
-      <guid>https://erkanerol.github.io/post/yagniprinciple/</guid>
+      <guid>https://erkanerol.github.io/post/kiss/</guid>
       <description>
 
-&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Basitlik nihai karmaşıklıktır.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;
 
-&lt;p&gt;YAGNI&lt;/p&gt;
+&lt;h2 id=&#34;programlama-prensibi:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
-&lt;h2 id=&#34;açılımlar:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;p&gt;KISS&lt;/p&gt;
 
-&lt;p&gt;You Aren’t Gonna Need It
-You Aint Gonna Need It&lt;/p&gt;
+&lt;h2 id=&#34;açılımlar:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açılımlar&lt;/h2&gt;
 
-&lt;h2 id=&#34;açıklama:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Keep It Simple, Stupid&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Keep it Simple, Silly&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Keep It Short and Simple&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Keep It Simple and Straightforward&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Keep It Small and Simple&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
+&lt;h2 id=&#34;açıklama:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açıklama&lt;/h2&gt;
 
-&lt;p&gt;Diyelim ki projemize bir &amp;ldquo;oturum açma&amp;rdquo; özelliği ekliyoruz. O anda bizden istenen şey kullanıcıların kullanıcı adı ve şifreleri ile giriş yapabilmelerini sağlayan bir özellik. Fakat biz &amp;ldquo;ilerde lazım olur&amp;rdquo; düşüncesi ile facebook ile de oturum açılmasını sağlayabilecek şekilde geliştiriyoruz arka taraftaki methodlarımızı. İşte tam bu noktada YAGNI diyor ki &amp;ldquo;YAPMA&amp;rdquo;.  Peki neden?&lt;/p&gt;
+&lt;p&gt;KISS, basitlik için çabalamayı öneren bir prensiptir. 1960&amp;rsquo;lı yıllarda Amerikan donanmasında ilk olarak ifade edilen bu prensip günümüzde en önemli programlama prensiplerinden biridir. Bir problemi çözerken olabilecek en basit ve yalın çözümü seçmeyi önerir. Hatta o kadar basit olmalıdır ki ilk bakışta &amp;ldquo;Bunu bir aptal bile yapar ve anlar&amp;rdquo; demeliyiz.&lt;/p&gt;
 
-&lt;p&gt;Yazılımcıların o an kullanmayacakları özellikleri geliştirmesinin en yaygın sebebi o özelliği o an geliştirmenin daha ucuz olacağını düşünmeleridir. Örneğimizden gidecek olursak geliştirici şöyle düşünür: &amp;ldquo;Şimdiden ben arka tarafta facebook entegrasyonunu yapayım. Yarın bir gün zaten istenecek bu benden. O zaman bu yazdıklarımı değiştirmem gerekmez.&amp;rdquo; Fakat bu özellik yazıldığı an itibari ile &amp;ldquo;varsayımsal özellik&amp;rdquo; kategorisindedir ve hiç bir zaman sizden talep edilmeyecek olabilir. Bu noktada bazıları bunun planlama olduğunu ve iyi analizler sonucu bu tip geliştirmeler yapılabileceğini iddia edebilir. Ne var ki gerçek hayat tecrübeleri bunun çok uzağındadır ve geliştiriciler yanlış öngördükleri varsayımsal özelliklerin geliştirme maliyetine katlanmak zorunda kalır. Bu özellik için harcanan analiz, programlama ve test etme süreleri boşa harcanmış olur.&lt;/p&gt;
+&lt;p&gt;KISS, karmaşık çözümlerin daha &amp;ldquo;zekice&amp;rdquo;  çözümler olduğu fikrini reddeder. Çoğu mühendis/yazılımcı karmaşık çözümler bularak, karmaşık yapılar inşa ederek &amp;ldquo;zekice&amp;rdquo; işler yaptığını düşünür. Dışarıdan bakan bir insan ne kadar zor anlar ise o kadar artı değer ürettiğini sanır. Ancak zor olan basitleştirmektir. Yazılım süreçlerinde kod/yazılım mimarisi zaten zaman içinde büyüme ve karmaşıklaşma eğilimindedir. Önemli ve zor olan istenen işlevselliği asgari karmaşıklık düzeyinde sağlayabilmektir.&lt;/p&gt;
 
-&lt;p&gt;Diyelim ki biz doğru tahmin ettik ve o özellik gerçekten bize lazım olacaktı. Bu durumda bile bu varsayımsal özelliğin bize getirdiği ciddi maliyetler vardır. Birincisi biz gelecekte lazım olacağını düşündüğümüz bu özelliği yaparken bugün yapmamız gereken işlerin bir kısmını geciktiririz. Örneğin, oturum açma özelliğinden sonra bir arama özelliği eklememiz gerekiyordu ve biz facebook entegrasyonunu da yaptığımız için bu özellik 2 gün gecikti. Yani varsayımsal bu özellik bize gecikme maliyeti getirdi. Yapılan araştırmalara göre geliştirilen özelliklerin ancak &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;&amp;rsquo;ünün gerçekten faydalı olduğu da düşünülürse hali hazırda gerekli olan bir özelliği varsayımlar üzerine geciktirmek yeniden düşünülmesi gereken bir eylemdir.&lt;/p&gt;
-
-&lt;p&gt;Doğru tahmin ettiğimiz durumdaki tek maliyet geciktirme maliyeti değildir. Taşıma maliyeti de en önemli sorunlardan biridir. Biz gelecekte işe yarayacağımız bu özelliğin kodunu projemizde taşımak zorunda kalırız. Bütün değişikliklerde kodun o kısmını da değiştirmemiz gerekir. O an hiç kullanmadığımız bu kod parçacığı hatalara sebep olabilir. Debug sırasında o kısmı da debug etmemiz gerekir. Özetle projeye eklenen her bir satır kodun bedellerini bu özellik için eklenen satırlar için de öderiz. Halbuki bu özelliği sonradan projeye ekleseydik bu süre içinde bu maliyete katlanmamız gerekmeyecekti.&lt;/p&gt;
-
-&lt;p&gt;Şu ana kadar varsayımımızın doğru ve yanlış olduğu durumları ele aldık. Fakat daha gerçekçi olan olasılık tahminimizin doğru olması ama geliştirmenin tam doğru olmamasıdır. Yazılımcıların sürekli öğrendiğini ve gereksinimlerin sürekli değiştiğini düşünürsek eklediğimiz bu özelliği ilerleyen dönemlerde kullanmak istesek bile bazı değişikler yapmamız gerekir. Örneğin facabook API&amp;rsquo;da bir değişiklik yapmış olabilir. Kullandığımız kütüphaneden daha güzel bir kütüphane çıkmış olabilir ve onu değiştirmek isteyebiliriz. Bu durumlarda da bakım maliyetine katlanmak zorunda kalırız. Geliştirdiğimizi düşündüğümüz özelliği projeye gerçekten dahil etmek için fazladan efor harcarız.&lt;/p&gt;
-
-&lt;p&gt;Aşağıda şu ana kadar anlattıklarımı özetleyen bir grafik mevcut.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/yagni.png&#34; title=&#34;YAGNI&#34;/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;ölçü:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Ölçü&lt;/h2&gt;
-
-&lt;p&gt;YAGNI prensibinin ne zaman geçerli olduğu konusu biraz göreceli fakat kısaca şöyle denebilir: Varsaydığımız özelliğin büyüklüğü arttıkça YAGNI prensibinin önemi artar. 1-2 saatlik bir iş yapılacaksa ve bu ilerde bir kaç günlük bir geliştirmeyi karşılayacaksa bunda çok sakınca olmayabilir fakat bu süre uzadıkça riskleriniz artar.&lt;/p&gt;
-
-&lt;p&gt;Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına gelmez. Aksine YAGNI bir Extreme Programming prensibidir ve XP&amp;rsquo;nin en önemli pratiklerinden biri Refactoring&amp;rsquo;dir. XP kodun kolay değiştirilebilir olmasını öğütler. Bol bol refactoring yaparak kodumuzu temiz tuttuğumuzda, methodlarımızı parametrik yazdığımızda zaten özellikleri sonradan eklemek bize çok maliyet getirmez. Bu anlamda YAGNI esnek kod yazma ile çatışmaz, uyum içerisindedir.&lt;/p&gt;
-
-&lt;h2 id=&#34;kaynakça:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;p&gt;Basit çözümler daha iyidir çünkü:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://martinfowler.com/bliki/Yagni.html&#34;&gt;http://martinfowler.com/bliki/Yagni.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#yagni&#34;&gt;http://webpro.github.io/programming-principles/#yagni&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.extremeprogramming.org/rules/early.html&#34;&gt;http://www.extremeprogramming.org/rules/early.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://c2.com/xp/YouArentGonnaNeedIt.html&#34;&gt;http://c2.com/xp/YouArentGonnaNeedIt.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Basit çözümlerin uygulanması daha kolaydır.&lt;/li&gt;
+&lt;li&gt;Basit çözümler hataya daha az açıktır.&lt;/li&gt;
+&lt;li&gt;Basit çözümlerin bakımını yapmak daha kolaydır. Zaman tasarrufu sağlar.&lt;/li&gt;
+&lt;li&gt;Basit çözümler kolay değiştirilebilir. Çevik olma açısından gereklidir.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;yöntemler:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Yöntemler&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Zekanızı kodun karmaşıklığı üzerinden göstemeyin.&lt;/li&gt;
+&lt;li&gt;Ufak çaplı performans kazançları için basit çözümler yerine karmaşık çözümleri tercih etmeyin.&lt;/li&gt;
+&lt;li&gt;Problemleri alt problemlere ayırın. Alt problemleri az parametreli, kısa methodlar ile çözün.&lt;/li&gt;
+&lt;li&gt;İstisnai durumları çok fazla düşünüp yapıyı karmaşıklaştırmayın.&lt;/li&gt;
+&lt;li&gt;Geleceğin problemlerini bugünden çözmeye çalışmayın. (bkz: YAGNI)&lt;/li&gt;
+&lt;li&gt;Kod silmekten çekinmeyin. En iyi kod en kısa koddur.&lt;/li&gt;
+&lt;li&gt;Kodu yeniden düzenlemekten çekinmeyin. IDE&amp;rsquo;lerin de yardımıyla kodunuzu sık sık bölüp, sadeleştirin.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;kaynakça:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Kaynakça&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://principles-wiki.net/principles:keep_it_simple_stupid&#34;&gt;http://principles-wiki.net/principles:keep_it_simple_stupid&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/KISS_principle&#34;&gt;https://en.wikipedia.org/wiki/KISS_principle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://people.apache.org/~fhanik/kiss.html&#34;&gt;https://people.apache.org/~fhanik/kiss.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&#34;&gt;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
     
     <item>
-      <title>Dry Prensibi</title>
-      <link>https://erkanerol.github.io/post/dryprinciple/</link>
-      <pubDate>Sat, 20 Aug 2016 20:23:06 +0300</pubDate>
+      <title>Fikirden Ürüne Yazılım Geliştirme Süreçleri (Ücretsiz Ders)</title>
+      <link>https://erkanerol.github.io/post/udacity-course/</link>
+      <pubDate>Mon, 14 Mar 2016 22:33:53 +0300</pubDate>
       
-      <guid>https://erkanerol.github.io/post/dryprinciple/</guid>
+      <guid>https://erkanerol.github.io/post/udacity-course/</guid>
       <description>
 
 &lt;blockquote&gt;
-&lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
+&lt;p&gt;Udacity üzerinden ücretsiz alabileceğiniz, yazılım mühendisliğine giriş niteliğindeki bu ders hali hazırda bildiğimiz bir çok şeyi içerse de bilmediğimiz bir çok püf noktasını da içinde barındırıyor. Özellikle yazılım geliştirmeye yeni başlamış herkesin alması gerektiğine inanıyorum.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;NOT: Bu yazı The Pragmatic Programmer kitabındaki &amp;ldquo;The Evils of Duplication&amp;rdquo; bölümünden yararlanılarak yazılmıştır.&lt;/p&gt;
+&lt;p&gt;Dersi &lt;a href=&#34;https://www.udacity.com/course/software-development-process--ud805&#34;&gt;şurada&lt;/a&gt; bulabilirsiniz. Ayrıca dersin içeriğini de aşağıya ekledim.&lt;/p&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;h5 id=&#34;lesson-1-introduction-and-overview:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 1: Introduction and Overview&lt;/h5&gt;
 
-&lt;p&gt;DRY&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Importance of Software Engineering&lt;/li&gt;
+&lt;li&gt;Discipline of Software Engineering&lt;/li&gt;
+&lt;li&gt;The Software Crisis&lt;/li&gt;
+&lt;li&gt;Software Phases&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Keep It Dry&lt;/p&gt;
+&lt;h5 id=&#34;lesson-2-life-cycle-models:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 2: Life Cycle Models&lt;/h5&gt;
 
-&lt;p&gt;Keep Things Dry&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Introduction with Barry Bohem&lt;/li&gt;
+&lt;li&gt;Requirements Engineering&lt;/li&gt;
+&lt;li&gt;Design&lt;/li&gt;
+&lt;li&gt;Maintenance&lt;/li&gt;
+&lt;li&gt;Software Process Model Introduction&lt;/li&gt;
+&lt;li&gt;Waterfall Process&lt;/li&gt;
+&lt;li&gt;Spiral Process&lt;/li&gt;
+&lt;li&gt;Evolutionary Prototyping Process&lt;/li&gt;
+&lt;li&gt;Rational Unified Process&lt;/li&gt;
+&lt;li&gt;Agile Process&lt;/li&gt;
+&lt;li&gt;Choosing a Model&lt;/li&gt;
+&lt;li&gt;Lifecycle Documents&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&#34;açılımlar:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;h5 id=&#34;lesson-3-integrated-development-environment:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 3: Integrated Development Environment&lt;/h5&gt;
 
-&lt;p&gt;Don&amp;rsquo;t repeat yourself&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eclipse Introduction&lt;/li&gt;
+&lt;li&gt;IDE Overview&lt;/li&gt;
+&lt;li&gt;Plug-Ins&lt;/li&gt;
+&lt;li&gt;Eclipse Demo: Create Java Project&lt;/li&gt;
+&lt;li&gt;Eclipse Demo: Create a Class&lt;/li&gt;
+&lt;li&gt;Eclipse Demo: Run Configuration&lt;/li&gt;
+&lt;li&gt;Eclipse Demo: Debugging&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&#34;açıklama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h5 id=&#34;lesson-4-version-control-systems:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 4: Version Control Systems&lt;/h5&gt;
 
-&lt;p&gt;DRY prensibi yazılımın en temel prensiplerinden biridir. &amp;ldquo;Kendini tekrar etme&amp;rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interview with John Britton&lt;/li&gt;
+&lt;li&gt;Version Control System Introduction&lt;/li&gt;
+&lt;li&gt;Two Main Types of VCS&lt;/li&gt;
+&lt;li&gt;Introduction to Git&lt;/li&gt;
+&lt;li&gt;Git Workflow&lt;/li&gt;
+&lt;li&gt;Git Demo: Intro to Git&lt;/li&gt;
+&lt;li&gt;Git Demo: Git + Eclipse&lt;/li&gt;
+&lt;li&gt;Git Demo: Github&lt;/li&gt;
+&lt;li&gt;Git Recap: Local Repositories&lt;/li&gt;
+&lt;li&gt;Git Recap: Remote Repositories&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Programcılar olarak bizler bilgiyi toplar, organize eder, bakımını yapar ve programlarımızda kullanırız. Zaman zaman dökümanlar hazırlarız. Testlerde kontrol amaçlı kullanırız. Fakat maalesef bilgi durağan değildir, zaman içinde sıklıkla değişir. Bizler elimizdeki bilgiler her değiştiğinde yaptığımız işleri gözden geçirmek ve onları bu güncellemeye göre değiştirmek zorundayız.  Bu bakım sırasında bilginin sistem içindeki bütün gösterimlerini bulmamız gerekir. Eğer sistem içerisinde değişen bilgilerin bir çok yerde gösterimleri var ise bu bakım kabusa dönüşür. Bu nedenle yazılımın daha güvenilir olması, bakımının kolay yapılabilmesi ve anlaşılması adına şu prensibe ihtiyacımız vardır:&lt;/p&gt;
+&lt;h5 id=&#34;lesson-5-requirements-engineering:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 5: Requirements Engineering&lt;/h5&gt;
 
-&lt;p&gt;&amp;ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&amp;rdquo;
-Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir.  Şimdi bunu iki örnek ile açıklayalım.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interview with Jane Cleland-Huang&lt;/li&gt;
+&lt;li&gt;General RE Definition&lt;/li&gt;
+&lt;li&gt;Software Intensive Systems&lt;/li&gt;
+&lt;li&gt;Functional and Nonfunctional Requirements&lt;/li&gt;
+&lt;li&gt;User and System Requirements&lt;/li&gt;
+&lt;li&gt;Modeling Requirements&lt;/li&gt;
+&lt;li&gt;Analyzing Requirements&lt;/li&gt;
+&lt;li&gt;Requirements Prioritization&lt;/li&gt;
+&lt;li&gt;Requirements Engineering Process&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Birincisi çok basit bir kod tekrar örneği. [4]&lt;/p&gt;
+&lt;h5 id=&#34;lesson-6-oo-software-and-uml:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 6: OO Software and UML&lt;/h5&gt;
 
-&lt;pre&gt;
-&lt;code class=&#34;language-js&#34;&gt;
-// BAD
-if ( eventfade.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-    eventfade.stop();
-}
- 
-if ( eventhover.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-    eventhover.stop();
-}
- 
-if ( spans.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-    spans.stop();
-}
- 
-// GOOD!!
-var elems = [ eventfade, eventhover, spans ];
- 
-$.each( elems, function( i, elem ) {
-    if ( elem.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-        elem.stop();
+&lt;ul&gt;
+&lt;li&gt;Object Orientation Introduction&lt;/li&gt;
+&lt;li&gt;UML Structural Diagrams: Class Diagrams&lt;/li&gt;
+&lt;li&gt;Class Diagram: Creation Tips&lt;/li&gt;
+&lt;li&gt;UML Structural Diagrams: Component Diagram&lt;/li&gt;
+&lt;li&gt;UML Structural Diagram: Deployment Diagram&lt;/li&gt;
+&lt;li&gt;UML Behavioral Diagram: Use Case&lt;/li&gt;
+&lt;li&gt;Use Case Diagram: Creation Tips&lt;/li&gt;
+&lt;li&gt;UML Behavioral Diagrams: Sequence&lt;/li&gt;
+&lt;li&gt;UML Behavioral Diagrams: State Transition Diagram&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-7-software-architecture:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 7: Software Architecture&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Interview with Nenad Medvidovic&lt;/li&gt;
+&lt;li&gt;What is Software Architecture?&lt;/li&gt;
+&lt;li&gt;Prescriptive vs. Descriptive Architecture&lt;/li&gt;
+&lt;li&gt;Architectural Evolution&lt;/li&gt;
+&lt;li&gt;Architectural Degradation&lt;/li&gt;
+&lt;li&gt;Architectural Recovery&lt;/li&gt;
+&lt;li&gt;Architectural Elements&lt;/li&gt;
+&lt;li&gt;Components, Connectors, and Configuration&lt;/li&gt;
+&lt;li&gt;Deployment Architectural Perspective&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-8-a-tale-of-analysis-and-design:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 8: A Tale of Analysis and Design&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Analyzing Requirements&lt;/li&gt;
+&lt;li&gt;Refining Classes and Attributes&lt;/li&gt;
+&lt;li&gt;Adding Attributes&lt;/li&gt;
+&lt;li&gt;Identifying Operations&lt;/li&gt;
+&lt;li&gt;Refining the Class Diagram&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-9-design-patterns:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 9: Design Patterns&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Patterns Catalogue&lt;/li&gt;
+&lt;li&gt;Pattern Format&lt;/li&gt;
+&lt;li&gt;Factory Method Pattern&lt;/li&gt;
+&lt;li&gt;Strategy Pattern&lt;/li&gt;
+&lt;li&gt;Choosing a Pattern&lt;/li&gt;
+&lt;li&gt;Negative Design Patterns&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-10-unified-software-process:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 10: Unified Software Process&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use-Case Driven&lt;/li&gt;
+&lt;li&gt;Inception Phase&lt;/li&gt;
+&lt;li&gt;Elaboration Phase&lt;/li&gt;
+&lt;li&gt;Construction Phase&lt;/li&gt;
+&lt;li&gt;Transition Phase&lt;/li&gt;
+&lt;li&gt;Phases and Iterations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-11-general-concepts:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 11: General Concepts&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Failure, Fault and Error&lt;/li&gt;
+&lt;li&gt;Verification Approaches&lt;/li&gt;
+&lt;li&gt;Pros and Cons of Approaches&lt;/li&gt;
+&lt;li&gt;Testing Introduction&lt;/li&gt;
+&lt;li&gt;Testing Granularity Levels&lt;/li&gt;
+&lt;li&gt;Alpha and Beta Testing&lt;/li&gt;
+&lt;li&gt;Black and White Box Testing Introduction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-12-black-box-testing:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 12: Black-Box Testing&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Systematic Functional Testing Approach&lt;/li&gt;
+&lt;li&gt;Test Data Selection&lt;/li&gt;
+&lt;li&gt;Category Partition Method&lt;/li&gt;
+&lt;li&gt;Produce and Evaluate Test Case Specifications&lt;/li&gt;
+&lt;li&gt;Generate Test Cases from Test Case Specifications&lt;/li&gt;
+&lt;li&gt;Model Based Testing&lt;/li&gt;
+&lt;li&gt;Finite State Machines&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-13-white-box-testing:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 13: White-Box Testing&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Coverage Criteria Intro&lt;/li&gt;
+&lt;li&gt;Statement Coverage&lt;/li&gt;
+&lt;li&gt;Control Flow Graphs&lt;/li&gt;
+&lt;li&gt;Test Criteria Subsumption&lt;/li&gt;
+&lt;li&gt;MC/DC Coverage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-14-agile-development-methods:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 14: Agile Development Methods&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cost of Change&lt;/li&gt;
+&lt;li&gt;Agile Software Development&lt;/li&gt;
+&lt;li&gt;Extreme Programming (XP)&lt;/li&gt;
+&lt;li&gt;XP’s Values and Principles&lt;/li&gt;
+&lt;li&gt;Test First Development&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;li&gt;Pair Programming&lt;/li&gt;
+&lt;li&gt;Continuous Integration&lt;/li&gt;
+&lt;li&gt;Testing Strategy&lt;/li&gt;
+&lt;li&gt;High Level Scrum Process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;lesson-15-software-refactoring:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 15: Software Refactoring&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Reasons to Refactor&lt;/li&gt;
+&lt;li&gt;Refactoring Demo&lt;/li&gt;
+&lt;li&gt;Refactoring Risks&lt;/li&gt;
+&lt;li&gt;Cost of Refactoring&lt;/li&gt;
+&lt;li&gt;When Not to Refactor&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to version a JavaEE Web application with Maven and Git</title>
+      <link>https://erkanerol.github.io/post/versioning-git-maven/</link>
+      <pubDate>Thu, 11 Feb 2016 22:02:50 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/versioning-git-maven/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;In this post, I will show how to version a JavaEE Web Application.
+The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_javaee_maven_git&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/screenshot.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;1-create-a-maven-project-and-add-your-dependencies:64f1b32d3d75573502676ca900d4fe56&#34;&gt;1. Create a maven project and add your dependencies.&lt;/h5&gt;
+
+&lt;h5 id=&#34;2-add-your-scm-url-s-to-pom-xml:64f1b32d3d75573502676ca900d4fe56&#34;&gt;2. Add your scm url&amp;rsquo;s to pom.xml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
+&amp;lt;scm&amp;gt;
+    &amp;lt;url&amp;gt;
+        https://github.com/erkanerol/versioning_javaee_maven_git
+    &amp;lt;/url&amp;gt;
+    &amp;lt;connection&amp;gt;
+       scm:git:git://github.com/erkanerol/versioning_javaee_maven_git.git
+    &amp;lt;/connection&amp;gt;
+    &amp;lt;developerConnection&amp;gt;
+        scm:git:git@github.com:erkanerol/versioning_javaee_maven_git.git
+    &amp;lt;/developerConnection&amp;gt;
+&amp;lt;/scm&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;3-define-time-format-in-pom:64f1b32d3d75573502676ca900d4fe56&#34;&gt;3. Define time format in pom.&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
+&amp;lt;properties&amp;gt;
+        &amp;lt;maven.build.timestamp.format&amp;gt;
+            dd.MM.yyyy_HH_mm
+        &amp;lt;/maven.build.timestamp.format&amp;gt;
+        &amp;lt;buildDate&amp;gt;
+            ${maven.build.timestamp}
+        &amp;lt;/buildDate&amp;gt;
+&amp;lt;/properties&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;4-add-mojo-plugin-in-pom-xml:64f1b32d3d75573502676ca900d4fe56&#34;&gt;4. Add mojo plugin  in pom.xml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
+&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.codehaus.mojo&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;buildnumber-maven-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.4&amp;lt;/version&amp;gt;
+    &amp;lt;executions&amp;gt;
+        &amp;lt;execution&amp;gt;
+            &amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;
+            &amp;lt;goals&amp;gt;
+                &amp;lt;goal&amp;gt;create&amp;lt;/goal&amp;gt;
+            &amp;lt;/goals&amp;gt;
+        &amp;lt;/execution&amp;gt;
+    &amp;lt;/executions&amp;gt;
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;shortRevisionLength&amp;gt;5&amp;lt;/shortRevisionLength&amp;gt;
+        &amp;lt;doCheck&amp;gt;false&amp;lt;/doCheck&amp;gt;
+        &amp;lt;doUpdate&amp;gt;false&amp;lt;/doUpdate&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;5-add-version-properties-to-your-resource-directory:64f1b32d3d75573502676ca900d4fe56&#34;&gt;5. Add version.properties to your resource directory&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;
+version=${version}.${buildNumber}
+versionLong=${version}.${buildNumber}.${buildDate}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;6-add-your-resource-folder-in-pom-xml:64f1b32d3d75573502676ca900d4fe56&#34;&gt;6. Add your resource folder in pom.xml&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
+&amp;lt;resources&amp;gt;
+    &amp;lt;resource&amp;gt;
+        &amp;lt;directory&amp;gt;src/main/webapp&amp;lt;/directory&amp;gt;
+    &amp;lt;/resource&amp;gt;
+    &amp;lt;resource&amp;gt;
+        &amp;lt;directory&amp;gt;src/main/resources&amp;lt;/directory&amp;gt;
+        &amp;lt;filtering&amp;gt;true&amp;lt;/filtering&amp;gt;
+    &amp;lt;/resource&amp;gt;
+&amp;lt;/resources&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;7-create-an-application-scoped-bean:64f1b32d3d75573502676ca900d4fe56&#34;&gt;7. Create an application scoped bean&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&#34;java&#34;&gt;
+
+package com.erkanerol.example.versioning;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Properties;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
+
+@ManagedBean
+@ApplicationScoped
+public class VersionBean implements Serializable {
+
+    private String version;
+    private String versionLong;
+    
+    @PostConstruct
+    public void init(){
+        
+        try {
+            Properties properties = new Properties();
+            properties
+                .load(this
+                    .getClass()
+                    .getClassLoader()
+                    .getResourceAsStream(&#34;version.properties&#34;));
+        
+            version = properties.getProperty(&#34;version&#34;);
+            versionLong = properties.getProperty(&#34;versionLong&#34;);
+            
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
     }
-});
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz.  Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.&lt;/p&gt;
-
-&lt;p&gt;İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code class=&#34;language-java&#34;&gt;
-//BAD
-HashMap&lt;String,String&gt; pages = new HashMap&lt;String, String&gt;();
-pages.put(&#34;book&#34;,&#34;mybooks.xhtml&#34;);
-pages.put(&#34;author&#34;,&#34;myauthors.xhtml&#34;);
-pages.put(&#34;reader&#34;,&#34;myreaders.xhtml&#34;);
-pages.put(&#34;library&#34;,&#34;mylibraries.xhtml&#34;);
-
-HashMap&lt;String,String&gt; adminAuthority = new HashMap&lt;String,String&gt;();
-adminAuthority.put(&#34;book&#34;,&#34;all&#34;);
-adminAuthority.put(&#34;author&#34;,&#34;all&#34;);
-adminAuthority.put(&#34;reader&#34;,&#34;all&#34;);
-adminAuthority.put(&#34;library&#34;,&#34;all&#34;);
-
-HashMap&lt;String,String&gt; registeredUserAuthority = new HashMap&lt;String,String&gt;();
-registeredUserAuthority.put(&#34;book&#34;,&#34;create&#34;);
-registeredUserAuthority.put(&#34;author&#34;,&#34;create&#34;);
-registeredUserAuthority.put(&#34;reader&#34;,&#34;read&#34;);
-registeredUserAuthority.put(&#34;library&#34;,&#34;read&#34;);
-
-HashMap&lt;String,String&gt; guestUserAuthority = new HashMap&lt;String,String&gt;();
-adminAuthority.put(&#34;book&#34;,&#34;read&#34;);
-adminAuthority.put(&#34;author&#34;,&#34;read&#34;);
-adminAuthority.put(&#34;reader&#34;,&#34;read&#34;);
-adminAuthority.put(&#34;library&#34;,&#34;read&#34;);
-
-
-
-//GOOD
-public class MyEntity {
-    String page;
-    HashMap&lt;String,String&gt; authorities;
+        
+    public String getVersion() {
+        return version;
+    }
+    public void setVersion(String version) {
+        this.version = version;
+    }
+    public String getVersionLong() {
+        return versionLong;
+    }
+    public void setVersionLong(String versionLong) {
+        this.versionLong = versionLong;
+    }   
 }
-&lt;/code&gt;
-&lt;/pre&gt;
 
-&lt;p&gt;İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.&lt;/p&gt;
+&lt;h5 id=&#34;8-use-the-bean-in-your-application:64f1b32d3d75573502676ca900d4fe56&#34;&gt;8. Use the bean in your application.&lt;/h5&gt;
 
-&lt;p&gt;Tipler, Nedenler ve Çözüm Önerileri&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;h:outputText value=&#34;version #{versionBean.version}&#34; /&amp;gt;
+&amp;lt;h:outputText value=&#34;long version #{versionBean.versionLong}&#34; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;1-zorla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
+&lt;h2 id=&#34;recommendations:64f1b32d3d75573502676ca900d4fe56&#34;&gt;Recommendations&lt;/h2&gt;
 
-&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.&lt;/p&gt;
+&lt;p&gt;Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &amp;ldquo;/version.jsf&amp;rdquo;.
+If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
+You can put the version in name of war file. It makes easy to store executable files.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>&#34;Best Practice&#34; Üzerine Etkinlik Önerisi</title>
+      <link>https://erkanerol.github.io/post/best-practice-event/</link>
+      <pubDate>Sat, 09 Jan 2016 22:44:45 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/best-practice-event/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR
+&lt;br&gt;&lt;/br&gt;
+Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; dediğim bir etkinlik fikrini anlatacağım.
+&lt;br&gt;&lt;/br&gt;
+Özet: Belli senaryolar üzerinden, 3-4 uzmanın kendi en iyi uygulamalarını anlattığı, katılımcıların sorularıyla desteklediği etkinlikler olsa çok faydalı olabilir.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;a) Bilginin birden fazla gösteriminin zorunlu olması: Bazen yazılımın mimarisi tekrarlamayı sorunlu kılar. Örneğin, server-client yapısı kullandığımızda iki tarafta da aynı bilgiyi kullanmamız gerekir. Bu gibi durumlarda dilin metadata özelliklerini kullanarak kod üreten kodlar geliştirmeye, tekrarlamaları otomotik olarak üretmeye çalışmalıyız.
-b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yorum eklenen kod olduğunu düşünse de iyi kod çok yorum gerektirmez. Özellikle alt düzeylerde çok açık işlemleri yorumlamak tekrarlama olarak düşünülebilir. Bu nedenle sadece gerekli yerlerde yorumlar eklenmelidir.
-c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
-d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.&lt;/p&gt;
+&lt;p&gt;Yazılım Mühendisliği adı üzerinde &amp;ldquo;soft&amp;rdquo; olan bir şey. Sınırlandırmaları diğer mühendislik dallarına göre oldukça az. Aynı proje binlerce farklı yöntemle yapılabiliyor. Fakat bütün yöntemlerin/uygulamaların aynı kalitede sonuç verdiğini söylemek zor.  Yazılım Mühendisliği&amp;rsquo;nin temelleri ile ilgili okuduğum bir kitapta şöyle bir şey okumuştum: &amp;ldquo;Hiç bir  alanda iyiyle kötü arasındaki fark yazılımdaki kadar geniş değildir.&amp;rdquo; Bu noktada best practice diye nitelenen kavram işin içine giriyor.&amp;ldquo;Hangi uygulamayı hangi durumlarda kullanmak gerekir, avantajları ve dezavantajları nelerdir?&amp;rdquo; bilgisi bu farkı oluşturan başlıca unsurlardan biri. Maalesef bu tip bilgileri doğrudan kitaplardan öğrenmek o kadar kolay değil. (Varsa önerisi olan beklerim :) ) Zaman içinde çalışma hayatında tecrübe ederek öğrenilmesi bekleniyor. Bu da uzun bir zaman gerektiriyor.Bu süreci biraz hızlandırmalıyız diye düşünüyorum. Ayrıca tecrübelerin paylaşılması yeni bakış açıları kazanma açısından da çok önemli. Kendi bilgilerimizle rahatça çözdüğümüzü düşündüğümüz bir problemin çok daha kolay/iyi çözümleri olabilir.&lt;/p&gt;
 
-&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
+&lt;p&gt;Öncelikle şunu belirteyim böyle bir şey Dünya&amp;rsquo;nın herhangi bir yerinde böyle bir şey yapılıyor mu bilmiyorum, araştırmadım. Yapılıyordur muhtemelen ama Türkiye&amp;rsquo;de hiç duymadım. (Oooo Erkan internet bağlatmışsın tarzı bir durum varsa bir haber edin plz.)&lt;/p&gt;
 
-&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.&lt;/p&gt;
+&lt;p&gt;Gelelim etkinliğe. Şöyle olsa süper olur:&lt;/p&gt;
 
-&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Düzenleyici&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )&lt;/p&gt;
+&lt;p&gt;Bir topluluk olabilir, bir organizasyon olabilir. Bu etkinlikler için kurulabilir. Ama süreklilik açısından 2-3 kişiye bağlı olmaması gerekir.&lt;/p&gt;
 
-&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Katılımcılar&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.&lt;/p&gt;
+&lt;p&gt;1 moderatör, 3 uzman yazılımcı (uzman derken öyle çok da abartmayalım gözümüzde),  20-30 katılımcı&lt;/p&gt;
 
-&lt;h3 id=&#34;kaynakça:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Kaynakça&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Mekan&lt;/strong&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Hunt, Andrew, and David Thomas. &amp;ldquo;7. The Evils of Duplication.&amp;rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.kurumsaljava.com/2009/11/17/dry/&#34;&gt;http://www.kurumsaljava.com/2009/11/17/dry/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Uzmanların ekranlarını rahatça yansıtabilecekleri, internet bağlantı probleminin yaşanmadığı bir mekan.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Zaman ve Süre&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Hafta sonu, yarım günü geçmeyecek şekilde&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Konu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Konu çok genel olmamalıdır. Yazılım dili, framework&amp;rsquo;ler ve kullanılan teknolojiler olabildiğince tanımlanmalıdır. Mümkünse belirli senaryolar ve kısıtlamalar içermelidir.
+Örnek vermek gerekirse: Java+Spring+Hibernate kullanılan bir uygulamada &amp;ldquo;soft delete&amp;rdquo; uygulamaları, dosya yönetimi (saklama, db ilişkilendirmeleri vs).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Format&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Önceden açıklanan konuyu moderatör katılımcılara açıklar.
+Her uzman kendine göre &amp;ldquo;best practice&amp;rdquo; olan uygulamayı anlatır. Avantajlarını ve dezavantajlarını belirtir. Gerekli gördüğü yerlerde kod düzeyinde sunumlar yapar.
+Uzmanlar diğer uzmanların uygulamaları hakkında eleştirilerde bulunur. Gerekirse geri vites yapar. &amp;ldquo;Doğru aslında böyle olsa daha iyi olabilir&amp;rdquo; der.
+Katılımcılar çeşitli senaryolar üreterek uzmanların uygulamalarının eksik taraflarını çıkarmaya çalışır. Bu noktada uygulamaların tartıştıkça geliştirilmesi hedeflenmektedir.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Önemli Noktalar&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Günün sonunda katılımcılar ve uzmanlar aynı &amp;ldquo;best practice&amp;rdquo; üzerinde anlaşmak zorunda değildir. Önemli olan farklı yöntemler ve bunların iyi/kötü yönlerini daha ayrıntılı öğrenmektir.
+Edinilen tecrübeleri blog&amp;amp;repo olarak yayınlanmaya çalışılmalıdır.
+Çeşitli parametrelere göre karşılaştırmalar yapılmalıdır. Kullanıcı sayısı, geliştirme süresi,istenen güvenlik seviyesi, ekleme-güncelleme-silme sıklığı vs okuma sıklığı&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Not: JavaEE, Spring, Hibernate, Jsf, Primefaces ile ilgili but tip etkinlere katılmak isterim.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Startup Playbook (Ekitap halinde)</title>
+      <link>https://erkanerol.github.io/post/startup-playbook/</link>
+      <pubDate>Sat, 07 Nov 2015 21:43:13 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/startup-playbook/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR &lt;br&gt;&lt;/br&gt;
+Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir şirket. Şirket çalışanlarından Sam Altman tecrübelerinden yola çıkarak yazdığı kısa bir Playbook yayınladı. Şu adresten okuyabileceğiniz yazıyı ekitap haline getirdim. Yazının sonundan dosyaları indirebilirsiniz.Altını çizdiğim yerler de aşağıda.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your goal as a startup is to make something users love.&lt;/li&gt;
+&lt;li&gt;A word of warning about choosing to start a startup: It sucks!&lt;/li&gt;
+&lt;li&gt;To have a successful startup, you need: a great idea (including a great market), a great team, a great product, and great execution.&lt;/li&gt;
+&lt;li&gt;If the idea does not really excite at least some people the first time they hear it, that’s bad.&lt;/li&gt;
+&lt;li&gt;We also ask how the company will one day be a monopoly. There are a lot of different terms for this, but we use Peter Thiel’s. Obviously, we don’t want your company to behave in an unethical way against competitors. Instead, we’re looking for businesses that get more powerful with scale and that are difficult to copy.&lt;/li&gt;
+&lt;li&gt;What if you don’t have an idea but want to start a startup? Maybe you shouldn’t. It’s so much better if the idea comes first and the startup is the way to get the idea out into the world.&lt;/li&gt;
+&lt;li&gt;I think part of the problem is that good founders tend to have lots of good ideas (too many, usually).&lt;/li&gt;
+&lt;li&gt;Tech startups need at least one founder who can build the company’s product or service, and at least one founder who is (or can become) good at sales and talking to users. This can be the same person.&lt;/li&gt;
+&lt;li&gt;Here is the secret to success: have a great product. This is the only thing all great companies have in common.&lt;/li&gt;
+&lt;li&gt;You have to get very close to your users. Literally watch them use your product.&lt;/li&gt;
+&lt;li&gt;Don’t try to plan too far out, and definitely don’t batch everything into one big public release.&lt;/li&gt;
+&lt;li&gt;The only universal job description of a CEO is to make sure the company wins.&lt;/li&gt;
+&lt;li&gt;The prime directive of great execution is “Never lose momentum”. But how do you do it?&lt;/li&gt;
+&lt;li&gt;Extreme internal transparency around metrics (and financials) is a good thing to do.&lt;/li&gt;
+&lt;li&gt;The common mistake here is to focus on signups and ignore retention.&lt;/li&gt;
+&lt;li&gt;A related trap is thinking about problems too far in the future—i.e. “How are we going to do this at massive scale?” The answer is to figure it out when you get there.&lt;/li&gt;
+&lt;li&gt;Remember that sales and marketing are not bad words. Though neither will save you if you don’t have a great product, they can both help accelerate growth substantially.&lt;/li&gt;
+&lt;li&gt;People who let themselves make a lot of excuses usually fail in general, and startup CEOs who do it almost always fail.&lt;/li&gt;
+&lt;li&gt;A huge part of being a successful startup CEO is not giving up&lt;/li&gt;
+&lt;li&gt;My first piece of advice about hiring is don’t do it.&lt;/li&gt;
+&lt;li&gt;Finally, fire quickly.&lt;/li&gt;
+&lt;li&gt;But 99% of startups die from suicide, not murder.&lt;/li&gt;
+&lt;li&gt;Henry Ford: “The competitor to be feared is one who never bothers about you at all, but goes on making his own business better all the time.”&amp;rdquo;&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Watch your cash flow obsessively.&lt;/li&gt;
+&lt;li&gt;The secret to successfully raising money is to have a good company.&lt;/li&gt;
+&lt;li&gt;Investors are driven by the dual fears of missing the next Google, and fear of losing money on something that in retrospect looks obviously stupid. (For the best companies, they fear both at the same time.)&lt;/li&gt;
+&lt;li&gt;Remember that at least a thousand people have every great idea. One of them actually becomes successful.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0&#34;&gt;Epub&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Software Architecture Patterns (Ücretsiz Ekitap)</title>
+      <link>https://erkanerol.github.io/post/software-architecture-patterns/</link>
+      <pubDate>Sat, 03 Oct 2015 21:31:46 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/software-architecture-patterns/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR O&amp;rsquo;Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/software_design_cover.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Geçenlerde Hacker News üzerinden bulduğum bir yazıyı okurken sağ tarafta ücretsiz ekitap indirebileceğime dair bir şey görünce beleşçiliğim tuttu ve kitabı (mobi formatı da var 👏) indirdim. Kitabın temel uygulama mimarilerini uzatmadan (pdf versiyonu 55 sayfa) anlatması çok hoşuma gitti ve okudum. Benim için çok faydalı olduğunu söyleyebilirim. Bir çok terim öğrendim. Buradan önermeye karar verdim.&lt;/p&gt;
+
+&lt;p&gt;Kitapta 5 ana mimariden söz ediliyor. Böyle bir mimari neden var, ne zaman gerekir, temel olarak nasıl çalışır kısaca anlatılmış. Her bölümün sonunda o bölümde anlatılan mimari belirli (Overall Agility, Deployment, Testability, Performance, Scalibility, Development) açılardan değerlendirilmiş. Mimari görselleri, değerlendirme tablosu ve kitabın linki aşağıda. İyi okumalar.&lt;/p&gt;
+
+&lt;p&gt;Kitabın linki (ePub, Mobi, PDF&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&#34;&gt;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-layered-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;1. Layered Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/layered.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;2-event-driven-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
+
+&lt;h3 id=&#34;a-mediator:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;a. Mediator&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/mediator.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;b-broker:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;b. Broker&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/broker.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-microkernel-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/kernel.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;4-microservices-architecture-pattern:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/microservices.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;5-space-based-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/space_based.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;a-pattern-analysis-summary:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

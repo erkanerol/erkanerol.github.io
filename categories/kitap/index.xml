@@ -6,13 +6,13 @@
     <description>Recent content in Kitap on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 28 Aug 2016 15:56:13 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 17 May 2016 15:56:13 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/kitap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Çıraklık Şablonları:  Hevesli Yazılım Ustasının Rehberi</title>
       <link>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</link>
-      <pubDate>Sun, 28 Aug 2016 15:56:13 +0300</pubDate>
+      <pubDate>Tue, 17 May 2016 15:56:13 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</guid>
       <description>
@@ -401,6 +401,109 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;p&gt;==========&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;there are no masters&amp;hellip;yet.&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Startup Playbook (Ekitap halinde)</title>
+      <link>https://erkanerol.github.io/post/startup-playbook/</link>
+      <pubDate>Sat, 07 Nov 2015 21:43:13 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/startup-playbook/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR &lt;br&gt;&lt;/br&gt;
+Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir şirket. Şirket çalışanlarından Sam Altman tecrübelerinden yola çıkarak yazdığı kısa bir Playbook yayınladı. Şu adresten okuyabileceğiniz yazıyı ekitap haline getirdim. Yazının sonundan dosyaları indirebilirsiniz.Altını çizdiğim yerler de aşağıda.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Your goal as a startup is to make something users love.&lt;/li&gt;
+&lt;li&gt;A word of warning about choosing to start a startup: It sucks!&lt;/li&gt;
+&lt;li&gt;To have a successful startup, you need: a great idea (including a great market), a great team, a great product, and great execution.&lt;/li&gt;
+&lt;li&gt;If the idea does not really excite at least some people the first time they hear it, that’s bad.&lt;/li&gt;
+&lt;li&gt;We also ask how the company will one day be a monopoly. There are a lot of different terms for this, but we use Peter Thiel’s. Obviously, we don’t want your company to behave in an unethical way against competitors. Instead, we’re looking for businesses that get more powerful with scale and that are difficult to copy.&lt;/li&gt;
+&lt;li&gt;What if you don’t have an idea but want to start a startup? Maybe you shouldn’t. It’s so much better if the idea comes first and the startup is the way to get the idea out into the world.&lt;/li&gt;
+&lt;li&gt;I think part of the problem is that good founders tend to have lots of good ideas (too many, usually).&lt;/li&gt;
+&lt;li&gt;Tech startups need at least one founder who can build the company’s product or service, and at least one founder who is (or can become) good at sales and talking to users. This can be the same person.&lt;/li&gt;
+&lt;li&gt;Here is the secret to success: have a great product. This is the only thing all great companies have in common.&lt;/li&gt;
+&lt;li&gt;You have to get very close to your users. Literally watch them use your product.&lt;/li&gt;
+&lt;li&gt;Don’t try to plan too far out, and definitely don’t batch everything into one big public release.&lt;/li&gt;
+&lt;li&gt;The only universal job description of a CEO is to make sure the company wins.&lt;/li&gt;
+&lt;li&gt;The prime directive of great execution is “Never lose momentum”. But how do you do it?&lt;/li&gt;
+&lt;li&gt;Extreme internal transparency around metrics (and financials) is a good thing to do.&lt;/li&gt;
+&lt;li&gt;The common mistake here is to focus on signups and ignore retention.&lt;/li&gt;
+&lt;li&gt;A related trap is thinking about problems too far in the future—i.e. “How are we going to do this at massive scale?” The answer is to figure it out when you get there.&lt;/li&gt;
+&lt;li&gt;Remember that sales and marketing are not bad words. Though neither will save you if you don’t have a great product, they can both help accelerate growth substantially.&lt;/li&gt;
+&lt;li&gt;People who let themselves make a lot of excuses usually fail in general, and startup CEOs who do it almost always fail.&lt;/li&gt;
+&lt;li&gt;A huge part of being a successful startup CEO is not giving up&lt;/li&gt;
+&lt;li&gt;My first piece of advice about hiring is don’t do it.&lt;/li&gt;
+&lt;li&gt;Finally, fire quickly.&lt;/li&gt;
+&lt;li&gt;But 99% of startups die from suicide, not murder.&lt;/li&gt;
+&lt;li&gt;Henry Ford: “The competitor to be feared is one who never bothers about you at all, but goes on making his own business better all the time.”&amp;rdquo;&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Watch your cash flow obsessively.&lt;/li&gt;
+&lt;li&gt;The secret to successfully raising money is to have a good company.&lt;/li&gt;
+&lt;li&gt;Investors are driven by the dual fears of missing the next Google, and fear of losing money on something that in retrospect looks obviously stupid. (For the best companies, they fear both at the same time.)&lt;/li&gt;
+&lt;li&gt;Remember that at least a thousand people have every great idea. One of them actually becomes successful.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0&#34;&gt;Epub&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Software Architecture Patterns (Ücretsiz Ekitap)</title>
+      <link>https://erkanerol.github.io/post/software-architecture-patterns/</link>
+      <pubDate>Sat, 03 Oct 2015 21:31:46 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/software-architecture-patterns/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;TL;DR O&amp;rsquo;Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/software_design_cover.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Geçenlerde Hacker News üzerinden bulduğum bir yazıyı okurken sağ tarafta ücretsiz ekitap indirebileceğime dair bir şey görünce beleşçiliğim tuttu ve kitabı (mobi formatı da var 👏) indirdim. Kitabın temel uygulama mimarilerini uzatmadan (pdf versiyonu 55 sayfa) anlatması çok hoşuma gitti ve okudum. Benim için çok faydalı olduğunu söyleyebilirim. Bir çok terim öğrendim. Buradan önermeye karar verdim.&lt;/p&gt;
+
+&lt;p&gt;Kitapta 5 ana mimariden söz ediliyor. Böyle bir mimari neden var, ne zaman gerekir, temel olarak nasıl çalışır kısaca anlatılmış. Her bölümün sonunda o bölümde anlatılan mimari belirli (Overall Agility, Deployment, Testability, Performance, Scalibility, Development) açılardan değerlendirilmiş. Mimari görselleri, değerlendirme tablosu ve kitabın linki aşağıda. İyi okumalar.&lt;/p&gt;
+
+&lt;p&gt;Kitabın linki (ePub, Mobi, PDF&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&#34;&gt;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-layered-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;1. Layered Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/layered.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;2-event-driven-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
+
+&lt;h3 id=&#34;a-mediator:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;a. Mediator&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/mediator.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;b-broker:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;b. Broker&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/broker.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-microkernel-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/kernel.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;4-microservices-architecture-pattern:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/microservices.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;5-space-based-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/space_based.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;a-pattern-analysis-summary:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

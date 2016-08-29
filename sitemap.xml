@@ -3,33 +3,63 @@
   
   <url>
     <loc>https://erkanerol.github.io/</loc>
-    <lastmod>2016-08-28T16:15:53+03:00</lastmod>
+    <lastmod>2016-06-09T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://erkanerol.github.io/post/kiss/</loc>
-    <lastmod>2016-08-28T16:15:53+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</loc>
-    <lastmod>2016-08-28T15:56:13+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/post/yagniprinciple/</loc>
-    <lastmod>2016-08-20T22:46:50+03:00</lastmod>
+    <loc>https://erkanerol.github.io/post/abstract-factory-design-pattern/</loc>
+    <lastmod>2016-06-09T00:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/post/dryprinciple/</loc>
-    <lastmod>2016-08-20T20:23:06+03:00</lastmod>
+    <lastmod>2016-06-02T20:23:06+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://erkanerol.github.io/post/about/</loc>
-    <lastmod>2016-08-18T12:37:57+03:00</lastmod>
+    <loc>https://erkanerol.github.io/post/yagniprinciple/</loc>
+    <lastmod>2016-05-25T22:46:50+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</loc>
+    <lastmod>2016-05-17T15:56:13+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/kiss/</loc>
+    <lastmod>2016-05-14T16:15:53+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/udacity-course/</loc>
+    <lastmod>2016-03-14T22:33:53+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/versioning-git-maven/</loc>
+    <lastmod>2016-02-11T22:02:50+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/best-practice-event/</loc>
+    <lastmod>2016-01-09T22:44:45+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/collator/</loc>
+    <lastmod>2016-01-09T21:56:21+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/startup-playbook/</loc>
+    <lastmod>2015-11-07T21:43:13+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/software-architecture-patterns/</loc>
+    <lastmod>2015-10-03T21:31:46+02:00</lastmod>
   </url>
   
   <url>
@@ -45,6 +75,16 @@
   <url>
     <loc>https://erkanerol.github.io/post/two-army-problem/</loc>
     <lastmod>2015-08-24T20:31:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/my-history/</loc>
+    <lastmod>2016-08-28T23:36:55+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/videos/</loc>
+    <lastmod>2016-08-29T20:47:34+03:00</lastmod>
   </url>
   
 </urlset>
