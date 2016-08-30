@@ -108,6 +108,12 @@ weight = 1000001
          <td>Premium</td>
          <td>100%</td>
       </tr>
+      <tr>
+         <td>Pluralsight</td>
+         <td>Introduction to Testing In Java</td>
+         <td>Premium</td>
+         <td>50%</td>
+      </tr>
    </tbody>
 </table>
 
@@ -136,22 +142,24 @@ weight = 1000001
          <td>100%</td>
       </tr>
       <tr>
-         <td>"Apprenticeship Patterns</td>
-      </tr>
-      <tr>
-         <td>Guidance for the Aspiring Software Craftsman"</td>
+         <td>Apprenticeship Patterns:Guidance for the Aspiring Software Craftsman"</td>
          <td>David H. Hoover and Adewale Oshineye</td>
          <td>100%</td>
       </tr>
       <tr>
          <td>Learning Agile</td>
          <td>Andrew Stellman, Jennifer Greene</td>
-         <td>65%</td>
+         <td>85%</td>
       </tr>
       <tr>
          <td>The Software Craftsman: Professionalism, Pragmatism, Pride</td>
          <td>Sandro Mancuso</td>
          <td>100%</td>
+      </tr>
+      <tr>
+         <td>Clean Code: A Handbook of Agile Software Craftsmanship</td>
+         <td>Robert C. Martin</td>
+         <td>20%</td>
       </tr>
    </tbody>
 </table>
@@ -210,6 +218,18 @@ weight = 1000001
          <td>Temiz Kod İlkeleri</td>
          <td>Software Craftsmanship Turkey</td>
          <td>03.06.2016</td>
+         <td>Organizer,Listener</td>
+      </tr>
+      <tr>
+         <td>Sprint Review: Daha Verimli, Daha Etkili, Daha Agile</td>
+         <td>Agile Turkey</td>
+         <td>09.08.2016</td>
+         <td>Listener</td>
+      </tr>
+      <tr>
+         <td>Software Development AntiPatterns</td>
+         <td>Software Craftsmanship Turkey</td>
+         <td>24.08.2016</td>
          <td>Organizer,Listener</td>
       </tr>
    </tbody>

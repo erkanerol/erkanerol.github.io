@@ -1,15 +1,81 @@
 +++
 date = "2016-08-30T12:37:57+03:00"
-draft = true
+draft = false
 title = "Hakkımda"
 menu = "main"
 weight = 1000000
 +++
 
-
-Apprentice Software Craftsman -Junior Software Developer
-
+### Ünvan (Title)
+1. Üniversite -> Bilgisayar Mühendisi / Computer Engineer
+* Piyasa -> Genç Yazılım Gelişticisi / Junior Software Developer
+* Kendim -> Çırak Yazılım Ustası / **Apprentice Software Craftsman**
 
 <!--more-->
 
-<a href="{{< ref "my-history.md" >}}" >Done List</a>
+### Eğitim
+1. İstanbul Atatürk Fen Lisesi (2006-2010)
+* Boğaziçi Üniversitesi Bilgisayar Mühendisliği (2010-2015)
+
+### İş
+1. Netaş (2015-?)
+
+
+### İlgi Alanları
+1. Software Craftsmanship
+
+**NOT: Herhangi bir hobim yoktur.**
+
+
+### Aktivite
+1. Şirket içi Brown Bag oturumları düzenleme 
+* [ScTurkey](www.meetup.com/Software-Craftsmanship-Turkey) etkinliklerini düzenleme, aktif rol alma
+* Meetup/Everbrite üzerinden yapılan bazı etkinliklere katılma
+* Blog yazma
+* **Şimdilik bir Open Source katkım yok :(**
+
+### Yetenekler
+1. Karşıdaki insanı anlama ve kendini düzgün ifade edebilme 
+* Kendi kendine öğrenebilme
+* Analiz + Soyut düşünme
+* Bildiğini öğretebilme 
+
+
+### Bildiklerim / Yaptıklarım
+1. Yazılım geliştirmenin temel prensipleri
+* Algoritmalar ve veri yapıları
+* Çeviklik (şimdilik biraz teorik ama değerleri benimsemiş durumdayım)
+* Java, Spring Core, Spring MVC, JPA, Hibernate, SQL, JSF, Primefaces, HTML, Selenium
+* JS, HTML (kendime yetecek kadar)
+* Git, SVN
+* SOAP, REST
+
+### Deneysel Çalışmalarım (Bunlar yukarı çıkacak inşallah)
+1. TDD 
+* Spring MVC
+* JS, Angular
+* Docker
+* Jenkins autobuild & autodeploy
+
+
+### Olmak istediklerim
+1. Kısa vade => Full Stack Developer => JS konusunda kendimi geliştirebilirsem olabilirim.
+* Orta vade =>  Full Stack + Devops + Scrum Master => Modern bir yazılım projesindeki bütün bileşenlere hakim olmak
+* Uzun vade => Software Craftsman => Hem teknik bilgi, hem davranış bakımından
+
+
+### Ustalar
+1. [Lemi Orhan Ergin](http://www.lemiorhanergin.com/)
+* [Sandro Mancuso](http://codurance.com/blog/author/sandro-mancuso/)
+* [Martin Fowler](http://martinfowler.com/)
+* [Uncle Bob](https://sites.google.com/site/unclebobconsultingllc/)
+
+### Geçmiş Kayıtları
+
+İzlediğim/aldığım online dersler, okuduğum yazılım kitapları ve katıldığım etkinliklerin listeleri [burada]  ({{< ref "my-history.md" >}}) mevcut. Listeler uzadıkça keyif alıyorum. O yüzden ne varsa yazdım :)	
+
+### İletişim
+Sol taraftaki menüde çeşitli sitelerdeki hesaplarım mevcut. 
+
+Email: erkanerol92[at]gmail[dot]com
+
