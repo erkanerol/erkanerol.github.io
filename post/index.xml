@@ -1708,216 +1708,109 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
     </item>
     
     <item>
-      <title>Geçmiş Kayıtları</title>
-      <link>https://erkanerol.github.io/post/my-history/</link>
-      <pubDate>Sun, 28 Aug 2016 23:36:55 +0300</pubDate>
+      <title>Hakkımda</title>
+      <link>https://erkanerol.github.io/post/about/</link>
+      <pubDate>Tue, 30 Aug 2016 12:37:57 +0300</pubDate>
       
-      <guid>https://erkanerol.github.io/post/my-history/</guid>
+      <guid>https://erkanerol.github.io/post/about/</guid>
       <description>
 
-&lt;p&gt;İzlediğim/aldığım online dersler, okuduğum yazılım kitapları ve katıldığım etkinliklerin listeleri&lt;/p&gt;
+&lt;h3 id=&#34;ünvan-title:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Ünvan (Title)&lt;/h3&gt;
 
-&lt;h2 id=&#34;online-courses:a7b7805a2c29e4d858348c885e981153&#34;&gt;Online Courses&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Üniversite -&amp;gt; Bilgisayar Mühendisi / Computer Engineer&lt;/li&gt;
+&lt;li&gt;Piyasa -&amp;gt; Genç Yazılım Gelişticisi / Junior Software Developer&lt;/li&gt;
+&lt;li&gt;Kendim -&amp;gt; Çırak Yazılım Ustası / &lt;strong&gt;Apprentice Software Craftsman&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;table&gt;
-   &lt;thead&gt;
-      &lt;tr&gt;
-         &lt;th&gt;Site&lt;/th&gt;
-         &lt;th&gt;Course&lt;/th&gt;
-         &lt;th&gt;Type&lt;/th&gt;
-         &lt;th&gt;Status&lt;/th&gt;
-      &lt;/tr&gt;
-   &lt;/thead&gt;
-   &lt;tbody&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Udacity&lt;/td&gt;
-         &lt;td&gt;Software Development Process&lt;/td&gt;
-         &lt;td&gt;Free&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;JavaScript Road Trip Part 1&lt;/td&gt;
-         &lt;td&gt;Free&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;JavaScript Road Trip Part 2&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;JavaScript Road Trip Part 3&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;ES2015: The Shape of JavaScript to Come&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;JavaScript Best Practices&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;Shaping up with Angular.js&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;Staying Sharp with Angular.js&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;Git Real&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;Try SQL&lt;/td&gt;
-         &lt;td&gt;Free&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;Try Git&lt;/td&gt;
-         &lt;td&gt;Free&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Codeschool&lt;/td&gt;
-         &lt;td&gt;Try jQuery&lt;/td&gt;
-         &lt;td&gt;Free&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Udacity&lt;/td&gt;
-         &lt;td&gt;How to Use Git and GitHub?&lt;/td&gt;
-         &lt;td&gt;Free&lt;/td&gt;
-         &lt;td&gt;45%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Pluralsight&lt;/td&gt;
-         &lt;td&gt;Design Patterns in Java: Creational&lt;/td&gt;
-         &lt;td&gt;Premium&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-   &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h3 id=&#34;eğitim:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Eğitim&lt;/h3&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;İstanbul Atatürk Fen Lisesi (2006-2010)&lt;/li&gt;
+&lt;li&gt;Boğaziçi Üniversitesi Bilgisayar Mühendisliği (2010-2015)&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h2 id=&#34;software-books:a7b7805a2c29e4d858348c885e981153&#34;&gt;Software Books&lt;/h2&gt;
+&lt;h3 id=&#34;iş:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;İş&lt;/h3&gt;
 
-&lt;table&gt;
-   &lt;thead&gt;
-      &lt;tr&gt;
-         &lt;th&gt;Book&lt;/th&gt;
-         &lt;th&gt;Author&lt;/th&gt;
-         &lt;th&gt;Status&lt;/th&gt;
-      &lt;/tr&gt;
-   &lt;/thead&gt;
-   &lt;tbody&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Software Architecture Patterns&lt;/td&gt;
-         &lt;td&gt;Mark Richards&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Startup Playbook&lt;/td&gt;
-         &lt;td&gt;Sam Altman&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;&#34;Apprenticeship Patterns&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Guidance for the Aspiring Software Craftsman&#34;&lt;/td&gt;
-         &lt;td&gt;David H. Hoover and Adewale Oshineye&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Learning Agile&lt;/td&gt;
-         &lt;td&gt;Andrew Stellman, Jennifer Greene&lt;/td&gt;
-         &lt;td&gt;65%&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;The Software Craftsman: Professionalism, Pragmatism, Pride&lt;/td&gt;
-         &lt;td&gt;Sandro Mancuso&lt;/td&gt;
-         &lt;td&gt;100%&lt;/td&gt;
-      &lt;/tr&gt;
-   &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;ol&gt;
+&lt;li&gt;Netaş (2015-?)&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ilgi-alanları:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;İlgi Alanları&lt;/h3&gt;
 
-&lt;h2 id=&#34;meetings:a7b7805a2c29e4d858348c885e981153&#34;&gt;Meetings&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Software Craftsmanship&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;table&gt;
-   &lt;thead&gt;
-      &lt;tr&gt;
-         &lt;th&gt;Meeting Name&lt;/th&gt;
-         &lt;th&gt;Organizer&lt;/th&gt;
-         &lt;th&gt;Date&lt;/th&gt;
-         &lt;th&gt;Role&lt;/th&gt;
-      &lt;/tr&gt;
-   &lt;/thead&gt;
-   &lt;tbody&gt;
-      &lt;tr&gt;
-         &lt;td&gt;GDG DevFest&lt;/td&gt;
-         &lt;td&gt;GDG&lt;/td&gt;
-         &lt;td&gt;29.11.2015&lt;/td&gt;
-         &lt;td&gt;Listener&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;DevOps - The Continuous Delivery Maturity Model&lt;/td&gt;
-         &lt;td&gt;Kodcu&lt;/td&gt;
-         &lt;td&gt;27.01.2016&lt;/td&gt;
-         &lt;td&gt;Listener&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Çevik Olmak İçin Kültür Değişimi Şart mı?&lt;/td&gt;
-         &lt;td&gt;Agile Turkey&lt;/td&gt;
-         &lt;td&gt;23.02.2016&lt;/td&gt;
-         &lt;td&gt;Listener&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Agile Dönüşüm için ne kadar süreye ihtiyaç var?&lt;/td&gt;
-         &lt;td&gt;Agile Turkey&lt;/td&gt;
-         &lt;td&gt;08.03.2016&lt;/td&gt;
-         &lt;td&gt;Listener&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Mutlu Yazılımcının Galaksi Rehberi: Yazılımcı Motivasyonu Üzerine&lt;/td&gt;
-         &lt;td&gt;Agile Turkey&lt;/td&gt;
-         &lt;td&gt;12.04.2016&lt;/td&gt;
-         &lt;td&gt;Listener&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;VoxxedDays Istanbul 2016&lt;/td&gt;
-         &lt;td&gt;Kodcu&lt;/td&gt;
-         &lt;td&gt;07.05.2016&lt;/td&gt;
-         &lt;td&gt;Listener&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-         &lt;td&gt;Temiz Kod İlkeleri&lt;/td&gt;
-         &lt;td&gt;Software Craftsmanship Turkey&lt;/td&gt;
-         &lt;td&gt;03.06.2016&lt;/td&gt;
-         &lt;td&gt;Organizer,Listener&lt;/td&gt;
-      &lt;/tr&gt;
-   &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;NOT: Herhangi bir hobim yoktur.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;aktivite:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Aktivite&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Şirket içi Brown Bag oturumları düzenleme&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;www.meetup.com/Software-Craftsmanship-Turkey&#34;&gt;ScTurkey&lt;/a&gt; etkinliklerini düzenleme, aktif rol alma&lt;/li&gt;
+&lt;li&gt;Meetup/Everbrite üzerinden yapılan bazı etkinliklere katılma&lt;/li&gt;
+&lt;li&gt;Blog yazma&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Şimdilik bir Open Source katkım yok :(&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;yetenekler:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Yetenekler&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Karşıdaki insanı anlama ve kendini düzgün ifade edebilme&lt;/li&gt;
+&lt;li&gt;Kendi kendine öğrenebilme&lt;/li&gt;
+&lt;li&gt;Analiz + Soyut düşünme&lt;/li&gt;
+&lt;li&gt;Bildiğini öğretebilme&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;bildiklerim-yaptıklarım:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Bildiklerim / Yaptıklarım&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Yazılım geliştirmenin temel prensipleri&lt;/li&gt;
+&lt;li&gt;Algoritmalar ve veri yapıları&lt;/li&gt;
+&lt;li&gt;Çeviklik (şimdilik biraz teorik ama değerleri benimsemiş durumdayım)&lt;/li&gt;
+&lt;li&gt;Java, Spring Core, Spring MVC, JPA, Hibernate, SQL, JSF, Primefaces, HTML, Selenium&lt;/li&gt;
+&lt;li&gt;JS, HTML (kendime yetecek kadar)&lt;/li&gt;
+&lt;li&gt;Git, SVN&lt;/li&gt;
+&lt;li&gt;SOAP, REST&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;deneysel-çalışmalarım-bunlar-yukarı-çıkacak-inşallah:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Deneysel Çalışmalarım (Bunlar yukarı çıkacak inşallah)&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;TDD&lt;/li&gt;
+&lt;li&gt;Spring MVC&lt;/li&gt;
+&lt;li&gt;JS, Angular&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Jenkins autobuild &amp;amp; autodeploy&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;olmak-istediklerim:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Olmak istediklerim&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Kısa vade =&amp;gt; Full Stack Developer =&amp;gt; JS konusunda kendimi geliştirebilirsem olabilirim.&lt;/li&gt;
+&lt;li&gt;Orta vade =&amp;gt;  Full Stack + Devops + Scrum Master =&amp;gt; Modern bir yazılım projesindeki bütün bileşenlere hakim olmak&lt;/li&gt;
+&lt;li&gt;Uzun vade =&amp;gt; Software Craftsman =&amp;gt; Hem teknik bilgi, hem davranış bakımından&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;ustalar:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Ustalar&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.lemiorhanergin.com/&#34;&gt;Lemi Orhan Ergin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://codurance.com/blog/author/sandro-mancuso/&#34;&gt;Sandro Mancuso&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://martinfowler.com/&#34;&gt;Martin Fowler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/site/unclebobconsultingllc/&#34;&gt;Uncle Bob&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;geçmiş-kayıtları:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Geçmiş Kayıtları&lt;/h3&gt;
+
+&lt;p&gt;İzlediğim/aldığım online dersler, okuduğum yazılım kitapları ve katıldığım etkinliklerin listeleri &lt;a href=&#34;https://erkanerol.github.io/post/my-history/&#34;&gt;burada&lt;/a&gt; mevcut. Listeler uzadıkça keyif alıyorum. O yüzden ne varsa yazdım :)&lt;/p&gt;
+
+&lt;h3 id=&#34;iletişim:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;İletişim&lt;/h3&gt;
+
+&lt;p&gt;Sol taraftaki menüde çeşitli sitelerdeki hesaplarım mevcut.&lt;/p&gt;
+
+&lt;p&gt;Email: erkanerol92[at]gmail[dot]com&lt;/p&gt;
 </description>
     </item>
     
