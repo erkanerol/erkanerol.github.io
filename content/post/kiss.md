@@ -1,5 +1,5 @@
 +++
-categories = ["Yazılım","Prensipler"]
+categories = ["Software","Prensipler"]
 date = "2016-05-14T16:15:53+03:00"
 title = "KISS Prensibi"
 

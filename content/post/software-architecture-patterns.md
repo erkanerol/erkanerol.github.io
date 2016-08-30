@@ -1,5 +1,5 @@
 +++
-categories = ["Yazılım","Kitap"]
+categories = ["Software","Kitap"]
 date = "2015-10-03T21:31:46+02:00"
 title = "Software Architecture Patterns (Ücretsiz Ekitap)"
 

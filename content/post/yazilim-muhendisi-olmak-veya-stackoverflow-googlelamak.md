@@ -1,5 +1,5 @@
 +++
-categories = ["Yazılım"]
+categories = ["Software"]
 date = "2015-08-24T20:40:00+02:00"
 title = "Yazılım Mühendisi olmak veya Stackoverflow Google'lamak"
 

@@ -1,5 +1,5 @@
 +++
-categories = ["Yazılım"]
+categories = ["Software"]
 date = "2016-01-09T22:44:45+03:00"
 title = "\"Best Practice\" Üzerine Etkinlik Önerisi"
 

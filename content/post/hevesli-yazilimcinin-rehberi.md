@@ -1,5 +1,5 @@
 +++
-categories = ["Yazılım","Kitap"]
+categories = ["Software","Kitap"]
 date = "2016-05-17T15:56:13+03:00"
 title = "Çıraklık Şablonları:  Hevesli Yazılım Ustasının Rehberi"
 

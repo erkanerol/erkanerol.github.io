@@ -68,11 +68,11 @@ paginate = 10
     rss = true  # switch to true to enable RSS icon link
 
     [[menu.main]]
-    name = "Yazılım"
+    name = "Software"
     pre = " "
     weight = -110
-    identifier = "yazilim"
-    url = "/categories/yazılım/"
+    identifier = "software"
+    url = "/categories/software/"
 
     [[menu.main]]
     name = "Kitap"
