@@ -112,7 +112,13 @@ weight = 1000001
          <td>Pluralsight</td>
          <td>Introduction to Testing In Java</td>
          <td>Premium</td>
-         <td>50%</td>
+         <td>80%</td>
+      </tr>
+      <tr>
+         <td>Pluralsight</td>
+         <td>Test-Driven Development Practices  In Java</td>
+         <td>Premium</td>
+         <td>75%</td>
       </tr>
    </tbody>
 </table>
@@ -160,6 +166,11 @@ weight = 1000001
          <td>Clean Code: A Handbook of Agile Software Craftsmanship</td>
          <td>Robert C. Martin</td>
          <td>20%</td>
+      </tr>
+      <tr>
+         <td>The Pragmatic Programmer: From Journeyman to Master</td>
+         <td>Andrew Hunt, David Thomas</td>
+         <td>15%</td>
       </tr>
    </tbody>
 </table>
@@ -230,6 +241,18 @@ weight = 1000001
          <td>Software Development AntiPatterns</td>
          <td>Software Craftsmanship Turkey</td>
          <td>24.08.2016</td>
+         <td>Organizer,Listener</td>
+      </tr>
+      <tr>
+         <td>Test Driven Development and CI by Melih Sakarya</td>
+         <td>Test Hive</td>
+         <td>06.09.2016</td>
+         <td>Listener</td>
+      </tr>
+      <tr>
+         <td>Attitude of the Software Craftsman</td>
+         <td>Software Craftsmanship Turkey</td>
+         <td>20.09.2016</td>
          <td>Organizer,Listener</td>
       </tr>
    </tbody>
