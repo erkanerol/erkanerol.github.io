@@ -28,7 +28,7 @@ weight = 1000000
 
 
 ### Aktivite
-1. Şirket içi Brown Bag oturumları düzenleme 
+1. Okuma, öğrenme, deneme, yanılma, kodlama, kodlama, kodlama
 * [ScTurkey](www.meetup.com/Software-Craftsmanship-Turkey) etkinliklerini düzenleme, aktif rol alma
 * Meetup/Everbrite üzerinden yapılan bazı etkinliklere katılma
 * Blog yazma
@@ -44,6 +44,7 @@ weight = 1000000
 ### Bildiklerim / Yaptıklarım
 1. Yazılım geliştirmenin temel prensipleri
 * Algoritmalar ve veri yapıları
+* TDD 
 * Çeviklik (şimdilik biraz teorik ama değerleri benimsemiş durumdayım)
 * Java, Spring Core, Spring MVC, JPA, Hibernate, SQL, JSF, Primefaces, HTML, Selenium
 * JS, HTML (kendime yetecek kadar)
@@ -51,7 +52,6 @@ weight = 1000000
 * SOAP, REST
 
 ### Deneysel Çalışmalarım (Bunlar yukarı çıkacak inşallah)
-1. TDD 
 * Spring MVC
 * JS, Angular
 * Docker

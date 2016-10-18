@@ -118,6 +118,12 @@ weight = 1000001
          <td>Pluralsight</td>
          <td>Test-Driven Development Practices  In Java</td>
          <td>Premium</td>
+         <td>100%</td>
+      </tr>
+      <tr>
+         <td>Pluralsight</td>
+         <td>Coding Dojo: Test Driven Development</td>
+         <td>Premium</td>
          <td>75%</td>
       </tr>
    </tbody>
@@ -170,7 +176,7 @@ weight = 1000001
       <tr>
          <td>The Pragmatic Programmer: From Journeyman to Master</td>
          <td>Andrew Hunt, David Thomas</td>
-         <td>15%</td>
+         <td>22%</td>
       </tr>
    </tbody>
 </table>
@@ -254,6 +260,18 @@ weight = 1000001
          <td>Software Craftsmanship Turkey</td>
          <td>20.09.2016</td>
          <td>Organizer,Listener</td>
+      </tr>
+      <tr>
+         <td>SOLID Principles & OO Design</td>
+         <td>Software Craftsmanship Turkey</td>
+         <td>03.10.2016</td>
+         <td>Organizer,Listener</td>
+      </tr>
+      <tr>
+         <td>Agile Turkey Summit</td>
+         <td>Agile Turkey</td>
+         <td>07.10.2016</td>
+         <td>Listener</td>
       </tr>
    </tbody>
 </table>
