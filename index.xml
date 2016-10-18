@@ -6,8 +6,112 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Thu, 09 Jun 2016 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 29 Sep 2016 22:27:32 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine</title>
+      <link>https://erkanerol.github.io/post/cohesion-coupling/</link>
+      <pubDate>Thu, 29 Sep 2016 22:27:32 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/cohesion-coupling/</guid>
+      <description>
+
+&lt;h2 id=&#34;giriş:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Giriş&lt;/h2&gt;
+
+&lt;p&gt;Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.&lt;/p&gt;
+
+&lt;h3 id=&#34;diyelim-ki:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Diyelim ki&amp;hellip;&lt;/h3&gt;
+
+&lt;p&gt;Diyelim ki bir yazılım geliştiriyoruz. Yazılımımızın yapması gereken belirli işler var. Bu işleri yapabilmek için irili ufaklı onlarca/yüzlerce/binlerce fonksiyona ihtiyacımız var. Bunların rastgele bir fonksiyon uzayında yer aldığını düşünelim.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/functionSpace.png&#34; title=&#34;Function Space&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor olabilirler, aynı veri yapılarını kullanıyor olabilirler, aynı fonsiyonlara bağımlılıkları olabilir vs. Şimdilik o kısmı bir kenara bırakıyoruz ve şu soruya odaklanıyoruz. Bunlar yazılımımızda bu şekilde mi bulunur? Böyle dağınık, başıboş, düzensiz :( Elbette bunları gruplara ayırır, modüllerin içine koyarız değil mi? Java açısından baktığımızda bunları sınıfların(classes) içine koyarız, paketleme yaparız. Olmadı bunları modüllere/projelere ayırır, build araçları ile birbirine bağlarız.&lt;/p&gt;
+
+&lt;h3 id=&#34;deneme-bir-ki:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
+
+&lt;p&gt;Kabaca fonksiyonları modüllere ayırmaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/modules1.png&#34; title=&#34;Modules1&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Ya şimdi writeLog ile sendMail ne alaka&amp;rdquo; cümlesini duyar gibiyim sevgili okuyucu :) Maalesef ki bizim Utils/Helpers gibi isimler verdiğimiz nesnelerin içi de biraz böyle. Bu neden böyle olmamalı konusuna geliyorum hemen.&lt;/p&gt;
+
+&lt;p&gt;Modüllere ayırırken nasıl ayırırız? Neyi amaçlarız? Hedefimiz nedir? Ne kadar büyük olmalılar? Aradaki ilişkiler nasıl olmalı?&lt;/p&gt;
+
+&lt;h3 id=&#34;amaç:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Amaç&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Öğelerimizi modüllere ayırırken genel olarak izlediğimiz prensip şu: Bir değişiklik yapmamız gerekiyorsa sadece bir yerde yapmamız gerekmeli, bir yeri değiştirmemiz gerekiyorsa bunun sadece bir nedeni olmalı.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Burada biraz duralım. Şimdi şöyle düşünelim. Elimizde öğeler var. Herhangi bir modülün parçaları bunlar. Bir de olası değişiklik nedenleri var.&lt;/p&gt;
+
+&lt;p&gt;Eğer alakasız şeyleri bir araya koyarsak birden fazla sebep orayı değiştirmemizi gerektirebilir. Yani modülümüz &lt;strong&gt;odaklı&lt;/strong&gt; olmaz, ne iş yaptığı kolay anlaşılamaz, bakımı zorlaşır. Bu istediğimiz bir durum değil. Öğeler olabildiğince birbirine yapışık olmalı. Tabi ki bunun için öğeleri gereksiz yere birbirine yapıştırmıyoruz :) Yapışık olmayanları ayırmamız lazım.
+&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/lowCohesion.png&#34; title=&#34;lowCohesion&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;Eğer ayırdığımız modüller birbirleriyle çok bağlantılı ise bir nedenden dolayı birden fazla yeri değiştirmemiz gerekebilir ki bunu istemiyoruz. Çünkü bu durumu yönetmek zaman içinde zorlaşır.
+&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/highCoupling.png&#34; title=&#34;highCoupling&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/br&gt;
+İdeal olan, istediğimiz bu ilişkinin bire bir olmasıdır. Bunun için tek sorumluluk prensibini ( &lt;a href=&#34;http://webpro.github.io/programming-principles/#single-responsibility-principle&#34; &gt;Single Responsibility Principle - SRP &lt;/a&gt;) iyi uygulamamız gerekir.&lt;/p&gt;
+
+&lt;p&gt;bkz: &lt;a href=&#34;https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well&#34;&gt; Do One Thing and Do It Well. &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/ideal.png&#34; title=&#34;ideal&#34;/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;tanımlar:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Tanımlar&lt;/h3&gt;
+
+&lt;p&gt;Bir modülün içindeki öğelerin birlikteliğini ve modülün odaklılığını ifade etmek için kullandığımız kavram &lt;strong&gt;cohesion&lt;/strong&gt;. Düşük cohesion dediğimizde bu birlikteliğin zayıflığını, yüksek cohesion dediğimizde bu birlikteliğin yüksekliğini ifade ederiz. Az önce anlattığım üzere hedef olabildiğince yüksek (&lt;strong&gt;high cohesion&lt;/strong&gt;) olmasıdır.&lt;/p&gt;
+
+&lt;p&gt;Modüllerin arasındaki irtibatı ifade etmek için kullandığımız kavram da &lt;strong&gt;coupling&lt;/strong&gt;. Düşük coupling modüllerin daha bağımsız olduğunu, yüksek coupling birbirlerine daha bağlı olduğunu ifade eder. Hedef olabildiğince düşük (&lt;strong&gt;low coupling&lt;/strong&gt;) olmasıdır. İlk şekildeki modüllerin arasındaki okların olabildiğinca az ve zayıf olmasıdır.&lt;/p&gt;
+
+&lt;h3 id=&#34;deneme-bir-ki-1:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/modules2.png&#34; title=&#34;Modules2&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Şimdi biraz daha iyi oldu gibi. Ama içlerini görmeden tam olarak emin olamayız :)&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;cohesion-çeşitleri:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Cohesion Çeşitleri&lt;/h3&gt;
+
+&lt;p&gt;Sevgili büyüklerimiz, yazılımcılar modülleri nasıl oluşturuyor, ne tür cohesion oluşturma tipleri var gibi bir araştırma yapmış ve şu tipleri bulmuşlar.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tesadüfi (Coincidental):&lt;/strong&gt;
+Modüldeki öğelerin rastgele seçilmesi durumu. Yukarıdaki writeLog ile sendMail&amp;rsquo;in aynı modülde olması gibi. Bu daha çok Utils, Helpers gibi isimlendirilen modüllerde görülüyor. &lt;strong&gt;En kötüsü budur.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mantıksal (Logical):&lt;/strong&gt;
+Aynı kategoride olduğu düşünülen öğelerin aynı modüle konulması durumu. Mesela bütün veri tabanı işlemlerinin ya da bütün input girişlerine ilişkin işlemlerin aynı modüle konulması.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Geçici (Temporal):&lt;/strong&gt;
+Zaman içinde lazım oldukça eklenen öğelerin modül oluşturması durumu. Bu işlemler birbirleriyle alakasız olabilir. Gereksinimler değiştiğinde bambaşka yerlere de gidebilir ama o an için oradalar işte.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prosedürel (Procedural):&lt;/strong&gt;
+Bir akışın içindeki işlemlerin beraberce modüller oluşturması durumu. Örnek olarak dosyanın varlığının kontrolü, dosyanın açılması, yazılacak içeriğin oluşturulması, verinin yazılması, dosyanın kapatılması gibi işlemlerden oluşan bir modül düşünebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;İletişimsel(Communication):&lt;/strong&gt;
+Aynı veri/girdi/çıktı üzerinde çalışan işlemlerin aynı modüllere konulması durumu. Örneğin bir nesneniz var ve bu nesneye ilişkin bütün herşey bir arada. Kontroller, hesaplamalar, güncellemeler vs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sıralı (Sequential):&lt;/strong&gt;
+Birbirleriyle girdi-çıktı ilişkisi olan, sıralı işlemlerin aynı modüllere konulması durumu. Prosedürel olan tipe oldukça benziyor. Farkı şöyle. Bu tipteki işlemlerden birinin çıktısı, diğerinin girdisi durumunda. Dosyanın okunması işlemi ile okunan verinin işlenmesi işlemi bu tipte aynı modülde oluyor. Prosedürel de böyle bir girdi-çıktı ilişkisi gerekli değil. Ard arda olması yeterli.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fonksiyonel (Functional):&lt;/strong&gt;
+Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya getirilmesi ile modüllerin oluşturulmasıdır. XML formatındaki bir string&amp;rsquo;i parse eden bir modül örneğin. &lt;strong&gt;En iyisi budur.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;şunlara-bakılabilir:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Şunlara bakılabilir&lt;/h3&gt;
+
+&lt;p&gt;Bu konu epey uzun. Daha çok okumak ve öğrenmek isteyenlere aşağıdaki linkleri verip konuyu kapatalım.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://codurance.com/software-creation/2016/03/03/cohesion-cornerstone-software-design/&#34;&gt;Cohesion - Sandro Mancuso&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#maximise-cohesion&#34;&gt;Maximise Cohesion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#minimise-coupling&#34;&gt;Minimise Coupling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cs.toronto.edu/~penny/teaching/csc407-02s/lectures/04structured-design.pdf&#34;&gt;Structured Design - CSC407&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719&#34;&gt;Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design - Yourdon Press , Larry L. Constantine&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Abstract Factory Tasarım Şablonu</title>
@@ -1704,113 +1808,6 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;h3 id=&#34;tcp-protokolü-ile-alakası:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;TCP Protokolü ile alakası&lt;/h3&gt;
 
 &lt;p&gt;TCP protokolünde bilgisayarların IP paketleri vasıtası ile bağlantılarının kapatılması konusunda anlaşmaya çalışmasında da aynı problem yaşanmakta. Sorun timeout kullanarak çözülüyor. Eğer karşı tarafın cevabı belirli bir süre içinde gelmezse bağlantı kapatılıyor.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hakkımda</title>
-      <link>https://erkanerol.github.io/post/about/</link>
-      <pubDate>Tue, 30 Aug 2016 12:37:57 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/about/</guid>
-      <description>
-
-&lt;h3 id=&#34;ünvan-title:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Ünvan (Title)&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Üniversite -&amp;gt; Bilgisayar Mühendisi / Computer Engineer&lt;/li&gt;
-&lt;li&gt;Piyasa -&amp;gt; Genç Yazılım Gelişticisi / Junior Software Developer&lt;/li&gt;
-&lt;li&gt;Kendim -&amp;gt; Çırak Yazılım Ustası / &lt;strong&gt;Apprentice Software Craftsman&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;eğitim:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Eğitim&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;İstanbul Atatürk Fen Lisesi (2006-2010)&lt;/li&gt;
-&lt;li&gt;Boğaziçi Üniversitesi Bilgisayar Mühendisliği (2010-2015)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;iş:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;İş&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Netaş (2015-?)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;ilgi-alanları:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;İlgi Alanları&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Software Craftsmanship&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;NOT: Herhangi bir hobim yoktur.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;aktivite:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Aktivite&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Şirket içi Brown Bag oturumları düzenleme&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;www.meetup.com/Software-Craftsmanship-Turkey&#34;&gt;ScTurkey&lt;/a&gt; etkinliklerini düzenleme, aktif rol alma&lt;/li&gt;
-&lt;li&gt;Meetup/Everbrite üzerinden yapılan bazı etkinliklere katılma&lt;/li&gt;
-&lt;li&gt;Blog yazma&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Şimdilik bir Open Source katkım yok :(&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;yetenekler:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Yetenekler&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Karşıdaki insanı anlama ve kendini düzgün ifade edebilme&lt;/li&gt;
-&lt;li&gt;Kendi kendine öğrenebilme&lt;/li&gt;
-&lt;li&gt;Analiz + Soyut düşünme&lt;/li&gt;
-&lt;li&gt;Bildiğini öğretebilme&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;bildiklerim-yaptıklarım:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Bildiklerim / Yaptıklarım&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Yazılım geliştirmenin temel prensipleri&lt;/li&gt;
-&lt;li&gt;Algoritmalar ve veri yapıları&lt;/li&gt;
-&lt;li&gt;Çeviklik (şimdilik biraz teorik ama değerleri benimsemiş durumdayım)&lt;/li&gt;
-&lt;li&gt;Java, Spring Core, Spring MVC, JPA, Hibernate, SQL, JSF, Primefaces, HTML, Selenium&lt;/li&gt;
-&lt;li&gt;JS, HTML (kendime yetecek kadar)&lt;/li&gt;
-&lt;li&gt;Git, SVN&lt;/li&gt;
-&lt;li&gt;SOAP, REST&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;deneysel-çalışmalarım-bunlar-yukarı-çıkacak-inşallah:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Deneysel Çalışmalarım (Bunlar yukarı çıkacak inşallah)&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;TDD&lt;/li&gt;
-&lt;li&gt;Spring MVC&lt;/li&gt;
-&lt;li&gt;JS, Angular&lt;/li&gt;
-&lt;li&gt;Docker&lt;/li&gt;
-&lt;li&gt;Jenkins autobuild &amp;amp; autodeploy&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;olmak-istediklerim:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Olmak istediklerim&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Kısa vade =&amp;gt; Full Stack Developer =&amp;gt; JS konusunda kendimi geliştirebilirsem olabilirim.&lt;/li&gt;
-&lt;li&gt;Orta vade =&amp;gt;  Full Stack + Devops + Scrum Master =&amp;gt; Modern bir yazılım projesindeki bütün bileşenlere hakim olmak&lt;/li&gt;
-&lt;li&gt;Uzun vade =&amp;gt; Software Craftsman =&amp;gt; Hem teknik bilgi, hem davranış bakımından&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;ustalar:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Ustalar&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.lemiorhanergin.com/&#34;&gt;Lemi Orhan Ergin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://codurance.com/blog/author/sandro-mancuso/&#34;&gt;Sandro Mancuso&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://martinfowler.com/&#34;&gt;Martin Fowler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sites.google.com/site/unclebobconsultingllc/&#34;&gt;Uncle Bob&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;geçmiş-kayıtları:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Geçmiş Kayıtları&lt;/h3&gt;
-
-&lt;p&gt;İzlediğim/aldığım online dersler, okuduğum yazılım kitapları ve katıldığım etkinliklerin listeleri &lt;a href=&#34;https://erkanerol.github.io/post/my-history/&#34;&gt;burada&lt;/a&gt; mevcut. Listeler uzadıkça keyif alıyorum. O yüzden ne varsa yazdım :)&lt;/p&gt;
-
-&lt;h3 id=&#34;iletişim:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;İletişim&lt;/h3&gt;
-
-&lt;p&gt;Sol taraftaki menüde çeşitli sitelerdeki hesaplarım mevcut.&lt;/p&gt;
-
-&lt;p&gt;Email: erkanerol92[at]gmail[dot]com&lt;/p&gt;
 </description>
     </item>
     
