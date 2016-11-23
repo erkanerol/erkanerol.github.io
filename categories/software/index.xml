@@ -6,8 +6,46 @@
     <description>Recent content in Software on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Thu, 29 Sep 2016 22:27:32 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 23 Nov 2016 23:11:42 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Kalıtım Kullanımına Dair Bir Aydınlanma Anı</title>
+      <link>https://erkanerol.github.io/post/misuse-inheritance/</link>
+      <pubDate>Wed, 23 Nov 2016 23:11:42 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/misuse-inheritance/</guid>
+      <description>&lt;p&gt;Geçenlerde &amp;ldquo;Composition over Inheritance&amp;rdquo; ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;şu&lt;/a&gt; makaleye denk geldim. Gerçekten güzel bir makale, herkese tavsiye ederim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.&lt;/p&gt;
+
+&lt;p&gt;Makalede geçen iki kod parçasına bir an bakalım.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+class Stack extends ArrayList {
+    public void push(Object value) { … }
+    public Object pop() { … }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Açıkçası kodu ben yazsaydım zaten böyle yazmazdım. Fakat yine de bu şekilde yazmanın neden yanlış olduğuna hiç kafa yormamıştım.&lt;/p&gt;
+
+&lt;p&gt;Buradaki sorularımız şunlar:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Stack, ArrayList&amp;rsquo;in uygun bir alt tipi midir? (bkz: Liskov Substitution Principle)&lt;/li&gt;
+&lt;li&gt;CustomerGroup dediğimiz sınıfın domain&amp;rsquo;i ile ArrayList&amp;rsquo;in domain&amp;rsquo;i aynı mıdır?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ayrıntılar için makaleyi okumanızı şiddetle öneririm. Yazar gayet güzel anlatmış. Benim için aydınlanma olan kısmı &amp;ldquo;cross-domain inheritance relationship&amp;rdquo; olarak ifade edilen kısımdı. Okuduğum kodlardan gelen ezberlerim vardı ama zihnimde bu ayrımı bu kadar net yapmamıştım hiç.&lt;/p&gt;
+
+&lt;p&gt;Linki yeniden &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;veriyor&lt;/a&gt;  ve iyi okumalar diliyorum.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine</title>

@@ -6,8 +6,46 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Thu, 29 Sep 2016 22:27:32 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 23 Nov 2016 23:11:42 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Kalıtım Kullanımına Dair Bir Aydınlanma Anı</title>
+      <link>https://erkanerol.github.io/post/misuse-inheritance/</link>
+      <pubDate>Wed, 23 Nov 2016 23:11:42 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/misuse-inheritance/</guid>
+      <description>&lt;p&gt;Geçenlerde &amp;ldquo;Composition over Inheritance&amp;rdquo; ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;şu&lt;/a&gt; makaleye denk geldim. Gerçekten güzel bir makale, herkese tavsiye ederim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.&lt;/p&gt;
+
+&lt;p&gt;Makalede geçen iki kod parçasına bir an bakalım.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+class Stack extends ArrayList {
+    public void push(Object value) { … }
+    public Object pop() { … }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Açıkçası kodu ben yazsaydım zaten böyle yazmazdım. Fakat yine de bu şekilde yazmanın neden yanlış olduğuna hiç kafa yormamıştım.&lt;/p&gt;
+
+&lt;p&gt;Buradaki sorularımız şunlar:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Stack, ArrayList&amp;rsquo;in uygun bir alt tipi midir? (bkz: Liskov Substitution Principle)&lt;/li&gt;
+&lt;li&gt;CustomerGroup dediğimiz sınıfın domain&amp;rsquo;i ile ArrayList&amp;rsquo;in domain&amp;rsquo;i aynı mıdır?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ayrıntılar için makaleyi okumanızı şiddetle öneririm. Yazar gayet güzel anlatmış. Benim için aydınlanma olan kısmı &amp;ldquo;cross-domain inheritance relationship&amp;rdquo; olarak ifade edilen kısımdı. Okuduğum kodlardan gelen ezberlerim vardı ama zihnimde bu ayrımı bu kadar net yapmamıştım hiç.&lt;/p&gt;
+
+&lt;p&gt;Linki yeniden &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;veriyor&lt;/a&gt;  ve iyi okumalar diliyorum.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine</title>
@@ -1768,46 +1806,6 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/stackoverflowlamak.jpg&#34; title=&#34;stackoverflowlamak&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Yeni yetme bir coder&amp;rsquo;ın &amp;ldquo;parlak&amp;rdquo; fikirlerini dinlediğiniz için teşekkür ederim.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2 General/Ordu Problemi</title>
-      <link>https://erkanerol.github.io/post/two-army-problem/</link>
-      <pubDate>Mon, 24 Aug 2015 20:31:00 +0200</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/two-army-problem/</guid>
-      <description>
-
-&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;
-
-&lt;p&gt;Ortada bir savaş var. A1 ve A2 orduları B ordusuna karşı savaşıyor fakat resimdeki gibi ayrı düşmüşler. Ancak elçiler vasıtası ile iletişim kurulabiliyor. Bu iki ordu aynı anda B ordusuna hücum etmek istiyor fakat kesin bir şekilde anlaşmaları lazım. Aksi halde yenilebilirler.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/two-army.png&#34; title=&#34;Two Army&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Problemimiz şu: Bu iki ordu elçiler göndererek bir mütabakata varabilirler mi? Anlaştıklarından %100 emin olabilirler mi?&lt;/p&gt;
-
-&lt;p&gt;Şimdi senaryoları düşünelim.&lt;/p&gt;
-
-&lt;h3 id=&#34;senaryo-1:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Senaryo 1&lt;/h3&gt;
-
-&lt;p&gt;A1 ordusu taaruzun günü ve saatini elçi vasıtası ile A2 ordusuna iletmek istiyor. Bir elçi gönderiliyor. Elçi dönmüyor. O gün ve saat gelince A1 ordusu hücum eder mi? Etmez. Çünkü elçi yolda ölmüş olabilir ya da A2 ordusu kabul etmeyip elçiyi öldürmüş olabilir.&lt;/p&gt;
-
-&lt;h3 id=&#34;senaryo-2:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Senaryo 2&lt;/h3&gt;
-
-&lt;p&gt;Elçi A2 ordusuna isteği iletiyor. A2 ordusu kabul ediyor. Elçi bu haberi göndermek için geri yola çıkıyor. A2 ordusu belirtilen gün ve saat gelince hücum eder mi? Etmez. Çünkü elçi geri dönerken ölmüş olabilir. O zaman A1 ordusu hücum etmiycektir ve A2 ordusu yalnız kalacaktır. O nedenle A2 ordusu mesajın geri iletildiğinden emin olmalı.&lt;/p&gt;
-
-&lt;h3 id=&#34;senaryo-3:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Senaryo 3&lt;/h3&gt;
-
-&lt;p&gt;Elçi gidip teklifi A2&amp;rsquo;ye iletiyor. Kabul mesajını dönüp A1&amp;rsquo;e iletiyor. Sonra yeniden gidip A2 ordusuna kabul mesajının iletildiğini iletiyor. Fakat A1 ordusu bu durumda emin olamaz çünkü elçinin ikinci seferde de ulaştığından emin olmalı. Çünkü aksi halde A2 ordusu hücum etmiycektir.&lt;/p&gt;
-
-&lt;h3 id=&#34;sonuç:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Sonuç&lt;/h3&gt;
-
-&lt;p&gt;Senaryolarda da görüldüğü gibi elçinin tur sayısı ne kadar arttırılırsa arttırılsın iki taraf kesin bir şekilde emin olamaz.&lt;/p&gt;
-
-&lt;h3 id=&#34;tcp-protokolü-ile-alakası:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;TCP Protokolü ile alakası&lt;/h3&gt;
-
-&lt;p&gt;TCP protokolünde bilgisayarların IP paketleri vasıtası ile bağlantılarının kapatılması konusunda anlaşmaya çalışmasında da aynı problem yaşanmakta. Sorun timeout kullanarak çözülüyor. Eğer karşı tarafın cevabı belirli bir süre içinde gelmezse bağlantı kapatılıyor.&lt;/p&gt;
 </description>
     </item>
     
