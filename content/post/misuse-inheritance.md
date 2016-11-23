@@ -7,7 +7,7 @@ title = "Kalıtım Kullanımına Dair Bir Aydınlanma Anı"
 
 +++
 
-Geçenlerde "Composition over Inheritance" ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında <a href="https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose">şu</a> makaleye denk geldim. Gerçekten güzel bir makale, herkese tavsiye ederim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.
+Geçenlerde "Composition over Inheritance" ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında bir makaleye denk geldim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.
 
 <!--more-->
 
@@ -27,13 +27,11 @@ class CustomerGroup extends ArrayList&lt;Customer&gt; {
 }
 </code></pre>
 
-Açıkçası kodu ben yazsaydım zaten böyle yazmazdım. Fakat yine de bu şekilde yazmanın neden yanlış olduğuna hiç kafa yormamıştım. 
-
 Buradaki sorularımız şunlar:
 
 1. Stack, ArrayList'in uygun bir alt tipi midir? (bkz: Liskov Substitution Principle)
 2. CustomerGroup dediğimiz sınıfın domain'i ile ArrayList'in domain'i aynı mıdır? 
 
-Ayrıntılar için makaleyi okumanızı şiddetle öneririm. Yazar gayet güzel anlatmış. Benim için aydınlanma olan kısmı "cross-domain inheritance relationship" olarak ifade edilen kısımdı. Okuduğum kodlardan gelen ezberlerim vardı ama zihnimde bu ayrımı bu kadar net yapmamıştım hiç. 
+Cevaplar ve ayrıntılar için makaleyi okumanızı şiddetle öneririm. Yazar gayet güzel anlatmış. Benim için aydınlanma olan kısmı "cross-domain inheritance relationship" olarak ifade edilen kısımdı. Okuduğum kodlardan gelen ezberlerim vardı ve kodu ben yazsaydım zaten böyle yazmazdım. Ama zihnimde bu ayrımı bu kadar net yapmamıştım hiç.
 
-Linki yeniden <a href="https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose">veriyor</a>  ve iyi okumalar diliyorum.
+Makalenin linkini <a href="https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose">veriyor</a>  ve iyi okumalar diliyorum.

@@ -45,14 +45,14 @@ weight = 1000000
 1. Yazılım geliştirmenin temel prensipleri
 * Algoritmalar ve veri yapıları
 * TDD 
-* Çeviklik (şimdilik biraz teorik ama değerleri benimsemiş durumdayım)
+* Çeviklik
 * Java, Spring Core, Spring MVC, JPA, Hibernate, SQL, JSF, Primefaces, HTML, Selenium
 * JS, HTML (kendime yetecek kadar)
 * Git, SVN
 * SOAP, REST
+* Spring MVC
 
 ### Deneysel Çalışmalarım (Bunlar yukarı çıkacak inşallah)
-* Spring MVC
 * JS, Angular
 * Docker
 * Jenkins autobuild & autodeploy

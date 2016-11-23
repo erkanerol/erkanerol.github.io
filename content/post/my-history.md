@@ -176,7 +176,7 @@ weight = 1000001
       <tr>
          <td>The Pragmatic Programmer: From Journeyman to Master</td>
          <td>Andrew Hunt, David Thomas</td>
-         <td>22%</td>
+         <td>30%</td>
       </tr>
    </tbody>
 </table>
@@ -272,6 +272,18 @@ weight = 1000001
          <td>Agile Turkey</td>
          <td>07.10.2016</td>
          <td>Listener</td>
+      </tr>
+      <tr>
+         <td>Deger Ureten Yazilimlar Nasil Gelistirilir</td>
+         <td>İstanbul Coders</td>
+         <td>10.11.2016</td>
+         <td>Listener</td>
+      </tr>
+      <tr>
+         <td>TDD Code Kata</td>
+         <td>Software Craftsmanship Turkey</td>
+         <td>16.11.2016</td>
+         <td>Organizer,Listener</td>
       </tr>
    </tbody>
 </table>
