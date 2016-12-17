@@ -171,7 +171,7 @@ weight = 1000001
       <tr>
          <td>Clean Code: A Handbook of Agile Software Craftsmanship</td>
          <td>Robert C. Martin</td>
-         <td>20%</td>
+         <td>50%</td>
       </tr>
       <tr>
          <td>The Pragmatic Programmer: From Journeyman to Master</td>
@@ -284,6 +284,30 @@ weight = 1000001
          <td>Software Craftsmanship Turkey</td>
          <td>16.11.2016</td>
          <td>Organizer,Listener</td>
+      </tr>
+      <tr>
+         <td>HTTP ile İlgili Bilmemiz Gerekenler</td>
+         <td>İstanbul Coders</td>
+         <td>24.11.2016</td>
+         <td>Listener</td>
+      </tr>
+      <tr>
+         <td>GDG Devfest 2016</td>
+         <td>GDG</td>
+         <td>04.12.2016</td>
+         <td>Listener</td>
+      </tr>
+      <tr>
+         <td>Geleceğin Programlama Paradigması Fonksiyonel Programlamaya Genel Bakış</td>
+         <td>Software Craftsmanship Turkey</td>
+         <td>06.12.2016</td>
+         <td>Organizer,Listener</td>
+      </tr>
+      <tr>
+         <td>Service Discovery with Consul</td>
+         <td>İstanbul Coders</td>
+         <td>08.12.2016</td>
+         <td>Listener</td>
       </tr>
    </tbody>
 </table>

@@ -41,21 +41,38 @@ weight = 1000000
 * Bildiğini öğretebilme 
 
 
-### Bildiklerim / Yaptıklarım
-1. Yazılım geliştirmenin temel prensipleri
-* Algoritmalar ve veri yapıları
-* TDD 
-* Çeviklik
-* Java, Spring Core, Spring MVC, JPA, Hibernate, SQL, JSF, Primefaces, HTML, Selenium
-* JS, HTML (kendime yetecek kadar)
-* Git, SVN
-* SOAP, REST
-* Spring MVC
+### Bildiklerim / Yaptıklarım / Kullandıklarım
 
-### Deneysel Çalışmalarım (Bunlar yukarı çıkacak inşallah)
-* JS, Angular
+#### İleri
+
+* Yazılım geliştirmenin temel prensipleri
+* Analiz ve sorunların tespiti
+* Gereksinimlerin toplanması
+* Çözüm geliştirme
+* Algoritmalar ve veri yapıları 
+* Java, JavaEE, Spring Core, Spring MVC
+* JPA, Hibernate, SQL
+* JSF, Primefaces
+* SOAP, REST
+* Maven
+* Git, SVN
+* Unix komutları
+
+#### Orta
+
+* TDD  
+* Yazılım Mimarileri
+* Design Patterns
 * Docker
+* Gradle
+* Vagrant, Nomad, Consul, Packer
+
+#### Başlangıç
+* JS, Angular
 * Jenkins autobuild & autodeploy
+* Selenium
+* Microservices
+* Service Discovery
 
 
 ### Olmak istediklerim
