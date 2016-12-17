@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Futbol on Blog</title>
-    <link>https://erkanerol.github.io/categories/futbol/</link>
-    <description>Recent content in Futbol on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/futbol/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Fri, 11 Sep 2015 20:41:00 +0200</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/futbol/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -26,6 +25,8 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/golgede-guneste-futbol-kapak.jpg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Kitap beklediğimden güzel çıktı. Galeano Uruguaylı sosyalist bir yazar. Ve bir futbol tutkunu. Futbola ortalama bir entelektüel gibi bakmıyor ve durumu şöyle ifade ediyor.&lt;/p&gt;
 
@@ -95,8 +96,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Hindistan tarihinde ilk kez bir kadın iktidara geliyordu: İndira Gandi.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+&lt;/blockquote&gt;</description>
     </item>
     
   </channel>

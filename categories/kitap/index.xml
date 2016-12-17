@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kitap on Blog</title>
-    <link>https://erkanerol.github.io/categories/kitap/</link>
-    <description>Recent content in Kitap on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/kitap/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Tue, 17 May 2016 15:56:13 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/kitap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,9 +14,7 @@
       <pubDate>Tue, 17 May 2016 15:56:13 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;So, why this book now? Well, we’ve overloaded our profession with resources. There is more information available about our revolution than any one person can absorb. Still, some people manage to do it. They internalize all the advice available to them and always seem to have it close at hand. How do they do achieve that level of mastery? This book is full of patterns for mastering our complex field. Mastering is more than just knowing. It is knowing in a way that lightens your load.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -25,9 +22,11 @@
 TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şiddetle tavsiye ediyorum.
 &lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/apprenticeship-cover.png&#34; title=&#34;Apprenticeship Patterns&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;tanıtım:c384b087910c43172fdcea43b3e304eb&#34;&gt;Tanıtım&lt;/h2&gt;
+&lt;h2 id=&#34;tanıtım&#34;&gt;Tanıtım&lt;/h2&gt;
 
 &lt;p&gt;Benim gözümde yazılımcılar ikiye ayrılıyor.
 1. Para karşılığı bir süre kod yazan ve 40 yaşında kod yazmak istemeyenler.
@@ -45,17 +44,17 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 &lt;li&gt;See Also: &amp;ldquo;The Deep End&amp;rdquo; ve &amp;ldquo;The Long Road&amp;rdquo; isimli şablonlara da bakabilirsiniz.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kitapta-bulunan-bütün-şablonlar:c384b087910c43172fdcea43b3e304eb&#34;&gt;Kitapta Bulunan Bütün Şablonlar&lt;/h2&gt;
+&lt;h2 id=&#34;kitapta-bulunan-bütün-şablonlar&#34;&gt;Kitapta Bulunan Bütün Şablonlar&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/apprenticeship-patterns.png&#34; title=&#34;Apprenticeship Patterns&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;kişisel-yorumlarım:c384b087910c43172fdcea43b3e304eb&#34;&gt;Kişisel Yorumlarım&lt;/h2&gt;
+&lt;h2 id=&#34;kişisel-yorumlarım&#34;&gt;Kişisel Yorumlarım&lt;/h2&gt;
 
 &lt;p&gt;Ben kitaptaki bir çok şablonun benim durumuma uyduğunu gördüm ve çözüm önerilerini çok mantıklı buldum. Elimden geldiğince uygulamaya çalışacağım. Bu kitap aslında sadece belirli durumlara ilişkin yapılacaklar listesi değil. Kitabın tamamını okuduğunuzda yazılım alanında nasıl iyi bir yazılımcı olunabileceğine dair bir fikriniz oluyor. Mesleki gelişimin usûl esaslarını tanımlıyor ki usûlü esastan her daim önde tutan biri olarak ( bkz: usûl esasa mukaddemdir) benim en sevdiğim kısmı bu oldu. Yani kitap size şu kitapları okuyun demiyor, hangi kitapları okumanız gerektiğini nasıl anlayacağınızı anlatıyor. Yazılım geliştirmenin sadece bir dil/framework/kütüphane/araç bilmek olmadığını, işin ciddi bir felsefesi olduğunu anlamak açısından da oldukça faydalı. Bu arada bunları bilmenin ne kadar önemli olduğuna dair pek çok şablon var. Öyle kuru felsefeyle kalma diyor yani :) Benim yorumlamam bu kadar. Aşağıda altını çizdiğim bazı yerler var.&lt;/p&gt;
 
 &lt;p&gt;Paylaşım linkleri aşağıda mevcuttur. Bu kitap çok önemli. Elden ele yayalım :)&lt;/p&gt;
 
-&lt;h2 id=&#34;alıntılarım-spoiler:c384b087910c43172fdcea43b3e304eb&#34;&gt;Alıntılarım (SPOILER!!!)&lt;/h2&gt;
+&lt;h2 id=&#34;alıntılarım-spoiler&#34;&gt;Alıntılarım (SPOILER!!!)&lt;/h2&gt;
 
 &lt;p&gt;Apprentices are people who are willing to take on a junior role that maximizes their learning opportunities, as opposed to people who try to climb as quickly as they can into roles that maximize their financial opportunities. In my experience, if the apprentice has talent and the right attitude, their financial success will inevitably follow their learning success.&lt;/p&gt;
 
@@ -400,8 +399,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 
 &lt;p&gt;==========&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;there are no masters&amp;hellip;yet.&lt;/strong&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;strong&gt;there are no masters&amp;hellip;yet.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -416,6 +414,8 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Your goal as a startup is to make something users love.&lt;/li&gt;
@@ -449,8 +449,7 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 
 &lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0&#34;&gt;Epub&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -475,33 +474,33 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 
 &lt;p&gt;&lt;a href=&#34;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&#34;&gt;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;1-layered-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;1. Layered Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;1-layered-architecture&#34;&gt;1. Layered Architecture&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/layered.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;2-event-driven-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;2-event-driven-architecture&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
 
-&lt;h3 id=&#34;a-mediator:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;a. Mediator&lt;/h3&gt;
+&lt;h3 id=&#34;a-mediator&#34;&gt;a. Mediator&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/mediator.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;b-broker:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;b. Broker&lt;/h3&gt;
+&lt;h3 id=&#34;b-broker&#34;&gt;b. Broker&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/broker.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;3-microkernel-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;3-microkernel-architecture&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/kernel.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;4-microservices-architecture-pattern:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
+&lt;h2 id=&#34;4-microservices-architecture-pattern&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/microservices.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;5-space-based-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;5-space-based-architecture&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/space_based.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;a-pattern-analysis-summary:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
+&lt;h2 id=&#34;a-pattern-analysis-summary&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
 </description>
@@ -524,6 +523,8 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/golgede-guneste-futbol-kapak.jpg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Kitap beklediğimden güzel çıktı. Galeano Uruguaylı sosyalist bir yazar. Ve bir futbol tutkunu. Futbola ortalama bir entelektüel gibi bakmıyor ve durumu şöyle ifade ediyor.&lt;/p&gt;
 
@@ -593,8 +594,7 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 
 &lt;blockquote&gt;
 &lt;p&gt;Hindistan tarihinde ilk kez bir kadın iktidara geliyordu: İndira Gandi.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+&lt;/blockquote&gt;</description>
     </item>
     
   </channel>

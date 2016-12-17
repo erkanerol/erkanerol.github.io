@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Video on Blog</title>
-    <link>https://erkanerol.github.io/categories/video/</link>
-    <description>Recent content in Video on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/video/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Mon, 29 Aug 2016 20:47:34 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/video/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,10 +14,10 @@
       <pubDate>Mon, 29 Aug 2016 20:47:34 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/videos/</guid>
-      <description>&lt;p&gt;İzlediğim, sevdiğim ve paylaşmak istediğim videoaları aşağıdaki oynatma listesine ekliyorum. İyi seyirler :)&lt;/p&gt;
+      <description>&lt;p&gt;İzlediğim, sevdiğim ve paylaşmak istediğim videoaları aşağıdaki oynatma listesine ekliyorum. İyi seyirler :)
+&lt;/p&gt;
 
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/videoseries?list=PLVoDUzCUZmIYe8I_mrBvEY0xtxBKLrdPk&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
-</description>
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/videoseries?list=PLVoDUzCUZmIYe8I_mrBvEY0xtxBKLrdPk&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;</description>
     </item>
     
   </channel>

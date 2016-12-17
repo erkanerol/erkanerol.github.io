@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kavramlar on Blog</title>
-    <link>https://erkanerol.github.io/categories/kavramlar/</link>
-    <description>Recent content in Kavramlar on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/kavramlar/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Thu, 29 Sep 2016 22:27:32 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/kavramlar/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,13 +14,13 @@
       <pubDate>Thu, 29 Sep 2016 22:27:32 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/cohesion-coupling/</guid>
-      <description>
-
-&lt;h2 id=&#34;giriş:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Giriş&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;giriş&#34;&gt;Giriş&lt;/h2&gt;
 
 &lt;p&gt;Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.&lt;/p&gt;
 
-&lt;h3 id=&#34;diyelim-ki:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Diyelim ki&amp;hellip;&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;diyelim-ki&#34;&gt;Diyelim ki&amp;hellip;&lt;/h3&gt;
 
 &lt;p&gt;Diyelim ki bir yazılım geliştiriyoruz. Yazılımımızın yapması gereken belirli işler var. Bu işleri yapabilmek için irili ufaklı onlarca/yüzlerce/binlerce fonksiyona ihtiyacımız var. Bunların rastgele bir fonksiyon uzayında yer aldığını düşünelim.&lt;/p&gt;
 
@@ -29,7 +28,7 @@
 
 &lt;p&gt;Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor olabilirler, aynı veri yapılarını kullanıyor olabilirler, aynı fonsiyonlara bağımlılıkları olabilir vs. Şimdilik o kısmı bir kenara bırakıyoruz ve şu soruya odaklanıyoruz. Bunlar yazılımımızda bu şekilde mi bulunur? Böyle dağınık, başıboş, düzensiz :( Elbette bunları gruplara ayırır, modüllerin içine koyarız değil mi? Java açısından baktığımızda bunları sınıfların(classes) içine koyarız, paketleme yaparız. Olmadı bunları modüllere/projelere ayırır, build araçları ile birbirine bağlarız.&lt;/p&gt;
 
-&lt;h3 id=&#34;deneme-bir-ki:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
+&lt;h3 id=&#34;deneme-bir-ki&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
 
 &lt;p&gt;Kabaca fonksiyonları modüllere ayırmaya çalışalım.&lt;/p&gt;
 
@@ -39,7 +38,7 @@
 
 &lt;p&gt;Modüllere ayırırken nasıl ayırırız? Neyi amaçlarız? Hedefimiz nedir? Ne kadar büyük olmalılar? Aradaki ilişkiler nasıl olmalı?&lt;/p&gt;
 
-&lt;h3 id=&#34;amaç:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Amaç&lt;/h3&gt;
+&lt;h3 id=&#34;amaç&#34;&gt;Amaç&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Öğelerimizi modüllere ayırırken genel olarak izlediğimiz prensip şu: Bir değişiklik yapmamız gerekiyorsa sadece bir yerde yapmamız gerekmeli, bir yeri değiştirmemiz gerekiyorsa bunun sadece bir nedeni olmalı.&lt;/strong&gt;&lt;/p&gt;
 
@@ -60,13 +59,13 @@
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/ideal.png&#34; title=&#34;ideal&#34;/&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;tanımlar:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Tanımlar&lt;/h3&gt;
+&lt;h3 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h3&gt;
 
 &lt;p&gt;Bir modülün içindeki öğelerin birlikteliğini ve modülün odaklılığını ifade etmek için kullandığımız kavram &lt;strong&gt;cohesion&lt;/strong&gt;. Düşük cohesion dediğimizde bu birlikteliğin zayıflığını, yüksek cohesion dediğimizde bu birlikteliğin yüksekliğini ifade ederiz. Az önce anlattığım üzere hedef olabildiğince yüksek (&lt;strong&gt;high cohesion&lt;/strong&gt;) olmasıdır.&lt;/p&gt;
 
 &lt;p&gt;Modüllerin arasındaki irtibatı ifade etmek için kullandığımız kavram da &lt;strong&gt;coupling&lt;/strong&gt;. Düşük coupling modüllerin daha bağımsız olduğunu, yüksek coupling birbirlerine daha bağlı olduğunu ifade eder. Hedef olabildiğince düşük (&lt;strong&gt;low coupling&lt;/strong&gt;) olmasıdır. İlk şekildeki modüllerin arasındaki okların olabildiğinca az ve zayıf olmasıdır.&lt;/p&gt;
 
-&lt;h3 id=&#34;deneme-bir-ki-1:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
+&lt;h3 id=&#34;deneme-bir-ki-1&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/modules2.png&#34; title=&#34;Modules2&#34;/&gt;&lt;/p&gt;
 
@@ -74,7 +73,7 @@
 
 &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;cohesion-çeşitleri:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Cohesion Çeşitleri&lt;/h3&gt;
+&lt;h3 id=&#34;cohesion-çeşitleri&#34;&gt;Cohesion Çeşitleri&lt;/h3&gt;
 
 &lt;p&gt;Sevgili büyüklerimiz, yazılımcılar modülleri nasıl oluşturuyor, ne tür cohesion oluşturma tipleri var gibi bir araştırma yapmış ve şu tipleri bulmuşlar.&lt;/p&gt;
 
@@ -99,7 +98,7 @@ Birbirleriyle girdi-çıktı ilişkisi olan, sıralı işlemlerin aynı modülle
 &lt;p&gt;&lt;strong&gt;Fonksiyonel (Functional):&lt;/strong&gt;
 Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya getirilmesi ile modüllerin oluşturulmasıdır. XML formatındaki bir string&amp;rsquo;i parse eden bir modül örneğin. &lt;strong&gt;En iyisi budur.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;şunlara-bakılabilir:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Şunlara bakılabilir&lt;/h3&gt;
+&lt;h3 id=&#34;şunlara-bakılabilir&#34;&gt;Şunlara bakılabilir&lt;/h3&gt;
 
 &lt;p&gt;Bu konu epey uzun. Daha çok okumak ve öğrenmek isteyenlere aşağıdaki linkleri verip konuyu kapatalım.&lt;/p&gt;
 
@@ -109,8 +108,7 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
 &lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#minimise-coupling&#34;&gt;Minimise Coupling&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.cs.toronto.edu/~penny/teaching/csc407-02s/lectures/04structured-design.pdf&#34;&gt;Structured Design - CSC407&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719&#34;&gt;Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design - Yourdon Press , Larry L. Constantine&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

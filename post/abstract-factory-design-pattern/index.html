@@ -94,9 +94,7 @@
     <br/>
     <a class="label" href="https://erkanerol.github.io/categories/software">Software</a><a class="label" href="https://erkanerol.github.io/categories/design-patterns">Design Patterns</a>
     </span>
-    
-
-<h2 id="amaç:a0c0e350f6599cc7bba451baf3fa092a">Amaç</h2>
+    <h2 id="amaç">Amaç</h2>
 
 <ul>
 <li>Elimizde benzer ve ilişkili nesneler var ve bunları somut sınıflarını belirtmeden oluşturmak için bir arayüz istiyoruz</li>
@@ -104,21 +102,23 @@
 <li>new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz</li>
 </ul>
 
-<h2 id="sorun:a0c0e350f6599cc7bba451baf3fa092a">Sorun</h2>
+<p></p>
+
+<h2 id="sorun">Sorun</h2>
 
 <p>Yazdığımız uygulamanın değişik platformlarda çalışmasını istediğimizde bu platformlara özgü farklılıklar sorun oluşturur ve nesne yaratımlarında bu farklılıkları ele almamız gerekir. Örneğin, windows işletim sistemindeki arayüz birleşenleri ile ubuntu işletim sistemindekler arasında ciddi farklar vardır ve biz her yeni birleşen oluşturma esnasında platformu kontrol etmek, ona göre farklı şekilde yaratmak istemeyiz. Bir arayüz tasarlamak ve bu ortak arayüz üzerinden bütün nesneleri yaratmak ve kullanmak isteriz. Platforma özgü sınıflar bu arayüzü destekleyecek şekilde kendi birleşenlerini oluşturacak işlevselliği sağlarlar.</p>
 
-<h2 id="yöntem:a0c0e350f6599cc7bba451baf3fa092a">Yöntem</h2>
+<h2 id="yöntem">Yöntem</h2>
 
 <p>Bu tasarım şablonunda nesnelerin sınıflarını ve nesneleri üreten üretici sınıfları soyutlamamız gerekir. Bu nesneler kullanıcılar (clients) tarafından doğrudan oluşturulmayıp nesne üretici (fabrika) sınıflar vasıtası ile üretilirler.</p>
 
-<h2 id="yapı:a0c0e350f6599cc7bba451baf3fa092a">Yapı</h2>
+<h2 id="yapı">Yapı</h2>
 
 <p>Abstract Factory her bir ürün için bir Factory Method (makeProductOne,makeProductTwo vb.) tanımlar. Her Factory Method new operatörünü ve platforma özgü ürün sınıflarını sarmalar. Her platform fabrika sınıflarıyla modellenir.</p>
 
 <p><img src="/img/Abstract_Factory-2x.png" /></p>
 
-<h2 id="örnek:a0c0e350f6599cc7bba451baf3fa092a">Örnek</h2>
+<h2 id="örnek">Örnek</h2>
 
 <p>Örneğimizde Ubuntu ve Windows platformları için UI birleşenleri üreten bir Abstract Factory şablonu oluşturalım. Bu örnekte platformlardan bağımsız bir şekilde pencere ve buton üreten bir yapı kuralım. Örneğin UML diagramı ve kodu aşağıda mevcuttur.</p>
 
@@ -133,7 +133,7 @@ Pencere arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
 Abstract Factory ve Windows+Ubuntu Platformları için fabrika sınıfları
 <br></br><br></br></p>
 
-<h2 id="kod:a0c0e350f6599cc7bba451baf3fa092a">Kod</h2>
+<h2 id="kod">Kod</h2>
 
 <pre><code>
 public interface Button {
@@ -296,7 +296,7 @@ public class Client {
 }
 </code></pre>
 
-<h2 id="kontrol-listesi:a0c0e350f6599cc7bba451baf3fa092a">Kontrol Listesi</h2>
+<h2 id="kontrol-listesi">Kontrol Listesi</h2>
 
 <ul>
 <li>Platformdan bağımsızlık ve nesnelerin oluşturulması sorun oluşturuyor ise bu şablonu kullanın</li>
@@ -306,7 +306,7 @@ public class Client {
 <li>Kullanıcı sınıflar (clients) bu nesneleri new  operatörü ile oluşturmamalı ve fabrika sınıflarının arayüzlerini kullanmalı</li>
 </ul>
 
-<h2 id="genel-kabul-görmüş-kurallar:a0c0e350f6599cc7bba451baf3fa092a">Genel Kabul Görmüş Kurallar</h2>
+<h2 id="genel-kabul-görmüş-kurallar">Genel Kabul Görmüş Kurallar</h2>
 
 <ul>
 <li>Zaman zaman aynı sorunu çözmek için farklı oluştucu tasarım şablonları kullanılabilir. Prototype veya Abstract Factory şablonlarından hangisi daha uygunsa o kullanılır. Diğer zamanlarda oluşturucu tasarım şablonları birbirlerinin tamamlayıcısıdırlar. Abstract Factory şablonunda nesne yaratmak için Prototype şablonu kullanılabilir. Builder şablonu hangi birleşenlerin yaratılacağına karar verme kısmında kullanılabilir. Abstract Factory, Builder ve Prototype şablonları kendi uygulamalarında (implementation) Singleton şablonunu kullanabilirler.</li>
@@ -317,11 +317,11 @@ public class Client {
 <li>Tasarımlar genelde Factory Method (daha basit, daha özelleştilebilir) kullanılarak başlasa da tasarımcılar daha fazla esnekliğe*  ihtiyaç duyduklarını farkettiklerinde tasarım zamanla Abstract Factory, Prototype veya Builder (daha esnek ve daha karmaşık) şablonlarına evrilir.</li>
 </ul>
 
-<h2 id="repo:a0c0e350f6599cc7bba451baf3fa092a">Repo</h2>
+<h2 id="repo">Repo</h2>
 
 <p><a href="https://github.com/erkanerol/design-patterns/tree/master/src/com/erkanerol/examples/abstractfactory">github</a></p>
 
-<h2 id="kaynakça:a0c0e350f6599cc7bba451baf3fa092a">Kaynakça</h2>
+<h2 id="kaynakça">Kaynakça</h2>
 
 <ul>
 <li><a href="https://sourcemaking.com">https://sourcemaking.com</a></li>
@@ -330,7 +330,6 @@ public class Client {
 <p><strong>Önemli Not 1:</strong> sourcemaking.com sitesinde  About Us sayfasında &ldquo;We also welcome translation.&rdquo; ibaresi yer almaktadır. Bu yazının yazılmasında/çevrilmesinde herhangi bir ticari amaç bulunmamaktadır.</p>
 
 <p><strong>Önemli Not 2:</strong> Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.</p>
-
   </div>
   <div id="disqus_thread"></div>
 </div>

@@ -94,18 +94,18 @@
     <br/>
     <a class="label" href="https://erkanerol.github.io/categories/software">Software</a><a class="label" href="https://erkanerol.github.io/categories/java">Java</a>
     </span>
-    
-
-<blockquote>
+    <blockquote>
 <p>In this post, I will show how to version a JavaEE Web Application.
 The example project is <a href="https://github.com/erkanerol/versioning_javaee_maven_git">here</a></p>
 </blockquote>
 
 <p><img src="/img/screenshot.png" /></p>
 
-<h5 id="1-create-a-maven-project-and-add-your-dependencies:64f1b32d3d75573502676ca900d4fe56">1. Create a maven project and add your dependencies.</h5>
+<p></p>
 
-<h5 id="2-add-your-scm-url-s-to-pom-xml:64f1b32d3d75573502676ca900d4fe56">2. Add your scm url&rsquo;s to pom.xml</h5>
+<h5 id="1-create-a-maven-project-and-add-your-dependencies">1. Create a maven project and add your dependencies.</h5>
+
+<h5 id="2-add-your-scm-url-s-to-pom-xml">2. Add your scm url&rsquo;s to pom.xml</h5>
 
 <pre><code class="xml">
 &lt;scm&gt;
@@ -121,7 +121,7 @@ The example project is <a href="https://github.com/erkanerol/versioning_javaee_m
 &lt;/scm&gt;
 </code></pre>
 
-<h5 id="3-define-time-format-in-pom:64f1b32d3d75573502676ca900d4fe56">3. Define time format in pom.</h5>
+<h5 id="3-define-time-format-in-pom">3. Define time format in pom.</h5>
 
 <pre><code class="xml">
 &lt;properties&gt;
@@ -134,7 +134,7 @@ The example project is <a href="https://github.com/erkanerol/versioning_javaee_m
 &lt;/properties&gt;
 </code></pre>
 
-<h5 id="4-add-mojo-plugin-in-pom-xml:64f1b32d3d75573502676ca900d4fe56">4. Add mojo plugin  in pom.xml</h5>
+<h5 id="4-add-mojo-plugin-in-pom-xml">4. Add mojo plugin  in pom.xml</h5>
 
 <pre><code class="xml">
 &lt;plugin&gt;
@@ -157,14 +157,14 @@ The example project is <a href="https://github.com/erkanerol/versioning_javaee_m
 &lt;/plugin&gt;
 </code></pre>
 
-<h5 id="5-add-version-properties-to-your-resource-directory:64f1b32d3d75573502676ca900d4fe56">5. Add version.properties to your resource directory</h5>
+<h5 id="5-add-version-properties-to-your-resource-directory">5. Add version.properties to your resource directory</h5>
 
 <pre><code>
 version=${version}.${buildNumber}
 versionLong=${version}.${buildNumber}.${buildDate}
 </code></pre>
 
-<h5 id="6-add-your-resource-folder-in-pom-xml:64f1b32d3d75573502676ca900d4fe56">6. Add your resource folder in pom.xml</h5>
+<h5 id="6-add-your-resource-folder-in-pom-xml">6. Add your resource folder in pom.xml</h5>
 
 <pre><code class="xml">
 &lt;resources&gt;
@@ -178,7 +178,7 @@ versionLong=${version}.${buildNumber}.${buildDate}
 &lt;/resources&gt;
 </code></pre>
 
-<h5 id="7-create-an-application-scoped-bean:64f1b32d3d75573502676ca900d4fe56">7. Create an application scoped bean</h5>
+<h5 id="7-create-an-application-scoped-bean">7. Create an application scoped bean</h5>
 
 <pre><code class="java">
 
@@ -237,19 +237,18 @@ public class VersionBean implements Serializable {
 
 </code></pre>
 
-<h5 id="8-use-the-bean-in-your-application:64f1b32d3d75573502676ca900d4fe56">8. Use the bean in your application.</h5>
+<h5 id="8-use-the-bean-in-your-application">8. Use the bean in your application.</h5>
 
 <pre><code>
 &lt;h:outputText value="version #{versionBean.version}" /&gt;
 &lt;h:outputText value="long version #{versionBean.versionLong}" /&gt;
 </code></pre>
 
-<h2 id="recommendations:64f1b32d3d75573502676ca900d4fe56">Recommendations</h2>
+<h2 id="recommendations">Recommendations</h2>
 
 <p>Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &ldquo;/version.jsf&rdquo;.
 If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
 You can put the version in name of war file. It makes easy to store executable files.</p>
-
   </div>
   <div id="disqus_thread"></div>
 </div>

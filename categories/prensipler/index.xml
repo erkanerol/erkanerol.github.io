@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Prensipler on Blog</title>
-    <link>https://erkanerol.github.io/categories/prensipler/</link>
-    <description>Recent content in Prensipler on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/prensipler/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Thu, 02 Jun 2016 20:23:06 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/prensipler/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,15 +14,13 @@
       <pubDate>Thu, 02 Jun 2016 20:23:06 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/dryprinciple/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;NOT: Bu yazı The Pragmatic Programmer kitabındaki &amp;ldquo;The Evils of Duplication&amp;rdquo; bölümünden yararlanılarak yazılmıştır.&lt;/p&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
 &lt;p&gt;DRY&lt;/p&gt;
 
@@ -31,11 +28,13 @@
 
 &lt;p&gt;Keep Things Dry&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
 
 &lt;p&gt;Don&amp;rsquo;t repeat yourself&lt;/p&gt;
 
-&lt;h2 id=&#34;açıklama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
 &lt;p&gt;DRY prensibi yazılımın en temel prensiplerinden biridir. &amp;ldquo;Kendini tekrar etme&amp;rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.&lt;/p&gt;
 
@@ -119,7 +118,7 @@ public class MyEntity {
 
 &lt;p&gt;Tipler, Nedenler ve Çözüm Önerileri&lt;/p&gt;
 
-&lt;h3 id=&#34;1-zorla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;1-zorla-tekrarlama&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.&lt;/p&gt;
 
@@ -128,27 +127,26 @@ b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yor
 c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
 d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.&lt;/p&gt;
 
-&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.&lt;/p&gt;
 
-&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )&lt;/p&gt;
 
-&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.&lt;/p&gt;
 
-&lt;h3 id=&#34;kaynakça:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Kaynakça&lt;/h3&gt;
+&lt;h3 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Hunt, Andrew, and David Thomas. &amp;ldquo;7. The Evils of Duplication.&amp;rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.kurumsaljava.com/2009/11/17/dry/&#34;&gt;http://www.kurumsaljava.com/2009/11/17/dry/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -157,22 +155,22 @@ d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bil
       <pubDate>Wed, 25 May 2016 22:46:50 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/yagniprinciple/</guid>
-      <description>
+      <description>&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
 
-&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
-
-&lt;h2 id=&#34;programlama-prensibi:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
 &lt;p&gt;YAGNI&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
 
 &lt;p&gt;You Aren’t Gonna Need It
 You Aint Gonna Need It&lt;/p&gt;
 
-&lt;h2 id=&#34;açıklama:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
 &lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Diyelim ki projemize bir &amp;ldquo;oturum açma&amp;rdquo; özelliği ekliyoruz. O anda bizden istenen şey kullanıcıların kullanıcı adı ve şifreleri ile giriş yapabilmelerini sağlayan bir özellik. Fakat biz &amp;ldquo;ilerde lazım olur&amp;rdquo; düşüncesi ile facebook ile de oturum açılmasını sağlayabilecek şekilde geliştiriyoruz arka taraftaki methodlarımızı. İşte tam bu noktada YAGNI diyor ki &amp;ldquo;YAPMA&amp;rdquo;.  Peki neden?&lt;/p&gt;
 
@@ -188,21 +186,20 @@ You Aint Gonna Need It&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/yagni.png&#34; title=&#34;YAGNI&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;ölçü:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Ölçü&lt;/h2&gt;
+&lt;h2 id=&#34;ölçü&#34;&gt;Ölçü&lt;/h2&gt;
 
 &lt;p&gt;YAGNI prensibinin ne zaman geçerli olduğu konusu biraz göreceli fakat kısaca şöyle denebilir: Varsaydığımız özelliğin büyüklüğü arttıkça YAGNI prensibinin önemi artar. 1-2 saatlik bir iş yapılacaksa ve bu ilerde bir kaç günlük bir geliştirmeyi karşılayacaksa bunda çok sakınca olmayabilir fakat bu süre uzadıkça riskleriniz artar.&lt;/p&gt;
 
 &lt;p&gt;Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına gelmez. Aksine YAGNI bir Extreme Programming prensibidir ve XP&amp;rsquo;nin en önemli pratiklerinden biri Refactoring&amp;rsquo;dir. XP kodun kolay değiştirilebilir olmasını öğütler. Bol bol refactoring yaparak kodumuzu temiz tuttuğumuzda, methodlarımızı parametrik yazdığımızda zaten özellikleri sonradan eklemek bize çok maliyet getirmez. Bu anlamda YAGNI esnek kod yazma ile çatışmaz, uyum içerisindedir.&lt;/p&gt;
 
-&lt;h2 id=&#34;kaynakça:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;http://martinfowler.com/bliki/Yagni.html&#34;&gt;http://martinfowler.com/bliki/Yagni.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#yagni&#34;&gt;http://webpro.github.io/programming-principles/#yagni&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.extremeprogramming.org/rules/early.html&#34;&gt;http://www.extremeprogramming.org/rules/early.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://c2.com/xp/YouArentGonnaNeedIt.html&#34;&gt;http://c2.com/xp/YouArentGonnaNeedIt.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -211,19 +208,19 @@ You Aint Gonna Need It&lt;/p&gt;
       <pubDate>Sat, 14 May 2016 16:15:53 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/kiss/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Basitlik nihai karmaşıklıktır.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
 &lt;p&gt;KISS&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;Keep It Simple, Stupid&amp;rdquo;&lt;/li&gt;
@@ -233,7 +230,7 @@ You Aint Gonna Need It&lt;/p&gt;
 &lt;li&gt;&amp;ldquo;Keep It Small and Simple&amp;rdquo;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;açıklama:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
 &lt;p&gt;KISS, basitlik için çabalamayı öneren bir prensiptir. 1960&amp;rsquo;lı yıllarda Amerikan donanmasında ilk olarak ifade edilen bu prensip günümüzde en önemli programlama prensiplerinden biridir. Bir problemi çözerken olabilecek en basit ve yalın çözümü seçmeyi önerir. Hatta o kadar basit olmalıdır ki ilk bakışta &amp;ldquo;Bunu bir aptal bile yapar ve anlar&amp;rdquo; demeliyiz.&lt;/p&gt;
 
@@ -248,7 +245,7 @@ You Aint Gonna Need It&lt;/p&gt;
 &lt;li&gt;Basit çözümler kolay değiştirilebilir. Çevik olma açısından gereklidir.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;yöntemler:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Yöntemler&lt;/h2&gt;
+&lt;h2 id=&#34;yöntemler&#34;&gt;Yöntemler&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Zekanızı kodun karmaşıklığı üzerinden göstemeyin.&lt;/li&gt;
@@ -260,15 +257,14 @@ You Aint Gonna Need It&lt;/p&gt;
 &lt;li&gt;Kodu yeniden düzenlemekten çekinmeyin. IDE&amp;rsquo;lerin de yardımıyla kodunuzu sık sık bölüp, sadeleştirin.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kaynakça:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;http://principles-wiki.net/principles:keep_it_simple_stupid&#34;&gt;http://principles-wiki.net/principles:keep_it_simple_stupid&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/KISS_principle&#34;&gt;https://en.wikipedia.org/wiki/KISS_principle&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://people.apache.org/~fhanik/kiss.html&#34;&gt;https://people.apache.org/~fhanik/kiss.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&#34;&gt;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

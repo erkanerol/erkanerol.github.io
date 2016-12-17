@@ -94,15 +94,13 @@
     <br/>
     <a class="label" href="https://erkanerol.github.io/categories/software">Software</a><a class="label" href="https://erkanerol.github.io/categories/prensipler">Prensipler</a>
     </span>
-    
-
-<blockquote>
+    <blockquote>
 <p>Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p>
 </blockquote>
 
 <p>NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.</p>
 
-<h2 id="programlama-prensibi:d0614ac1fa1cc14179708291a9502c82">Programlama Prensibi</h2>
+<h2 id="programlama-prensibi">Programlama Prensibi</h2>
 
 <p>DRY</p>
 
@@ -110,11 +108,13 @@
 
 <p>Keep Things Dry</p>
 
-<h2 id="açılımlar:d0614ac1fa1cc14179708291a9502c82">Açılımlar</h2>
+<p></p>
+
+<h2 id="açılımlar">Açılımlar</h2>
 
 <p>Don&rsquo;t repeat yourself</p>
 
-<h2 id="açıklama:d0614ac1fa1cc14179708291a9502c82">Açıklama</h2>
+<h2 id="açıklama">Açıklama</h2>
 
 <p>DRY prensibi yazılımın en temel prensiplerinden biridir. &ldquo;Kendini tekrar etme&rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.</p>
 
@@ -198,7 +198,7 @@ public class MyEntity {
 
 <p>Tipler, Nedenler ve Çözüm Önerileri</p>
 
-<h3 id="1-zorla-tekrarlama:d0614ac1fa1cc14179708291a9502c82">1. Zorla Tekrarlama</h3>
+<h3 id="1-zorla-tekrarlama">1. Zorla Tekrarlama</h3>
 
 <p>Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.</p>
 
@@ -207,19 +207,19 @@ b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yor
 c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
 d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.</p>
 
-<h3 id="2-yanlışlıkla-tekrarlama:d0614ac1fa1cc14179708291a9502c82">2. Yanlışlıkla Tekrarlama</h3>
+<h3 id="2-yanlışlıkla-tekrarlama">2. Yanlışlıkla Tekrarlama</h3>
 
 <p>Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.</p>
 
-<h3 id="3-sabırsızlıktan-tekrarlama:d0614ac1fa1cc14179708291a9502c82">3. Sabırsızlıktan Tekrarlama</h3>
+<h3 id="3-sabırsızlıktan-tekrarlama">3. Sabırsızlıktan Tekrarlama</h3>
 
 <p>Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )</p>
 
-<h3 id="4-geliştiriciler-arası-tekrarlama:d0614ac1fa1cc14179708291a9502c82">4. Geliştiriciler Arası Tekrarlama</h3>
+<h3 id="4-geliştiriciler-arası-tekrarlama">4. Geliştiriciler Arası Tekrarlama</h3>
 
 <p>Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.</p>
 
-<h3 id="kaynakça:d0614ac1fa1cc14179708291a9502c82">Kaynakça</h3>
+<h3 id="kaynakça">Kaynakça</h3>
 
 <ol>
 <li>Hunt, Andrew, and David Thomas. &ldquo;7. The Evils of Duplication.&rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.</li>
@@ -227,7 +227,6 @@ d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bil
 <li><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
 <li><a href="https://learn.jquery.com/code-organization/dont-repeat-yourself/">https://learn.jquery.com/code-organization/dont-repeat-yourself/</a></li>
 </ol>
-
   </div>
   <div id="disqus_thread"></div>
 </div>

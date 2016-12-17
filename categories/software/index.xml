@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Software on Blog</title>
-    <link>https://erkanerol.github.io/categories/software/</link>
-    <description>Recent content in Software on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/software/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Wed, 23 Nov 2016 23:11:42 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -16,6 +15,8 @@
       
       <guid>https://erkanerol.github.io/post/misuse-inheritance/</guid>
       <description>&lt;p&gt;Geçenlerde &amp;ldquo;Composition over Inheritance&amp;rdquo; ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında bir makaleye denk geldim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Makalede geçen iki kod parçasına bir an bakalım.&lt;/p&gt;
 
@@ -41,8 +42,7 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
 
 &lt;p&gt;Cevaplar ve ayrıntılar için makaleyi okumanızı şiddetle öneririm. Yazar gayet güzel anlatmış. Benim için aydınlanma olan kısmı &amp;ldquo;cross-domain inheritance relationship&amp;rdquo; olarak ifade edilen kısımdı. Okuduğum kodlardan gelen ezberlerim vardı ve kodu ben yazsaydım zaten böyle yazmazdım. Ama zihnimde bu ayrımı bu kadar net yapmamıştım hiç.&lt;/p&gt;
 
-&lt;p&gt;Makalenin linkini &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;veriyor&lt;/a&gt;  ve iyi okumalar diliyorum.&lt;/p&gt;
-</description>
+&lt;p&gt;Makalenin linkini &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;veriyor&lt;/a&gt;  ve iyi okumalar diliyorum.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,13 +51,13 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
       <pubDate>Thu, 29 Sep 2016 22:27:32 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/cohesion-coupling/</guid>
-      <description>
-
-&lt;h2 id=&#34;giriş:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Giriş&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;giriş&#34;&gt;Giriş&lt;/h2&gt;
 
 &lt;p&gt;Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.&lt;/p&gt;
 
-&lt;h3 id=&#34;diyelim-ki:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Diyelim ki&amp;hellip;&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;diyelim-ki&#34;&gt;Diyelim ki&amp;hellip;&lt;/h3&gt;
 
 &lt;p&gt;Diyelim ki bir yazılım geliştiriyoruz. Yazılımımızın yapması gereken belirli işler var. Bu işleri yapabilmek için irili ufaklı onlarca/yüzlerce/binlerce fonksiyona ihtiyacımız var. Bunların rastgele bir fonksiyon uzayında yer aldığını düşünelim.&lt;/p&gt;
 
@@ -65,7 +65,7 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
 
 &lt;p&gt;Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor olabilirler, aynı veri yapılarını kullanıyor olabilirler, aynı fonsiyonlara bağımlılıkları olabilir vs. Şimdilik o kısmı bir kenara bırakıyoruz ve şu soruya odaklanıyoruz. Bunlar yazılımımızda bu şekilde mi bulunur? Böyle dağınık, başıboş, düzensiz :( Elbette bunları gruplara ayırır, modüllerin içine koyarız değil mi? Java açısından baktığımızda bunları sınıfların(classes) içine koyarız, paketleme yaparız. Olmadı bunları modüllere/projelere ayırır, build araçları ile birbirine bağlarız.&lt;/p&gt;
 
-&lt;h3 id=&#34;deneme-bir-ki:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
+&lt;h3 id=&#34;deneme-bir-ki&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
 
 &lt;p&gt;Kabaca fonksiyonları modüllere ayırmaya çalışalım.&lt;/p&gt;
 
@@ -75,7 +75,7 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
 
 &lt;p&gt;Modüllere ayırırken nasıl ayırırız? Neyi amaçlarız? Hedefimiz nedir? Ne kadar büyük olmalılar? Aradaki ilişkiler nasıl olmalı?&lt;/p&gt;
 
-&lt;h3 id=&#34;amaç:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Amaç&lt;/h3&gt;
+&lt;h3 id=&#34;amaç&#34;&gt;Amaç&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Öğelerimizi modüllere ayırırken genel olarak izlediğimiz prensip şu: Bir değişiklik yapmamız gerekiyorsa sadece bir yerde yapmamız gerekmeli, bir yeri değiştirmemiz gerekiyorsa bunun sadece bir nedeni olmalı.&lt;/strong&gt;&lt;/p&gt;
 
@@ -96,13 +96,13 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/ideal.png&#34; title=&#34;ideal&#34;/&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;tanımlar:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Tanımlar&lt;/h3&gt;
+&lt;h3 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h3&gt;
 
 &lt;p&gt;Bir modülün içindeki öğelerin birlikteliğini ve modülün odaklılığını ifade etmek için kullandığımız kavram &lt;strong&gt;cohesion&lt;/strong&gt;. Düşük cohesion dediğimizde bu birlikteliğin zayıflığını, yüksek cohesion dediğimizde bu birlikteliğin yüksekliğini ifade ederiz. Az önce anlattığım üzere hedef olabildiğince yüksek (&lt;strong&gt;high cohesion&lt;/strong&gt;) olmasıdır.&lt;/p&gt;
 
 &lt;p&gt;Modüllerin arasındaki irtibatı ifade etmek için kullandığımız kavram da &lt;strong&gt;coupling&lt;/strong&gt;. Düşük coupling modüllerin daha bağımsız olduğunu, yüksek coupling birbirlerine daha bağlı olduğunu ifade eder. Hedef olabildiğince düşük (&lt;strong&gt;low coupling&lt;/strong&gt;) olmasıdır. İlk şekildeki modüllerin arasındaki okların olabildiğinca az ve zayıf olmasıdır.&lt;/p&gt;
 
-&lt;h3 id=&#34;deneme-bir-ki-1:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
+&lt;h3 id=&#34;deneme-bir-ki-1&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/modules2.png&#34; title=&#34;Modules2&#34;/&gt;&lt;/p&gt;
 
@@ -110,7 +110,7 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
 
 &lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;cohesion-çeşitleri:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Cohesion Çeşitleri&lt;/h3&gt;
+&lt;h3 id=&#34;cohesion-çeşitleri&#34;&gt;Cohesion Çeşitleri&lt;/h3&gt;
 
 &lt;p&gt;Sevgili büyüklerimiz, yazılımcılar modülleri nasıl oluşturuyor, ne tür cohesion oluşturma tipleri var gibi bir araştırma yapmış ve şu tipleri bulmuşlar.&lt;/p&gt;
 
@@ -135,7 +135,7 @@ Birbirleriyle girdi-çıktı ilişkisi olan, sıralı işlemlerin aynı modülle
 &lt;p&gt;&lt;strong&gt;Fonksiyonel (Functional):&lt;/strong&gt;
 Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya getirilmesi ile modüllerin oluşturulmasıdır. XML formatındaki bir string&amp;rsquo;i parse eden bir modül örneğin. &lt;strong&gt;En iyisi budur.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;şunlara-bakılabilir:fc55cfebb6706ae110ddffc0136adcbe&#34;&gt;Şunlara bakılabilir&lt;/h3&gt;
+&lt;h3 id=&#34;şunlara-bakılabilir&#34;&gt;Şunlara bakılabilir&lt;/h3&gt;
 
 &lt;p&gt;Bu konu epey uzun. Daha çok okumak ve öğrenmek isteyenlere aşağıdaki linkleri verip konuyu kapatalım.&lt;/p&gt;
 
@@ -145,8 +145,7 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
 &lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#minimise-coupling&#34;&gt;Minimise Coupling&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.cs.toronto.edu/~penny/teaching/csc407-02s/lectures/04structured-design.pdf&#34;&gt;Structured Design - CSC407&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719&#34;&gt;Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design - Yourdon Press , Larry L. Constantine&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -155,9 +154,7 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
       <pubDate>Thu, 09 Jun 2016 00:00:00 +0200</pubDate>
       
       <guid>https://erkanerol.github.io/post/abstract-factory-design-pattern/</guid>
-      <description>
-
-&lt;h2 id=&#34;amaç:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Amaç&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;amaç&#34;&gt;Amaç&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Elimizde benzer ve ilişkili nesneler var ve bunları somut sınıflarını belirtmeden oluşturmak için bir arayüz istiyoruz&lt;/li&gt;
@@ -165,21 +162,23 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
 &lt;li&gt;new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;sorun:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Sorun&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sorun&#34;&gt;Sorun&lt;/h2&gt;
 
 &lt;p&gt;Yazdığımız uygulamanın değişik platformlarda çalışmasını istediğimizde bu platformlara özgü farklılıklar sorun oluşturur ve nesne yaratımlarında bu farklılıkları ele almamız gerekir. Örneğin, windows işletim sistemindeki arayüz birleşenleri ile ubuntu işletim sistemindekler arasında ciddi farklar vardır ve biz her yeni birleşen oluşturma esnasında platformu kontrol etmek, ona göre farklı şekilde yaratmak istemeyiz. Bir arayüz tasarlamak ve bu ortak arayüz üzerinden bütün nesneleri yaratmak ve kullanmak isteriz. Platforma özgü sınıflar bu arayüzü destekleyecek şekilde kendi birleşenlerini oluşturacak işlevselliği sağlarlar.&lt;/p&gt;
 
-&lt;h2 id=&#34;yöntem:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Yöntem&lt;/h2&gt;
+&lt;h2 id=&#34;yöntem&#34;&gt;Yöntem&lt;/h2&gt;
 
 &lt;p&gt;Bu tasarım şablonunda nesnelerin sınıflarını ve nesneleri üreten üretici sınıfları soyutlamamız gerekir. Bu nesneler kullanıcılar (clients) tarafından doğrudan oluşturulmayıp nesne üretici (fabrika) sınıflar vasıtası ile üretilirler.&lt;/p&gt;
 
-&lt;h2 id=&#34;yapı:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Yapı&lt;/h2&gt;
+&lt;h2 id=&#34;yapı&#34;&gt;Yapı&lt;/h2&gt;
 
 &lt;p&gt;Abstract Factory her bir ürün için bir Factory Method (makeProductOne,makeProductTwo vb.) tanımlar. Her Factory Method new operatörünü ve platforma özgü ürün sınıflarını sarmalar. Her platform fabrika sınıflarıyla modellenir.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Abstract_Factory-2x.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;örnek:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Örnek&lt;/h2&gt;
+&lt;h2 id=&#34;örnek&#34;&gt;Örnek&lt;/h2&gt;
 
 &lt;p&gt;Örneğimizde Ubuntu ve Windows platformları için UI birleşenleri üreten bir Abstract Factory şablonu oluşturalım. Bu örnekte platformlardan bağımsız bir şekilde pencere ve buton üreten bir yapı kuralım. Örneğin UML diagramı ve kodu aşağıda mevcuttur.&lt;/p&gt;
 
@@ -194,7 +193,7 @@ Pencere arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
 Abstract Factory ve Windows+Ubuntu Platformları için fabrika sınıfları
 &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;kod:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kod&lt;/h2&gt;
+&lt;h2 id=&#34;kod&#34;&gt;Kod&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;
 public interface Button {
@@ -357,7 +356,7 @@ public class Client {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;kontrol-listesi:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kontrol Listesi&lt;/h2&gt;
+&lt;h2 id=&#34;kontrol-listesi&#34;&gt;Kontrol Listesi&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Platformdan bağımsızlık ve nesnelerin oluşturulması sorun oluşturuyor ise bu şablonu kullanın&lt;/li&gt;
@@ -367,7 +366,7 @@ public class Client {
 &lt;li&gt;Kullanıcı sınıflar (clients) bu nesneleri new  operatörü ile oluşturmamalı ve fabrika sınıflarının arayüzlerini kullanmalı&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;genel-kabul-görmüş-kurallar:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Genel Kabul Görmüş Kurallar&lt;/h2&gt;
+&lt;h2 id=&#34;genel-kabul-görmüş-kurallar&#34;&gt;Genel Kabul Görmüş Kurallar&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Zaman zaman aynı sorunu çözmek için farklı oluştucu tasarım şablonları kullanılabilir. Prototype veya Abstract Factory şablonlarından hangisi daha uygunsa o kullanılır. Diğer zamanlarda oluşturucu tasarım şablonları birbirlerinin tamamlayıcısıdırlar. Abstract Factory şablonunda nesne yaratmak için Prototype şablonu kullanılabilir. Builder şablonu hangi birleşenlerin yaratılacağına karar verme kısmında kullanılabilir. Abstract Factory, Builder ve Prototype şablonları kendi uygulamalarında (implementation) Singleton şablonunu kullanabilirler.&lt;/li&gt;
@@ -378,11 +377,11 @@ public class Client {
 &lt;li&gt;Tasarımlar genelde Factory Method (daha basit, daha özelleştilebilir) kullanılarak başlasa da tasarımcılar daha fazla esnekliğe*  ihtiyaç duyduklarını farkettiklerinde tasarım zamanla Abstract Factory, Prototype veya Builder (daha esnek ve daha karmaşık) şablonlarına evrilir.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;repo:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Repo&lt;/h2&gt;
+&lt;h2 id=&#34;repo&#34;&gt;Repo&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/design-patterns/tree/master/src/com/erkanerol/examples/abstractfactory&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;kaynakça:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sourcemaking.com&#34;&gt;https://sourcemaking.com&lt;/a&gt;&lt;/li&gt;
@@ -390,8 +389,7 @@ public class Client {
 
 &lt;p&gt;&lt;strong&gt;Önemli Not 1:&lt;/strong&gt; sourcemaking.com sitesinde  About Us sayfasında &amp;ldquo;We also welcome translation.&amp;rdquo; ibaresi yer almaktadır. Bu yazının yazılmasında/çevrilmesinde herhangi bir ticari amaç bulunmamaktadır.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Önemli Not 2:&lt;/strong&gt; Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;strong&gt;Önemli Not 2:&lt;/strong&gt; Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -400,15 +398,13 @@ public class Client {
       <pubDate>Thu, 02 Jun 2016 20:23:06 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/dryprinciple/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;NOT: Bu yazı The Pragmatic Programmer kitabındaki &amp;ldquo;The Evils of Duplication&amp;rdquo; bölümünden yararlanılarak yazılmıştır.&lt;/p&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
 &lt;p&gt;DRY&lt;/p&gt;
 
@@ -416,11 +412,13 @@ public class Client {
 
 &lt;p&gt;Keep Things Dry&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
 
 &lt;p&gt;Don&amp;rsquo;t repeat yourself&lt;/p&gt;
 
-&lt;h2 id=&#34;açıklama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
 &lt;p&gt;DRY prensibi yazılımın en temel prensiplerinden biridir. &amp;ldquo;Kendini tekrar etme&amp;rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.&lt;/p&gt;
 
@@ -504,7 +502,7 @@ public class MyEntity {
 
 &lt;p&gt;Tipler, Nedenler ve Çözüm Önerileri&lt;/p&gt;
 
-&lt;h3 id=&#34;1-zorla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;1-zorla-tekrarlama&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.&lt;/p&gt;
 
@@ -513,27 +511,26 @@ b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yor
 c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
 d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.&lt;/p&gt;
 
-&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.&lt;/p&gt;
 
-&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )&lt;/p&gt;
 
-&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama:d0614ac1fa1cc14179708291a9502c82&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
+&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
 
 &lt;p&gt;Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.&lt;/p&gt;
 
-&lt;h3 id=&#34;kaynakça:d0614ac1fa1cc14179708291a9502c82&#34;&gt;Kaynakça&lt;/h3&gt;
+&lt;h3 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Hunt, Andrew, and David Thomas. &amp;ldquo;7. The Evils of Duplication.&amp;rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.kurumsaljava.com/2009/11/17/dry/&#34;&gt;http://www.kurumsaljava.com/2009/11/17/dry/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -542,22 +539,22 @@ d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bil
       <pubDate>Wed, 25 May 2016 22:46:50 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/yagniprinciple/</guid>
-      <description>
+      <description>&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
 
-&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
-
-&lt;h2 id=&#34;programlama-prensibi:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
 &lt;p&gt;YAGNI&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
 
 &lt;p&gt;You Aren’t Gonna Need It
 You Aint Gonna Need It&lt;/p&gt;
 
-&lt;h2 id=&#34;açıklama:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
 &lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Diyelim ki projemize bir &amp;ldquo;oturum açma&amp;rdquo; özelliği ekliyoruz. O anda bizden istenen şey kullanıcıların kullanıcı adı ve şifreleri ile giriş yapabilmelerini sağlayan bir özellik. Fakat biz &amp;ldquo;ilerde lazım olur&amp;rdquo; düşüncesi ile facebook ile de oturum açılmasını sağlayabilecek şekilde geliştiriyoruz arka taraftaki methodlarımızı. İşte tam bu noktada YAGNI diyor ki &amp;ldquo;YAPMA&amp;rdquo;.  Peki neden?&lt;/p&gt;
 
@@ -573,21 +570,20 @@ You Aint Gonna Need It&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/yagni.png&#34; title=&#34;YAGNI&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;ölçü:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Ölçü&lt;/h2&gt;
+&lt;h2 id=&#34;ölçü&#34;&gt;Ölçü&lt;/h2&gt;
 
 &lt;p&gt;YAGNI prensibinin ne zaman geçerli olduğu konusu biraz göreceli fakat kısaca şöyle denebilir: Varsaydığımız özelliğin büyüklüğü arttıkça YAGNI prensibinin önemi artar. 1-2 saatlik bir iş yapılacaksa ve bu ilerde bir kaç günlük bir geliştirmeyi karşılayacaksa bunda çok sakınca olmayabilir fakat bu süre uzadıkça riskleriniz artar.&lt;/p&gt;
 
 &lt;p&gt;Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına gelmez. Aksine YAGNI bir Extreme Programming prensibidir ve XP&amp;rsquo;nin en önemli pratiklerinden biri Refactoring&amp;rsquo;dir. XP kodun kolay değiştirilebilir olmasını öğütler. Bol bol refactoring yaparak kodumuzu temiz tuttuğumuzda, methodlarımızı parametrik yazdığımızda zaten özellikleri sonradan eklemek bize çok maliyet getirmez. Bu anlamda YAGNI esnek kod yazma ile çatışmaz, uyum içerisindedir.&lt;/p&gt;
 
-&lt;h2 id=&#34;kaynakça:2db6997b7e4e28f4bef7f95c364f67ee&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;http://martinfowler.com/bliki/Yagni.html&#34;&gt;http://martinfowler.com/bliki/Yagni.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#yagni&#34;&gt;http://webpro.github.io/programming-principles/#yagni&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.extremeprogramming.org/rules/early.html&#34;&gt;http://www.extremeprogramming.org/rules/early.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://c2.com/xp/YouArentGonnaNeedIt.html&#34;&gt;http://c2.com/xp/YouArentGonnaNeedIt.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -596,9 +592,7 @@ You Aint Gonna Need It&lt;/p&gt;
       <pubDate>Tue, 17 May 2016 15:56:13 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;So, why this book now? Well, we’ve overloaded our profession with resources. There is more information available about our revolution than any one person can absorb. Still, some people manage to do it. They internalize all the advice available to them and always seem to have it close at hand. How do they do achieve that level of mastery? This book is full of patterns for mastering our complex field. Mastering is more than just knowing. It is knowing in a way that lightens your load.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -606,9 +600,11 @@ You Aint Gonna Need It&lt;/p&gt;
 TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şiddetle tavsiye ediyorum.
 &lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/apprenticeship-cover.png&#34; title=&#34;Apprenticeship Patterns&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;tanıtım:c384b087910c43172fdcea43b3e304eb&#34;&gt;Tanıtım&lt;/h2&gt;
+&lt;h2 id=&#34;tanıtım&#34;&gt;Tanıtım&lt;/h2&gt;
 
 &lt;p&gt;Benim gözümde yazılımcılar ikiye ayrılıyor.
 1. Para karşılığı bir süre kod yazan ve 40 yaşında kod yazmak istemeyenler.
@@ -626,17 +622,17 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 &lt;li&gt;See Also: &amp;ldquo;The Deep End&amp;rdquo; ve &amp;ldquo;The Long Road&amp;rdquo; isimli şablonlara da bakabilirsiniz.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kitapta-bulunan-bütün-şablonlar:c384b087910c43172fdcea43b3e304eb&#34;&gt;Kitapta Bulunan Bütün Şablonlar&lt;/h2&gt;
+&lt;h2 id=&#34;kitapta-bulunan-bütün-şablonlar&#34;&gt;Kitapta Bulunan Bütün Şablonlar&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/apprenticeship-patterns.png&#34; title=&#34;Apprenticeship Patterns&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;kişisel-yorumlarım:c384b087910c43172fdcea43b3e304eb&#34;&gt;Kişisel Yorumlarım&lt;/h2&gt;
+&lt;h2 id=&#34;kişisel-yorumlarım&#34;&gt;Kişisel Yorumlarım&lt;/h2&gt;
 
 &lt;p&gt;Ben kitaptaki bir çok şablonun benim durumuma uyduğunu gördüm ve çözüm önerilerini çok mantıklı buldum. Elimden geldiğince uygulamaya çalışacağım. Bu kitap aslında sadece belirli durumlara ilişkin yapılacaklar listesi değil. Kitabın tamamını okuduğunuzda yazılım alanında nasıl iyi bir yazılımcı olunabileceğine dair bir fikriniz oluyor. Mesleki gelişimin usûl esaslarını tanımlıyor ki usûlü esastan her daim önde tutan biri olarak ( bkz: usûl esasa mukaddemdir) benim en sevdiğim kısmı bu oldu. Yani kitap size şu kitapları okuyun demiyor, hangi kitapları okumanız gerektiğini nasıl anlayacağınızı anlatıyor. Yazılım geliştirmenin sadece bir dil/framework/kütüphane/araç bilmek olmadığını, işin ciddi bir felsefesi olduğunu anlamak açısından da oldukça faydalı. Bu arada bunları bilmenin ne kadar önemli olduğuna dair pek çok şablon var. Öyle kuru felsefeyle kalma diyor yani :) Benim yorumlamam bu kadar. Aşağıda altını çizdiğim bazı yerler var.&lt;/p&gt;
 
 &lt;p&gt;Paylaşım linkleri aşağıda mevcuttur. Bu kitap çok önemli. Elden ele yayalım :)&lt;/p&gt;
 
-&lt;h2 id=&#34;alıntılarım-spoiler:c384b087910c43172fdcea43b3e304eb&#34;&gt;Alıntılarım (SPOILER!!!)&lt;/h2&gt;
+&lt;h2 id=&#34;alıntılarım-spoiler&#34;&gt;Alıntılarım (SPOILER!!!)&lt;/h2&gt;
 
 &lt;p&gt;Apprentices are people who are willing to take on a junior role that maximizes their learning opportunities, as opposed to people who try to climb as quickly as they can into roles that maximize their financial opportunities. In my experience, if the apprentice has talent and the right attitude, their financial success will inevitably follow their learning success.&lt;/p&gt;
 
@@ -981,8 +977,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 
 &lt;p&gt;==========&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;there are no masters&amp;hellip;yet.&lt;/strong&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;strong&gt;there are no masters&amp;hellip;yet.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -991,19 +986,19 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
       <pubDate>Sat, 14 May 2016 16:15:53 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/kiss/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Basitlik nihai karmaşıklıktır.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;programlama-prensibi:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Programlama Prensibi&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
 
 &lt;p&gt;KISS&lt;/p&gt;
 
-&lt;h2 id=&#34;açılımlar:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açılımlar&lt;/h2&gt;
+&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;Keep It Simple, Stupid&amp;rdquo;&lt;/li&gt;
@@ -1013,7 +1008,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;&amp;ldquo;Keep It Small and Simple&amp;rdquo;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;açıklama:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Açıklama&lt;/h2&gt;
+&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
 &lt;p&gt;KISS, basitlik için çabalamayı öneren bir prensiptir. 1960&amp;rsquo;lı yıllarda Amerikan donanmasında ilk olarak ifade edilen bu prensip günümüzde en önemli programlama prensiplerinden biridir. Bir problemi çözerken olabilecek en basit ve yalın çözümü seçmeyi önerir. Hatta o kadar basit olmalıdır ki ilk bakışta &amp;ldquo;Bunu bir aptal bile yapar ve anlar&amp;rdquo; demeliyiz.&lt;/p&gt;
 
@@ -1028,7 +1023,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Basit çözümler kolay değiştirilebilir. Çevik olma açısından gereklidir.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;yöntemler:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Yöntemler&lt;/h2&gt;
+&lt;h2 id=&#34;yöntemler&#34;&gt;Yöntemler&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Zekanızı kodun karmaşıklığı üzerinden göstemeyin.&lt;/li&gt;
@@ -1040,15 +1035,14 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Kodu yeniden düzenlemekten çekinmeyin. IDE&amp;rsquo;lerin de yardımıyla kodunuzu sık sık bölüp, sadeleştirin.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;kaynakça:420e591348e6c9d5196d6c45959f9c13&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;http://principles-wiki.net/principles:keep_it_simple_stupid&#34;&gt;http://principles-wiki.net/principles:keep_it_simple_stupid&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/KISS_principle&#34;&gt;https://en.wikipedia.org/wiki/KISS_principle&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://people.apache.org/~fhanik/kiss.html&#34;&gt;https://people.apache.org/~fhanik/kiss.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&#34;&gt;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -1057,15 +1051,15 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
       <pubDate>Mon, 14 Mar 2016 22:33:53 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/udacity-course/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Udacity üzerinden ücretsiz alabileceğiniz, yazılım mühendisliğine giriş niteliğindeki bu ders hali hazırda bildiğimiz bir çok şeyi içerse de bilmediğimiz bir çok püf noktasını da içinde barındırıyor. Özellikle yazılım geliştirmeye yeni başlamış herkesin alması gerektiğine inanıyorum.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Dersi &lt;a href=&#34;https://www.udacity.com/course/software-development-process--ud805&#34;&gt;şurada&lt;/a&gt; bulabilirsiniz. Ayrıca dersin içeriğini de aşağıya ekledim.&lt;/p&gt;
 
-&lt;h5 id=&#34;lesson-1-introduction-and-overview:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 1: Introduction and Overview&lt;/h5&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;lesson-1-introduction-and-overview&#34;&gt;Lesson 1: Introduction and Overview&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Importance of Software Engineering&lt;/li&gt;
@@ -1074,7 +1068,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Software Phases&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-2-life-cycle-models:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 2: Life Cycle Models&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-2-life-cycle-models&#34;&gt;Lesson 2: Life Cycle Models&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Introduction with Barry Bohem&lt;/li&gt;
@@ -1091,7 +1085,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Lifecycle Documents&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-3-integrated-development-environment:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 3: Integrated Development Environment&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-3-integrated-development-environment&#34;&gt;Lesson 3: Integrated Development Environment&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Eclipse Introduction&lt;/li&gt;
@@ -1103,7 +1097,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Eclipse Demo: Debugging&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-4-version-control-systems:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 4: Version Control Systems&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-4-version-control-systems&#34;&gt;Lesson 4: Version Control Systems&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Interview with John Britton&lt;/li&gt;
@@ -1118,7 +1112,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Git Recap: Remote Repositories&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-5-requirements-engineering:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 5: Requirements Engineering&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-5-requirements-engineering&#34;&gt;Lesson 5: Requirements Engineering&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Interview with Jane Cleland-Huang&lt;/li&gt;
@@ -1132,7 +1126,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Requirements Engineering Process&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-6-oo-software-and-uml:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 6: OO Software and UML&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-6-oo-software-and-uml&#34;&gt;Lesson 6: OO Software and UML&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Object Orientation Introduction&lt;/li&gt;
@@ -1146,7 +1140,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;UML Behavioral Diagrams: State Transition Diagram&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-7-software-architecture:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 7: Software Architecture&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-7-software-architecture&#34;&gt;Lesson 7: Software Architecture&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Interview with Nenad Medvidovic&lt;/li&gt;
@@ -1160,7 +1154,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Deployment Architectural Perspective&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-8-a-tale-of-analysis-and-design:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 8: A Tale of Analysis and Design&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-8-a-tale-of-analysis-and-design&#34;&gt;Lesson 8: A Tale of Analysis and Design&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Analyzing Requirements&lt;/li&gt;
@@ -1170,7 +1164,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Refining the Class Diagram&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-9-design-patterns:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 9: Design Patterns&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-9-design-patterns&#34;&gt;Lesson 9: Design Patterns&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Patterns Catalogue&lt;/li&gt;
@@ -1181,7 +1175,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Negative Design Patterns&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-10-unified-software-process:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 10: Unified Software Process&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-10-unified-software-process&#34;&gt;Lesson 10: Unified Software Process&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Use-Case Driven&lt;/li&gt;
@@ -1192,7 +1186,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Phases and Iterations&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-11-general-concepts:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 11: General Concepts&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-11-general-concepts&#34;&gt;Lesson 11: General Concepts&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Failure, Fault and Error&lt;/li&gt;
@@ -1204,7 +1198,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Black and White Box Testing Introduction&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-12-black-box-testing:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 12: Black-Box Testing&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-12-black-box-testing&#34;&gt;Lesson 12: Black-Box Testing&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Systematic Functional Testing Approach&lt;/li&gt;
@@ -1216,7 +1210,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Finite State Machines&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-13-white-box-testing:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 13: White-Box Testing&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-13-white-box-testing&#34;&gt;Lesson 13: White-Box Testing&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Coverage Criteria Intro&lt;/li&gt;
@@ -1226,7 +1220,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;MC/DC Coverage&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-14-agile-development-methods:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 14: Agile Development Methods&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-14-agile-development-methods&#34;&gt;Lesson 14: Agile Development Methods&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Cost of Change&lt;/li&gt;
@@ -1241,7 +1235,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;High Level Scrum Process&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&#34;lesson-15-software-refactoring:7929949883dbed75c597001fa4dc35a0&#34;&gt;Lesson 15: Software Refactoring&lt;/h5&gt;
+&lt;h5 id=&#34;lesson-15-software-refactoring&#34;&gt;Lesson 15: Software Refactoring&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Reasons to Refactor&lt;/li&gt;
@@ -1249,8 +1243,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 &lt;li&gt;Refactoring Risks&lt;/li&gt;
 &lt;li&gt;Cost of Refactoring&lt;/li&gt;
 &lt;li&gt;When Not to Refactor&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -1259,18 +1252,18 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
       <pubDate>Thu, 11 Feb 2016 22:02:50 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/versioning-git-maven/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;In this post, I will show how to version a JavaEE Web Application.
 The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_javaee_maven_git&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/screenshot.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&#34;1-create-a-maven-project-and-add-your-dependencies:64f1b32d3d75573502676ca900d4fe56&#34;&gt;1. Create a maven project and add your dependencies.&lt;/h5&gt;
+&lt;p&gt;&lt;/p&gt;
 
-&lt;h5 id=&#34;2-add-your-scm-url-s-to-pom-xml:64f1b32d3d75573502676ca900d4fe56&#34;&gt;2. Add your scm url&amp;rsquo;s to pom.xml&lt;/h5&gt;
+&lt;h5 id=&#34;1-create-a-maven-project-and-add-your-dependencies&#34;&gt;1. Create a maven project and add your dependencies.&lt;/h5&gt;
+
+&lt;h5 id=&#34;2-add-your-scm-url-s-to-pom-xml&#34;&gt;2. Add your scm url&amp;rsquo;s to pom.xml&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
 &amp;lt;scm&amp;gt;
@@ -1286,7 +1279,7 @@ The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_j
 &amp;lt;/scm&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;3-define-time-format-in-pom:64f1b32d3d75573502676ca900d4fe56&#34;&gt;3. Define time format in pom.&lt;/h5&gt;
+&lt;h5 id=&#34;3-define-time-format-in-pom&#34;&gt;3. Define time format in pom.&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
 &amp;lt;properties&amp;gt;
@@ -1299,7 +1292,7 @@ The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_j
 &amp;lt;/properties&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;4-add-mojo-plugin-in-pom-xml:64f1b32d3d75573502676ca900d4fe56&#34;&gt;4. Add mojo plugin  in pom.xml&lt;/h5&gt;
+&lt;h5 id=&#34;4-add-mojo-plugin-in-pom-xml&#34;&gt;4. Add mojo plugin  in pom.xml&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
 &amp;lt;plugin&amp;gt;
@@ -1322,14 +1315,14 @@ The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_j
 &amp;lt;/plugin&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;5-add-version-properties-to-your-resource-directory:64f1b32d3d75573502676ca900d4fe56&#34;&gt;5. Add version.properties to your resource directory&lt;/h5&gt;
+&lt;h5 id=&#34;5-add-version-properties-to-your-resource-directory&#34;&gt;5. Add version.properties to your resource directory&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;
 version=${version}.${buildNumber}
 versionLong=${version}.${buildNumber}.${buildDate}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;6-add-your-resource-folder-in-pom-xml:64f1b32d3d75573502676ca900d4fe56&#34;&gt;6. Add your resource folder in pom.xml&lt;/h5&gt;
+&lt;h5 id=&#34;6-add-your-resource-folder-in-pom-xml&#34;&gt;6. Add your resource folder in pom.xml&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
 &amp;lt;resources&amp;gt;
@@ -1343,7 +1336,7 @@ versionLong=${version}.${buildNumber}.${buildDate}
 &amp;lt;/resources&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;7-create-an-application-scoped-bean:64f1b32d3d75573502676ca900d4fe56&#34;&gt;7. Create an application scoped bean&lt;/h5&gt;
+&lt;h5 id=&#34;7-create-an-application-scoped-bean&#34;&gt;7. Create an application scoped bean&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;java&#34;&gt;
 
@@ -1402,19 +1395,18 @@ public class VersionBean implements Serializable {
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;8-use-the-bean-in-your-application:64f1b32d3d75573502676ca900d4fe56&#34;&gt;8. Use the bean in your application.&lt;/h5&gt;
+&lt;h5 id=&#34;8-use-the-bean-in-your-application&#34;&gt;8. Use the bean in your application.&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;
 &amp;lt;h:outputText value=&#34;version #{versionBean.version}&#34; /&amp;gt;
 &amp;lt;h:outputText value=&#34;long version #{versionBean.versionLong}&#34; /&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;recommendations:64f1b32d3d75573502676ca900d4fe56&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
 
 &lt;p&gt;Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &amp;ldquo;/version.jsf&amp;rdquo;.
 If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
-You can put the version in name of war file. It makes easy to store executable files.&lt;/p&gt;
-</description>
+You can put the version in name of war file. It makes easy to store executable files.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1430,6 +1422,8 @@ Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; de
 &lt;br&gt;&lt;/br&gt;
 Özet: Belli senaryolar üzerinden, 3-4 uzmanın kendi en iyi uygulamalarını anlattığı, katılımcıların sorularıyla desteklediği etkinlikler olsa çok faydalı olabilir.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Yazılım Mühendisliği adı üzerinde &amp;ldquo;soft&amp;rdquo; olan bir şey. Sınırlandırmaları diğer mühendislik dallarına göre oldukça az. Aynı proje binlerce farklı yöntemle yapılabiliyor. Fakat bütün yöntemlerin/uygulamaların aynı kalitede sonuç verdiğini söylemek zor.  Yazılım Mühendisliği&amp;rsquo;nin temelleri ile ilgili okuduğum bir kitapta şöyle bir şey okumuştum: &amp;ldquo;Hiç bir  alanda iyiyle kötü arasındaki fark yazılımdaki kadar geniş değildir.&amp;rdquo; Bu noktada best practice diye nitelenen kavram işin içine giriyor.&amp;ldquo;Hangi uygulamayı hangi durumlarda kullanmak gerekir, avantajları ve dezavantajları nelerdir?&amp;rdquo; bilgisi bu farkı oluşturan başlıca unsurlardan biri. Maalesef bu tip bilgileri doğrudan kitaplardan öğrenmek o kadar kolay değil. (Varsa önerisi olan beklerim :) ) Zaman içinde çalışma hayatında tecrübe ederek öğrenilmesi bekleniyor. Bu da uzun bir zaman gerektiriyor.Bu süreci biraz hızlandırmalıyız diye düşünüyorum. Ayrıca tecrübelerin paylaşılması yeni bakış açıları kazanma açısından da çok önemli. Kendi bilgilerimizle rahatça çözdüğümüzü düşündüğümüz bir problemin çok daha kolay/iyi çözümleri olabilir.&lt;/p&gt;
 
@@ -1471,8 +1465,7 @@ Katılımcılar çeşitli senaryolar üreterek uzmanların uygulamalarının eks
 Edinilen tecrübeleri blog&amp;amp;repo olarak yayınlanmaya çalışılmalıdır.
 Çeşitli parametrelere göre karşılaştırmalar yapılmalıdır. Kullanıcı sayısı, geliştirme süresi,istenen güvenlik seviyesi, ekleme-güncelleme-silme sıklığı vs okuma sıklığı&amp;hellip;&lt;/p&gt;
 
-&lt;p&gt;Not: JavaEE, Spring, Hibernate, Jsf, Primefaces ile ilgili but tip etkinlere katılmak isterim.&lt;/p&gt;
-</description>
+&lt;p&gt;Not: JavaEE, Spring, Hibernate, Jsf, Primefaces ile ilgili but tip etkinlere katılmak isterim.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1481,13 +1474,12 @@ Edinilen tecrübeleri blog&amp;amp;repo olarak yayınlanmaya çalışılmalıdı
       <pubDate>Sat, 09 Jan 2016 21:56:21 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/collator/</guid>
-      <description>
-
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Java&amp;rsquo;da farklı dillerin alfabelerine göre sıralama yapmak mümkün.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java&#34;&gt;Github Repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java&#34;&gt;Github Repo&lt;/a&gt;
+&lt;/p&gt;
 
 &lt;pre&gt;
 &lt;code&gt;
@@ -1562,7 +1554,7 @@ public class CollatorExample {
 &lt;/code&gt;
 &lt;/pre&gt;
 
-&lt;h2 id=&#34;console:edbdc7a2ba1ea5e29368db936145cc65&#34;&gt;Console&lt;/h2&gt;
+&lt;h2 id=&#34;console&#34;&gt;Console&lt;/h2&gt;
 
 &lt;p&gt;Ankara&lt;/p&gt;
 
@@ -1588,8 +1580,7 @@ public class CollatorExample {
 
 &lt;p&gt;Paris&lt;/p&gt;
 
-&lt;p&gt;Venice&lt;/p&gt;
-</description>
+&lt;p&gt;Venice&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1604,6 +1595,8 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Your goal as a startup is to make something users love.&lt;/li&gt;
@@ -1637,8 +1630,7 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 
 &lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0&#34;&gt;Epub&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1663,33 +1655,33 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 
 &lt;p&gt;&lt;a href=&#34;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&#34;&gt;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;1-layered-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;1. Layered Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;1-layered-architecture&#34;&gt;1. Layered Architecture&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/layered.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;2-event-driven-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;2-event-driven-architecture&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
 
-&lt;h3 id=&#34;a-mediator:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;a. Mediator&lt;/h3&gt;
+&lt;h3 id=&#34;a-mediator&#34;&gt;a. Mediator&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/mediator.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;b-broker:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;b. Broker&lt;/h3&gt;
+&lt;h3 id=&#34;b-broker&#34;&gt;b. Broker&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/broker.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;3-microkernel-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;3-microkernel-architecture&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/kernel.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;4-microservices-architecture-pattern:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
+&lt;h2 id=&#34;4-microservices-architecture-pattern&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/microservices.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;5-space-based-architecture:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;5-space-based-architecture&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/space_based.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;a-pattern-analysis-summary:078222a688fd64eeaa84d4a3c8fdc645&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
+&lt;h2 id=&#34;a-pattern-analysis-summary&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
 </description>
@@ -1723,9 +1715,9 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
       <pubDate>Mon, 24 Aug 2015 20:31:00 +0200</pubDate>
       
       <guid>https://erkanerol.github.io/post/two-army-problem/</guid>
-      <description>
+      <description>&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;
 
-&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Ortada bir savaş var. A1 ve A2 orduları B ordusuna karşı savaşıyor fakat resimdeki gibi ayrı düşmüşler. Ancak elçiler vasıtası ile iletişim kurulabiliyor. Bu iki ordu aynı anda B ordusuna hücum etmek istiyor fakat kesin bir şekilde anlaşmaları lazım. Aksi halde yenilebilirler.&lt;/p&gt;
 
@@ -1735,26 +1727,25 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 
 &lt;p&gt;Şimdi senaryoları düşünelim.&lt;/p&gt;
 
-&lt;h3 id=&#34;senaryo-1:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Senaryo 1&lt;/h3&gt;
+&lt;h3 id=&#34;senaryo-1&#34;&gt;Senaryo 1&lt;/h3&gt;
 
 &lt;p&gt;A1 ordusu taaruzun günü ve saatini elçi vasıtası ile A2 ordusuna iletmek istiyor. Bir elçi gönderiliyor. Elçi dönmüyor. O gün ve saat gelince A1 ordusu hücum eder mi? Etmez. Çünkü elçi yolda ölmüş olabilir ya da A2 ordusu kabul etmeyip elçiyi öldürmüş olabilir.&lt;/p&gt;
 
-&lt;h3 id=&#34;senaryo-2:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Senaryo 2&lt;/h3&gt;
+&lt;h3 id=&#34;senaryo-2&#34;&gt;Senaryo 2&lt;/h3&gt;
 
 &lt;p&gt;Elçi A2 ordusuna isteği iletiyor. A2 ordusu kabul ediyor. Elçi bu haberi göndermek için geri yola çıkıyor. A2 ordusu belirtilen gün ve saat gelince hücum eder mi? Etmez. Çünkü elçi geri dönerken ölmüş olabilir. O zaman A1 ordusu hücum etmiycektir ve A2 ordusu yalnız kalacaktır. O nedenle A2 ordusu mesajın geri iletildiğinden emin olmalı.&lt;/p&gt;
 
-&lt;h3 id=&#34;senaryo-3:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Senaryo 3&lt;/h3&gt;
+&lt;h3 id=&#34;senaryo-3&#34;&gt;Senaryo 3&lt;/h3&gt;
 
 &lt;p&gt;Elçi gidip teklifi A2&amp;rsquo;ye iletiyor. Kabul mesajını dönüp A1&amp;rsquo;e iletiyor. Sonra yeniden gidip A2 ordusuna kabul mesajının iletildiğini iletiyor. Fakat A1 ordusu bu durumda emin olamaz çünkü elçinin ikinci seferde de ulaştığından emin olmalı. Çünkü aksi halde A2 ordusu hücum etmiycektir.&lt;/p&gt;
 
-&lt;h3 id=&#34;sonuç:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;Sonuç&lt;/h3&gt;
+&lt;h3 id=&#34;sonuç&#34;&gt;Sonuç&lt;/h3&gt;
 
 &lt;p&gt;Senaryolarda da görüldüğü gibi elçinin tur sayısı ne kadar arttırılırsa arttırılsın iki taraf kesin bir şekilde emin olamaz.&lt;/p&gt;
 
-&lt;h3 id=&#34;tcp-protokolü-ile-alakası:eb974f5d6b427b1bb86ece6b1b1c05b9&#34;&gt;TCP Protokolü ile alakası&lt;/h3&gt;
+&lt;h3 id=&#34;tcp-protokolü-ile-alakası&#34;&gt;TCP Protokolü ile alakası&lt;/h3&gt;
 
-&lt;p&gt;TCP protokolünde bilgisayarların IP paketleri vasıtası ile bağlantılarının kapatılması konusunda anlaşmaya çalışmasında da aynı problem yaşanmakta. Sorun timeout kullanarak çözülüyor. Eğer karşı tarafın cevabı belirli bir süre içinde gelmezse bağlantı kapatılıyor.&lt;/p&gt;
-</description>
+&lt;p&gt;TCP protokolünde bilgisayarların IP paketleri vasıtası ile bağlantılarının kapatılması konusunda anlaşmaya çalışmasında da aynı problem yaşanmakta. Sorun timeout kullanarak çözülüyor. Eğer karşı tarafın cevabı belirli bir süre içinde gelmezse bağlantı kapatılıyor.&lt;/p&gt;</description>
     </item>
     
   </channel>

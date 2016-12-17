@@ -94,13 +94,13 @@
     <br/>
     <a class="label" href="https://erkanerol.github.io/categories/software">Software</a><a class="label" href="https://erkanerol.github.io/categories/kavramlar">Kavramlar</a>
     </span>
-    
-
-<h2 id="giriş:fc55cfebb6706ae110ddffc0136adcbe">Giriş</h2>
+    <h2 id="giriş">Giriş</h2>
 
 <p>Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.</p>
 
-<h3 id="diyelim-ki:fc55cfebb6706ae110ddffc0136adcbe">Diyelim ki&hellip;</h3>
+<p></p>
+
+<h3 id="diyelim-ki">Diyelim ki&hellip;</h3>
 
 <p>Diyelim ki bir yazılım geliştiriyoruz. Yazılımımızın yapması gereken belirli işler var. Bu işleri yapabilmek için irili ufaklı onlarca/yüzlerce/binlerce fonksiyona ihtiyacımız var. Bunların rastgele bir fonksiyon uzayında yer aldığını düşünelim.</p>
 
@@ -108,7 +108,7 @@
 
 <p>Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor olabilirler, aynı veri yapılarını kullanıyor olabilirler, aynı fonsiyonlara bağımlılıkları olabilir vs. Şimdilik o kısmı bir kenara bırakıyoruz ve şu soruya odaklanıyoruz. Bunlar yazılımımızda bu şekilde mi bulunur? Böyle dağınık, başıboş, düzensiz :( Elbette bunları gruplara ayırır, modüllerin içine koyarız değil mi? Java açısından baktığımızda bunları sınıfların(classes) içine koyarız, paketleme yaparız. Olmadı bunları modüllere/projelere ayırır, build araçları ile birbirine bağlarız.</p>
 
-<h3 id="deneme-bir-ki:fc55cfebb6706ae110ddffc0136adcbe">Deneme bir ki&hellip;</h3>
+<h3 id="deneme-bir-ki">Deneme bir ki&hellip;</h3>
 
 <p>Kabaca fonksiyonları modüllere ayırmaya çalışalım.</p>
 
@@ -118,7 +118,7 @@
 
 <p>Modüllere ayırırken nasıl ayırırız? Neyi amaçlarız? Hedefimiz nedir? Ne kadar büyük olmalılar? Aradaki ilişkiler nasıl olmalı?</p>
 
-<h3 id="amaç:fc55cfebb6706ae110ddffc0136adcbe">Amaç</h3>
+<h3 id="amaç">Amaç</h3>
 
 <p><strong>Öğelerimizi modüllere ayırırken genel olarak izlediğimiz prensip şu: Bir değişiklik yapmamız gerekiyorsa sadece bir yerde yapmamız gerekmeli, bir yeri değiştirmemiz gerekiyorsa bunun sadece bir nedeni olmalı.</strong></p>
 
@@ -139,13 +139,13 @@
 
 <p><img src="/img/cohesion-coupling/ideal.png" title="ideal"/></p>
 
-<h3 id="tanımlar:fc55cfebb6706ae110ddffc0136adcbe">Tanımlar</h3>
+<h3 id="tanımlar">Tanımlar</h3>
 
 <p>Bir modülün içindeki öğelerin birlikteliğini ve modülün odaklılığını ifade etmek için kullandığımız kavram <strong>cohesion</strong>. Düşük cohesion dediğimizde bu birlikteliğin zayıflığını, yüksek cohesion dediğimizde bu birlikteliğin yüksekliğini ifade ederiz. Az önce anlattığım üzere hedef olabildiğince yüksek (<strong>high cohesion</strong>) olmasıdır.</p>
 
 <p>Modüllerin arasındaki irtibatı ifade etmek için kullandığımız kavram da <strong>coupling</strong>. Düşük coupling modüllerin daha bağımsız olduğunu, yüksek coupling birbirlerine daha bağlı olduğunu ifade eder. Hedef olabildiğince düşük (<strong>low coupling</strong>) olmasıdır. İlk şekildeki modüllerin arasındaki okların olabildiğinca az ve zayıf olmasıdır.</p>
 
-<h3 id="deneme-bir-ki-1:fc55cfebb6706ae110ddffc0136adcbe">Deneme bir ki&hellip;</h3>
+<h3 id="deneme-bir-ki-1">Deneme bir ki&hellip;</h3>
 
 <p><img src="/img/cohesion-coupling/modules2.png" title="Modules2"/></p>
 
@@ -153,7 +153,7 @@
 
 <p><br></br></p>
 
-<h3 id="cohesion-çeşitleri:fc55cfebb6706ae110ddffc0136adcbe">Cohesion Çeşitleri</h3>
+<h3 id="cohesion-çeşitleri">Cohesion Çeşitleri</h3>
 
 <p>Sevgili büyüklerimiz, yazılımcılar modülleri nasıl oluşturuyor, ne tür cohesion oluşturma tipleri var gibi bir araştırma yapmış ve şu tipleri bulmuşlar.</p>
 
@@ -178,7 +178,7 @@ Birbirleriyle girdi-çıktı ilişkisi olan, sıralı işlemlerin aynı modülle
 <p><strong>Fonksiyonel (Functional):</strong>
 Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya getirilmesi ile modüllerin oluşturulmasıdır. XML formatındaki bir string&rsquo;i parse eden bir modül örneğin. <strong>En iyisi budur.</strong></p>
 
-<h3 id="şunlara-bakılabilir:fc55cfebb6706ae110ddffc0136adcbe">Şunlara bakılabilir</h3>
+<h3 id="şunlara-bakılabilir">Şunlara bakılabilir</h3>
 
 <p>Bu konu epey uzun. Daha çok okumak ve öğrenmek isteyenlere aşağıdaki linkleri verip konuyu kapatalım.</p>
 
@@ -189,7 +189,6 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
 <li><a href="http://www.cs.toronto.edu/~penny/teaching/csc407-02s/lectures/04structured-design.pdf">Structured Design - CSC407</a></li>
 <li><a href="https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719">Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design - Yourdon Press , Larry L. Constantine</a></li>
 </ol>
-
   </div>
   <div id="disqus_thread"></div>
 </div>

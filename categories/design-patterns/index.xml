@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Design Patterns on Blog</title>
-    <link>https://erkanerol.github.io/categories/design-patterns/</link>
-    <description>Recent content in Design Patterns on Blog</description>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/design-patterns/index.xml</link>
+    <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Thu, 09 Jun 2016 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/categories/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,9 +14,7 @@
       <pubDate>Thu, 09 Jun 2016 00:00:00 +0200</pubDate>
       
       <guid>https://erkanerol.github.io/post/abstract-factory-design-pattern/</guid>
-      <description>
-
-&lt;h2 id=&#34;amaç:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Amaç&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;amaç&#34;&gt;Amaç&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Elimizde benzer ve ilişkili nesneler var ve bunları somut sınıflarını belirtmeden oluşturmak için bir arayüz istiyoruz&lt;/li&gt;
@@ -25,21 +22,23 @@
 &lt;li&gt;new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;sorun:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Sorun&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sorun&#34;&gt;Sorun&lt;/h2&gt;
 
 &lt;p&gt;Yazdığımız uygulamanın değişik platformlarda çalışmasını istediğimizde bu platformlara özgü farklılıklar sorun oluşturur ve nesne yaratımlarında bu farklılıkları ele almamız gerekir. Örneğin, windows işletim sistemindeki arayüz birleşenleri ile ubuntu işletim sistemindekler arasında ciddi farklar vardır ve biz her yeni birleşen oluşturma esnasında platformu kontrol etmek, ona göre farklı şekilde yaratmak istemeyiz. Bir arayüz tasarlamak ve bu ortak arayüz üzerinden bütün nesneleri yaratmak ve kullanmak isteriz. Platforma özgü sınıflar bu arayüzü destekleyecek şekilde kendi birleşenlerini oluşturacak işlevselliği sağlarlar.&lt;/p&gt;
 
-&lt;h2 id=&#34;yöntem:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Yöntem&lt;/h2&gt;
+&lt;h2 id=&#34;yöntem&#34;&gt;Yöntem&lt;/h2&gt;
 
 &lt;p&gt;Bu tasarım şablonunda nesnelerin sınıflarını ve nesneleri üreten üretici sınıfları soyutlamamız gerekir. Bu nesneler kullanıcılar (clients) tarafından doğrudan oluşturulmayıp nesne üretici (fabrika) sınıflar vasıtası ile üretilirler.&lt;/p&gt;
 
-&lt;h2 id=&#34;yapı:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Yapı&lt;/h2&gt;
+&lt;h2 id=&#34;yapı&#34;&gt;Yapı&lt;/h2&gt;
 
 &lt;p&gt;Abstract Factory her bir ürün için bir Factory Method (makeProductOne,makeProductTwo vb.) tanımlar. Her Factory Method new operatörünü ve platforma özgü ürün sınıflarını sarmalar. Her platform fabrika sınıflarıyla modellenir.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Abstract_Factory-2x.png&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;örnek:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Örnek&lt;/h2&gt;
+&lt;h2 id=&#34;örnek&#34;&gt;Örnek&lt;/h2&gt;
 
 &lt;p&gt;Örneğimizde Ubuntu ve Windows platformları için UI birleşenleri üreten bir Abstract Factory şablonu oluşturalım. Bu örnekte platformlardan bağımsız bir şekilde pencere ve buton üreten bir yapı kuralım. Örneğin UML diagramı ve kodu aşağıda mevcuttur.&lt;/p&gt;
 
@@ -54,7 +53,7 @@ Pencere arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
 Abstract Factory ve Windows+Ubuntu Platformları için fabrika sınıfları
 &lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;kod:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kod&lt;/h2&gt;
+&lt;h2 id=&#34;kod&#34;&gt;Kod&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;
 public interface Button {
@@ -217,7 +216,7 @@ public class Client {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;kontrol-listesi:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kontrol Listesi&lt;/h2&gt;
+&lt;h2 id=&#34;kontrol-listesi&#34;&gt;Kontrol Listesi&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Platformdan bağımsızlık ve nesnelerin oluşturulması sorun oluşturuyor ise bu şablonu kullanın&lt;/li&gt;
@@ -227,7 +226,7 @@ public class Client {
 &lt;li&gt;Kullanıcı sınıflar (clients) bu nesneleri new  operatörü ile oluşturmamalı ve fabrika sınıflarının arayüzlerini kullanmalı&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;genel-kabul-görmüş-kurallar:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Genel Kabul Görmüş Kurallar&lt;/h2&gt;
+&lt;h2 id=&#34;genel-kabul-görmüş-kurallar&#34;&gt;Genel Kabul Görmüş Kurallar&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Zaman zaman aynı sorunu çözmek için farklı oluştucu tasarım şablonları kullanılabilir. Prototype veya Abstract Factory şablonlarından hangisi daha uygunsa o kullanılır. Diğer zamanlarda oluşturucu tasarım şablonları birbirlerinin tamamlayıcısıdırlar. Abstract Factory şablonunda nesne yaratmak için Prototype şablonu kullanılabilir. Builder şablonu hangi birleşenlerin yaratılacağına karar verme kısmında kullanılabilir. Abstract Factory, Builder ve Prototype şablonları kendi uygulamalarında (implementation) Singleton şablonunu kullanabilirler.&lt;/li&gt;
@@ -238,11 +237,11 @@ public class Client {
 &lt;li&gt;Tasarımlar genelde Factory Method (daha basit, daha özelleştilebilir) kullanılarak başlasa da tasarımcılar daha fazla esnekliğe*  ihtiyaç duyduklarını farkettiklerinde tasarım zamanla Abstract Factory, Prototype veya Builder (daha esnek ve daha karmaşık) şablonlarına evrilir.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;repo:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Repo&lt;/h2&gt;
+&lt;h2 id=&#34;repo&#34;&gt;Repo&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/design-patterns/tree/master/src/com/erkanerol/examples/abstractfactory&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;kaynakça:a0c0e350f6599cc7bba451baf3fa092a&#34;&gt;Kaynakça&lt;/h2&gt;
+&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sourcemaking.com&#34;&gt;https://sourcemaking.com&lt;/a&gt;&lt;/li&gt;
@@ -250,8 +249,7 @@ public class Client {
 
 &lt;p&gt;&lt;strong&gt;Önemli Not 1:&lt;/strong&gt; sourcemaking.com sitesinde  About Us sayfasında &amp;ldquo;We also welcome translation.&amp;rdquo; ibaresi yer almaktadır. Bu yazının yazılmasında/çevrilmesinde herhangi bir ticari amaç bulunmamaktadır.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Önemli Not 2:&lt;/strong&gt; Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;strong&gt;Önemli Not 2:&lt;/strong&gt; Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.&lt;/p&gt;</description>
     </item>
     
   </channel>
