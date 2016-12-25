@@ -2,7 +2,7 @@
 categories = ["Software","Java"]
 date = "2016-01-09T21:56:21+03:00"
 title = "Farklı dillerin alfabelerine göre sıralama (Collator kullanımı)"
-
+keywords = ["Java","Collator","Dil","Sıralama"]
 +++
 >Java'da farklı dillerin alfabelerine göre sıralama yapmak mümkün.
 

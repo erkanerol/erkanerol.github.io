@@ -2,7 +2,7 @@
 categories = ["Software","Kitap"]
 date = "2015-11-07T21:43:13+03:00"
 title = "Startup Playbook (Ekitap halinde)"
-
+keywords = ["Ekitap", "Ebook", "Startup Playbook"]
 +++
 >TL;DR <br></br>
 Y Combinator Startup'lara yatırım yapan ve danışmanlık yapan bir şirket. Şirket çalışanlarından Sam Altman tecrübelerinden yola çıkarak yazdığı kısa bir Playbook yayınladı. Şu adresten okuyabileceğiniz yazıyı ekitap haline getirdim. Yazının sonundan dosyaları indirebilirsiniz.Altını çizdiğim yerler de aşağıda.

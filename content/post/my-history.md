@@ -2,7 +2,7 @@
 categories = []
 date = "2016-08-28T23:36:55+03:00"
 description = ""
-keywords = []
+keywords = ["History"]
 title = "Geçmiş Kayıtları"
 weight = 1000001
 

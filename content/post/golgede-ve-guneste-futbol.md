@@ -2,6 +2,7 @@
 Categories = ["Kitap","Futbol"]
 date = "2015-09-11T20:41:00+02:00"
 title = "Gölgede ve Güneşte Futbol - Eduardo Galeano"
+keywords = ["Gölgede ve Güneşte Futbol","Eduardo Galeano"]
 +++
 
 >TL;DR   Kitabı okudum,beğendim.Tavsiye ediyorum.

@@ -2,9 +2,9 @@
 categories = ["Software","Kavramlar"]
 date = "2016-09-29T22:27:32+03:00"
 description = ""
-keywords = []
 title = "Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine"
 draft=false
+keywords = ["Cohesion","Coupling","High Cohesion","Low Coupling"]
 +++
 
 

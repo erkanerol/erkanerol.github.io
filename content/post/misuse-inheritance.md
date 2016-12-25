@@ -2,7 +2,7 @@
 categories = ["Software"]
 date = "2016-11-23T23:11:42+03:00"
 description = ""
-keywords = []
+keywords = ["Kalıtım","Inheritance","Composition over Inheritance"]
 title = "Kalıtım Kullanımına Dair Bir Aydınlanma Anı"
 
 +++

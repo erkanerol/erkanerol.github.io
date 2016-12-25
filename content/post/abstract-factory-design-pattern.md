@@ -2,6 +2,7 @@
 categories = ["Software","Design Patterns"]
 date = "2016-06-09T00:00:00+02:00"
 title = "Abstract Factory Tasarım Şablonu"
+keywords = ["Software","Design Patterns","Tasarım Şablonları","Abstract Factory Tasarım Şablonu"]
 
 +++
 

@@ -3,7 +3,7 @@ categories = ["Software","Design Patterns"]
 date = "2016-08-28T23:22:45+03:00"
 title = "Builder Tasarım Şablonu"
 draft = true
-
+keywords = ["Software","Design Patterns","Tasarım Şablonları","Builder Tasarım Şablonu"]
 +++
 
 ## Amaç

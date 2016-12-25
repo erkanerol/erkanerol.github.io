@@ -4,6 +4,7 @@ draft = false
 title = "Hakkımda"
 menu = "main"
 weight = 1000000
+keywords = ["About","Hakkımda","Erkan Erol"]
 +++
 
 ### Ünvan (Title)

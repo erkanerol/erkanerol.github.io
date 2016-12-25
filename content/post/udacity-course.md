@@ -2,7 +2,7 @@
 categories = ["Software"]
 date = "2016-03-14T22:33:53+03:00"
 title = "Fikirden Ürüne Yazılım Geliştirme Süreçleri (Ücretsiz Ders)"
-
+keywords = ["Udacity","Ücretsiz Ders"]
 +++
 
 >Udacity üzerinden ücretsiz alabileceğiniz, yazılım mühendisliğine giriş niteliğindeki bu ders hali hazırda bildiğimiz bir çok şeyi içerse de bilmediğimiz bir çok püf noktasını da içinde barındırıyor. Özellikle yazılım geliştirmeye yeni başlamış herkesin alması gerektiğine inanıyorum.
