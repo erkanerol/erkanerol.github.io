@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog</title>
+    <link>https://erkanerol.github.io/categories/genel/index.xml</link>
+    <description>Recent content on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tr-tr</language>
+    <atom:link href="https://erkanerol.github.io/categories/genel/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bir takım teoriler, kanunlar ve ilkeler</title>
+      <link>https://erkanerol.github.io/post/some-laws-and-principles/</link>
+      <pubDate>Sat, 07 Jan 2017 13:42:18 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/some-laws-and-principles/</guid>
+      <description>&lt;p&gt;Bir şekilde öğrendiğim bir takım teoriler, kanunlar, ilkeler var. Bunları çevremdeki insanlarla paylaştığımda ilgi çektiklerini ve çok bilinmediklerini farkettim. Ben de bir blog yazısı ile bunları kısa kısa ve basit cümleler ile paylaşayım dedim. Bu yazıda 5 tanesine değineceğim. Başlıklara wikipedia linklerini ekledim. Formal şekillerini okumak isteyenler oradan devam edebilir.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;conway-in-kanunu-conway-s-law-https-en-wikipedia-org-wiki-conway-s-law&#34;&gt;Conway&amp;rsquo;in Kanunu ( &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway&#39;s_law&#34;&gt;Conway&amp;rsquo;s Law&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Organizasyonların kendi iletişim yapılarını yansıtan tasarımlar yapması kaçınılmazdır.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Başka bir ifade ile&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Bir üründeki problemler onu yaratan organizasyonun problemlerini yansıtır.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Örneğin;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Bir yazılım takımında iletişim problemleri ve uyumsuzluklar varsa çıkan ürünün parçaları arasında da uyumsuzluk gözlenir. Hatta şöyle düşünebiliriz. Birbirinden kopuk 3 takımın geliştirdiği yazılımda birbiriyle uyumsuz 3 parça gözlemlemek mümkündür.&lt;/li&gt;
+&lt;li&gt;Hiyerarşik yapısı güçlü ve çok geniş takımlardan oluşan organizasyonlarda geliştirilen yazılımların monolithic&amp;rsquo;e kayması kaçınılmaz olur. Mikroservis geliştirmek için takımları küçültmek ve onlara belli başlı bağımsızlıklar vermek gerekir.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Konu ile ilişkili makaleler:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/insights/blog/demystifying-conways-law&#34;&gt;Demystifying Conway&amp;rsquo;s Law by Sam Newman&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.safkan.org/agile-turk-kasigiyla-amerikan-cikolatasi/&#34;&gt;Agile: Türk Kaşığıyla Amerikan Çikolatası&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://itrevolution.com/conways-law/&#34;&gt;How to Design With Conway’s Law in Mind&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;kırık-camlar-teorisi-broken-windows-theory-https-en-wikipedia-org-wiki-broken-windows-theory&#34;&gt;Kırık Camlar Teorisi (&lt;a href=&#34;https://en.wikipedia.org/wiki/Broken_windows_theory&#34;&gt;Broken Windows Theory&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;Kırık Camlar Teorisi kısaca şunu söyler:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Bir ev düşünün. Yolun kenarında. Camları sapasağlam. Yoldan geçen hiç kimse onun camlarını kırmayı düşünmez, düşünen varsa da kırmaktan çekinir. Fakat camların çoğu kırık ise yoldan geçen herhangi biri kalan camlardan birini indirmek konusunda çok tereddüt etmez. Çünkü bunun suç olduğunu ya da zarar verici bir eylem olduğunu düşünmez. Eğer birisi gelip sağlam evin bir camını kırarsa hızla müdahale etmelisin. Yoksa diğerleri de hızla kırılır.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Teorinin çıkışı ABD&amp;rsquo;deki bazı suçların işlenmesi üzerine yapılan araştırmalar olmakla beraber günümüzde yazılım alanında da sıklıkla kullanılıyor. Şöyle ki;&lt;/p&gt;
+
+&lt;p&gt;Bir yazılım geliştiricisi hata yapıp standartların dışında kod ekleme teşebbüsünde bulunabilir. Eğer buna müsamaha edersek diğer geliştiriciler de benzer davranışı sergiler ve kalite hızla düşer. Bu nedenle gözden geçirme süreçleri ve çeşitli araçlarla sürekli kalite takibi yapılması, hatalara çabuk müdahale edilmesi zaruridir.&lt;/p&gt;
+
+&lt;p&gt;Konu ile ilgili makaleler:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy&#34;&gt;Software Entropy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alexandrebrisebois.wordpress.com/2013/06/08/the-broken-windows-principle/&#34;&gt;The Broken Windows Principle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.smartbear.com/lean-software-development/always-fix-broken-windows/&#34;&gt;Always Fix Broken Windows&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ayrıca yazar abimizden bir dörtlük:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I keep a close watch on these tests of mine&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I keep my Jenkins open all the time&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I see a defect coming down the line&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Because you’re mine, I stop the line&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;peter-ilkesi-peter-principle-https-en-wikipedia-org-wiki-peter-principle&#34;&gt;Peter İlkesi (&lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_principle&#34;&gt;Peter Principle&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;Peter ilkesi şöyle diyor:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Bir pozisyona seçim yapılırken adayların o pozisyonlar için yeteneklerine bakılmaz, daha ziyade adayların hali hazırdaki pozisyonlarındaki başarılarına bakılır. Örneğin, yönetici seçeceğimiz zaman en iyi kim yönetici olabilir diye bakmıyoruz da en iyi geliştirici kim diye bakıyoruz. En iyi geliştiricinin yönetici yetenekleri çok iyi olmasa da onu seçiyoruz.&lt;/li&gt;
+&lt;li&gt;Bir çalışan başarılı oldukça yükselir ta ki başarısız olduğu bir posizyona gelene kadar. O pozisyonda başarısız olduğu için yükselmez ve hep o pozisyonu işgal eder.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Sonuç olarak zaman içinde yeteneklerine göre seçilmediği için başarısız olan, başarısız olduğu için o pozisyonu sürekli işgal eden &amp;ldquo;yetersiz üst yönetici&amp;rdquo; grubu oluşur.&lt;/p&gt;
+
+&lt;h3 id=&#34;parkinson-kanunu-parkinson-s-law-https-en-wikipedia-org-wiki-parkinson-27s-law&#34;&gt;Parkinson Kanunu (&lt;a href=&#34;https://en.wikipedia.org/wiki/Parkinson%27s_law&#34;&gt;Parkinson&amp;rsquo;s Law&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Bir iş, daima, bitirilmesi için kendisine ayrılan sürenin hepsini kapsıyacak şekilde uzar.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yani diyor ki;
+&amp;ldquo;Sen bu işi 4 günde bitiririm dedin ve bitirdin fakat belki de 3 günde bitirebilirdin. İşi uzatıp 4 günde bitirmiş olman muhtemel. 3 günlük efor verseydin belki de 3 güne biterdi. Hatta fazla verip 5 gün verseydin eminim 5. günde bitirirdin.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Bu kanun ile ilişkili bazı durumlar/çıkarımlar var. Mesela;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Uygulamalar verilen bant genişliğinin tamamını kullanma eğilimindeler.&lt;/li&gt;
+&lt;li&gt;Veri miktarı saklama kapasitesi miktarına göre büyüme eğiliminde.&lt;/li&gt;
+&lt;li&gt;Donanım çok hızlanmış olmasına rağmen yazılımların hızları çok hızlanmıyor. Çünkü yazılımcılar ona göre karmaşıklık ekliyor. (bkz: 10 saatte yüklenen lunapark gibi web siteleri)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bu kanunun ışığında şöyle bir soru çıkıyor: Ne kadar ihtiyacımız var? Yapacağımız işler için zaman tahmini yaparken &lt;a href=&#34;https://www.youtube.com/watch?v=ptSZkp0y0p4&#34;&gt;şunu&lt;/a&gt; kullabiliriz diye düşünüyorum.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Not:&lt;/strong&gt; Wikipedia&amp;rsquo;da da görüleceği üzere bu kanun daha sonraları bürokrasinin kendine çalışmasını ve işlerden bağımsız şekilde büyümesini ifade etmek için kullanılmış.&lt;/p&gt;
+
+&lt;h3 id=&#34;pareto-ilkesi-pareto-principle-https-en-wikipedia-org-wiki-pareto-principle&#34;&gt;Pareto İlkesi (&lt;a href=&#34;https://en.wikipedia.org/wiki/Pareto_principle&#34;&gt;Pareto Principle&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;&lt;sup&gt;80&lt;/sup&gt;&amp;frasl;&lt;sub&gt;20&lt;/sub&gt; kuralı  olarak da bilinen bu ilke bazı tecrübeler üzerine öne sürülmüş. Çok formal tanımlara girmektense örnekler ile açıklamayı tercih ediyorum.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Müşterilerin ihtiyaçlarının yüzde seksenini bütün ihtiyaçlar için gerekli toplam eforun yüzde yirmisini harcayarak giderebiliriz. Başka bir ifadeyle düzgün bir önceliklendirme ile yüzde yirmilik bir efor yüzde seksenlik bir geri dönüş getirir.&lt;/li&gt;
+&lt;li&gt;Hata üreten sebeplerin yüzde yirmisi hataların yüzde sekseninin sebebidir. Yani doğru önceliklendirme ve yüzde yirmilik bir çalışma bug sayımızı yüzde seksen azaltır.&lt;/li&gt;
+&lt;li&gt;Satışların yüzde sekseni müşterilerin yüzde yirmisinden gelir.&lt;/li&gt;
+&lt;li&gt;Uygulamaya gelen trafiğin yüzde sekseni yüzde yirmilik zaman diliminde gerçekleşir.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nüfus, ekonomi, matematik gibi alanlarda da bu ilkeye uyduğu düşünülen çeşitli örnekler Wikipedia sayfasında mevcut.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
