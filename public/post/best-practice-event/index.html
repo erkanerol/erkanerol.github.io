@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>&#34;Best Practice&#34; Üzerine Etkinlik Önerisi &middot; Erkan Erol</title>
+
+  
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/highlight/monokai.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://erkanerol.github.io/touch-icon-144-precomposed.png">
+  <link href="https://erkanerol.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Erkan Erol&#39;s Blog">
+  <meta name="keywords" content="Best Practices,Etkinlik">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57796113-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+        <img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200"
+             alt="gravatar" title="Erkan Erol">
+      
+      <h1>Erkan Erol</h1>
+      
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://erkanerol.github.io/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"> <a href="https://erkanerol.github.io/categories/software/">Software</a></li>
+      
+      <li class="sidebar-nav-item"> <a href="https://erkanerol.github.io/categories/kitap/">Kitap</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://erkanerol.github.io/post/about/">Hakkımda</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://erkanerol.github.io/post/videos/">İzlenesi Videolar</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/erkanerol"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      <a href="http://stackoverflow.com/users/2900777/erkan-erol"><i class="fa fa-stack-overflow fa-3x"></i></a>
+      <a href="https://www.linkedin.com/in/erkan-erol-26488b91?"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      <a href="https://twitter.com/erkan_erol_"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      <a href="https://erkanerol.github.io/index.xml" type="application/rss+xml"><i class="fa fa-rss-square fa-3x"></i></a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">&#34;Best Practice&#34; Üzerine Etkinlik Önerisi</h1>
+    <span class="post-date">Jan 9, 2016 &middot; <a href="https://erkanerol.github.io/post/best-practice-event/#disqus_thread">Comments</a>
+    
+    <br/>
+    <a class="label" href="https://erkanerol.github.io/categories/software">Software</a>
+    </span>
+    <blockquote>
+<p>TL;DR
+<br></br>
+Bu yazıda &ldquo;şöyle bir etkinlik olsa çok faydalı olur&rdquo; dediğim bir etkinlik fikrini anlatacağım.
+<br></br>
+Özet: Belli senaryolar üzerinden, 3-4 uzmanın kendi en iyi uygulamalarını anlattığı, katılımcıların sorularıyla desteklediği etkinlikler olsa çok faydalı olabilir.</p>
+</blockquote>
+
+<p></p>
+
+<p>Yazılım Mühendisliği adı üzerinde &ldquo;soft&rdquo; olan bir şey. Sınırlandırmaları diğer mühendislik dallarına göre oldukça az. Aynı proje binlerce farklı yöntemle yapılabiliyor. Fakat bütün yöntemlerin/uygulamaların aynı kalitede sonuç verdiğini söylemek zor.  Yazılım Mühendisliği&rsquo;nin temelleri ile ilgili okuduğum bir kitapta şöyle bir şey okumuştum: &ldquo;Hiç bir  alanda iyiyle kötü arasındaki fark yazılımdaki kadar geniş değildir.&rdquo; Bu noktada best practice diye nitelenen kavram işin içine giriyor.&ldquo;Hangi uygulamayı hangi durumlarda kullanmak gerekir, avantajları ve dezavantajları nelerdir?&rdquo; bilgisi bu farkı oluşturan başlıca unsurlardan biri. Maalesef bu tip bilgileri doğrudan kitaplardan öğrenmek o kadar kolay değil. (Varsa önerisi olan beklerim :) ) Zaman içinde çalışma hayatında tecrübe ederek öğrenilmesi bekleniyor. Bu da uzun bir zaman gerektiriyor.Bu süreci biraz hızlandırmalıyız diye düşünüyorum. Ayrıca tecrübelerin paylaşılması yeni bakış açıları kazanma açısından da çok önemli. Kendi bilgilerimizle rahatça çözdüğümüzü düşündüğümüz bir problemin çok daha kolay/iyi çözümleri olabilir.</p>
+
+<p>Öncelikle şunu belirteyim böyle bir şey Dünya&rsquo;nın herhangi bir yerinde böyle bir şey yapılıyor mu bilmiyorum, araştırmadım. Yapılıyordur muhtemelen ama Türkiye&rsquo;de hiç duymadım. (Oooo Erkan internet bağlatmışsın tarzı bir durum varsa bir haber edin plz.)</p>
+
+<p>Gelelim etkinliğe. Şöyle olsa süper olur:</p>
+
+<p><strong>Düzenleyici</strong></p>
+
+<p>Bir topluluk olabilir, bir organizasyon olabilir. Bu etkinlikler için kurulabilir. Ama süreklilik açısından 2-3 kişiye bağlı olmaması gerekir.</p>
+
+<p><strong>Katılımcılar</strong></p>
+
+<p>1 moderatör, 3 uzman yazılımcı (uzman derken öyle çok da abartmayalım gözümüzde),  20-30 katılımcı</p>
+
+<p><strong>Mekan</strong></p>
+
+<p>Uzmanların ekranlarını rahatça yansıtabilecekleri, internet bağlantı probleminin yaşanmadığı bir mekan.</p>
+
+<p><strong>Zaman ve Süre</strong></p>
+
+<p>Hafta sonu, yarım günü geçmeyecek şekilde</p>
+
+<p><strong>Konu</strong></p>
+
+<p>Konu çok genel olmamalıdır. Yazılım dili, framework&rsquo;ler ve kullanılan teknolojiler olabildiğince tanımlanmalıdır. Mümkünse belirli senaryolar ve kısıtlamalar içermelidir.
+Örnek vermek gerekirse: Java+Spring+Hibernate kullanılan bir uygulamada &ldquo;soft delete&rdquo; uygulamaları, dosya yönetimi (saklama, db ilişkilendirmeleri vs).</p>
+
+<p><strong>Format</strong></p>
+
+<p>Önceden açıklanan konuyu moderatör katılımcılara açıklar.
+Her uzman kendine göre &ldquo;best practice&rdquo; olan uygulamayı anlatır. Avantajlarını ve dezavantajlarını belirtir. Gerekli gördüğü yerlerde kod düzeyinde sunumlar yapar.
+Uzmanlar diğer uzmanların uygulamaları hakkında eleştirilerde bulunur. Gerekirse geri vites yapar. &ldquo;Doğru aslında böyle olsa daha iyi olabilir&rdquo; der.
+Katılımcılar çeşitli senaryolar üreterek uzmanların uygulamalarının eksik taraflarını çıkarmaya çalışır. Bu noktada uygulamaların tartıştıkça geliştirilmesi hedeflenmektedir.</p>
+
+<p><strong>Önemli Noktalar</strong></p>
+
+<p>Günün sonunda katılımcılar ve uzmanlar aynı &ldquo;best practice&rdquo; üzerinde anlaşmak zorunda değildir. Önemli olan farklı yöntemler ve bunların iyi/kötü yönlerini daha ayrıntılı öğrenmektir.
+Edinilen tecrübeleri blog&amp;repo olarak yayınlanmaya çalışılmalıdır.
+Çeşitli parametrelere göre karşılaştırmalar yapılmalıdır. Kullanıcı sayısı, geliştirme süresi,istenen güvenlik seviyesi, ekleme-güncelleme-silme sıklığı vs okuma sıklığı&hellip;</p>
+
+<p>Not: JavaEE, Spring, Hibernate, Jsf, Primefaces ile ilgili but tip etkinlere katılmak isterim.</p>
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "erkanerol-github-io";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "erkanerol-github-io";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58713be9ad6e45ec"></script> 
+
+<script src="https://erkanerol.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+
