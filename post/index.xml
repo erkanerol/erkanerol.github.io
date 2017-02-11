@@ -6,8 +6,106 @@
     <description>Recent content in Post-rsses on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sat, 11 Feb 2017 19:10:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 07 Feb 2017 22:31:42 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hash Fonksiyonları</title>
+      <link>https://erkanerol.github.io/post/hash-functions/</link>
+      <pubDate>Tue, 07 Feb 2017 22:31:42 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/hash-functions/</guid>
+      <description>&lt;p&gt;Not: İşbu yazı Wikipedia kullanılarak yazılmıştır. Arzu edenler &lt;a href=&#34;https://en.wikipedia.org/wiki/Hash_function&#34;&gt;şu&lt;/a&gt; link üzerinden devam edebilir.&lt;/p&gt;
+
+&lt;p&gt;Hash fonksiyonları belirli özellikleri sağlayan fonksiyonlardır. Bu özelliklere değinmeden önce fonksiyonları kısaca hatırlatmak istiyorum.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;fonksiyonlar&#34;&gt;Fonksiyonlar&lt;/h3&gt;
+
+&lt;h4 id=&#34;tanım&#34;&gt;Tanım&lt;/h4&gt;
+
+&lt;p&gt;Fonksiyonlar tanım kümesindeki her bir elemanı görüntü kümesinde yalnızca bir elemana bağlayan ilişkilerdir.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Tanım Kümesi: X&lt;/li&gt;
+&lt;li&gt;Görüntü Kümesi: Y&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 1:&lt;/em&gt;&lt;/strong&gt; Tanım kümesindeki bütün elemanlar eşleşmemiş. 4 açıkta kalmış. Onun için bu ilişki bir fonksiyon değil.
+&lt;img src=&#34;https://erkanerol.github.io/img/hash/fonksiyon_degil.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 2:&lt;/em&gt;&lt;/strong&gt; Tanım kümesindeki bir değer görüntü kümesindeki iki değer ile eşleşmiş. Onun için bu ilişki bir fonksiyon değil.
+&lt;img src=&#34;https://erkanerol.github.io/img/hash/fonksiyon_degil_2.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 3:&lt;/em&gt;&lt;/strong&gt;Tanım kümesindeki bütün elemanlar görüntü kümesinde yalnızca bir elemen ile eşleşmiş. Onun için bu ilişki bir fonksiyon. f(1)=A, f(2)=B, f(3), f(4)=C
+&lt;img src=&#34;https://erkanerol.github.io/img/hash/fonksiyon.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;ters-fonksiyon&#34;&gt;Ters Fonksiyon&lt;/h4&gt;
+
+&lt;p&gt;Dikkatinizi çektiyse ilişkinin fonksiyon olması için görüntü kümesindeki bütün elemanların ilişkide yer almasına gerek yok. Son örnekte D elemanı açıkta kalmış. Görüntü kümesindeki bütün elemanlar eşleşmede yer alır ise bu fonksiyonlara &lt;strong&gt;&lt;em&gt;örten&lt;/em&gt;&lt;/strong&gt; fonksiyonlar diyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 4:&lt;/em&gt;&lt;/strong&gt; Örten fonksiyon
+&lt;img src=&#34;https://erkanerol.github.io/img/hash/orten.png&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Bu örnekteki fonksiyon iyi, güzel, hoş ama tersini alamıyoruz. f(x)=A dendiğinde x değerinin 1 olduğunu tahmin ediyoruz ama f(x)=C dendiğinde x değeri 3 mü 4 mü bilemiyoruz. Fonksiyonların tersini alabilmek için hem birebir hem de örten olmaları gerekiyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 5:&lt;/em&gt;&lt;/strong&gt; Birebir ve örten fonksiyon. f(1)=A, f(4)=D, f&lt;sup&gt;-1&lt;/sup&gt;(D)=4
+&lt;img src=&#34;https://erkanerol.github.io/img/hash/birebir_ve_orten.png&#34;/&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;tek-yönlü-fonksiyonlar&#34;&gt;Tek Yönlü Fonksiyonlar&lt;/h4&gt;
+
+&lt;p&gt;Tek yönlü fonksiyonlar (one-way functions) hesaplaması kolay ancak tersini alması çok zor olan fonksiyonlara verilen genel bir isim. Teorik olarak tersi olması da gerekmiyor. Önceki örneklerde &amp;ldquo;f(x)=C dendiğinde x değeri 3 mü 4 mü bilemiyoruz&amp;rdquo; demiştik. Tek yönlü fonksiyonlar öyle fonksiyonlar ki f(x)=C dendiğinde bu koşulu sağlacak herhangi bir x değeri bulmak çok zor.&lt;/p&gt;
+
+&lt;p&gt;Şöyle anlatalım. f(x)=x*x , f(x)=81 dendiğinde x=9 veya x=-9 diyebiliyoruz. Tek yönlü fonksiyonlarda ise fonksiyonun hesaplama formülü ortada olmasına rağmen herhangi bir sonucu çıkarabilecek girdiyi tahmin edemiyoruz. Tersini bu örnekteki gibi &amp;ldquo;karekökünü alırım&amp;rdquo; şeklinde bulamıyoruz. Bir çıktıyı üretecek girdiyi bulabilmek için şu andaki işlem gücümüz ile yıllar süren çalışmalar yapmamız gerekiyor. Matematikçilerin bize verdiği altın değerinde ve hayati işler gören bu fonksiyonlara ilerde tekrar değineceğiz.&lt;/p&gt;
+
+&lt;h3 id=&#34;hash-fonksiyonları&#34;&gt;Hash Fonksiyonları&lt;/h3&gt;
+
+&lt;p&gt;Hash fonksiyonları değişken büyüklükteki tanım kümeleri ile sınırlı büyükteki görüntü kümeleri arasında ilişki kuran fonksiyonlardır. Bu anlamda özetleme görevi üstlenirler. Kümeler arasındaki bu genişlik farklılığı nedeniyle çoğu zaman birden fazla değerin sonucu aynıdır. Hash fonksiyonları adı üzerinde fonksiyonlardır ve genel fonksiyon özelliklerini taşırlar: &lt;strong&gt;&lt;em&gt;Tanım kümesindeki bütün değerler için sonuç verirler ve her değer için her seferinde aynı sonucu verirler.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Hash Fonksiyon Örneği&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Tanım kümesi: En fazla 1000 karakter(ASCII) uzunluğundaki bütün karakter dizileri. Kümenin eleman sayısı 128&lt;sup&gt;1001&lt;/sup&gt;/127, yaklaşık 1.63*10&lt;sup&gt;2107&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;Görüntü kümesi: [0,10&lt;sup&gt;7&lt;/sup&gt;) arasındaki doğal sayılar. Kümenin eleman sayısı 10&lt;sup&gt;7&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;Örnekler:&lt;/p&gt;
+
+&lt;p&gt;f(&amp;ldquo;erkan&amp;rdquo;)=23, f(&amp;ldquo;hash değeri alınan string&amp;rdquo;)=133453, f(&amp;ldquo;h&amp;rdquo;)=101112, f(&amp;ldquo;a&amp;rdquo;)=23&lt;/p&gt;
+
+&lt;p&gt;Bu örnekte ortalama olarak tanım kümesindeki her  1.63*&lt;sup&gt;2100&lt;/sup&gt; değer görüntü kümesindeki bir eleman ile ilişkili oluyor. Buna &lt;strong&gt;&lt;em&gt;collision yani çakışma/çarpışma&lt;/em&gt;&lt;/strong&gt; adı veriliyor.Yukarıdaki örnekte &amp;ldquo;erkan&amp;rdquo; ve &amp;ldquo;a&amp;rdquo; girdilerinin hash değerleri çakışmış örneğin.&lt;/p&gt;
+
+&lt;h3 id=&#34;nerelerde-kullanılır&#34;&gt;Nerelerde Kullanılır?&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Bir sitemiz var ve üyelerimizin bilgilerini bir yerde tutmak istiyoruz. Her bir üye için bir üye nesnesi oluşturuyoruz. Üyeleri (dolayısıyla nesneleri) birbirinden ayırt edebilmemizi sağlayan şey email adresleri. Bu üye nesnelerini nasıl saklayacağız?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Birinci alternatif: Düz bir listeye sırasız koyalım. Gerektiğinde listenin başından sonuna tarayalım ve bulalım. En kötü ihtimalde complexity: O(N)&lt;/li&gt;
+&lt;li&gt;İkinci alternatif: Düz bir listeye email adreslerine göre sıralı koyalım. Arama yaparken ikili arama (binary search) uygulayalım. En kötü ihtimalde complexity: O(logN)&lt;/li&gt;
+&lt;li&gt;Üçüncü alternatif: Hash fonksiyonları kullanalım :) Öyle bir fonksiyon olsun ki herhangi bir email adresini alsın ve sonuç olarak listeden bir index dönsün. Elimdeki üyeyi o index&amp;rsquo;e yerleştireyim. Sonradan lazım olduğunda hash değerini üretip doğrudan index&amp;rsquo;e gideyim. En kötü ihtimal ile complexity: O(1). Evet yanlış duymadınız O(1). Yani üye sayımız ne kadar artarsa artsın sabit(constant) bir sürede üye bilgilerini şıp diye bulabiliyoruz. Buna &lt;strong&gt;&lt;em&gt;hash tablosu&lt;/em&gt;&lt;/strong&gt; diyorlar. Lakin farketti iseniz burada hash fonksiyonumuz iki farklı email değeri için aynı index&amp;rsquo;i üretirse batıyoruz :) O zaman hash fonksiyonunu güncellememiz ve tabloyu genişletmemiz gerekiyor. &lt;strong&gt;&lt;em&gt;İyi bir hash fonksiyonu collision&amp;rsquo;ı olabildiğince azaltır (collision-resistant) ve görüntü kümesi üzerine eşit bir dağılım hedefler (uniformity).&lt;/em&gt;&lt;/strong&gt;  Bu örnekte kullanıcı emaillerinin alabileceği değerler çok fazla olmasına rağmen, index olarak tutabileceğimiz listenin uzunluğu sınırlı. İstesek bütün email adreslerini sayısal değerler çevirip o şekilde de indeksleriz ama yerimiz dar :)  &lt;strong&gt;&lt;em&gt;Onun için hash fonksiyonu tanımlanan bir aralıkta dönmeli (defined range).&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;İnternetten 10TB&amp;rsquo;lık program indirdim. Program ile nükleer bomba atacağım. Lakin ağ üzerinden indirdiğim dosyasının içinde bir şeyler değişmişse Allah muhafaza bombayı yanlış yere atabilirim. Onun için dosyanın birebir aynı şekilde indiğinden emin olmam lazım. Dosyayı bir kaç kere indirip bit bit kontrol etsem işimi görür aslında. Aynı yerlerde hata yaşanma olasılığı çok düşük. Ama dosya çok büyük yahu. Şunun kolay bir yolu olmalı. Mesela elimde bir fonksiyon olsa, kaynak tarafında dosyayı bit bit okuyup bir özet çıkarsa, sonra indirdikten sonra bilgisayarımda ben de çıkarsam ve özetler aynıysa dosyalar aynıdır diyebilsem ve gönül rahatlığıyla(!) bombamı atabilsem süper olurdu değil mi? Hash fonksiyonları ayağınıza geldi :) Dosya boyutu ne kadar uzun olursa olsun hash fonksiyonu onu özetler ve size kısa bir özet verebilir. Örneğin 256 karakterlik bir anahtar. Ve bu fonksiyon öyle maharetlidir ki dosyanın bir biti değişmiş ise bu anahtarda değişir. Dosyanın değişmiş olmasına rağmen aynı anahtarı üretmesi o kadar küçük bir ihtimaldir ki ona güvenip nükleer bomba atabilirsiniz. (Ya da &lt;a href=&#34;https://coinmarketcap.com/&#34;&gt;milyar dolarlarınızı&lt;/a&gt; ona emanet edebilirsiniz. Nasıl diye sorduğunuzu duyar gibiyim sevgili okuyucu. Oraya da geleceğiz. Takipte kalın :) )&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Şifre ile girilebilen bir sitemiz var. Kullanıcıların şifrelerini veritabanında kabak gibi saklamak istemiyoruz. Kendimize bile güvenmiyoruz, o derece bir güvenlik lazım. Öyle bir şey olmalı ki kullanıcının şifresini alsın, bir şeye dönüştürsün, ben elimde şifre varsa onu tekrar üretebileyim ama geriye döndürerek o şeyden şifreyi bulamayayım. Yüz yılın icadı &amp;ldquo;Cryptographic Hash Functions&amp;rdquo; imdadınıza yetişti. Bu fonksiyonlar yukarıda bahsettiğimiz tek yönlü fonksiyonları kullanır. Elinizde şifrenin hash değeri olsa bile şifreyi bulamazsınız. Lakin bir şifreyi bu fonksiyonlara soktuğumuzda çat diye aynı sonucu elde ederiz her seferinde (determinism).&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Sistemi şöyle kurduğumuzu düşünelim: Şifreyi kullanıcıdan al, hash değerini hesapla, veri tabanındaki değer ile karşılaştır. Aynıysa kullanıcıyı içeri al, değilse reddet. Burada önemli noktalar var.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kullanıcı başka bir şifre girmiş olabilir. Aynı hash değerini üretmişsek onu içeri alıyoruz. Demek ki görüntü kümemiz o kadar büyük olmalı ki çakışmalar imkansıza yakın olmalı. Şu sıralar kullanılan SHA-512 için görüntü kümesi büyüklüğü 2&lt;sup&gt;512&lt;/sup&gt;~1.34*10&lt;sup&gt;154&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Önceki örnekte de olduğu gibi hash fonksiyonumuz görüntü kümesi üzerine eşit dağılmaz ve hep yakın hash değerleri üretirse çakışma artar ve verimsizleşir. Onun için uniformity şart!&lt;/li&gt;
+&lt;li&gt;Diyelim ki sitenin veri tabanını patlattık ve bütün hash değerleri elimizde. Sitenin de kullandığı hash fonksiyonunu biliyoruz. Örneğin MD5. Oturup rastgele şifreler ile hash üretiyoruz. O kadar çok üretiyoruz ki bütün hash değerlerini üretecek en az bir girdi var elimizde. Bu şekilde kullanıcının şifresini bilmesek de onun yerine giriş yapabiliriz çünkü onun hash değerini üretebiliyoruz. Site şifrenin kendisine değil hash değerine bakıyor sonuçta. Buna &amp;ldquo;dictionary attack&amp;rdquo; yani sözlük saldırısı diyorlar. Korunmak için görüntü kümesi büyük fonksiyonlar tercih edilmeli. Ayrıca &lt;strong&gt;&lt;em&gt;salt&lt;/em&gt;&lt;/strong&gt; denen ek bir ek parametre ile fonksiyonların sonuçlarını değiştirebiliyoruz. Yani kendimize özel bir SHA 512 hash fonksiyonumuz oluyor. Böylece bu atağı yapmak isteyenler benim bu salt değerimi bilerek sözlüklerini oluşturmalılar. Bu da işlerini oldukça zorlaştırıyor.&lt;/li&gt;
+&lt;li&gt;Burada kullandığımız hash fonksiyonları benzer girdiler için benzer değerler üretmemeli. Girdide 1 karakter bile değişse çıktı bambaşka bir şey olmalı. Bu şekilde tersine mühendisliğe bütünüyle kapalı olmalı. Burada olmamalı dediğimiz özelliğin literatürdeki karşılığı &lt;strong&gt;&lt;em&gt;continuity&lt;/em&gt;&lt;/strong&gt; yani süreklilik. Bunu şöyle düşünebilirsiniz. Bir fonksiyon çizdik x-y düzlemine. f(1)=4 olduğunu biliyoruz. Bu fonksiyon sürekli ise f(1+epsilon) yaklaşık 4 civarı olmalı. &lt;strong&gt;&lt;em&gt;Biz Cryptographic hash fonksiyonlarında bunu istemiyoruz.&lt;/em&gt;&lt;/strong&gt; Tamamen alakasız olmalı. Yukarıdaki dosya özet örneğinde de istediğimiz bir şey bu. Bir bit bile değişse hash değeri farklı hatta alakasız olmalı.&lt;/li&gt;
+&lt;li&gt;Kullanıcılarımıza ek bir hizmet sunmak isteyebiliriz. Caps lock yüzünden yanlış şifre girilmesini istemiyoruz mesela. Şifre &amp;ldquo;zOrŞifRe123&amp;rdquo; ise kullanıcı &amp;ldquo;ZoRşİFRE123&amp;rdquo; girse de kabul etmek istiyoruz örneğin. Bu tip ihtiyaçlar için bazı hash fonksiyonlarına &lt;strong&gt;&lt;em&gt;&amp;ldquo;Data Normalization&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; denen özellik de eklenmiş. Bazı farklılıkları göz ardı ederek yani veriyi önce &amp;ldquo;normalize&amp;rdquo; ederek aynı sonucu veriyor.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata gördüyseniz lütfen aşağıya yorum olarak belirtin. Bir sonraki yazıda &lt;strong&gt;&lt;em&gt;Public Key Infrastructure (PKI)&lt;/em&gt;&lt;/strong&gt; anlatacağım. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34;&gt;Twitter&lt;/a&gt; üzerinden takipte kalabilirsiniz :)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Acemi Eğitimi</title>
@@ -1913,60 +2011,6 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0&#34;&gt;Epub&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Software Architecture Patterns (Ücretsiz Ekitap)</title>
-      <link>https://erkanerol.github.io/post/software-architecture-patterns/</link>
-      <pubDate>Sat, 03 Oct 2015 21:31:46 +0200</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/software-architecture-patterns/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;TL;DR O&amp;rsquo;Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/software_design_cover.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Geçenlerde Hacker News üzerinden bulduğum bir yazıyı okurken sağ tarafta ücretsiz ekitap indirebileceğime dair bir şey görünce beleşçiliğim tuttu ve kitabı (mobi formatı da var 👏) indirdim. Kitabın temel uygulama mimarilerini uzatmadan (pdf versiyonu 55 sayfa) anlatması çok hoşuma gitti ve okudum. Benim için çok faydalı olduğunu söyleyebilirim. Bir çok terim öğrendim. Buradan önermeye karar verdim.&lt;/p&gt;
-
-&lt;p&gt;Kitapta 5 ana mimariden söz ediliyor. Böyle bir mimari neden var, ne zaman gerekir, temel olarak nasıl çalışır kısaca anlatılmış. Her bölümün sonunda o bölümde anlatılan mimari belirli (Overall Agility, Deployment, Testability, Performance, Scalibility, Development) açılardan değerlendirilmiş. Mimari görselleri, değerlendirme tablosu ve kitabın linki aşağıda. İyi okumalar.&lt;/p&gt;
-
-&lt;p&gt;Kitabın linki (ePub, Mobi, PDF&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&#34;&gt;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;1-layered-architecture&#34;&gt;1. Layered Architecture&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/layered.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;2-event-driven-architecture&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
-
-&lt;h3 id=&#34;a-mediator&#34;&gt;a. Mediator&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/mediator.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;b-broker&#34;&gt;b. Broker&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/broker.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;3-microkernel-architecture&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/kernel.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;4-microservices-architecture-pattern&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/microservices.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;5-space-based-architecture&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/space_based.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;a-pattern-analysis-summary&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
-</description>
     </item>
     
   </channel>
