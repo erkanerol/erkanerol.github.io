@@ -2,8 +2,9 @@
 categories = []
 date = "2016-08-28T23:17:42+03:00"
 title = "Tasarım Şablonları 1 - Giriş"
-draft=true
 keywords = ["Software","Design Patterns","Tasarım Şablonları","Giriş"]
+draft=true
+weight = 1
 +++
 
 Herkese Merhaba.

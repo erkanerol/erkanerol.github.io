@@ -3,6 +3,7 @@ categories = ["Software","Kitap"]
 date = "2015-10-03T21:31:46+02:00"
 title = "Software Architecture Patterns (Ücretsiz Ekitap)"
 keywords = ["Software Architecture Patterns"]
+weight = 1
 +++
 
 >TL;DR O'Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti

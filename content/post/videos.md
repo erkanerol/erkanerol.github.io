@@ -4,7 +4,7 @@ date = "2016-08-29T20:47:34+03:00"
 title = "İzlenesi Videolar"
 menu = "main"
 keywords = ["Video","Youtube"]
-weight = 1000002
+weight = 1002
 +++
 
 İzlediğim, sevdiğim ve paylaşmak istediğim videoaları aşağıdaki oynatma listesine ekliyorum. İyi seyirler :)

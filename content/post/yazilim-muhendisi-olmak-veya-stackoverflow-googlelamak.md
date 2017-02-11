@@ -3,6 +3,7 @@ categories = ["Software"]
 date = "2015-08-24T20:40:00+02:00"
 title = "Yazılım Mühendisi olmak veya Stackoverflow Google'lamak"
 keywords = ["Stackoverflow"]
+weight = 1
 +++
 
 Geçenlerde gördüğüm zaytung tarzı bir haber beni epey güldürmüştü ve hemen arkadaşlarımla paylaşmıştım. Haber şöyleydi: IEEE, bilgisayar programlama disiplininin bundan sonra resmi olarak "Stackoverflow google'lamak" olarak yeniden adlandırılmasına ilişkin şiddetli tavsiye içeren bir rapor yayınladı. Haber komik olmakla birlikte çok büyük bir gerçeğe işaret ediyor bana kalırsa. Bu yazıda bu konuya ilişkin bir kaç şeyden söz etmeye çalışacağım. (bkz: abstract)

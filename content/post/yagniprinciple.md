@@ -3,6 +3,7 @@ categories = ["Software","Prensipler"]
 date = "2016-05-25T22:46:50+03:00"
 title = "YAGNI Prensibi"
 keywords = ["YAGNI Prensibi","Yazılım Prensipleri","YAGNI","Software Principles"]
+weight = 1
 +++
 
 Not: Bu yazı Martin Fowler'ın YAGNI yazısının özeti ve tercümesi niteliğindedir.

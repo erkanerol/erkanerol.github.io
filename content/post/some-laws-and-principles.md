@@ -12,6 +12,7 @@ keywords = ["Conway's Law",
             "Pareto Principle",
             "Parkinson Kanunu",
             "Parkinson's Law"]
+weight = 1
 +++
 
 Bir şekilde öğrendiğim bir takım teoriler, kanunlar, ilkeler var. Bunları çevremdeki insanlarla paylaştığımda ilgi çektiklerini ve çok bilinmediklerini farkettim. Ben de bir blog yazısı ile bunları kısa kısa ve basit cümleler ile paylaşayım dedim. Bu yazıda 5 tanesine değineceğim. Başlıklara wikipedia linklerini ekledim. Formal şekillerini okumak isteyenler oradan devam edebilir.

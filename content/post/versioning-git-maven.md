@@ -3,6 +3,7 @@ categories = ["Software","Java"]
 date = "2016-02-11T22:02:50+03:00"
 title = "How to version a JavaEE Web application with Maven and Git"
 keywords = ["Maven","Git","Versioning"]
+weight = 1
 +++
 >In this post, I will show how to version a JavaEE Web Application.
 The example project is [here](https://github.com/erkanerol/versioning_javaee_maven_git)

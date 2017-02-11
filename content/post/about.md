@@ -3,8 +3,8 @@ date = "2016-08-30T12:37:57+03:00"
 draft = false
 title = "Hakkımda"
 menu = "main"
-weight = 1000000
 keywords = ["About","Hakkımda","Erkan Erol"]
+weight = 1001
 +++
 
 ### Ünvan (Title)
@@ -16,7 +16,8 @@ keywords = ["About","Hakkımda","Erkan Erol"]
 
 ### Eğitim
 1. İstanbul Atatürk Fen Lisesi (2006-2010)
-* Boğaziçi Üniversitesi Bilgisayar Mühendisliği (2010-2015)
+* Boğaziçi Üniversitesi - Bilgisayar Mühendisliği - Lisans (2010-2015)
+* Boğaziçi Üniversitesi - Bilgisayar Mühendisliği - Master (2017-?)
 
 ### İş
 1. Netaş (2015-?)
@@ -51,22 +52,25 @@ keywords = ["About","Hakkımda","Erkan Erol"]
 * Gereksinimlerin toplanması
 * Çözüm geliştirme
 * Algoritmalar ve veri yapıları 
-* Java, JavaEE, Spring Core, Spring MVC
+* Java, JavaEE,
+* Spring Core, Spring MVC, Spring Security
 * JPA, Hibernate, SQL
 * JSF, Primefaces
 * SOAP, REST
-* Maven
+* Maven, Gradle
 * Git, SVN
 * Unix komutları
+* Vagrant
 
 #### Orta
 
-* TDD  
+* TDD
+* BDD, Serenity, Cucumber
 * Yazılım Mimarileri
 * Design Patterns
 * Docker
-* Gradle
-* Vagrant, Nomad, Consul, Packer
+* Nomad, Consul, Packer
+
 
 #### Başlangıç
 * JS, Angular
@@ -85,12 +89,8 @@ keywords = ["About","Hakkımda","Erkan Erol"]
 ### Ustalar
 1. [Lemi Orhan Ergin](http://www.lemiorhanergin.com/)
 * [Sandro Mancuso](http://codurance.com/blog/author/sandro-mancuso/)
-* [Martin Fowler](http://martinfowler.com/)
+* [Gökhan Şengün](http://www.gokhansengun.com/)
 * [Uncle Bob](https://sites.google.com/site/unclebobconsultingllc/)
-
-### Geçmiş Kayıtları
-
-İzlediğim/aldığım online dersler, okuduğum yazılım kitapları ve katıldığım etkinliklerin listeleri [burada]  ({{< ref "my-history.md" >}}) mevcut. Listeler uzadıkça keyif alıyorum. O yüzden ne varsa yazdım :)	
 
 ### İletişim
 Sol taraftaki menüde çeşitli sitelerdeki hesaplarım mevcut. 

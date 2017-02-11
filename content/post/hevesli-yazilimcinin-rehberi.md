@@ -3,6 +3,7 @@ categories = ["Software","Kitap"]
 date = "2016-05-17T15:56:13+03:00"
 title = "Çıraklık Şablonları:  Hevesli Yazılım Ustasının Rehberi"
 keywords = ["Çıraklık Şablonları","Apprenticeship Patterns"]
+weight = 1
 +++
 
 >So, why this book now? Well, we’ve overloaded our profession with resources. There is more information available about our revolution than any one person can absorb. Still, some people manage to do it. They internalize all the advice available to them and always seem to have it close at hand. How do they do achieve that level of mastery? This book is full of patterns for mastering our complex field. Mastering is more than just knowing. It is knowing in a way that lightens your load.

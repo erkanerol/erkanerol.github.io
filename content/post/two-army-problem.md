@@ -3,6 +3,7 @@ categories = ["Software"]
 date = "2015-08-24T20:31:00+02:00"
 title = "2 General/Ordu Problemi"
 keywords = ["2 General Problemi", "2 Ordu Problemi", "The Two Army Problem"]
+weight = 1
 +++
 
 Bu yazıda Two Generals' Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.

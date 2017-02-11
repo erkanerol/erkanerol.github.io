@@ -4,7 +4,7 @@ date = "2016-11-23T23:11:42+03:00"
 description = ""
 keywords = ["Kalıtım","Inheritance","Composition over Inheritance"]
 title = "Kalıtım Kullanımına Dair Bir Aydınlanma Anı"
-
+weight = 1
 +++
 
 Geçenlerde "Composition over Inheritance" ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında bir makaleye denk geldim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.

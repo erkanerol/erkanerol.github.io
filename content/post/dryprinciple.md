@@ -3,7 +3,7 @@ Categories = ["Software","Prensipler"]
 date = "2016-06-02T20:23:06+03:00"
 title = "Dry Prensibi"
 keywords = ["DRY","Yazılım Prensipleri","Software Principles","Don't Repeat Yourself"]
-
+weight = 1
 +++
 
 >Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
