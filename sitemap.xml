@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://erkanerol.github.io/</loc>
+    <lastmod>2017-02-11T19:10:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://erkanerol.github.io/post/acemi-egitimi/</loc>
     <lastmod>2017-02-11T19:10:00+03:00</lastmod>
   </url>
@@ -99,77 +104,6 @@
   <url>
     <loc>https://erkanerol.github.io/post/videos/</loc>
     <lastmod>2016-08-29T20:47:34+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/</loc>
-    <lastmod>2017-02-11T19:10:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/design-patterns/</loc>
-    <lastmod>2016-06-09T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/futbol/</loc>
-    <lastmod>2015-09-11T20:41:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/genel/</loc>
-    <lastmod>2017-01-07T13:42:18+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/java/</loc>
-    <lastmod>2016-02-11T22:02:50+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/kavramlar/</loc>
-    <lastmod>2016-09-29T22:27:32+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/kitap/</loc>
-    <lastmod>2017-02-11T19:10:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/post/</loc>
-    <lastmod>2017-02-11T19:10:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/prensipler/</loc>
-    <lastmod>2016-06-02T20:23:06+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/software/</loc>
-    <lastmod>2016-11-23T23:11:42+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/video/</loc>
-    <lastmod>2016-08-29T20:47:34+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
