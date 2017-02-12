@@ -52,7 +52,7 @@ paginate = 10
 
     # Metadata used to drive integrations.
     googleAnalytics = "UA-57796113-2"
-    gravatarHash = "321108fd00753fd95baeddbc3abc8a76"
+    gravatarhash = "321108fd00753fd95baeddbc3abc8a76"
 
     # Sidebar social links, these must be full URLs.
     github = "https://github.com/erkanerol"

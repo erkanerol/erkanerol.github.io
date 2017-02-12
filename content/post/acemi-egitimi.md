@@ -8,7 +8,7 @@ weight = 1
 +++
 
 Bir arkadaş tavsiyesi ile okuduğum bu kitabı kısa sürede bitirdim. Kitap oldukça sürükleyici ve 
-eğlenceli. O kadar hızlı bitti ki keşke bitmeseydi dedim. Kitabın makul fiyata ekitap olarak [satılması](http://www.idefix.com/ekitap/acemi-egitimi) da
+eğlenceli. O kadar hızlı bitti ki keşke bitmeseydi dedim. Kitabın makul fiyata ekitap olarak <a href="http://www.idefix.com/ekitap/acemi-egitimi" target="_blank">satılması</a> da
 okumam da etkili oldu :) Kitabı şiddetle tavsiye ediyorum!
 
 Not: Kitapta müstehcen ifadelerin yer aldığını belirtmeyi tavsiye eden olarak borç bilirim.
