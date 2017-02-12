@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on Blog</title>
+    <title>Posts on Blog</title>
     <link>https://erkanerol.github.io/post/index.xml</link>
-    <description>Recent content in Post-rsses on Blog</description>
+    <description>Recent content in Posts on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Tue, 07 Feb 2017 22:31:42 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 07 Nov 2017 00:31:42 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hash Fonksiyonları</title>
       <link>https://erkanerol.github.io/post/hash-functions/</link>
-      <pubDate>Tue, 07 Feb 2017 22:31:42 +0300</pubDate>
+      <pubDate>Tue, 07 Nov 2017 00:31:42 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/hash-functions/</guid>
-      <description>&lt;p&gt;Not: İşbu yazı Wikipedia kullanılarak yazılmıştır. Arzu edenler &lt;a href=&#34;https://en.wikipedia.org/wiki/Hash_function&#34;&gt;şu&lt;/a&gt; link üzerinden devam edebilir.&lt;/p&gt;
+      <description>&lt;p&gt;Not: İşbu yazı Wikipedia kullanılarak yazılmıştır. Arzu edenler &lt;a href=&#34;https://en.wikipedia.org/wiki/Hash_function&#34; target=&#34;_blank&#34;&gt;şu&lt;/a&gt; link üzerinden devam edebilir.&lt;/p&gt;
 
 &lt;p&gt;Hash fonksiyonları belirli özellikleri sağlayan fonksiyonlardır. Bu özelliklere değinmeden önce fonksiyonları kısaca hatırlatmak istiyorum.&lt;/p&gt;
 
@@ -88,7 +88,7 @@
 &lt;li&gt;Üçüncü alternatif: Hash fonksiyonları kullanalım :) Öyle bir fonksiyon olsun ki herhangi bir email adresini alsın ve sonuç olarak listeden bir index dönsün. Elimdeki üyeyi o index&amp;rsquo;e yerleştireyim. Sonradan lazım olduğunda hash değerini üretip doğrudan index&amp;rsquo;e gideyim. En kötü ihtimal ile complexity: O(1). Evet yanlış duymadınız O(1). Yani üye sayımız ne kadar artarsa artsın sabit(constant) bir sürede üye bilgilerini şıp diye bulabiliyoruz. Buna &lt;strong&gt;&lt;em&gt;hash tablosu&lt;/em&gt;&lt;/strong&gt; diyorlar. Lakin farketti iseniz burada hash fonksiyonumuz iki farklı email değeri için aynı index&amp;rsquo;i üretirse batıyoruz :) O zaman hash fonksiyonunu güncellememiz ve tabloyu genişletmemiz gerekiyor. &lt;strong&gt;&lt;em&gt;İyi bir hash fonksiyonu collision&amp;rsquo;ı olabildiğince azaltır (collision-resistant) ve görüntü kümesi üzerine eşit bir dağılım hedefler (uniformity).&lt;/em&gt;&lt;/strong&gt;  Bu örnekte kullanıcı emaillerinin alabileceği değerler çok fazla olmasına rağmen, index olarak tutabileceğimiz listenin uzunluğu sınırlı. İstesek bütün email adreslerini sayısal değerler çevirip o şekilde de indeksleriz ama yerimiz dar :)  &lt;strong&gt;&lt;em&gt;Onun için hash fonksiyonu tanımlanan bir aralıkta dönmeli (defined range).&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;İnternetten 10TB&amp;rsquo;lık program indirdim. Program ile nükleer bomba atacağım. Lakin ağ üzerinden indirdiğim dosyasının içinde bir şeyler değişmişse Allah muhafaza bombayı yanlış yere atabilirim. Onun için dosyanın birebir aynı şekilde indiğinden emin olmam lazım. Dosyayı bir kaç kere indirip bit bit kontrol etsem işimi görür aslında. Aynı yerlerde hata yaşanma olasılığı çok düşük. Ama dosya çok büyük yahu. Şunun kolay bir yolu olmalı. Mesela elimde bir fonksiyon olsa, kaynak tarafında dosyayı bit bit okuyup bir özet çıkarsa, sonra indirdikten sonra bilgisayarımda ben de çıkarsam ve özetler aynıysa dosyalar aynıdır diyebilsem ve gönül rahatlığıyla(!) bombamı atabilsem süper olurdu değil mi? Hash fonksiyonları ayağınıza geldi :) Dosya boyutu ne kadar uzun olursa olsun hash fonksiyonu onu özetler ve size kısa bir özet verebilir. Örneğin 256 karakterlik bir anahtar. Ve bu fonksiyon öyle maharetlidir ki dosyanın bir biti değişmiş ise bu anahtarda değişir. Dosyanın değişmiş olmasına rağmen aynı anahtarı üretmesi o kadar küçük bir ihtimaldir ki ona güvenip nükleer bomba atabilirsiniz. (Ya da &lt;a href=&#34;https://coinmarketcap.com/&#34;&gt;milyar dolarlarınızı&lt;/a&gt; ona emanet edebilirsiniz. Nasıl diye sorduğunuzu duyar gibiyim sevgili okuyucu. Oraya da geleceğiz. Takipte kalın :) )&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;İnternetten 10TB&amp;rsquo;lık program indirdim. Program ile nükleer bomba atacağım. Lakin ağ üzerinden indirdiğim dosyasının içinde bir şeyler değişmişse Allah muhafaza bombayı yanlış yere atabilirim. Onun için dosyanın birebir aynı şekilde indiğinden emin olmam lazım. Dosyayı bir kaç kere indirip bit bit kontrol etsem işimi görür aslında. Aynı yerlerde hata yaşanma olasılığı çok düşük. Ama dosya çok büyük yahu. Şunun kolay bir yolu olmalı. Mesela elimde bir fonksiyon olsa, kaynak tarafında dosyayı bit bit okuyup bir özet çıkarsa, sonra indirdikten sonra bilgisayarımda ben de çıkarsam ve özetler aynıysa dosyalar aynıdır diyebilsem ve gönül rahatlığıyla(!) bombamı atabilsem süper olurdu değil mi? Hash fonksiyonları ayağınıza geldi :) Dosya boyutu ne kadar uzun olursa olsun hash fonksiyonu onu özetler ve size kısa bir özet verebilir. Örneğin 256 karakterlik bir anahtar. Ve bu fonksiyon öyle maharetlidir ki dosyanın bir biti değişmiş ise bu anahtarda değişir. Dosyanın değişmiş olmasına rağmen aynı anahtarı üretmesi o kadar küçük bir ihtimaldir ki ona güvenip nükleer bomba atabilirsiniz. (Ya da &lt;a href=&#34;https://coinmarketcap.com/&#34; target=&#34;_blank&#34;&gt;milyar dolarlarınızı&lt;/a&gt; ona emanet edebilirsiniz. Nasıl diye sorduğunuzu duyar gibiyim sevgili okuyucu. Oraya da geleceğiz. Takipte kalın :) )&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Şifre ile girilebilen bir sitemiz var. Kullanıcıların şifrelerini veritabanında kabak gibi saklamak istemiyoruz. Kendimize bile güvenmiyoruz, o derece bir güvenlik lazım. Öyle bir şey olmalı ki kullanıcının şifresini alsın, bir şeye dönüştürsün, ben elimde şifre varsa onu tekrar üretebileyim ama geriye döndürerek o şeyden şifreyi bulamayayım. Yüz yılın icadı &amp;ldquo;Cryptographic Hash Functions&amp;rdquo; imdadınıza yetişti. Bu fonksiyonlar yukarıda bahsettiğimiz tek yönlü fonksiyonları kullanır. Elinizde şifrenin hash değeri olsa bile şifreyi bulamazsınız. Lakin bir şifreyi bu fonksiyonlara soktuğumuzda çat diye aynı sonucu elde ederiz her seferinde (determinism).&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -98,13 +98,13 @@
 &lt;ul&gt;
 &lt;li&gt;Kullanıcı başka bir şifre girmiş olabilir. Aynı hash değerini üretmişsek onu içeri alıyoruz. Demek ki görüntü kümemiz o kadar büyük olmalı ki çakışmalar imkansıza yakın olmalı. Şu sıralar kullanılan SHA-512 için görüntü kümesi büyüklüğü 2&lt;sup&gt;512&lt;/sup&gt;~1.34*10&lt;sup&gt;154&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;Önceki örnekte de olduğu gibi hash fonksiyonumuz görüntü kümesi üzerine eşit dağılmaz ve hep yakın hash değerleri üretirse çakışma artar ve verimsizleşir. Onun için uniformity şart!&lt;/li&gt;
-&lt;li&gt;Diyelim ki sitenin veri tabanını patlattık ve bütün hash değerleri elimizde. Sitenin de kullandığı hash fonksiyonunu biliyoruz. Örneğin MD5. Oturup rastgele şifreler ile hash üretiyoruz. O kadar çok üretiyoruz ki bütün hash değerlerini üretecek en az bir girdi var elimizde. Bu şekilde kullanıcının şifresini bilmesek de onun yerine giriş yapabiliriz çünkü onun hash değerini üretebiliyoruz. Site şifrenin kendisine değil hash değerine bakıyor sonuçta. Buna &amp;ldquo;dictionary attack&amp;rdquo; yani sözlük saldırısı diyorlar. Korunmak için görüntü kümesi büyük fonksiyonlar tercih edilmeli. Ayrıca &lt;strong&gt;&lt;em&gt;salt&lt;/em&gt;&lt;/strong&gt; denen ek bir ek parametre ile fonksiyonların sonuçlarını değiştirebiliyoruz. Yani kendimize özel bir SHA 512 hash fonksiyonumuz oluyor. Böylece bu atağı yapmak isteyenler benim bu salt değerimi bilerek sözlüklerini oluşturmalılar. Bu da işlerini oldukça zorlaştırıyor.&lt;/li&gt;
+&lt;li&gt;Diyelim ki sitenin veri tabanını patlattık ve bütün hash değerleri elimizde. Sitenin de kullandığı hash fonksiyonunu biliyoruz. Örneğin MD5. Oturup rastgele şifreler ile hash üretiyoruz. O kadar çok üretiyoruz ki bütün hash değerlerini üretecek en az bir girdi var elimizde. Bu şekilde kullanıcının şifresini bilmesek de onun yerine giriş yapabiliriz çünkü onun hash değerini üretebiliyoruz. Site şifrenin kendisine değil hash değerine bakıyor sonuçta. Buna &amp;ldquo;dictionary attack&amp;rdquo; yani sözlük saldırısı diyorlar. Korunmak için görüntü kümesi büyük fonksiyonlar tercih edilmeli. Ayrıca &lt;strong&gt;&lt;em&gt;salt&lt;/em&gt;&lt;/strong&gt; denen ek bir parametre ile fonksiyonların sonuçlarını değiştirebiliyoruz. Yani kendimize özel bir SHA 512 hash fonksiyonumuz oluyor. Böylece bu atağı yapmak isteyenler benim bu salt değerimi bilerek sözlüklerini oluşturmalılar. Bu da işlerini oldukça zorlaştırıyor.&lt;/li&gt;
 &lt;li&gt;Burada kullandığımız hash fonksiyonları benzer girdiler için benzer değerler üretmemeli. Girdide 1 karakter bile değişse çıktı bambaşka bir şey olmalı. Bu şekilde tersine mühendisliğe bütünüyle kapalı olmalı. Burada olmamalı dediğimiz özelliğin literatürdeki karşılığı &lt;strong&gt;&lt;em&gt;continuity&lt;/em&gt;&lt;/strong&gt; yani süreklilik. Bunu şöyle düşünebilirsiniz. Bir fonksiyon çizdik x-y düzlemine. f(1)=4 olduğunu biliyoruz. Bu fonksiyon sürekli ise f(1+epsilon) yaklaşık 4 civarı olmalı. &lt;strong&gt;&lt;em&gt;Biz Cryptographic hash fonksiyonlarında bunu istemiyoruz.&lt;/em&gt;&lt;/strong&gt; Tamamen alakasız olmalı. Yukarıdaki dosya özet örneğinde de istediğimiz bir şey bu. Bir bit bile değişse hash değeri farklı hatta alakasız olmalı.&lt;/li&gt;
 &lt;li&gt;Kullanıcılarımıza ek bir hizmet sunmak isteyebiliriz. Caps lock yüzünden yanlış şifre girilmesini istemiyoruz mesela. Şifre &amp;ldquo;zOrŞifRe123&amp;rdquo; ise kullanıcı &amp;ldquo;ZoRşİFRE123&amp;rdquo; girse de kabul etmek istiyoruz örneğin. Bu tip ihtiyaçlar için bazı hash fonksiyonlarına &lt;strong&gt;&lt;em&gt;&amp;ldquo;Data Normalization&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; denen özellik de eklenmiş. Bazı farklılıkları göz ardı ederek yani veriyi önce &amp;ldquo;normalize&amp;rdquo; ederek aynı sonucu veriyor.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;br&gt;
-Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata gördüyseniz lütfen aşağıya yorum olarak belirtin. Bir sonraki yazıda &lt;strong&gt;&lt;em&gt;Public Key Infrastructure (PKI)&lt;/em&gt;&lt;/strong&gt; anlatacağım. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34;&gt;Twitter&lt;/a&gt; üzerinden takipte kalabilirsiniz :)&lt;/p&gt;</description>
+Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata gördüyseniz lütfen aşağıya yorum olarak belirtin. Bir sonraki yazıda &lt;strong&gt;&lt;em&gt;Public Key Infrastructure (PKI)&lt;/em&gt;&lt;/strong&gt; anlatacağım. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt; üzerinden takipte kalabilirsiniz :)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -114,7 +114,7 @@ Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata 
       
       <guid>https://erkanerol.github.io/post/acemi-egitimi/</guid>
       <description>&lt;p&gt;Bir arkadaş tavsiyesi ile okuduğum bu kitabı kısa sürede bitirdim. Kitap oldukça sürükleyici ve
-eğlenceli. O kadar hızlı bitti ki keşke bitmeseydi dedim. Kitabın makul fiyata ekitap olarak &lt;a href=&#34;http://www.idefix.com/ekitap/acemi-egitimi&#34;&gt;satılması&lt;/a&gt; da
+eğlenceli. O kadar hızlı bitti ki keşke bitmeseydi dedim. Kitabın makul fiyata ekitap olarak &lt;a href=&#34;http://www.idefix.com/ekitap/acemi-egitimi&#34; target=&#34;_blank&#34;&gt;satılması&lt;/a&gt; da
 okumam da etkili oldu :) Kitabı şiddetle tavsiye ediyorum!&lt;/p&gt;
 
 &lt;p&gt;Not: Kitapta müstehcen ifadelerin yer aldığını belirtmeyi tavsiye eden olarak borç bilirim.&lt;/p&gt;
