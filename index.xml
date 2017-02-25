@@ -6,13 +6,13 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sat, 25 Feb 2017 14:10:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 25 Feb 2017 20:00:00 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Yazılımcı Fanatikliğinin Anatomisi</title>
       <link>https://erkanerol.github.io/post/yazilimci-fanatikliginin-anatomisi/</link>
-      <pubDate>Sat, 25 Feb 2017 14:10:00 +0300</pubDate>
+      <pubDate>Sat, 25 Feb 2017 20:00:00 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/yazilimci-fanatikliginin-anatomisi/</guid>
       <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Feragatname (Disclaimer):&lt;/em&gt;&lt;/strong&gt; İşbu blog yazısındaki her şey şahsi görüşlerim ve çıkarımlarımdan ibaret olup, herhangi bir kaynağa dayanmamaktadır. Yazıdaki ölçü vurgusuna dikkat edilmesi önemle rica olunur.&lt;/p&gt;
@@ -31,11 +31,11 @@
 
 &lt;h3 id=&#34;neden&#34;&gt;Neden?&lt;/h3&gt;
 
-&lt;p&gt;Her mesleğin kendine göre zorlukları vardır. Yazılım geliştirme mesleğinin en zorlu yanlarından biri -aynı zamanda en güzel yanlarından biri olmakla beraber- sürekli bir değişimin/gelişimin olması. Öyle tarih öğretmenliği gibi öğrenilecekleri bir kez öğrenip 40 sene &lt;strong&gt;yalnızca&lt;/strong&gt; onlarla işi götüremezsiniz. Her daim sürekli bir öğrenme sürecinde olmak zorundasınız. İşin kötü yanı &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;24&lt;/sub&gt; çalışsanız bile her şeyi öğrenmeniz imkansız. Her şeyi öğrenmeye çalışırsanız geriye dönüp baktığınızda hiçbir şeyi tam anlamıyla öğrenemediğinizi farkedersiniz. Bu nedenle yazılımcılar kariyerleri boyunca belirli alanları seçip, onlara odaklanırlar. Ömürlerini bu alanlarda gelişmek için harcarlar. Hikaye de tam burada başlar.&lt;/p&gt;
+&lt;p&gt;Her mesleğin kendine göre zorlukları vardır. Yazılım geliştirme mesleğinin en zorlu yanlarından biri -aynı zamanda en güzel yanlarından biri olmakla beraber- sürekli bir değişimin/gelişimin olması. Öyle tarih öğretmenliği gibi öğrenilecekleri bir kez öğrenip 40 sene &lt;strong&gt;yalnızca&lt;/strong&gt; onlarla işi götüremezsiniz. Her daim sürekli bir öğrenme sürecinde olmak zorundasınız. İşin kötü yanı &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;24&lt;/sub&gt; çalışsanız bile her şeyi öğrenmeniz imkansız. Her şeyi öğrenmeye çalışırsanız geriye dönüp baktığınızda hiçbir şeyi tam anlamıyla öğrenemediğinizi fark edersiniz. Bu nedenle yazılımcılar kariyerleri boyunca belirli alanları seçip, onlara odaklanırlar. Ömürlerini bu alanlarda gelişmek için harcarlar. Hikaye de tam burada başlar.&lt;/p&gt;
 
 &lt;h4 id=&#34;1-yatırımlarını-koruma-çabası&#34;&gt;1. Yatırımlarını koruma çabası&lt;/h4&gt;
 
-&lt;p&gt;O bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, sevdiklerinizden feragat ederek gece gündüz öğrendiğiniz, ustası olduğunuz bir dili piyasadan silebilir. &amp;ldquo;Oldum&amp;rdquo; diye düşündüğünüz an o çok bildiğiniz framework çöp muamelesi görebilir. Kullandıkları teknolojiler yükselişte diye düşünerek girdiğiniz işten çıkana kadar o teknojiler (bkz: js frameworks) eskiyebilir. &lt;strong&gt;&lt;em&gt;Yazılımcılar alanlarını seçerken aslında bir nevi yatırım yaparlar.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bu bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, sevdiklerinizden feragat ederek gece gündüz öğrendiğiniz, ustası olduğunuz bir dili piyasadan silebilir. &amp;ldquo;Oldum&amp;rdquo; diye düşündüğünüz an o çok bildiğiniz framework çöp muamelesi görebilir. Kullandıkları teknolojiler yükselişte diye düşünerek girdiğiniz işten çıkana kadar o teknolojiler (bkz: js frameworks) eskiyebilir. &lt;strong&gt;&lt;em&gt;Yazılımcılar alanlarını seçerken aslında bir nevi yatırım yaparlar.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Ne diyordu Primefaces ile JavaEE dünyasına damgasını vurmuş Çağatay Çivici Angular2 için çıkardığı PrimeNg&amp;rsquo;yi tanıtırken?&lt;/p&gt;
 
@@ -57,11 +57,11 @@
 
 &lt;h4 id=&#34;3-özentilik&#34;&gt;3. Özentilik&lt;/h4&gt;
 
-&lt;p&gt;Öğrenmenin birinci adımı taklit etmektir. Evvela sizden öncekilerin yaptığı gibi yapmaya çalışırsınız. Zamanla su akar, yatağını bulur ve kendinize özgü bir üslup edinirsiniz. Usta-çırak ilişkisi içinde olan yazarlara bakın mesela çırağın satırlarında ustaya rastlamak olağandır.&lt;/p&gt;
+&lt;p&gt;Öğrenmenin birinci adımı taklit etmektir. Evvela sizden öncekilerin yaptığı gibi yapmaya çalışırsınız. Zamanla su akar, yatağını bulur ve kendinize özgü bir üslup edinirsiniz. Usta-çırak ilişkisi içinde olan yazarlara bakın mesela, çırağın satırlarında ustaya rastlamak olağandır.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.&lt;/em&gt;&lt;/strong&gt; Şöyle düşünür örneğin &amp;ldquo;Çok iyi yazılımcılar arasında &amp;lsquo;Outside In TDD vs Inside Out TDD&amp;rsquo; tartışması var. Demek ki benim de birini seçip, o şekilde benimsemem ve sevmem lazım. Ancak o şekilde iyi olabilirim.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.&lt;/em&gt;&lt;/strong&gt; Şöyle düşünür örneğin &amp;ldquo;Çok iyi yazılımcılar arasında &amp;lsquo;Outside In TDD vs Inside Out TDD&amp;rsquo; tartışması var. Demek ki benim de birini seçip, benimsemem ve sevmem lazım. Ancak bu şekilde iyi olabilirim.&amp;rdquo;&lt;/p&gt;
 
-&lt;p&gt;Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. O çaylaklığı atlatanlar, olgunlaşanlar bu tartışmaların ekosistemi besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve bunlar üzerinden var olmanın peşindedirler.&lt;/p&gt;
+&lt;p&gt;Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. Çaylaklığını atlatanlar, olgunlaşanlar bu tartışmaların yazılım ekosistemini besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve çatışmalar üzerinden var olmanın peşindedirler.&lt;/p&gt;
 
 &lt;h4 id=&#34;4-cehalet-aptallık-ve-ahlaksızlık&#34;&gt;4. Cehalet, Aptallık ve Ahlaksızlık&lt;/h4&gt;
 
@@ -72,9 +72,9 @@
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Şu hakikati kabul etmek farzdır: Her alanda olduğu gibi yazılım alanında da fanatizmin asıl sebebi cehalet, aptallık ve ahlaksızlık üçlüsüdür ki nedense bu üçlü pek çok zaman bir arada gezerler.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Cehalet diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bunlar kendini biliyor sanır ama çok şey bilmezler. Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden &lt;a href=&#34;https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0&#34; target=&#34;_blank&#34;&gt;muzdariptirler,&lt;/a&gt; her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Cehalet diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bunlar kendini biliyor sanır ama çok şey bilmezler,  &lt;a href=&#34;https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect&#34; target=&#34;_blank&#34;&gt;hatta bilmediklerini de bilmezler. &lt;/a&gt; Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden &lt;a href=&#34;https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0&#34; target=&#34;_blank&#34;&gt;muzdariptirler,&lt;/a&gt; her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Aptallık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu fanatizm pek çok defa insana ve çevresindekilere zarar verir. Bütün bu zararlarına rağmen fanatizme kapılmak, kaybetmek ancak akılsızlıkla, aptallıkla açıklanabilir. Ancak aptallar bu kadar kör olabilir.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Ahlaksızlık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da bir kaçına körü körüne bağlanıp kendisine, işine ve varsa iş verenine zarar vermesi bir nevi ahlaksızlıktır.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Ahlaksızlık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da birkaçına körü körüne bağlanıp kendisine, işine ve varsa iş verenine zarar vermesi bir nevi ahlaksızlıktır.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;kapanış&#34;&gt;Kapanış&lt;/h3&gt;
