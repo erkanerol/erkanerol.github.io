@@ -9,9 +9,90 @@
     <atom:link href="https://erkanerol.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Yazılımcı Fanatikliğinin Anatomisi</title>
+      <link>https://erkanerol.github.io/post/yazilimci-fanatikliginin-anatomisi/</link>
+      <pubDate>Sat, 25 Feb 2017 14:10:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/yazilimci-fanatikliginin-anatomisi/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;Feragatname (Disclaimer):&lt;/em&gt;&lt;/strong&gt; İşbu blog yazısındaki her şey şahsi görüşlerim ve çıkarımlarımdan ibaret olup, herhangi bir kaynağa dayanmamaktadır. Yazıdaki ölçü vurgusuna dikkat edilmesi önemle rica olunur.&lt;/p&gt;
+
+&lt;h3 id=&#34;nereden-çıktı-bu-yazı&#34;&gt;Nereden çıktı bu yazı?&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.meetup.com/Software-Craftsmanship-Turkey/&#34; target=&#34;_blank&#34;&gt;Türkiye Yazılım Ustalığı &lt;/a&gt; topluluğumuz için &lt;a href=&#34;https://www.meetup.com/Software-Craftsmanship-Turkey/pages/20984357/Topluluk_Davran%C4%B1%C5%9F_Kurallar%C4%B1/&#34; target=&#34;_blank&#34;&gt;Topluluk Davranış Kuralları&amp;rsquo;nı &lt;/a&gt; İngilizce örneğinden çevirirken bir ifadeye rastladım.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Topluluğumuz cinsiyet, cinsel kimlik, cinsel tercih, yaş, engellilik hali, fiziksel görünüm, vücut ölçüleri, ırk ve din (veya dinsizlik), &lt;strong&gt;&lt;em&gt;teknolojik tercihler&lt;/em&gt;&lt;/strong&gt; ayrımı yapmaksızın herkese rahatsızlıktan uzak bir deneyim sunmaya adanmıştır.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Teknolojik tercihleri yüzünden ayrımcılığa maruz kalan var mıdır bilmiyorum ama bazı yazılımcıların &lt;strong&gt;&lt;em&gt;&amp;ldquo;fanatik&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; olarak nitelendirilebileceğini biliyorum. Bu yazılım camiasında da bilinen bir durum zaten. Belirli bir ölçüye kadar güzel ve sevimli olan bu fan olma hali bir yerden sonra büyük sorunlara neden oluyor. Bu konu hakkında biraz kafa yordum ve düşüncelerimi bu yazıda ifade etmeye çalışacağım.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;neden&#34;&gt;Neden?&lt;/h3&gt;
+
+&lt;p&gt;Her mesleğin kendine göre zorlukları vardır. Yazılım geliştirme mesleğinin en zorlu yanlarından biri -aynı zamanda en güzel yanlarından biri olmakla beraber- sürekli bir değişimin/gelişimin olması. Öyle tarih öğretmenliği gibi öğrenilecekleri bir kez öğrenip 40 sene &lt;strong&gt;yalnızca&lt;/strong&gt; onlarla işi götüremezsiniz. Her daim sürekli bir öğrenme sürecinde olmak zorundasınız. İşin kötü yanı &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;24&lt;/sub&gt; çalışsanız bile her şeyi öğrenmeniz imkansız. Her şeyi öğrenmeye çalışırsanız geriye dönüp baktığınızda hiçbir şeyi tam anlamıyla öğrenemediğinizi farkedersiniz. Bu nedenle yazılımcılar kariyerleri boyunca belirli alanları seçip, onlara odaklanırlar. Ömürlerini bu alanlarda gelişmek için harcarlar. Hikaye de tam burada başlar.&lt;/p&gt;
+
+&lt;h4 id=&#34;1-yatırımlarını-koruma-çabası&#34;&gt;1. Yatırımlarını koruma çabası&lt;/h4&gt;
+
+&lt;p&gt;O bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, sevdiklerinizden feragat ederek gece gündüz öğrendiğiniz, ustası olduğunuz bir dili piyasadan silebilir. &amp;ldquo;Oldum&amp;rdquo; diye düşündüğünüz an o çok bildiğiniz framework çöp muamelesi görebilir. Kullandıkları teknolojiler yükselişte diye düşünerek girdiğiniz işten çıkana kadar o teknojiler (bkz: js frameworks) eskiyebilir. &lt;strong&gt;&lt;em&gt;Yazılımcılar alanlarını seçerken aslında bir nevi yatırım yaparlar.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Ne diyordu Primefaces ile JavaEE dünyasına damgasını vurmuş Çağatay Çivici Angular2 için çıkardığı PrimeNg&amp;rsquo;yi tanıtırken?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.primefaces.org/?p=4313&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;&lt;em&gt;Always bet on Prime!&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yani diyor ki; biz gelişeceğiz, güçleneceğiz. Piyasa bizi kullanacak, bizi bilen yazılımcı değerli olacak. Gidip de başka kütüphanelerle vakit kaybetme. Bize yatır ömrünü/emeğini ve kazan!&lt;/p&gt;
+
+&lt;p&gt;Peki bir dil/framework/araç/mimari/paradigma nasıl güçlenir, eskisinin yerini alır? Elbette bir gelişimi içinde barındırarak, eskisindeki bir takım sorunları çözerek. Peki her zaman birincil etkenin bu olduğunu söyleyebilir miyiz? Ortalıkta ne kadar övüldüğünün hiç etkisi yoktur diyebilir miyiz? Bilginin bu kadar çoğaldığı, odaklanmanın bu kadar zor olduğu bir dönemde derinleşme o kadar zor ki hemen hemen her alanda ciddi bir sığlık ile karşı karşıyayız. Ve bu sığlıktan ötürü bütün alanlarda algı hakikatin yerini almış durumda. Piyasada buna bir miktar teslim olmuş ki bu durumdan yakınan pek çok yazı (bkz: &lt;a href=&#34;https://medium.com/tag/hype-driven-development&#34; target=&#34;_blank&#34;&gt;Hype Driven Development&lt;/a&gt;) yayınlandı.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da bu nedenlerden dolayı yatırım yaptıkları alanlar lehine algı yönetimi yapma eğilimindedirler.&lt;/em&gt;&lt;/strong&gt; Herkesin kendi bildiğini fütursuzca övdüğü bir ortamda nasıl sessiz kalınabilir? 10 yıl kazandığınız parayı bir şirketin hisselerine yatırsanır ve geri çekme imkanınız olmasa, şirketin kötü gittiğine dair yorumlara inanır/katılır mısınız yoksa şirketin ne kadar parlak bir geleceğe sahip olduğunu mu anlatırsınız insanlara? İnsanın kendini inandırması bile zordur böyle durumlarda.&lt;/p&gt;
+
+&lt;h4 id=&#34;2-duygusal-bağlar&#34;&gt;2. Duygusal Bağlar&lt;/h4&gt;
+
+&lt;p&gt;Yaşanmışlıklar aziz okuyucu yaşanmışlıklar! İnsanı insana, insanı hayvana, insanı nesnelere bağlar. Kusurları görünmez kılar. Leyla&amp;rsquo;nın kusurları görünür mü hiç Mecnun&amp;rsquo;un gözüne?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da hayatlarını harcadıkları şeylerin eksikliklerini/kusurlarını görme konusunda sıkıntı yaşarlar, nesnelliklerini yitirirler.&lt;/em&gt;&lt;/strong&gt; Kadın (bkz: she instead of he) yıllarca vim kullanmış, bütün kısa yolları tek tek öğrenmiş, kendine özel eklentileri/temaları bulmuş, editörü adeta yuvası yapmış. Visual Studio Code&amp;rsquo;da yatıya kalmış misafir tedirginliğinde yerini yadırgamaz mı?&lt;/p&gt;
+
+&lt;h4 id=&#34;3-özentilik&#34;&gt;3. Özentilik&lt;/h4&gt;
+
+&lt;p&gt;Öğrenmenin birinci adımı taklit etmektir. Evvela sizden öncekilerin yaptığı gibi yapmaya çalışırsınız. Zamanla su akar, yatağını bulur ve kendinize özgü bir üslup edinirsiniz. Usta-çırak ilişkisi içinde olan yazarlara bakın mesela çırağın satırlarında ustaya rastlamak olağandır.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.&lt;/em&gt;&lt;/strong&gt; Şöyle düşünür örneğin &amp;ldquo;Çok iyi yazılımcılar arasında &amp;lsquo;Outside In TDD vs Inside Out TDD&amp;rsquo; tartışması var. Demek ki benim de birini seçip, o şekilde benimsemem ve sevmem lazım. Ancak o şekilde iyi olabilirim.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. O çaylaklığı atlatanlar, olgunlaşanlar bu tartışmaların ekosistemi besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve bunlar üzerinden var olmanın peşindedirler.&lt;/p&gt;
+
+&lt;h4 id=&#34;4-cehalet-aptallık-ve-ahlaksızlık&#34;&gt;4. Cehalet, Aptallık ve Ahlaksızlık&lt;/h4&gt;
+
+&lt;p&gt;Aziz okuyucu!&lt;/p&gt;
+
+&lt;p&gt;Bu zamana kadar bahaneler üretmeye, mazur görmeye çalıştık. Lakin itiraf etmenin zamanı geldi. Çıkarlarını koruma iç güdüsü, sevmek, bağlanmak, benimsemek, özenmek&amp;hellip; Bunların hepsi olağandır, güzeldir. Lakin ölçüyü kaçırmanın, çatışma üretmenin, insanları kırmanın, insanları yanlışa yönlendirmenin, iş vereninin çıkarları aleyhine kararlar almanın mazereti yoktur.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Şu hakikati kabul etmek farzdır: Her alanda olduğu gibi yazılım alanında da fanatizmin asıl sebebi cehalet, aptallık ve ahlaksızlık üçlüsüdür ki nedense bu üçlü pek çok zaman bir arada gezerler.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Cehalet diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bunlar kendini biliyor sanır ama çok şey bilmezler. Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden &lt;a href=&#34;https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0&#34; target=&#34;_blank&#34;&gt;muzdariptirler,&lt;/a&gt; her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Aptallık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu fanatizm pek çok defa insana ve çevresindekilere zarar verir. Bütün bu zararlarına rağmen fanatizme kapılmak, kaybetmek ancak akılsızlıkla, aptallıkla açıklanabilir. Ancak aptallar bu kadar kör olabilir.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Ahlaksızlık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da bir kaçına körü körüne bağlanıp kendisine, işine ve varsa iş verenine zarar vermesi bir nevi ahlaksızlıktır.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;kapanış&#34;&gt;Kapanış&lt;/h3&gt;
+
+&lt;p&gt;Tarihin her döneminde, her toplulukta kendini gösteren  fanatizm illetinin; bu zamanda, yazılımcılar arasında da kendini göstermesi normaldir. Umut edilir ki sayıları az olsun.&lt;/p&gt;
+
+&lt;p&gt;Sorunların tespiti kolay, çözümleri zordur. Ben bir çırak olarak yazılımcılar arasındaki fanatizm sorununu bir kez daha ifade ettim, kendimce irdeledim. Çözümü var mıdır bilmiyorum. Varsa da bulma, ifade etme ve uygulama işini ustalara bırakmak lazım gelir diye düşünüyorum.&lt;/p&gt;
+
+&lt;p&gt;Sürç-i lisan ettiysek affola!&lt;/p&gt;
+
+&lt;p&gt;Not: Aşağıdaki tweet&amp;rsquo;imi favlayan herkese çok teşekkür ederim❤️
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;tr&#34; dir=&#34;ltr&#34;&gt;Unutmuştum. Aklıma geldi.10 fava önümüzdeki hafta &amp;quot;Yazılımcı Fanatikliğinin Anatomisi&amp;quot; başlıklı blog yazarım.&lt;/p&gt;&amp;mdash; Erkan Erol (@erkan&lt;em&gt;erol&lt;/em&gt;) &lt;a href=&#34;https://twitter.com/erkan_erol_/status/832337511246606337&#34;&gt;February 16, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Hash Fonksiyonları</title>
       <link>https://erkanerol.github.io/post/hash-functions/</link>
-      <pubDate>Tue, 07 Nov 2017 00:31:42 +0300</pubDate>
+      <pubDate>Sat, 11 Feb 2017 00:31:42 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/hash-functions/</guid>
       <description>&lt;p&gt;Not: İşbu yazı Wikipedia kullanılarak yazılmıştır. Arzu edenler &lt;a href=&#34;https://en.wikipedia.org/wiki/Hash_function&#34; target=&#34;_blank&#34;&gt;şu&lt;/a&gt; link üzerinden devam edebilir.&lt;/p&gt;
@@ -1782,28 +1863,6 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;h2 id=&#34;a-pattern-analysis-summary&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Yazılım Mühendisi olmak veya Stackoverflow Google&#39;lamak</title>
-      <link>https://erkanerol.github.io/post/yazilim-muhendisi-olmak-veya-stackoverflow-googlelamak/</link>
-      <pubDate>Mon, 24 Aug 2015 20:40:00 +0200</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/yazilim-muhendisi-olmak-veya-stackoverflow-googlelamak/</guid>
-      <description>&lt;p&gt;Geçenlerde gördüğüm zaytung tarzı bir haber beni epey güldürmüştü ve hemen arkadaşlarımla paylaşmıştım. Haber şöyleydi: IEEE, bilgisayar programlama disiplininin bundan sonra resmi olarak &amp;ldquo;Stackoverflow google&amp;rsquo;lamak&amp;rdquo; olarak yeniden adlandırılmasına ilişkin şiddetli tavsiye içeren bir rapor yayınladı. Haber komik olmakla birlikte çok büyük bir gerçeğe işaret ediyor bana kalırsa. Bu yazıda bu konuya ilişkin bir kaç şeyden söz etmeye çalışacağım. (bkz: abstract)&lt;/p&gt;
-
-&lt;p&gt;Bir aydan kısa bir süredir Java tabanlı web yazılımları geliştirmekle meşgulüm. Öncesinde pek bir şey bildiğim söylenemez. Uzun uzun projede kullanılan araçları öğrenme fırsatım da olmadı. Lazım oldukça kısa kısa bakıyorum. Gün içerisinde onlarca sorun ile karşılaşıyorum ve yine onlarca kez  sorunu Google&amp;rsquo;da aratıyorum. Google sağolsun yazdığım anahtar kelimelerden uygun sayfayı bulup önüme koyuyor. Soruyu bile okumadan sayfayı aşağı çekip cevaba bakıyorum hemen. Eğer yüksek oy almış bir cevap varsa soruya bakıyorum. Sorun benzerse çözümü deniyorum. Olursa ne ala. Olmazsa diğer sorulara ve önerilere geçiyorum. Aslında yaptığım iş tam olarak Google&amp;rsquo;lamak. Öyle sanıyorum ki Türkiye&amp;rsquo;deki meslektaşlarımın (hayatımda ilk kez kullandım bu kelimeyi, hoşuma gitti şu anda) önemli bir bölümü de işi böyle yürütüyor. Hatta &amp;ldquo;Stackoverflow kapansa Dünya genelindeki yazılım geliştirme hızı yarı yarıya azalır.&amp;rdquo; diye bir iddiam bile var. Özetle stackoverflow yazılımcılar için bulunmaz nimet. stackexchange.com&amp;rsquo;un içindeki diğer topluluklar da gittikçe gelişiyor ve çok faydalı. Bir göz atmanızı öneririm.&lt;/p&gt;
-
-&lt;p&gt;FAKAT bir sorun var. Sadece çözümü kopyalamak hem bana çok bir şey öğretmiyor hem de içime sinmiyor. Fen lisesinde ve üniversitede hocalarımın ruhuma saldıkları soru sorma -neden?nasıl?niye öyle tasarlamışlar ki? şöyle yapsak nasıl olur acaba?- virüsü(!)  yakamı bırakmıyor. Ama verilen cevapları uzun uzun okumaya, anlamaya, anlamadığım yerleri ayrı ayrı aratıp en ince ayrıntısına kadar öğrenmeye kalksam yazılım geliştirme süreci fena halde yavaşlar. Zaten kimsenin öyle yaptığını sanmıyorum. Böyle şeyler biraz zamanla gelişiyor farkındayım. Ama böyle düşünürsem sanki hep cevap okuyan, soru soran tarafta kalıcakmışım gibi geliyor. Ben de bir süreden sonra soru cevaplayan tarafta olmak istiyorum. (Cevap demişken kapatıp açmayı denemenizi öneririm efendim ) Üretmeden tüketmek bana göre değil. (bkz: reklam kokan ifadeler)&lt;/p&gt;
-
-&lt;p&gt;Ben şimdilik şöyle bir yol buldum. Çalışma sırasında önemli gördüğüm yerleri not alıyorum, boş bir vaktimde inceliyorum. Olaylara biraz daha vakıf olayım blog yazmaya da başlayacağım. Birine bir şeyi öğretmeye çalışmak çok öğretici oluyor gerçekten.Hem Türkçe kaynaklar maalesef çok yetersiz, belki bir katkımız olur. Özellikle yoğunlaştığım framework&amp;rsquo;lerin dökümanlarını okumayı,source kodları incelemeyi de planlıyorum. Ayrıca camianın nabzını tutmaya, önemli blogları keşfetmeye/takip etmeye çalışıyorum. Herşeyi öğrenmeye çalışıp kendimi yıpratmak niyetinde değilim ama buton nasıl eklenir olayıyla kendimi sınırlandırmak istemem. İşin felsefesine yönelik şeylere de bakıyorum. Hem yazılım geliştirmek stackoverflow&amp;rsquo;dan kod kopyalamaktan ibaret olsaydı o kadar kitap o kadar makale o kadar blog boşuna yazılmadı herhalde.&lt;/p&gt;
-
-&lt;p&gt;Yazıyı şöyle bitireyim: Aşağıdaki fotoğraf bir süre konuşuldu. Whatsapp Türkiye&amp;rsquo;nin en büyük şirketlerinden (THY, Tüpraş, Turkcell) 3 tanesinin toplamından daha değerli imiş. &amp;ldquo;Bizim acil yazılım işine girmemiz lazım. Yazılımda çok para var.&amp;rdquo;  muhabbetleri çok döndü. Tabi herkes patronluğa talip kodu yazmaya niyetlenen yok. Fakat o uygulamalar öyle sürükle bırakla, kod kopyalamakla hemen yazılamıyor maalesef. Biz hızlı treni insanla test ederken &amp;ldquo;gavur&amp;rdquo; eğlence amaçlı bir uygulamayı bile çok sıkı test ediyor. Bir yandan da Türkiye&amp;rsquo;de bu işe para yatıran, şirket kuran insanlar kalifiye çalışan bulamamaktan şikayet ediyor. Eğer gerçekten kaliteli yazılımlar geliştirmek ciddi paralar kazanmak (kalite yeterli olmayabilir ama gerekli) istiyorsak, eğer arkadan takip etmeyi bırakmak istiyorsak stackoverflow&amp;rsquo;da soru cevaplayan adamlar lazım bize galiba. Şuna bile razıyım yahu: &amp;ldquo;It works for me&amp;rdquo; :D&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/stackoverflowlamak.jpg&#34; title=&#34;stackoverflowlamak&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Yeni yetme bir coder&amp;rsquo;ın &amp;ldquo;parlak&amp;rdquo; fikirlerini dinlediğiniz için teşekkür ederim.&lt;/p&gt;
 </description>
     </item>
     

@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://erkanerol.github.io/post/hash-functions/</loc>
-    <lastmod>2017-11-07T00:31:42+03:00</lastmod>
+    <loc>https://erkanerol.github.io/post/yazilimci-fanatikliginin-anatomisi/</loc>
+    <lastmod>2017-02-25T14:10:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/post/acemi-egitimi/</loc>
     <lastmod>2017-02-11T19:10:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/hash-functions/</loc>
+    <lastmod>2017-02-11T00:31:42+03:00</lastmod>
   </url>
   
   <url>
@@ -108,7 +113,7 @@
   
   <url>
     <loc>https://erkanerol.github.io/</loc>
-    <lastmod>2017-11-07T00:31:42+03:00</lastmod>
+    <lastmod>2017-02-25T14:10:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,7 +160,7 @@
   
   <url>
     <loc>https://erkanerol.github.io/post/</loc>
-    <lastmod>2017-11-07T00:31:42+03:00</lastmod>
+    <lastmod>2017-02-25T14:10:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -167,7 +172,7 @@
   
   <url>
     <loc>https://erkanerol.github.io/categories/software/</loc>
-    <lastmod>2017-11-07T00:31:42+03:00</lastmod>
+    <lastmod>2017-02-25T14:10:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
