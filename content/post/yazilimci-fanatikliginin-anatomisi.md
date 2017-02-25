@@ -1,5 +1,5 @@
 +++
-date = "2017-02-25T14:10:00+03:00"
+date = "2017-02-25T20:00:00+03:00"
 keywords = ["Yazılım","Fanatik"]
 title = "Yazılımcı Fanatikliğinin Anatomisi"
 categories = ["Software"]
@@ -20,11 +20,11 @@ Teknolojik tercihleri yüzünden ayrımcılığa maruz kalan var mıdır bilmiyo
 
 ### Neden?
 
-Her mesleğin kendine göre zorlukları vardır. Yazılım geliştirme mesleğinin en zorlu yanlarından biri -aynı zamanda en güzel yanlarından biri olmakla beraber- sürekli bir değişimin/gelişimin olması. Öyle tarih öğretmenliği gibi öğrenilecekleri bir kez öğrenip 40 sene **yalnızca** onlarla işi götüremezsiniz. Her daim sürekli bir öğrenme sürecinde olmak zorundasınız. İşin kötü yanı 7/24 çalışsanız bile her şeyi öğrenmeniz imkansız. Her şeyi öğrenmeye çalışırsanız geriye dönüp baktığınızda hiçbir şeyi tam anlamıyla öğrenemediğinizi farkedersiniz. Bu nedenle yazılımcılar kariyerleri boyunca belirli alanları seçip, onlara odaklanırlar. Ömürlerini bu alanlarda gelişmek için harcarlar. Hikaye de tam burada başlar.
+Her mesleğin kendine göre zorlukları vardır. Yazılım geliştirme mesleğinin en zorlu yanlarından biri -aynı zamanda en güzel yanlarından biri olmakla beraber- sürekli bir değişimin/gelişimin olması. Öyle tarih öğretmenliği gibi öğrenilecekleri bir kez öğrenip 40 sene **yalnızca** onlarla işi götüremezsiniz. Her daim sürekli bir öğrenme sürecinde olmak zorundasınız. İşin kötü yanı 7/24 çalışsanız bile her şeyi öğrenmeniz imkansız. Her şeyi öğrenmeye çalışırsanız geriye dönüp baktığınızda hiçbir şeyi tam anlamıyla öğrenemediğinizi fark edersiniz. Bu nedenle yazılımcılar kariyerleri boyunca belirli alanları seçip, onlara odaklanırlar. Ömürlerini bu alanlarda gelişmek için harcarlar. Hikaye de tam burada başlar.
 
 #### 1. Yatırımlarını koruma çabası
 
-O bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, sevdiklerinizden feragat ederek gece gündüz öğrendiğiniz, ustası olduğunuz bir dili piyasadan silebilir. "Oldum" diye düşündüğünüz an o çok bildiğiniz framework çöp muamelesi görebilir. Kullandıkları teknolojiler yükselişte diye düşünerek girdiğiniz işten çıkana kadar o teknojiler (bkz: js frameworks) eskiyebilir. ***Yazılımcılar alanlarını seçerken aslında bir nevi yatırım yaparlar.***
+Bu bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, sevdiklerinizden feragat ederek gece gündüz öğrendiğiniz, ustası olduğunuz bir dili piyasadan silebilir. "Oldum" diye düşündüğünüz an o çok bildiğiniz framework çöp muamelesi görebilir. Kullandıkları teknolojiler yükselişte diye düşünerek girdiğiniz işten çıkana kadar o teknolojiler (bkz: js frameworks) eskiyebilir. ***Yazılımcılar alanlarını seçerken aslında bir nevi yatırım yaparlar.***
 
 Ne diyordu Primefaces ile JavaEE dünyasına damgasını vurmuş Çağatay Çivici Angular2 için çıkardığı PrimeNg'yi tanıtırken?
 
@@ -46,11 +46,11 @@ Yaşanmışlıklar aziz okuyucu yaşanmışlıklar! İnsanı insana, insanı hay
 
 #### 3. Özentilik
 
-Öğrenmenin birinci adımı taklit etmektir. Evvela sizden öncekilerin yaptığı gibi yapmaya çalışırsınız. Zamanla su akar, yatağını bulur ve kendinize özgü bir üslup edinirsiniz. Usta-çırak ilişkisi içinde olan yazarlara bakın mesela çırağın satırlarında ustaya rastlamak olağandır.
+Öğrenmenin birinci adımı taklit etmektir. Evvela sizden öncekilerin yaptığı gibi yapmaya çalışırsınız. Zamanla su akar, yatağını bulur ve kendinize özgü bir üslup edinirsiniz. Usta-çırak ilişkisi içinde olan yazarlara bakın mesela, çırağın satırlarında ustaya rastlamak olağandır.
 
-***Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.*** Şöyle düşünür örneğin "Çok iyi yazılımcılar arasında 'Outside In TDD vs Inside Out TDD' tartışması var. Demek ki benim de birini seçip, o şekilde benimsemem ve sevmem lazım. Ancak o şekilde iyi olabilirim."
+***Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.*** Şöyle düşünür örneğin "Çok iyi yazılımcılar arasında 'Outside In TDD vs Inside Out TDD' tartışması var. Demek ki benim de birini seçip, benimsemem ve sevmem lazım. Ancak bu şekilde iyi olabilirim."
 
-Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. O çaylaklığı atlatanlar, olgunlaşanlar bu tartışmaların ekosistemi besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve bunlar üzerinden var olmanın peşindedirler.
+Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. Çaylaklığını atlatanlar, olgunlaşanlar bu tartışmaların yazılım ekosistemini besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve bunlar üzerinden var olmanın peşindedirler.
 
 
 #### 4. Cehalet, Aptallık ve Ahlaksızlık
@@ -61,9 +61,9 @@ Bu zamana kadar bahaneler üretmeye, mazur görmeye çalıştık. Lakin itiraf e
 
 ***Şu hakikati kabul etmek farzdır: Her alanda olduğu gibi yazılım alanında da fanatizmin asıl sebebi cehalet, aptallık ve ahlaksızlık üçlüsüdür ki nedense bu üçlü pek çok zaman bir arada gezerler.***
 
-* ***Cehalet diyorum çünkü;*** bunlar kendini biliyor sanır ama çok şey bilmezler. Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden <a href="https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0" target="_blank">muzdariptirler,</a> her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.
+* ***Cehalet diyorum çünkü;*** bunlar kendini biliyor sanır ama çok şey bilmezler,  <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank">hatta bilmediklerini de bilmezler. </a> Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden <a href="https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0" target="_blank">muzdariptirler,</a> her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.
 * ***Aptallık diyorum çünkü;*** bu fanatizm pek çok defa insana ve çevresindekilere zarar verir. Bütün bu zararlarına rağmen fanatizme kapılmak, kaybetmek ancak akılsızlıkla, aptallıkla açıklanabilir. Ancak aptallar bu kadar kör olabilir. 
-* ***Ahlaksızlık diyorum çünkü;*** bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da bir kaçına körü körüne bağlanıp kendisine, işine ve varsa iş verenine zarar vermesi bir nevi ahlaksızlıktır.
+* ***Ahlaksızlık diyorum çünkü;*** bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da birkaçına körü körüne bağlanıp kendisine, işine ve varsa iş verenine zarar vermesi bir nevi ahlaksızlıktır.
 
 ### Kapanış
 
