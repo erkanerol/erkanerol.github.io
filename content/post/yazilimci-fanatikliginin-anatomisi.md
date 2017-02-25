@@ -50,7 +50,7 @@ Yaşanmışlıklar aziz okuyucu yaşanmışlıklar! İnsanı insana, insanı hay
 
 ***Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.*** Şöyle düşünür örneğin "Çok iyi yazılımcılar arasında 'Outside In TDD vs Inside Out TDD' tartışması var. Demek ki benim de birini seçip, benimsemem ve sevmem lazım. Ancak bu şekilde iyi olabilirim."
 
-Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. Çaylaklığını atlatanlar, olgunlaşanlar bu tartışmaların yazılım ekosistemini besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve bunlar üzerinden var olmanın peşindedirler.
+Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. Çaylaklığını atlatanlar, olgunlaşanlar bu tartışmaların yazılım ekosistemini besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve çatışmalar üzerinden var olmanın peşindedirler.
 
 
 #### 4. Cehalet, Aptallık ve Ahlaksızlık
