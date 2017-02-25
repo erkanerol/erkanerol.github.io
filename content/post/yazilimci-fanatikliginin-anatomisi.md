@@ -57,13 +57,13 @@ Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman
 
 Aziz okuyucu! 
 
-Bu zamana kadar bahaneler üretmeye, mazur görmeye çalıştık. Lakin itiraf etmenin zamanı geldi. Çıkarlarını koruma iç güdüsü, sevmek, bağlanmak, benimsemek, özenmek... Bunların hepsi olağandır, güzeldir. Lakin ölçüyü kaçırmanın, çatışma üretmenin, insanları kırmanın, insanları yanlışa yönlendirmenin, iş vereninin çıkarları aleyhine kararlar almanın mazereti yoktur.
+Bu zamana kadar bahaneler üretmeye, mazur görmeye çalıştık. Lakin itiraf etmenin zamanı geldi. Çıkarlarını koruma iç güdüsü, sevmek, bağlanmak, benimsemek, özenmek... Bunların hepsi olağandır, güzeldir. Lakin ölçüyü kaçırmanın, çatışma üretmenin, insanları kırmanın, insanları yanlışa yönlendirmenin, işvereninin çıkarları aleyhine kararlar almanın mazereti yoktur.
 
 ***Şu hakikati kabul etmek farzdır: Her alanda olduğu gibi yazılım alanında da fanatizmin asıl sebebi cehalet, aptallık ve ahlaksızlık üçlüsüdür ki nedense bu üçlü pek çok zaman bir arada gezerler.***
 
 * ***Cehalet diyorum çünkü;*** bunlar kendini biliyor sanır ama çok şey bilmezler,  <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank">hatta bilmediklerini de bilmezler. </a> Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden <a href="https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0" target="_blank">muzdariptirler,</a> her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.
 * ***Aptallık diyorum çünkü;*** bu fanatizm pek çok defa insana ve çevresindekilere zarar verir. Bütün bu zararlarına rağmen fanatizme kapılmak, kaybetmek ancak akılsızlıkla, aptallıkla açıklanabilir. Ancak aptallar bu kadar kör olabilir. 
-* ***Ahlaksızlık diyorum çünkü;*** bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da birkaçına körü körüne bağlanıp kendisine, işine ve varsa iş verenine zarar vermesi bir nevi ahlaksızlıktır.
+* ***Ahlaksızlık diyorum çünkü;*** bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da birkaçına körü körüne bağlanıp kendisine, işine ve varsa işverenine zarar vermesi bir nevi ahlaksızlıktır.
 
 ### Kapanış
 
