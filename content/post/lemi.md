@@ -129,7 +129,7 @@ Allah sana eşin ve o güzel oğullarınla uzun bir ömür nasip eylesin (Cemaat
 
 Kendine çok iyi bak!
 
-Hediyemi takdim ediyorum😉 
+Ne diyordu Bob Amca😉 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Today is  <a href="https://twitter.com/lemiorhan">@lemiorhan</a>&#39;s birthday. He is the founder of our community.<br><br>The message of the day comes from <a href="https://twitter.com/unclebobmartin">@unclebobmartin</a> <a href="https://twitter.com/hashtag/HappyBirthdayLemi?src=hash">#HappyBirthdayLemi</a> <a href="https://t.co/NDABJim5uD">pic.twitter.com/NDABJim5uD</a></p>&mdash; SC Turkey (@scturkey) <a href="https://twitter.com/scturkey/status/841185672467795968">March 13, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
