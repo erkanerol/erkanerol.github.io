@@ -204,9 +204,12 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 
 &lt;h2 id=&#34;tanıtım&#34;&gt;Tanıtım&lt;/h2&gt;
 
-&lt;p&gt;Benim gözümde yazılımcılar ikiye ayrılıyor.
-1. Para karşılığı bir süre kod yazan ve 40 yaşında kod yazmak istemeyenler.
-+Para vermeselerde kod yazacak olan ve 40 yaşında bile kod yazmaktan kopmak istemeyenler.&lt;/p&gt;
+&lt;p&gt;Benim gözümde yazılımcılar ikiye ayrılıyor.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Para karşılığı bir süre kod yazan ve 40 yaşında kod yazmak istemeyenler.&lt;/li&gt;
+&lt;li&gt;Para vermeselerde kod yazacak olan ve 40 yaşında bile kod yazmaktan kopmak istemeyenler.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;Bu kitap 2. kategori yazılımcı olmak isteyen çıraklar için bire bir. Meslek hayatının belirli dönemlerinde, belirli durumlarda yapılması gerekenlere dair tavsiyeler içeriyor. Bir çok yazılımcının tecrübelerinden yola çıkarak hazırlanan bu kitabın içinde bir çok şablon bulunuyor.&lt;/p&gt;
 
