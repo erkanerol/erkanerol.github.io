@@ -6,6 +6,7 @@ disqusShortname="erkanerol-github-io"
 theme = "hyde-x"
 paginate = 10
 
+enableRobotsTXT = true
 
 [author]
     name = "Erkan Erol"

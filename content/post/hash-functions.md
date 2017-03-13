@@ -91,4 +91,4 @@ Sistemi şöyle kurduğumuzu düşünelim: Şifreyi kullanıcıdan al, hash değ
 * Kullanıcılarımıza ek bir hizmet sunmak isteyebiliriz. Caps lock yüzünden yanlış şifre girilmesini istemiyoruz mesela. Şifre "zOrŞifRe123" ise kullanıcı "ZoRşİFRE123" girse de kabul etmek istiyoruz örneğin. Bu tip ihtiyaçlar için bazı hash fonksiyonlarına ***"Data Normalization"*** denen özellik de eklenmiş. Bazı farklılıkları göz ardı ederek yani veriyi önce "normalize" ederek aynı sonucu veriyor. 
 
 <br><br>
-Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata gördüyseniz lütfen aşağıya yorum olarak belirtin. Bir sonraki yazıda ***Public Key Infrastructure (PKI)*** anlatacağım. <a href="https://twitter.com/erkan_erol_" target="_blank">Twitter</a> üzerinden takipte kalabilirsiniz :)
+Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata gördüyseniz lütfen aşağıya yorum olarak belirtin. Bir sonraki yazıda görüşmek üzere.
