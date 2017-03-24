@@ -9,6 +9,195 @@
     <atom:link href="https://erkanerol.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Primitive Takıntısı ve Değer Nesneleri</title>
+      <link>https://erkanerol.github.io/post/primitive_obsession/</link>
+      <pubDate>Mon, 20 Mar 2017 21:37:43 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/primitive_obsession/</guid>
+      <description>&lt;p&gt;Primitive Obsession ünlü &lt;a href=&#34;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&#34; target=&#34;_blank&#34;&gt;Refactoring&lt;/a&gt; kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/primitive.jpg&#34; /&gt;
+&lt;a href=&#34;https://dzone.com/articles/primitive-obsession&#34; target=&#34;_blank&#34;&gt;Görselin Kaynağı&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h2&gt;
+
+&lt;p&gt;Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve bazı dillerde string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
+
+&lt;h2 id=&#34;problemler&#34;&gt;Problemler&lt;/h2&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+public class Notebook   {
+
+        private long id;
+        private Date productionDate;
+        private int status; // 0=PRODUCED, 1=SOLD, 2=RETURN
+        private String model; // XSI-Q2TU-17-1
+        
+
+        public String getSeries(){
+            return this.model.split(&#34;-&#34;)[0];
+        }
+
+        public String getModelYear(){
+            return this.model.split(&#34;-&#34;)[2];
+        }
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Karmaşık bir şeyi ilkel bir veri yapısı ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri yapılarında yapmanız gerekir. Buradaki örnekte Notebook&amp;rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;çare-değer-nesneleri&#34;&gt;Çare Değer Nesneleri!&lt;/h2&gt;
+
+&lt;p&gt;Bu sorunun çözümü değer nesnelerinin (value objects) kullanımıdır. Bu kavramı Eric Evans &lt;a href=&#34;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&#34; target=&#34;_blank&#34;&gt;Domanin-Driven Design&lt;/a&gt; isimli kitabında oldukça ayrıntılı bir şekilde açıklamıştır. Evvela bu kavramı kısaca anlamaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Services:&lt;/em&gt;&lt;/strong&gt; Bu sınıflar günlük hayattaki nesnelere ve değerlere işaret etmeyen işçi sınıflardır. Parser, formatter, controller gibi sınıflar bu gruba girer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Entities:&lt;/em&gt;&lt;/strong&gt; Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id&amp;rsquo;ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id&amp;rsquo;leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Value Object:&lt;/em&gt;&lt;/strong&gt; Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;değer-nesnelerinin-kullanımı&#34;&gt;Değer Nesnelerinin Kullanımı&lt;/h2&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+public class NotebookModel {
+    final String series;
+    final String subseries;
+    final Year year;
+    final Month month;
+        
+    public NotebookModel(String series, String subseries, Year year, Month month) {
+        super();
+        this.series = series;
+        this.subseries = subseries;
+        this.year = year;
+        this.month = month;
+    }
+    
+}
+
+public enum NotebookStatus {
+    PRODUCED, SOLD, RETURN;
+}
+
+public class Notebook {
+    long id;
+    Date productionDate;
+    NotebookStatus status;
+    NotebookModel model;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.&lt;/p&gt;
+
+&lt;p&gt;Değer nesneleri &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsShouldBeImmutable&#34; target=&#34;_blank&#34;&gt;genellikle&lt;/a&gt;  NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
+Ancak bu zorunluluk &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsCanBeMutable&#34; target=&#34;_blank&#34;&gt;değildir&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.jbrains.ca/&#34; target=&#34;_blank&#34;&gt;JbRainsberger&lt;/a&gt; değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &amp;ldquo;çekici&amp;rdquo; nesneler olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.&lt;/p&gt;
+
+&lt;h2 id=&#34;veritabanlarında-tutma-problemi&#34;&gt;Veritabanlarında tutma problemi&lt;/h2&gt;
+
+&lt;p&gt;Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durum.&lt;/p&gt;
+
+&lt;p&gt;Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+
+@Embeddable
+public class NotebookModel {
+  
+  @Column(name = &#34;MODEL_SERIES&#34;)
+  final String series;
+  
+  @Column(name = &#34;MODEL_SUBSERIES&#34;)
+  final String subseries;
+  
+  @Column(name = &#34;MODEL_YEAR&#34;)
+  final Year year;
+  
+  @Column(name = &#34;MODEL_MONTH&#34;)
+  final Month month;
+      
+  public NotebookModel(String series, String subseries, Year year, Month month) {
+    super();
+    this.series = series;
+    this.subseries = subseries;
+    this.year = year;
+    this.month = month;
+  }  
+  
+}
+
+@Entity
+public class Notebook {
+  
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  Long id;
+  
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name=&#34;PRODUCTION_DATE&#34;)
+  Date productionDate;
+  
+  @Enumerated(EnumType.STRING)
+  @Column(name=&#34;STATUS&#34;)
+  NotebookStatus status;
+  
+  @Embedded
+  NotebookModel model;
+}
+
+public enum NotebookStatus {
+    PRODUCED, SOLD, RETURN;
+}
+
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.&lt;/p&gt;
+
+&lt;h2 id=&#34;eklemeler&#34;&gt;Eklemeler&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Liste olarak tutulması gereken bilgileri bir arada tutmak da bu kod kokusu kapsamındadır. Örneğin yetkili kullanıcıların id listesini &amp;ldquo;1,4,5,6,7&amp;rdquo; gibi virgüllerle ayrılmış string olarak tutmamalısınız. Bu tip kullanımlar başlangıçta performans getirir gibi gözükse de zaman içinde ciddi sıkıntılara neden olurlar.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için &amp;ldquo;ilkel&amp;rdquo; kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+amountInvoicedIn(Date start, Date end);
+amountReceviedIn(Date start, Date end);
+amountOverdueIn(Date start, Date end);
+
+amountInvoicedIn(DateRange range);
+amountReceviedIn(DateRange range);
+amountOverdueIn(DateRange range);
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;sonuç&#34;&gt;Sonuç&lt;/h2&gt;
+
+&lt;p&gt;Örneklerin hepsini bir arada düşündüğümüzde sorunun sadece dildeki primitive veri türlerini kullanma takıntısı olmadığını anlarız. Asıl sorun karmaşık bir bilgiyi görece ilkel veri türleri ile ifade etmeye çalışmaktır. Dediğimiz gibi. Çare değer nesneleri!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Yazılımcı Fanatikliğinin Anatomisi</title>
       <link>https://erkanerol.github.io/post/yazilimci-fanatikliginin-anatomisi/</link>
       <pubDate>Sat, 25 Feb 2017 20:00:00 +0300</pubDate>
@@ -1813,60 +2002,6 @@ Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir 
 &lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0&#34;&gt;Epub&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0&#34;&gt;Mobi&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Software Architecture Patterns (Ücretsiz Ekitap)</title>
-      <link>https://erkanerol.github.io/post/software-architecture-patterns/</link>
-      <pubDate>Sat, 03 Oct 2015 21:31:46 +0200</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/software-architecture-patterns/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;TL;DR O&amp;rsquo;Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/software_design_cover.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Geçenlerde Hacker News üzerinden bulduğum bir yazıyı okurken sağ tarafta ücretsiz ekitap indirebileceğime dair bir şey görünce beleşçiliğim tuttu ve kitabı (mobi formatı da var 👏) indirdim. Kitabın temel uygulama mimarilerini uzatmadan (pdf versiyonu 55 sayfa) anlatması çok hoşuma gitti ve okudum. Benim için çok faydalı olduğunu söyleyebilirim. Bir çok terim öğrendim. Buradan önermeye karar verdim.&lt;/p&gt;
-
-&lt;p&gt;Kitapta 5 ana mimariden söz ediliyor. Böyle bir mimari neden var, ne zaman gerekir, temel olarak nasıl çalışır kısaca anlatılmış. Her bölümün sonunda o bölümde anlatılan mimari belirli (Overall Agility, Deployment, Testability, Performance, Scalibility, Development) açılardan değerlendirilmiş. Mimari görselleri, değerlendirme tablosu ve kitabın linki aşağıda. İyi okumalar.&lt;/p&gt;
-
-&lt;p&gt;Kitabın linki (ePub, Mobi, PDF&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&#34;&gt;http://www.oreilly.com/programming/free/software-architecture-patterns.csp&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;1-layered-architecture&#34;&gt;1. Layered Architecture&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/layered.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;2-event-driven-architecture&#34;&gt;2. Event-Driven Architecture&lt;/h2&gt;
-
-&lt;h3 id=&#34;a-mediator&#34;&gt;a. Mediator&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/mediator.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;b-broker&#34;&gt;b. Broker&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/broker.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;3-microkernel-architecture&#34;&gt;3. Microkernel Architecture&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/kernel.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;4-microservices-architecture-pattern&#34;&gt;4. Microservices Architecture Pattern&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/microservices.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;5-space-based-architecture&#34;&gt;5. Space-Based Architecture&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/space_based.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;a-pattern-analysis-summary&#34;&gt;A. Pattern Analysis Summary&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/summary.png&#34; /&gt;&lt;/p&gt;
-</description>
     </item>
     
   </channel>

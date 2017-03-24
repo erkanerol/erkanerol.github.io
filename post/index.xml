@@ -6,8 +6,197 @@
     <description>Recent content in Posts on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 12 Mar 2017 22:24:38 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 20 Mar 2017 21:37:43 +0300</lastBuildDate>
     <atom:link href="https://erkanerol.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Primitive Takıntısı ve Değer Nesneleri</title>
+      <link>https://erkanerol.github.io/post/primitive_obsession/</link>
+      <pubDate>Mon, 20 Mar 2017 21:37:43 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/primitive_obsession/</guid>
+      <description>&lt;p&gt;Primitive Obsession ünlü &lt;a href=&#34;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&#34; target=&#34;_blank&#34;&gt;Refactoring&lt;/a&gt; kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/primitive.jpg&#34; /&gt;
+&lt;a href=&#34;https://dzone.com/articles/primitive-obsession&#34; target=&#34;_blank&#34;&gt;Görselin Kaynağı&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h2&gt;
+
+&lt;p&gt;Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve bazı dillerde string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
+
+&lt;h2 id=&#34;problemler&#34;&gt;Problemler&lt;/h2&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+public class Notebook   {
+
+        private long id;
+        private Date productionDate;
+        private int status; // 0=PRODUCED, 1=SOLD, 2=RETURN
+        private String model; // XSI-Q2TU-17-1
+        
+
+        public String getSeries(){
+            return this.model.split(&#34;-&#34;)[0];
+        }
+
+        public String getModelYear(){
+            return this.model.split(&#34;-&#34;)[2];
+        }
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Karmaşık bir şeyi ilkel bir veri yapısı ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri yapılarında yapmanız gerekir. Buradaki örnekte Notebook&amp;rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;çare-değer-nesneleri&#34;&gt;Çare Değer Nesneleri!&lt;/h2&gt;
+
+&lt;p&gt;Bu sorunun çözümü değer nesnelerinin (value objects) kullanımıdır. Bu kavramı Eric Evans &lt;a href=&#34;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&#34; target=&#34;_blank&#34;&gt;Domanin-Driven Design&lt;/a&gt; isimli kitabında oldukça ayrıntılı bir şekilde açıklamıştır. Evvela bu kavramı kısaca anlamaya çalışalım.&lt;/p&gt;
+
+&lt;p&gt;Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Services:&lt;/em&gt;&lt;/strong&gt; Bu sınıflar günlük hayattaki nesnelere ve değerlere işaret etmeyen işçi sınıflardır. Parser, formatter, controller gibi sınıflar bu gruba girer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Entities:&lt;/em&gt;&lt;/strong&gt; Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id&amp;rsquo;ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id&amp;rsquo;leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Value Object:&lt;/em&gt;&lt;/strong&gt; Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;değer-nesnelerinin-kullanımı&#34;&gt;Değer Nesnelerinin Kullanımı&lt;/h2&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+public class NotebookModel {
+    final String series;
+    final String subseries;
+    final Year year;
+    final Month month;
+        
+    public NotebookModel(String series, String subseries, Year year, Month month) {
+        super();
+        this.series = series;
+        this.subseries = subseries;
+        this.year = year;
+        this.month = month;
+    }
+    
+}
+
+public enum NotebookStatus {
+    PRODUCED, SOLD, RETURN;
+}
+
+public class Notebook {
+    long id;
+    Date productionDate;
+    NotebookStatus status;
+    NotebookModel model;
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.&lt;/p&gt;
+
+&lt;p&gt;Değer nesneleri &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsShouldBeImmutable&#34; target=&#34;_blank&#34;&gt;genellikle&lt;/a&gt;  NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
+Ancak bu zorunluluk &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsCanBeMutable&#34; target=&#34;_blank&#34;&gt;değildir&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.jbrains.ca/&#34; target=&#34;_blank&#34;&gt;JbRainsberger&lt;/a&gt; değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &amp;ldquo;çekici&amp;rdquo; nesneler olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.&lt;/p&gt;
+
+&lt;h2 id=&#34;veritabanlarında-tutma-problemi&#34;&gt;Veritabanlarında tutma problemi&lt;/h2&gt;
+
+&lt;p&gt;Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durum.&lt;/p&gt;
+
+&lt;p&gt;Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+
+@Embeddable
+public class NotebookModel {
+  
+  @Column(name = &#34;MODEL_SERIES&#34;)
+  final String series;
+  
+  @Column(name = &#34;MODEL_SUBSERIES&#34;)
+  final String subseries;
+  
+  @Column(name = &#34;MODEL_YEAR&#34;)
+  final Year year;
+  
+  @Column(name = &#34;MODEL_MONTH&#34;)
+  final Month month;
+      
+  public NotebookModel(String series, String subseries, Year year, Month month) {
+    super();
+    this.series = series;
+    this.subseries = subseries;
+    this.year = year;
+    this.month = month;
+  }  
+  
+}
+
+@Entity
+public class Notebook {
+  
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  Long id;
+  
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name=&#34;PRODUCTION_DATE&#34;)
+  Date productionDate;
+  
+  @Enumerated(EnumType.STRING)
+  @Column(name=&#34;STATUS&#34;)
+  NotebookStatus status;
+  
+  @Embedded
+  NotebookModel model;
+}
+
+public enum NotebookStatus {
+    PRODUCED, SOLD, RETURN;
+}
+
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.&lt;/p&gt;
+
+&lt;h2 id=&#34;eklemeler&#34;&gt;Eklemeler&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Liste olarak tutulması gereken bilgileri bir arada tutmak da bu kod kokusu kapsamındadır. Örneğin yetkili kullanıcıların id listesini &amp;ldquo;1,4,5,6,7&amp;rdquo; gibi virgüllerle ayrılmış string olarak tutmamalısınız. Bu tip kullanımlar başlangıçta performans getirir gibi gözükse de zaman içinde ciddi sıkıntılara neden olurlar.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için &amp;ldquo;ilkel&amp;rdquo; kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+&lt;code&gt;
+amountInvoicedIn(Date start, Date end);
+amountReceviedIn(Date start, Date end);
+amountOverdueIn(Date start, Date end);
+
+amountInvoicedIn(DateRange range);
+amountReceviedIn(DateRange range);
+amountOverdueIn(DateRange range);
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;sonuç&#34;&gt;Sonuç&lt;/h2&gt;
+
+&lt;p&gt;Örneklerin hepsini bir arada düşündüğümüzde sorunun sadece dildeki primitive veri türlerini kullanma takıntısı olmadığını anlarız. Asıl sorun karmaşık bir bilgiyi görece ilkel veri türleri ile ifade etmeye çalışmaktır. Dediğimiz gibi. Çare değer nesneleri!&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Ustam: Lemi Orhan Ergin</title>
@@ -2017,65 +2206,6 @@ public class VersionBean implements Serializable {
 &lt;p&gt;Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &amp;ldquo;/version.jsf&amp;rdquo;.
 If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
 You can put the version in name of war file. It makes easy to store executable files.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>&#34;Best Practice&#34; Üzerine Etkinlik Önerisi</title>
-      <link>https://erkanerol.github.io/post/best-practice-event/</link>
-      <pubDate>Sat, 09 Jan 2016 22:44:45 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/best-practice-event/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;TL;DR
-&lt;br&gt;&lt;/br&gt;
-Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; dediğim bir etkinlik fikrini anlatacağım.
-&lt;br&gt;&lt;/br&gt;
-Özet: Belli senaryolar üzerinden, 3-4 uzmanın kendi en iyi uygulamalarını anlattığı, katılımcıların sorularıyla desteklediği etkinlikler olsa çok faydalı olabilir.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Yazılım Mühendisliği adı üzerinde &amp;ldquo;soft&amp;rdquo; olan bir şey. Sınırlandırmaları diğer mühendislik dallarına göre oldukça az. Aynı proje binlerce farklı yöntemle yapılabiliyor. Fakat bütün yöntemlerin/uygulamaların aynı kalitede sonuç verdiğini söylemek zor.  Yazılım Mühendisliği&amp;rsquo;nin temelleri ile ilgili okuduğum bir kitapta şöyle bir şey okumuştum: &amp;ldquo;Hiç bir  alanda iyiyle kötü arasındaki fark yazılımdaki kadar geniş değildir.&amp;rdquo; Bu noktada best practice diye nitelenen kavram işin içine giriyor.&amp;ldquo;Hangi uygulamayı hangi durumlarda kullanmak gerekir, avantajları ve dezavantajları nelerdir?&amp;rdquo; bilgisi bu farkı oluşturan başlıca unsurlardan biri. Maalesef bu tip bilgileri doğrudan kitaplardan öğrenmek o kadar kolay değil. (Varsa önerisi olan beklerim :) ) Zaman içinde çalışma hayatında tecrübe ederek öğrenilmesi bekleniyor. Bu da uzun bir zaman gerektiriyor.Bu süreci biraz hızlandırmalıyız diye düşünüyorum. Ayrıca tecrübelerin paylaşılması yeni bakış açıları kazanma açısından da çok önemli. Kendi bilgilerimizle rahatça çözdüğümüzü düşündüğümüz bir problemin çok daha kolay/iyi çözümleri olabilir.&lt;/p&gt;
-
-&lt;p&gt;Öncelikle şunu belirteyim böyle bir şey Dünya&amp;rsquo;nın herhangi bir yerinde böyle bir şey yapılıyor mu bilmiyorum, araştırmadım. Yapılıyordur muhtemelen ama Türkiye&amp;rsquo;de hiç duymadım. (Oooo Erkan internet bağlatmışsın tarzı bir durum varsa bir haber edin plz.)&lt;/p&gt;
-
-&lt;p&gt;Gelelim etkinliğe. Şöyle olsa süper olur:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Düzenleyici&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Bir topluluk olabilir, bir organizasyon olabilir. Bu etkinlikler için kurulabilir. Ama süreklilik açısından 2-3 kişiye bağlı olmaması gerekir.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Katılımcılar&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1 moderatör, 3 uzman yazılımcı (uzman derken öyle çok da abartmayalım gözümüzde),  20-30 katılımcı&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Mekan&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Uzmanların ekranlarını rahatça yansıtabilecekleri, internet bağlantı probleminin yaşanmadığı bir mekan.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Zaman ve Süre&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Hafta sonu, yarım günü geçmeyecek şekilde&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Konu&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Konu çok genel olmamalıdır. Yazılım dili, framework&amp;rsquo;ler ve kullanılan teknolojiler olabildiğince tanımlanmalıdır. Mümkünse belirli senaryolar ve kısıtlamalar içermelidir.
-Örnek vermek gerekirse: Java+Spring+Hibernate kullanılan bir uygulamada &amp;ldquo;soft delete&amp;rdquo; uygulamaları, dosya yönetimi (saklama, db ilişkilendirmeleri vs).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Format&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Önceden açıklanan konuyu moderatör katılımcılara açıklar.
-Her uzman kendine göre &amp;ldquo;best practice&amp;rdquo; olan uygulamayı anlatır. Avantajlarını ve dezavantajlarını belirtir. Gerekli gördüğü yerlerde kod düzeyinde sunumlar yapar.
-Uzmanlar diğer uzmanların uygulamaları hakkında eleştirilerde bulunur. Gerekirse geri vites yapar. &amp;ldquo;Doğru aslında böyle olsa daha iyi olabilir&amp;rdquo; der.
-Katılımcılar çeşitli senaryolar üreterek uzmanların uygulamalarının eksik taraflarını çıkarmaya çalışır. Bu noktada uygulamaların tartıştıkça geliştirilmesi hedeflenmektedir.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Önemli Noktalar&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Günün sonunda katılımcılar ve uzmanlar aynı &amp;ldquo;best practice&amp;rdquo; üzerinde anlaşmak zorunda değildir. Önemli olan farklı yöntemler ve bunların iyi/kötü yönlerini daha ayrıntılı öğrenmektir.
-Edinilen tecrübeleri blog&amp;amp;repo olarak yayınlanmaya çalışılmalıdır.
-Çeşitli parametrelere göre karşılaştırmalar yapılmalıdır. Kullanıcı sayısı, geliştirme süresi,istenen güvenlik seviyesi, ekleme-güncelleme-silme sıklığı vs okuma sıklığı&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Not: JavaEE, Spring, Hibernate, Jsf, Primefaces ile ilgili but tip etkinlere katılmak isterim.&lt;/p&gt;</description>
     </item>
     
   </channel>
