@@ -108,7 +108,7 @@
 <div class="content container">
   <div class="post">
     <h1 class="post-title">Primitive Takıntısı ve Değer Nesneleri</h1>
-    <span class="post-date">Mar 20, 2017 &middot; <a href="https://erkanerol.github.io/post/primitive_obsession/#disqus_thread">Comments</a>
+    <span class="post-date">Mar 25, 2017 &middot; <a href="https://erkanerol.github.io/post/primitive_obsession/#disqus_thread">Comments</a>
     
     <br/>
     <a class="label" href="https://erkanerol.github.io/categories/software">Software</a>
@@ -124,7 +124,7 @@
 
 <h2 id="tanımlar">Tanımlar</h2>
 
-<p>Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve bazı dillerde string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &ldquo;takıntı&rdquo; zamanla çeşitli problemlere neden olur.</p>
+<p>Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &ldquo;takıntı&rdquo; zamanla çeşitli problemlere neden olur.</p>
 
 <h2 id="problemler">Problemler</h2>
 
@@ -211,7 +211,7 @@ Ancak bu zorunluluk <a href="http://wiki.c2.com/?ValueObjectsCanBeMutable" targe
 
 <h2 id="veritabanlarında-tutma-problemi">Veritabanlarında tutma problemi</h2>
 
-<p>Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durum.</p>
+<p>Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.</p>
 
 <p>Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.</p>
 
@@ -222,24 +222,16 @@ Ancak bu zorunluluk <a href="http://wiki.c2.com/?ValueObjectsCanBeMutable" targe
 public class NotebookModel {
   
   @Column(name = "MODEL_SERIES")
-  final String series;
+  String series;
   
   @Column(name = "MODEL_SUBSERIES")
-  final String subseries;
+  String subseries;
   
   @Column(name = "MODEL_YEAR")
-  final Year year;
+  Year year;
   
   @Column(name = "MODEL_MONTH")
-  final Month month;
-      
-  public NotebookModel(String series, String subseries, Year year, Month month) {
-    super();
-    this.series = series;
-    this.subseries = subseries;
-    this.year = year;
-    this.month = month;
-  }  
+  Month month;
   
 }
 

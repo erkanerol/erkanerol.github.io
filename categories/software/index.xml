@@ -11,7 +11,7 @@
     <item>
       <title>Primitive Takıntısı ve Değer Nesneleri</title>
       <link>https://erkanerol.github.io/post/primitive_obsession/</link>
-      <pubDate>Mon, 20 Mar 2017 21:37:43 +0300</pubDate>
+      <pubDate>Sat, 25 Mar 2017 00:37:43 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/primitive_obsession/</guid>
       <description>&lt;p&gt;Primitive Obsession ünlü &lt;a href=&#34;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&#34; target=&#34;_blank&#34;&gt;Refactoring&lt;/a&gt; kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.&lt;/p&gt;
@@ -25,7 +25,7 @@
 
 &lt;h2 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h2&gt;
 
-&lt;p&gt;Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve bazı dillerde string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
+&lt;p&gt;Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
 
 &lt;h2 id=&#34;problemler&#34;&gt;Problemler&lt;/h2&gt;
 
@@ -112,7 +112,7 @@ Ancak bu zorunluluk &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsCanBeMutable
 
 &lt;h2 id=&#34;veritabanlarında-tutma-problemi&#34;&gt;Veritabanlarında tutma problemi&lt;/h2&gt;
 
-&lt;p&gt;Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durum.&lt;/p&gt;
+&lt;p&gt;Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.&lt;/p&gt;
 
 &lt;p&gt;Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.&lt;/p&gt;
 
@@ -123,24 +123,16 @@ Ancak bu zorunluluk &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsCanBeMutable
 public class NotebookModel {
   
   @Column(name = &#34;MODEL_SERIES&#34;)
-  final String series;
+  String series;
   
   @Column(name = &#34;MODEL_SUBSERIES&#34;)
-  final String subseries;
+  String subseries;
   
   @Column(name = &#34;MODEL_YEAR&#34;)
-  final Year year;
+  Year year;
   
   @Column(name = &#34;MODEL_MONTH&#34;)
-  final Month month;
-      
-  public NotebookModel(String series, String subseries, Year year, Month month) {
-    super();
-    this.series = series;
-    this.subseries = subseries;
-    this.year = year;
-    this.month = month;
-  }  
+  Month month;
   
 }
 
