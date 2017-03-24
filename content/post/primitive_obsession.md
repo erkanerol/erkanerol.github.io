@@ -1,5 +1,5 @@
 +++
-date = "2017-03-20T21:37:43+03:00"
+date = "2017-03-25T00:37:43+03:00"
 keywords = ["Primitive Obsession"]
 description = ""
 title = "Primitive Takıntısı ve Değer Nesneleri"
@@ -22,7 +22,7 @@ Primitive Obsession ünlü <a href="https://www.amazon.com/Refactoring-Improving
 <br>
 ## Tanımlar
 
-Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve bazı dillerde string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu "takıntı" zamanla çeşitli problemlere neden olur.
+Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu "takıntı" zamanla çeşitli problemlere neden olur.
 
 ## Problemler
 <pre>
@@ -105,7 +105,7 @@ Ancak bu zorunluluk <a href="http://wiki.c2.com/?ValueObjectsCanBeMutable" targe
 
 ## Veritabanlarında tutma problemi
 
-Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durum.
+Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.
 
 Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım. 
 
@@ -116,24 +116,16 @@ Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana 
 public class NotebookModel {
   
   @Column(name = "MODEL_SERIES")
-  final String series;
+  String series;
   
   @Column(name = "MODEL_SUBSERIES")
-  final String subseries;
+  String subseries;
   
   @Column(name = "MODEL_YEAR")
-  final Year year;
+  Year year;
   
   @Column(name = "MODEL_MONTH")
-  final Month month;
-      
-  public NotebookModel(String series, String subseries, Year year, Month month) {
-    super();
-    this.series = series;
-    this.subseries = subseries;
-    this.year = year;
-    this.month = month;
-  }  
+  Month month;
   
 }
 
