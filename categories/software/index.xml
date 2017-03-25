@@ -164,6 +164,10 @@ public enum NotebookStatus {
 
 &lt;p&gt;Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.&lt;/p&gt;
 
+&lt;blockquote&gt;
+&lt;p&gt;JPA ile immutable bir sınıfı embeddable yapmak biraz zor olabilir çünkü JPA default constructor ve setter kullanıyor. Ayrıntılı bilgiye &lt;a href=&#34;https://www.google.com.tr/search?q=immutable+embeddable+in+jpa&#34; target=&#34;_blank&#34;&gt;buradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h2 id=&#34;eklemeler&#34;&gt;Eklemeler&lt;/h2&gt;
 
 &lt;ul&gt;
