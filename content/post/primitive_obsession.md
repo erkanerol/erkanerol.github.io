@@ -22,7 +22,7 @@ Primitive Obsession ünlü <a href="https://www.amazon.com/Refactoring-Improving
 <br>
 ## Tanımlar
 
-Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu "takıntı" zamanla çeşitli problemlere neden olur.
+Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu "takıntı" zamanla çeşitli problemlere neden olur.
 
 ## Problemler
 <pre>
@@ -46,9 +46,9 @@ public class Notebook	{
 </code>
 </pre>
 
-* Karmaşık bir şeyi ilkel bir veri yapısı ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.
+* Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.
 
-* İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri yapılarında yapmanız gerekir. Buradaki örnekte Notebook'un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.
+* İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri türlerinde yapmanız gerekir. Buradaki örnekte Notebook'un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.
 
 * Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.
 
@@ -58,7 +58,7 @@ Bu sorunun çözümü değer nesnelerinin (value objects) kullanımıdır. Bu ka
 
 Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects. 
 
-1. ***Services:*** Bu sınıflar günlük hayattaki nesnelere ve değerlere işaret etmeyen işçi sınıflardır. Parser, formatter, controller gibi sınıflar bu gruba girer. 
+1. ***Services:*** Bu nesneler günlük hayattaki varlıklara ve değerlere işaret etmeyen işçi nesnelerdir. Parser, formatter, controller gibi sınıflara ait nesneler bu gruba girer. 
 2. ***Entities:*** Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id'ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id'leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.
 3. ***Value Object:*** Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.
 
@@ -101,7 +101,7 @@ public class Notebook {
 Değer nesneleri <a href="http://wiki.c2.com/?ValueObjectsShouldBeImmutable" target="_blank">genellikle</a>  NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
 Ancak bu zorunluluk <a href="http://wiki.c2.com/?ValueObjectsCanBeMutable" target="_blank">değildir</a> .
 
-<a href="http://www.jbrains.ca/" target="_blank">JbRainsberger</a> değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar "çekici" nesneler olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.
+<a href="http://www.jbrains.ca/" target="_blank">JbRainsberger</a> değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar "çekici" olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.
 
 ## Veritabanlarında tutma problemi
 
