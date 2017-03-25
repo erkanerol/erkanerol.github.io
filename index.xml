@@ -26,7 +26,7 @@
 
 &lt;h2 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h2&gt;
 
-&lt;p&gt;Programlama dilleri genellikle ilkel veri yapılarını temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri yapıları oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri yapılarını kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
+&lt;p&gt;Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
 
 &lt;h2 id=&#34;problemler&#34;&gt;Problemler&lt;/h2&gt;
 
@@ -52,9 +52,9 @@ public class Notebook   {
 &lt;/pre&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Karmaşık bir şeyi ilkel bir veri yapısı ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri yapılarında yapmanız gerekir. Buradaki örnekte Notebook&amp;rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri türlerinde yapmanız gerekir. Buradaki örnekte Notebook&amp;rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -66,7 +66,7 @@ public class Notebook   {
 &lt;p&gt;Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Services:&lt;/em&gt;&lt;/strong&gt; Bu sınıflar günlük hayattaki nesnelere ve değerlere işaret etmeyen işçi sınıflardır. Parser, formatter, controller gibi sınıflar bu gruba girer.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Services:&lt;/em&gt;&lt;/strong&gt; Bu nesneler günlük hayattaki varlıklara ve değerlere işaret etmeyen işçi nesnelerdir. Parser, formatter, controller gibi sınıflara ait nesneler bu gruba girer.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Entities:&lt;/em&gt;&lt;/strong&gt; Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id&amp;rsquo;ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id&amp;rsquo;leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Value Object:&lt;/em&gt;&lt;/strong&gt; Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.&lt;/li&gt;
 &lt;/ol&gt;
@@ -109,7 +109,7 @@ public class Notebook {
 &lt;p&gt;Değer nesneleri &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsShouldBeImmutable&#34; target=&#34;_blank&#34;&gt;genellikle&lt;/a&gt;  NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
 Ancak bu zorunluluk &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsCanBeMutable&#34; target=&#34;_blank&#34;&gt;değildir&lt;/a&gt; .&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://www.jbrains.ca/&#34; target=&#34;_blank&#34;&gt;JbRainsberger&lt;/a&gt; değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &amp;ldquo;çekici&amp;rdquo; nesneler olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.jbrains.ca/&#34; target=&#34;_blank&#34;&gt;JbRainsberger&lt;/a&gt; değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &amp;ldquo;çekici&amp;rdquo; olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.&lt;/p&gt;
 
 &lt;h2 id=&#34;veritabanlarında-tutma-problemi&#34;&gt;Veritabanlarında tutma problemi&lt;/h2&gt;
 
