@@ -68,25 +68,25 @@ Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde 
 <pre>
 <code class="language-java">
 //BAD
-HashMap<String,String> pages = new HashMap<String, String>();
+HashMap&lt;String,String&gt; pages = new HashMap&lt;String, String&gt;();
 pages.put("book","mybooks.xhtml");
 pages.put("author","myauthors.xhtml");
 pages.put("reader","myreaders.xhtml");
 pages.put("library","mylibraries.xhtml");
 
-HashMap<String,String> adminAuthority = new HashMap<String,String>();
+HashMap&lt;String,String&gt; adminAuthority = new HashMap&lt;String,String&gt;();
 adminAuthority.put("book","all");
 adminAuthority.put("author","all");
 adminAuthority.put("reader","all");
 adminAuthority.put("library","all");
 
-HashMap<String,String> registeredUserAuthority = new HashMap<String,String>();
+HashMap&lt;String,String&gt; registeredUserAuthority = new HashMap&lt;String,String&gt;();
 registeredUserAuthority.put("book","create");
 registeredUserAuthority.put("author","create");
 registeredUserAuthority.put("reader","read");
 registeredUserAuthority.put("library","read");
 
-HashMap<String,String> guestUserAuthority = new HashMap<String,String>();
+HashMap&lt;String,String&gt; guestUserAuthority = new HashMap&lt;String,String&gt;();
 adminAuthority.put("book","read");
 adminAuthority.put("author","read");
 adminAuthority.put("reader","read");
@@ -97,7 +97,7 @@ adminAuthority.put("library","read");
 //GOOD
 public class MyEntity {
     String page;
-    HashMap<String,String> authorities;
+    HashMap&lt;String,String&gt; authorities;
 }
 </code>
 </pre>

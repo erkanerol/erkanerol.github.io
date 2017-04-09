@@ -12,7 +12,7 @@ weight = 1
  
 
 <pre>
-<code>
+<code class="language-java">
 package com.erkanerol.examples.collator;
 
 import java.text.Collator;
@@ -26,7 +26,7 @@ public class CollatorExample {
 
 	public static void main(String[] args) {
 		
-		ArrayList<City> list = new ArrayList<City>();
+		ArrayList&lt;City&gt; list = new ArrayList&lt;City&gt;();
 		list.add(new City("London"));
 		list.add(new City("Newyork"));
 		list.add(new City("Ankara"));
@@ -34,14 +34,14 @@ public class CollatorExample {
 		list.add(new City("Venice"));
 		list.add(new City("Çankırı"));
 
-		Comparator<City> compDef = new Comparator<CollatorExample.City>() {
+		Comparator&lt;City&gt; compDef = new Comparator&lt;CollatorExample.City&gt;() {
 			@Override
 			public int compare(City c0, City c1) {
 				return c0.getName().compareTo(c1.getName());
 			}
 		};
 		
-		Comparator<City> compTr = new Comparator<CollatorExample.City>() {
+		Comparator&lt;City&gt; compTr = new Comparator&lt;CollatorExample.City&gt;() {
 			@Override
 			public int compare(City c0, City c1) {
 				Collator collator = Collator.getInstance(new Locale("tr","TR"));
@@ -55,7 +55,7 @@ public class CollatorExample {
 		printList(list);
 	}
 	
-	public static void printList(List<City> list){
+	public static void printList(List&lt;City&gt; list){
 		for(City c:list){
 			System.out.println(c);
 		}
