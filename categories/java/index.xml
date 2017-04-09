@@ -185,7 +185,7 @@ You can put the version in name of war file. It makes easy to store executable f
 &lt;/p&gt;
 
 &lt;pre&gt;
-&lt;code&gt;
+&lt;code class=&#34;language-java&#34;&gt;
 package com.erkanerol.examples.collator;
 
 import java.text.Collator;
@@ -199,7 +199,7 @@ public class CollatorExample {
 
     public static void main(String[] args) {
         
-        ArrayList&lt;City&gt; list = new ArrayList&lt;City&gt;();
+        ArrayList&amp;lt;City&amp;gt; list = new ArrayList&amp;lt;City&amp;gt;();
         list.add(new City(&#34;London&#34;));
         list.add(new City(&#34;Newyork&#34;));
         list.add(new City(&#34;Ankara&#34;));
@@ -207,14 +207,14 @@ public class CollatorExample {
         list.add(new City(&#34;Venice&#34;));
         list.add(new City(&#34;Çankırı&#34;));
 
-        Comparator&lt;City&gt; compDef = new Comparator&lt;CollatorExample.City&gt;() {
+        Comparator&amp;lt;City&amp;gt; compDef = new Comparator&amp;lt;CollatorExample.City&amp;gt;() {
             @Override
             public int compare(City c0, City c1) {
                 return c0.getName().compareTo(c1.getName());
             }
         };
         
-        Comparator&lt;City&gt; compTr = new Comparator&lt;CollatorExample.City&gt;() {
+        Comparator&amp;lt;City&amp;gt; compTr = new Comparator&amp;lt;CollatorExample.City&amp;gt;() {
             @Override
             public int compare(City c0, City c1) {
                 Collator collator = Collator.getInstance(new Locale(&#34;tr&#34;,&#34;TR&#34;));
@@ -228,7 +228,7 @@ public class CollatorExample {
         printList(list);
     }
     
-    public static void printList(List&lt;City&gt; list){
+    public static void printList(List&amp;lt;City&amp;gt; list){
         for(City c:list){
             System.out.println(c);
         }

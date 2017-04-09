@@ -78,25 +78,25 @@ $.each( elems, function( i, elem ) {
 &lt;pre&gt;
 &lt;code class=&#34;language-java&#34;&gt;
 //BAD
-HashMap&lt;String,String&gt; pages = new HashMap&lt;String, String&gt;();
+HashMap&amp;lt;String,String&amp;gt; pages = new HashMap&amp;lt;String, String&amp;gt;();
 pages.put(&#34;book&#34;,&#34;mybooks.xhtml&#34;);
 pages.put(&#34;author&#34;,&#34;myauthors.xhtml&#34;);
 pages.put(&#34;reader&#34;,&#34;myreaders.xhtml&#34;);
 pages.put(&#34;library&#34;,&#34;mylibraries.xhtml&#34;);
 
-HashMap&lt;String,String&gt; adminAuthority = new HashMap&lt;String,String&gt;();
+HashMap&amp;lt;String,String&amp;gt; adminAuthority = new HashMap&amp;lt;String,String&amp;gt;();
 adminAuthority.put(&#34;book&#34;,&#34;all&#34;);
 adminAuthority.put(&#34;author&#34;,&#34;all&#34;);
 adminAuthority.put(&#34;reader&#34;,&#34;all&#34;);
 adminAuthority.put(&#34;library&#34;,&#34;all&#34;);
 
-HashMap&lt;String,String&gt; registeredUserAuthority = new HashMap&lt;String,String&gt;();
+HashMap&amp;lt;String,String&amp;gt; registeredUserAuthority = new HashMap&amp;lt;String,String&amp;gt;();
 registeredUserAuthority.put(&#34;book&#34;,&#34;create&#34;);
 registeredUserAuthority.put(&#34;author&#34;,&#34;create&#34;);
 registeredUserAuthority.put(&#34;reader&#34;,&#34;read&#34;);
 registeredUserAuthority.put(&#34;library&#34;,&#34;read&#34;);
 
-HashMap&lt;String,String&gt; guestUserAuthority = new HashMap&lt;String,String&gt;();
+HashMap&amp;lt;String,String&amp;gt; guestUserAuthority = new HashMap&amp;lt;String,String&amp;gt;();
 adminAuthority.put(&#34;book&#34;,&#34;read&#34;);
 adminAuthority.put(&#34;author&#34;,&#34;read&#34;);
 adminAuthority.put(&#34;reader&#34;,&#34;read&#34;);
@@ -107,7 +107,7 @@ adminAuthority.put(&#34;library&#34;,&#34;read&#34;);
 //GOOD
 public class MyEntity {
     String page;
-    HashMap&lt;String,String&gt; authorities;
+    HashMap&amp;lt;String,String&amp;gt; authorities;
 }
 &lt;/code&gt;
 &lt;/pre&gt;
