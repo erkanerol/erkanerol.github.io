@@ -25,6 +25,8 @@ weight = 1001
 
 ### İlgi Alanları
 1. Software Craftsmanship
+2. İnsana dair filmler (örneğin Demirkubuz, Farhadi, Ceylan, Majidi filmleri)
+
 
 **NOT: Herhangi bir hobim yoktur.**
 
@@ -60,7 +62,7 @@ weight = 1001
 * Maven, Gradle
 * Git, SVN
 * Unix komutları
-* Vagrant
+* Vagrant, Docker, Nomad, Consul, Packer
 
 #### Orta
 
@@ -68,16 +70,15 @@ weight = 1001
 * BDD, Serenity, Cucumber
 * Yazılım Mimarileri
 * Design Patterns
-* Docker
-* Nomad, Consul, Packer
+* JS, Angular2
 
 
 #### Başlangıç
-* JS, Angular
 * Jenkins autobuild & autodeploy
 * Selenium
 * Microservices
 * Service Discovery
+* MongoDB
 
 
 ### Olmak istediklerim
