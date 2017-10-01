@@ -2,12 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog</title>
-    <link>https://erkanerol.github.io/index.xml</link>
+    <link>https://erkanerol.github.io/</link>
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sat, 25 Mar 2017 00:37:43 +0300</lastBuildDate>
-    <atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Oct 2017 17:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dağıtık Sistemler (Distributed Systems): Giriş </title>
+      <link>https://erkanerol.github.io/post/distributed-systems-1/</link>
+      <pubDate>Sun, 01 Oct 2017 17:00:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/distributed-systems-1/</guid>
+      <description>&lt;p&gt;Önümüzdeki süreçte &amp;ldquo;Distributed Systems&amp;rdquo; üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım. Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+
+&lt;h2 id=&#34;nedir-bu-dağıtık-sistemler&#34;&gt;Nedir bu dağıtık sistemler?&lt;/h2&gt;
+
+&lt;p&gt;Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage) ve hesaplama (computation). Ve günün sonunda hedefimiz bir problemi çözmektir. Bazen bu problemin doğası ve/veya büyüklüğü bizi birden fazla bilgisayar kullanmaya zorlar. İşte bu noktada &amp;ldquo;dağıtık programlama&amp;rdquo; devreye girer.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Primitive Takıntısı ve Değer Nesneleri</title>
@@ -20,178 +43,7 @@
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/primitive.jpg&#34; /&gt;
 &lt;a href=&#34;https://dzone.com/articles/primitive-obsession&#34; target=&#34;_blank&#34;&gt;Görselin Kaynağı&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h2&gt;
-
-&lt;p&gt;Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu &amp;ldquo;takıntı&amp;rdquo; zamanla çeşitli problemlere neden olur.&lt;/p&gt;
-
-&lt;h2 id=&#34;problemler&#34;&gt;Problemler&lt;/h2&gt;
-
-&lt;pre&gt;
-&lt;code&gt;
-public class Notebook   {
-
-        private long id;
-        private Date productionDate;
-        private int status; // 0=PRODUCED, 1=SOLD, 2=RETURN
-        private String model; // XSI-Q2TU-17-1
-        
-
-        public String getSeries(){
-            return this.model.split(&#34;-&#34;)[0];
-        }
-
-        public String getModelYear(){
-            return this.model.split(&#34;-&#34;)[2];
-        }
-}
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri türlerinde yapmanız gerekir. Buradaki örnekte Notebook&amp;rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;çare-değer-nesneleri&#34;&gt;Çare Değer Nesneleri!&lt;/h2&gt;
-
-&lt;p&gt;Bu sorunun çözümü değer nesnelerinin (value objects) kullanımıdır. Bu kavramı Eric Evans &lt;a href=&#34;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&#34; target=&#34;_blank&#34;&gt;Domanin-Driven Design&lt;/a&gt; isimli kitabında oldukça ayrıntılı bir şekilde açıklamıştır. Evvela bu kavramı kısaca anlamaya çalışalım.&lt;/p&gt;
-
-&lt;p&gt;Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Services:&lt;/em&gt;&lt;/strong&gt; Bu nesneler günlük hayattaki varlıklara ve değerlere işaret etmeyen işçi nesnelerdir. Parser, formatter, controller gibi sınıflara ait nesneler bu gruba girer.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Entities:&lt;/em&gt;&lt;/strong&gt; Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id&amp;rsquo;ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id&amp;rsquo;leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Value Object:&lt;/em&gt;&lt;/strong&gt; Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;değer-nesnelerinin-kullanımı&#34;&gt;Değer Nesnelerinin Kullanımı&lt;/h2&gt;
-
-&lt;pre&gt;
-&lt;code&gt;
-public class NotebookModel {
-    final String series;
-    final String subseries;
-    final Year year;
-    final Month month;
-        
-    public NotebookModel(String series, String subseries, Year year, Month month) {
-        super();
-        this.series = series;
-        this.subseries = subseries;
-        this.year = year;
-        this.month = month;
-    }
-    
-}
-
-public enum NotebookStatus {
-    PRODUCED, SOLD, RETURN;
-}
-
-public class Notebook {
-    long id;
-    Date productionDate;
-    NotebookStatus status;
-    NotebookModel model;
-}
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.&lt;/p&gt;
-
-&lt;p&gt;Değer nesneleri &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsShouldBeImmutable&#34; target=&#34;_blank&#34;&gt;genellikle&lt;/a&gt;  NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
-Ancak bu zorunluluk &lt;a href=&#34;http://wiki.c2.com/?ValueObjectsCanBeMutable&#34; target=&#34;_blank&#34;&gt;değildir&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.jbrains.ca/&#34; target=&#34;_blank&#34;&gt;JbRainsberger&lt;/a&gt; değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &amp;ldquo;çekici&amp;rdquo; olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.&lt;/p&gt;
-
-&lt;h2 id=&#34;veritabanlarında-tutma-problemi&#34;&gt;Veritabanlarında tutma problemi&lt;/h2&gt;
-
-&lt;p&gt;Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.&lt;/p&gt;
-
-&lt;p&gt;Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code&gt;
-
-@Embeddable
-public class NotebookModel {
-  
-  @Column(name = &#34;MODEL_SERIES&#34;)
-  String series;
-  
-  @Column(name = &#34;MODEL_SUBSERIES&#34;)
-  String subseries;
-  
-  @Column(name = &#34;MODEL_YEAR&#34;)
-  Year year;
-  
-  @Column(name = &#34;MODEL_MONTH&#34;)
-  Month month;
-  
-}
-
-@Entity
-public class Notebook {
-  
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  Long id;
-  
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name=&#34;PRODUCTION_DATE&#34;)
-  Date productionDate;
-  
-  @Enumerated(EnumType.STRING)
-  @Column(name=&#34;STATUS&#34;)
-  NotebookStatus status;
-  
-  @Embedded
-  NotebookModel model;
-}
-
-public enum NotebookStatus {
-    PRODUCED, SOLD, RETURN;
-}
-
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;JPA ile immutable bir sınıfı embeddable yapmak biraz zor olabilir çünkü JPA default constructor ve setter kullanıyor. Ayrıntılı bilgiye &lt;a href=&#34;https://www.google.com.tr/search?q=immutable+embeddable+in+jpa&#34; target=&#34;_blank&#34;&gt;buradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;eklemeler&#34;&gt;Eklemeler&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Liste olarak tutulması gereken bilgileri bir arada tutmak da bu kod kokusu kapsamındadır. Örneğin yetkili kullanıcıların id listesini &amp;ldquo;1,4,5,6,7&amp;rdquo; gibi virgüllerle ayrılmış string olarak tutmamalısınız. Bu tip kullanımlar başlangıçta performans getirir gibi gözükse de zaman içinde ciddi sıkıntılara neden olurlar.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için &amp;ldquo;ilkel&amp;rdquo; kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;
-&lt;code&gt;
-amountInvoicedIn(Date start, Date end);
-amountReceviedIn(Date start, Date end);
-amountOverdueIn(Date start, Date end);
-
-amountInvoicedIn(DateRange range);
-amountReceviedIn(DateRange range);
-amountOverdueIn(DateRange range);
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;h2 id=&#34;sonuç&#34;&gt;Sonuç&lt;/h2&gt;
-
-&lt;p&gt;Örneklerin hepsini bir arada düşündüğümüzde sorunun sadece dildeki primitive veri türlerini kullanma takıntısı olmadığını anlarız. Asıl sorun karmaşık bir bilgiyi görece ilkel veri türleri ile ifade etmeye çalışmaktır. Dediğimiz gibi. Çare değer nesneleri!&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -210,134 +62,7 @@ amountOverdueIn(DateRange range);
 &lt;p&gt;Bugün (13 Mart) Lemi abinin, &lt;a href=&#34;https://twitter.com/lemiorhan&#34; target=&#34;_blank&#34;&gt;Lemi Orhan Ergin&amp;rsquo;in&lt;/a&gt; doğum günü. En son söyleyeceğim sözü ilk başta söyleyeyim: İyi doğdun Lemi abi. İyi ki varsın!&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;tanıma&#34;&gt;Tanıma&lt;/h2&gt;
-
-&lt;p&gt;İlk defa bir &lt;a href=&#34;https://www.youtube.com/watch?v=Af1ymJzPjIo&#34; target=&#34;_blank&#34;&gt;Agile Leaders&lt;/a&gt; videosunda tanıdım Lemi abiyi. O akşamki heyecanımı unutamıyorum. Sonraki birkaç günde Youtube&amp;rsquo;da bulduğum tüm videolarını izlemiştim. Ne kadar gaza geldiysem artık o aralar, sağa sola bir şeyler yazmışım hemen🙂&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I want to be a Software Craftsman.&lt;/p&gt;&amp;mdash; Erkan Erol (@erkan&lt;em&gt;erol&lt;/em&gt;) &lt;a href=&#34;https://twitter.com/erkan_erol_/status/701115261127155712&#34;&gt;February 20, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/lemi/lemi-eksi.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/lemi/kendime-not.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;gözlem-ve-tanışma&#34;&gt;Gözlem ve Tanışma&lt;/h2&gt;
-
-&lt;p&gt;Yazılım ustalığı okumalarımda okuduğum, daha önce burada bahsettiğim &lt;a href=&#34;https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/&#34; target=&#34;_blank&#34;&gt;Hevesli Yazılım Ustasının Rehberi&amp;rsquo;ndeki&lt;/a&gt; Find Mentors isimli bölümdeki taktiği uyguladım. Lemi abinin düzenlediği etkinliklere katılıp, bir süre gözlem yaptım. O dönem arkadaşlarım tarafından bir miktar sapıklıkla suçlansam da benim için çok faydalı oldu. (Yeri gelmişken itiraf edeyim, onun dikkatini çekmek için etkinlik boyu bekleyip, sonunda güzel sorular sormaya çalışmışlığım vardır🙈) İnsanlara yaklaşımını, samimiyetini, özverisini gözlemleme fırsatım oldu. En son kendime &amp;ldquo;Oğlum Erkan bu adamla acil beraber çalışman lazım&amp;rdquo; dedim. Neyse lafı uzatmayayım en son gidip kendimi tanıttım, kartını aldım. &lt;strong&gt;&lt;em&gt;Hayatta an itibari ile edindiğim en güzel ünvanı almış oldum: &amp;ldquo;Lemi&amp;rsquo;nin yanındaki genç eleman&amp;rdquo;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;herkesin-saygı-duyduğu-bir-adam&#34;&gt;Herkesin saygı duyduğu bir adam&lt;/h2&gt;
-
-&lt;p&gt;O günden beri onlarca kişiyle hakkında konuşmuşumdur. Daha bir kez kötü bir yorum duymadım hakkında. Herkesin adı geçtiğinde gülümsediği, imrenerek izlediği, keyifle dinlediği bir adam Lemi abi. Bir çok arkadaşımı etkinliklere davet edip, tanıştırdım. İstisnasız hepsi tevazusuna ve samimiyetine hayran kaldılar. &lt;strong&gt;&lt;em&gt;O gerçekten benim için ve tanıyan pek çok kişi için koca yürekli bir adam ve #1&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/lemiorhan&#34;&gt;@lemiorhan&lt;/a&gt; you are #1 😉&lt;/p&gt;&amp;mdash; Barış BAL (@BrsBal) &lt;a href=&#34;https://twitter.com/BrsBal/status/784081981160259585&#34;&gt;October 6, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;We forget to thank people continuously. Leave your egos! Thank people today! &lt;a href=&#34;https://twitter.com/hashtag/kudobox?src=hash&#34;&gt;#kudobox&lt;/a&gt; &lt;a href=&#34;https://t.co/qwnBz4iKa9&#34;&gt;pic.twitter.com/qwnBz4iKa9&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/725569267752652801&#34;&gt;April 28, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;öğrenmeye-ve-öğretmeye-sevdalı-bir-zanaatkar&#34;&gt;Öğrenmeye ve öğretmeye sevdalı bir zanaatkar&lt;/h2&gt;
-
-&lt;p&gt;Ondan çok şey öğrendim, öğreniyorum. Bildiklerini başkalarına öğretmenin bu mesleğin bir parçası olduğunu (bkz: &lt;a href=&#34;http://manifesto.softwarecraftsmanship.org/&#34;&gt;helping others learn the craft&lt;/a&gt;) da ondan öğrendim mesela. Hani Mimar Sinan için &amp;ldquo;Çok büyük adamdı ama bir çırak yetiştirmedi.&amp;rdquo; derler ya. Lemi abi çırak yetiştirmek için elinden gelenden çok daha fazlasını yapan bir adam. Üniversite topluluklarını bile kırmayan, ailesinden fedakarlık yapıp, genç kuşaklara bu zanaati öğretmek için ordan oraya koşturan bir usta. &lt;strong&gt;&lt;em&gt;Ona layık çırak olamazsak suç bizimdir, kayıtlara geçsin isterim!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;We listened &amp;quot;beautiful design of Git commands&amp;quot; from &lt;a href=&#34;https://twitter.com/lemiorhan&#34;&gt;@lemiorhan&lt;/a&gt; at &lt;a href=&#34;https://twitter.com/hashtag/iyziBBS?src=hash&#34;&gt;#iyziBBS&lt;/a&gt; &lt;a href=&#34;https://t.co/WtwvHMRClj&#34;&gt;pic.twitter.com/WtwvHMRClj&lt;/a&gt;&lt;/p&gt;&amp;mdash; iyzico Engineering (@iyzicoEng) &lt;a href=&#34;https://twitter.com/iyzicoEng/status/832331304662364160&#34;&gt;February 16, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;tr&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/lemiorhan&#34;&gt;@lemiorhan&lt;/a&gt; ile Kaliteli Kod Yazmanın Temel Taşları &lt;a href=&#34;https://twitter.com/hashtag/geekday?src=hash&#34;&gt;#geekday&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/gtubt?src=hash&#34;&gt;#gtubt&lt;/a&gt; &lt;a href=&#34;https://t.co/iA2J0nmFJC&#34;&gt;pic.twitter.com/iA2J0nmFJC&lt;/a&gt;&lt;/p&gt;&amp;mdash; Bilgisayar Topluluğu (@gtek_bt) &lt;a href=&#34;https://twitter.com/gtek_bt/status/835485977728647170&#34;&gt;February 25, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I will talk about &amp;quot;Agile Culture and Scrum&amp;quot; at Istanbul Arel University tomorrow. It will be fun! &lt;a href=&#34;https://t.co/qLwsl6GFPo&#34;&gt;pic.twitter.com/qLwsl6GFPo&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/838839377056903168&#34;&gt;March 6, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;tutkulu-bir-yazılımcı&#34;&gt;Tutkulu bir yazılımcı&lt;/h2&gt;
-
-&lt;p&gt;İnsanların bir bir gittiği, ruhsuzluğun kol gezdiği, mesleğini daha iyi yapma çabasının nadirattan olduğu bir ortamda; her şeye rağmen mücadelesiyle, &lt;strong&gt;&lt;em&gt;bu mesleğe dair hissettiği tutkusuyla&lt;/em&gt;&lt;/strong&gt;, gözlerindeki ışıkla  fark yaratan bir isim Lemi Orhan Ergin. Çölde bir vaha, bataklıkta bir lotus çiçeği desem hiç abartmış olmam.&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I met with two of my masters &lt;a href=&#34;https://twitter.com/unclebobmartin&#34;&gt;@unclebobmartin&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/sandromancuso&#34;&gt;@sandromancuso&lt;/a&gt; at the same time. That&amp;#39;s fantastic! &lt;a href=&#34;http://t.co/c9lLWcDj3s&#34;&gt;pic.twitter.com/c9lLWcDj3s&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/613809439871762432&#34;&gt;June 24, 2015&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Let the fun begin! &lt;a href=&#34;https://twitter.com/hashtag/CraftSummit15?src=hash&#34;&gt;#CraftSummit15&lt;/a&gt; &lt;a href=&#34;http://t.co/MW3wxvKPeT&#34;&gt;pic.twitter.com/MW3wxvKPeT&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/604518381656674304&#34;&gt;May 30, 2015&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;oyunu-iki-yönlü-oynayabilen-bir-oyuncu&#34;&gt;Oyunu iki yönlü oynayabilen bir oyuncu&lt;/h2&gt;
-
-&lt;p&gt;Bu hayatta ne çektiysek savunması iyi hücumu kötü, hücumu iyi savunması kötü orta sahalardan çektik. İstedik ki hem tekniği iyi olsun, hem çok koşsun. Hem ara pas atsın, hem top kapsın. Yıllar sonra Beşiktaş&amp;rsquo;a Atiba&amp;rsquo;yı bulduk. Bildiniz mi Atiba&amp;rsquo;yı? Heh! Lemi abi de bu işin Atiba&amp;rsquo;sıdır işte. Hem dibine kadar teknik bilir, hem de &amp;ldquo;soft&amp;rdquo; becerileri olağan üstüdür. Hem pair yapar temiz kod öğretir, hem kariyerinizi nasıl sürdürmeniz gerektiğine dair babacan tavsiyeler verir. Konulara bakar mısınız?&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=mpx5lEcXxt0&#34; target=&#34;_blank&#34;&gt;Java&amp;rsquo;da exception&amp;rsquo;lar nasıl yönetilir?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Dy1EVPaZtYg&amp;t=1365s&#34; target=&#34;_blank&#34;&gt;Yazılım ustalığı ve kültürü&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=fmFQ4jF3J10&#34; target=&#34;_blank&#34;&gt;Git (Ah bir eğitimine katılamadım☹️)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=naq49KIEVls&#34; target=&#34;_blank&#34;&gt;Mutlu yazılımcının galaksi rehberi &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=ayqLzN78PsU&amp;t=998s&#34; target=&#34;_blank&#34;&gt;Test Driven Design&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=GnWbFTQPNHY&#34; target=&#34;_blank&#34;&gt;Çevik Dünya&amp;rsquo;da motivasyon kaybı (Yöneticilere)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;yol-gösterici&#34;&gt;Yol Gösterici&lt;/h2&gt;
-
-&lt;p&gt;Her daim fikirleriyle bizi aydınlatır.&lt;/p&gt;
-
-&lt;p&gt;Yürümüş, gitmiş👏
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Let&amp;#39;s clarify:&lt;br&gt;* Github is not Git&lt;br&gt;* Android is not Java&lt;br&gt;* Unit test is not TDD&lt;br&gt;* Java is not OOP&lt;br&gt;* Docker is not Devops&lt;br&gt;* Jenkins is not CI&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/711653924378382341&#34;&gt;March 20, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Erkek yazılımcılara ayar verirken😇
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Dear male software developers, you are neither smarter nor more talented than female developers.&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/707104804493991937&#34;&gt;March 8, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-Kanaat-i Naçizanemce diyor🤔
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;IMHO, top 3 things developers need the most:&lt;br&gt;1. Mentorship and coaching&lt;br&gt;2. Practicing and doing experiments&lt;br&gt;3. All other important things&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/840331831216082944&#34;&gt;March 10, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;
-Disipline önem verir demiş miydik?🤗
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I look for 3 things from a developer during job interviews:&lt;br&gt;* passion&lt;br&gt;* discipline&lt;br&gt;* motivation&lt;br&gt;Everything else is a matter of time.&lt;/p&gt;&amp;mdash; Lemi Orhan Ergin (@lemiorhan) &lt;a href=&#34;https://twitter.com/lemiorhan/status/812380790675959809&#34;&gt;December 23, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sesleniş-ve-kapanış&#34;&gt;Sesleniş ve Kapanış&lt;/h2&gt;
-
-&lt;p&gt;Bana kalsa bitmez bu yazı. En iyisi mi sesleniş ile güzelce kapatalım.&lt;/p&gt;
-
-&lt;p&gt;İyi ki doğdun Lemi abi. İyi ki varsın!&lt;/p&gt;
-
-&lt;p&gt;Ne çok şey öğrendik senden, senin düzenlediğin/katıldığın etkinliklerden bir bilsen. Motive olduk. İşimizi daha çok sevdik. İş arkadaşlarımıza daha güzel yaklaşır, daha özenli çalışır olduk. Ustalar tanıdık, kitaplar öğrendik&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Allah sana eşin ve o güzel oğullarınla uzun bir ömür nasip eylesin (Cemaat burada gür bir sesle Amiiiiiin diye eşlik eder). Heyecanın ve gülümsemen hiç kaybolmasın. Şimdiden &amp;ldquo;bâki kalan bu kubbede bir hoş sadâ&amp;rdquo; bıraktın bile. Daha çooook güzel işler yapacağına da eminim, takipdeyim.&lt;/p&gt;
-
-&lt;p&gt;Kendine çok iyi bak!&lt;/p&gt;
-
-&lt;p&gt;Ne diyordu Bob Amca😉
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Today is  &lt;a href=&#34;https://twitter.com/lemiorhan&#34;&gt;@lemiorhan&lt;/a&gt;&amp;#39;s birthday. He is the founder of our community.&lt;br&gt;&lt;br&gt;The message of the day comes from &lt;a href=&#34;https://twitter.com/unclebobmartin&#34;&gt;@unclebobmartin&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/HappyBirthdayLemi?src=hash&#34;&gt;#HappyBirthdayLemi&lt;/a&gt; &lt;a href=&#34;https://t.co/NDABJim5uD&#34;&gt;pic.twitter.com/NDABJim5uD&lt;/a&gt;&lt;/p&gt;&amp;mdash; SC Turkey (@scturkey) &lt;a href=&#34;https://twitter.com/scturkey/status/841185672467795968&#34;&gt;March 13, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/hashtag/HappyBirthdayLemi&#34;&gt;Günün anlam ve önemini içeren tweet&amp;rsquo;lere buradan ulaşabilirsiniz.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Mart, 2017&lt;/p&gt;
-
-&lt;p&gt;-Erkan Erol&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -358,67 +83,7 @@ Disipline önem verir demiş miydik?🤗
 
 &lt;p&gt;Teknolojik tercihleri yüzünden ayrımcılığa maruz kalan var mıdır bilmiyorum ama bazı yazılımcıların &lt;strong&gt;&lt;em&gt;&amp;ldquo;fanatik&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; olarak nitelendirilebileceğini biliyorum. Bu yazılım camiasında da bilinen bir durum zaten. Belirli bir ölçüye kadar güzel ve sevimli olan bu fan olma hali bir yerden sonra büyük sorunlara neden oluyor. Bu konu hakkında biraz kafa yordum ve düşüncelerimi bu yazıda ifade etmeye çalışacağım.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;neden&#34;&gt;Neden?&lt;/h3&gt;
-
-&lt;p&gt;Her mesleğin kendine göre zorlukları vardır. Yazılım geliştirme mesleğinin en zorlu yanlarından biri -aynı zamanda en güzel yanlarından biri olmakla beraber- sürekli bir değişimin/gelişimin olması. Öyle tarih öğretmenliği gibi öğrenilecekleri bir kez öğrenip 40 sene &lt;strong&gt;yalnızca&lt;/strong&gt; onlarla işi götüremezsiniz. Her daim sürekli bir öğrenme sürecinde olmak zorundasınız. İşin kötü yanı &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;24&lt;/sub&gt; çalışsanız bile her şeyi öğrenmeniz imkansız. Her şeyi öğrenmeye çalışırsanız geriye dönüp baktığınızda hiçbir şeyi tam anlamıyla öğrenemediğinizi fark edersiniz. Bu nedenle yazılımcılar kariyerleri boyunca belirli alanları seçip, onlara odaklanırlar. Ömürlerini bu alanlarda gelişmek için harcarlar. Hikaye de tam burada başlar.&lt;/p&gt;
-
-&lt;h4 id=&#34;1-yatırımlarını-koruma-çabası&#34;&gt;1. Yatırımlarını koruma çabası&lt;/h4&gt;
-
-&lt;p&gt;Bu bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, sevdiklerinizden feragat ederek gece gündüz öğrendiğiniz, ustası olduğunuz bir dili piyasadan silebilir. &amp;ldquo;Oldum&amp;rdquo; diye düşündüğünüz an o çok bildiğiniz framework çöp muamelesi görebilir. Kullandıkları teknolojiler yükselişte diye düşünerek girdiğiniz işten çıkana kadar o teknolojiler (bkz: js frameworks) eskiyebilir. &lt;strong&gt;&lt;em&gt;Yazılımcılar alanlarını seçerken aslında bir nevi yatırım yaparlar.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Ne diyordu Primefaces ile JavaEE dünyasına damgasını vurmuş Çağatay Çivici Angular2 için çıkardığı PrimeNg&amp;rsquo;yi tanıtırken?&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://blog.primefaces.org/?p=4313&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;&lt;em&gt;Always bet on Prime!&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Yani diyor ki; biz gelişeceğiz, güçleneceğiz. Piyasa bizi kullanacak, bizi bilen yazılımcı değerli olacak. Gidip de başka kütüphanelerle vakit kaybetme. Bize yatır ömrünü/emeğini ve kazan!&lt;/p&gt;
-
-&lt;p&gt;Peki bir dil/framework/araç/mimari/paradigma nasıl güçlenir, eskisinin yerini alır? Elbette bir gelişimi içinde barındırarak, eskisindeki bir takım sorunları çözerek. Peki her zaman birincil etkenin bu olduğunu söyleyebilir miyiz? Ortalıkta ne kadar övüldüğünün hiç etkisi yoktur diyebilir miyiz? Bilginin bu kadar çoğaldığı, odaklanmanın bu kadar zor olduğu bir dönemde derinleşme o kadar zor ki hemen hemen her alanda ciddi bir sığlık ile karşı karşıyayız. Ve bu sığlıktan ötürü bütün alanlarda algı hakikatin yerini almış durumda. Piyasada buna bir miktar teslim olmuş ki bu durumdan yakınan pek çok yazı (bkz: &lt;a href=&#34;https://medium.com/tag/hype-driven-development&#34; target=&#34;_blank&#34;&gt;Hype Driven Development&lt;/a&gt;) yayınlandı.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da bu nedenlerden dolayı yatırım yaptıkları alanlar lehine algı yönetimi yapma eğilimindedirler.&lt;/em&gt;&lt;/strong&gt; Herkesin kendi bildiğini fütursuzca övdüğü bir ortamda nasıl sessiz kalınabilir? 10 yıl kazandığınız parayı bir şirketin hisselerine yatırsanır ve geri çekme imkanınız olmasa, şirketin kötü gittiğine dair yorumlara inanır/katılır mısınız yoksa şirketin ne kadar parlak bir geleceğe sahip olduğunu mu anlatırsınız insanlara? İnsanın kendini inandırması bile zordur böyle durumlarda.&lt;/p&gt;
-
-&lt;h4 id=&#34;2-duygusal-bağlar&#34;&gt;2. Duygusal Bağlar&lt;/h4&gt;
-
-&lt;p&gt;Yaşanmışlıklar aziz okuyucu yaşanmışlıklar! İnsanı insana, insanı hayvana, insanı nesnelere bağlar. Kusurları görünmez kılar. Leyla&amp;rsquo;nın kusurları görünür mü hiç Mecnun&amp;rsquo;un gözüne?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da hayatlarını harcadıkları şeylerin eksikliklerini/kusurlarını görme konusunda sıkıntı yaşarlar, nesnelliklerini yitirirler.&lt;/em&gt;&lt;/strong&gt; Kadın (bkz: she instead of he) yıllarca vim kullanmış, bütün kısa yolları tek tek öğrenmiş, kendine özel eklentileri/temaları bulmuş, editörü adeta yuvası yapmış. Visual Studio Code&amp;rsquo;da yatıya kalmış misafir tedirginliğinde yerini yadırgamaz mı?&lt;/p&gt;
-
-&lt;h4 id=&#34;3-özentilik&#34;&gt;3. Özentilik&lt;/h4&gt;
-
-&lt;p&gt;Öğrenmenin birinci adımı taklit etmektir. Evvela sizden öncekilerin yaptığı gibi yapmaya çalışırsınız. Zamanla su akar, yatağını bulur ve kendinize özgü bir üslup edinirsiniz. Usta-çırak ilişkisi içinde olan yazarlara bakın mesela, çırağın satırlarında ustaya rastlamak olağandır.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Yazılımcılar da taklit ederek başlarlar. İyi olduğunu düşündüğü büyüklerinin kullandığı araçları, yöntemleri benimserler. Onların aralarındaki tartışmalarda taraf olmak isterler.&lt;/em&gt;&lt;/strong&gt; Şöyle düşünür örneğin &amp;ldquo;Çok iyi yazılımcılar arasında &amp;lsquo;Outside In TDD vs Inside Out TDD&amp;rsquo; tartışması var. Demek ki benim de birini seçip, benimsemem ve sevmem lazım. Ancak bu şekilde iyi olabilirim.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;Başlangıçta gayet olağan ve masumca olan bu özenme hali pek çok kez, zaman içinde, yine sığlıktan kaynaklanan bir fanatizme dönüşür. Çaylaklığını atlatanlar, olgunlaşanlar bu tartışmaların yazılım ekosistemini besleyen, ilerleten, renklendiren tartışmalar olduğunu anlarlar. O seviyede takılanlar ise -tıpkı futbol tribünlerindeki holiganlar gibi- olayın aslını unutup, bu çatışmaların olayın kendisi olduğu yanılgısına kapılırlar ve çatışmalar üzerinden var olmanın peşindedirler.&lt;/p&gt;
-
-&lt;h4 id=&#34;4-cehalet-aptallık-ve-ahlaksızlık&#34;&gt;4. Cehalet, Aptallık ve Ahlaksızlık&lt;/h4&gt;
-
-&lt;p&gt;Aziz okuyucu!&lt;/p&gt;
-
-&lt;p&gt;Bu zamana kadar bahaneler üretmeye, mazur görmeye çalıştık. Lakin itiraf etmenin zamanı geldi. Çıkarlarını koruma iç güdüsü, sevmek, bağlanmak, benimsemek, özenmek&amp;hellip; Bunların hepsi olağandır, güzeldir. Lakin ölçüyü kaçırmanın, çatışma üretmenin, insanları kırmanın, insanları yanlışa yönlendirmenin, işvereninin çıkarları aleyhine kararlar almanın mazereti yoktur.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Şu hakikati kabul etmek farzdır: Her alanda olduğu gibi yazılım alanında da fanatizmin asıl sebebi cehalet, aptallık ve ahlaksızlık üçlüsüdür ki nedense bu üçlü pek çok zaman bir arada gezerler.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Cehalet diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bunlar kendini biliyor sanır ama çok şey bilmezler,  &lt;a href=&#34;https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect&#34; target=&#34;_blank&#34;&gt;hatta bilmediklerini de bilmezler. &lt;/a&gt; Dikkat edin çok okuyan, araştıran insanlarda bu tip fanatiklikler göremezsiniz. Onlar ancak bu fanatizmden &lt;a href=&#34;https://medium.com/@fkadev/tak%C4%B1m-tutar-gibi-teknoloji-tutmak-c4c535247deb#.ffx19xyy0&#34; target=&#34;_blank&#34;&gt;muzdariptirler,&lt;/a&gt; her şeyin iyi ve kötü yanlarını öğrenip, gerekeni gerektiği yerde kullanmaya özen gösterirler.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Aptallık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu fanatizm pek çok defa insana ve çevresindekilere zarar verir. Bütün bu zararlarına rağmen fanatizme kapılmak, kaybetmek ancak akılsızlıkla, aptallıkla açıklanabilir. Ancak aptallar bu kadar kör olabilir.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;em&gt;Ahlaksızlık diyorum çünkü;&lt;/em&gt;&lt;/strong&gt; bu davranışlar ne iş ahlakına uyar ne de görev bilincine. Yazılımcı alet çantasındaki araçları tanımak ve onların sayısını arttırmak ile yükümlüdür. Onlardan bir ya da birkaçına körü körüne bağlanıp kendisine, işine ve varsa işverenine zarar vermesi bir nevi ahlaksızlıktır.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;kapanış&#34;&gt;Kapanış&lt;/h3&gt;
-
-&lt;p&gt;Tarihin her döneminde, her toplulukta kendini gösteren  fanatizm illetinin; bu zamanda, yazılımcılar arasında da kendini göstermesi normaldir. Umut edilir ki sayıları az olsun.&lt;/p&gt;
-
-&lt;p&gt;Sorunların tespiti kolay, çözümleri zordur. Ben bir çırak olarak yazılımcılar arasındaki fanatizm sorununu bir kez daha ifade ettim, kendimce irdeledim. Çözümü var mıdır bilmiyorum. Varsa da bulma, ifade etme ve uygulama işini ustalara bırakmak lazım gelir diye düşünüyorum.&lt;/p&gt;
-
-&lt;p&gt;Sürç-i lisan ettiysek affola!&lt;/p&gt;
-
-&lt;p&gt;Not: Aşağıdaki tweet&amp;rsquo;imi favlayan herkese çok teşekkür ederim❤️
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;tr&#34; dir=&#34;ltr&#34;&gt;Unutmuştum. Aklıma geldi.10 fava önümüzdeki hafta &amp;quot;Yazılımcı Fanatikliğinin Anatomisi&amp;quot; başlıklı blog yazarım.&lt;/p&gt;&amp;mdash; Erkan Erol (@erkan&lt;em&gt;erol&lt;/em&gt;) &lt;a href=&#34;https://twitter.com/erkan_erol_/status/832337511246606337&#34;&gt;February 16, 2017&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -433,168 +98,7 @@ okumam da etkili oldu :) Kitabı şiddetle tavsiye ediyorum!&lt;/p&gt;
 
 &lt;p&gt;Not: Kitapta müstehcen ifadelerin yer aldığını belirtmeyi tavsiye eden olarak borç bilirim.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/acemi_egitimi.jpg&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;
-&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;genel-bakış&#34;&gt;Genel Bakış&lt;/h2&gt;
-
-&lt;p&gt;Kitap yazarın dilinden dinlediğimiz kurgu anılardan ve aile bireylerinin öyküsünden ibaret. Yazar gerçek
-gibi anlatsa da kurgu olduğunu anlaması uzun sürmüyor. Akrabaları arasında öyle karakterler (bkz: Şeref Dayı) var ki üzerine ayrıca kitap yazılır.&lt;/p&gt;
-
-&lt;p&gt;Kitabın içindeki olaylar yazarın çocukluğundan yetişkinlik dönemine kadar uzanan uzun bir dönemi kapsıyor ve kitabın içinde Türkiye&amp;rsquo;nin kültürel ve siyasi durumuna pek çok atıf var ki onları okuması da oldukça keyifliydi.&lt;/p&gt;
-
-&lt;h2 id=&#34;ekşi-sözlük-yazar-yorumları&#34;&gt;Ekşi Sözlük Yazar Yorumları&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Not:&lt;/strong&gt; Ekşi sözlük hala entry gömmek için link hizmeti sunmuyor. Skandal vallahi. Bu şekil idare edeceğiz. İşte yorumlar:&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;ezcümle; kozanoğlu hiç edebi olma kaygısı gütmemiş ve işte bu yüzden iliklerine kadar edebi bir kitap yaratmış. hüzne gark etmiş kitaplar arasında boğulmuş türk yazını böylesine iyi mizahı çok özlemişti gerçekten.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;hiç bitmesin diye isyan ettiğim kitaplardan biri.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;umut sarıkaya&amp;rsquo;nın ekim sayısı hayvan&amp;rsquo;ına verdiği ropörtajda söylediğine göre, &amp;ldquo;keşke ben yazmış olsaydım&amp;rdquo; diye hayıflandığı eser.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;yer yer fantastik,yer yer post modern imgelerle örülü,arka plandaki sosyolojik tahlillerin isiginda bize bir hayati sunuyor sevgili can kozanoglu,kendi hayatini.hepimizin hayati ama olumlu ama olumsuz fantatastik degil mi zaten? kozanoglu da hayattaki fantastik gerçegi bu sefer özyasamsal öyküsü ile birlestiriyor.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;sevgili can kozanoğlunun sosyolojik tespitlerden edebi bir çizgiye doğru son derece başarılı bir geçiş yaptığı eseri. alınız, okuyunuz, okumayanlara okutunuz&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;bazen en basit hakikatler öyle inanılmaz görünür ki, inandırıcı olmak için hakikatleri değiştirmek zorunda kalırsın.&amp;rdquo;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;alıntılar&#34;&gt;Alıntılar&lt;/h2&gt;
-
-&lt;p&gt;Kitabı okurken altını çizdiğim yerleri aşağıda bulabilirsiniz.
-&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Dedem, tüm haklılıklara ve haksızlıklara noktayı tek hamlede koydu. Anlattığım kavgadan birkaç ay sonra, seksen küsur yaşında, iki tüp dolusu ilaç içerek intihar etti. Hayattan sıkılmıştı.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;kaya, üzerinde iki adam. Adamlardan biri aşağıdaki ovayı göstermiş. “Buranın toprağı çok verimlidir. Bire elli verir.” Diğeri dövünmeye başlamış: “Aman birader, yapma&amp;hellip; Geçen ay kaynanamı buraya gömmüştük!”&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;(Bu arada, herkesin adi olduğu bir âlemde benim asaletime ne demeli? Biz buna “anı kitabı tipi asalet” diyoruz.)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Üç günde üç cinayet işleyip işi bitirecektim. İki bile yeterdi belki. Seri katilin tanımında, bazıları en az üç diyor, bazıları yalnızca birden fazla diyor.”&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Bilinçaltımızda şöyle bir şey vardı belki: “İnsanlık hali, her an vejetaryen olabiliriz, yiyebileceğimiz kadar yiyelim!” Üç kardeş yedik, yedik, yedik&amp;hellip; Maria gözlerine inanamıyordu.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;bazen en basit hakikatler çok inanılmaz görünür ve inandırıcı olmak için hakikatleri değiştirmek zorunda kalırsın.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Şöyle de bir resim altı kalmış aklımda: “Elini kana bulayan Hasan Turna, çevresinde sevilen bir pideciydi.” Ölenden çok öldürene acımışlar demek ki.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Babam öyleydi; oruç tutmaz, ramazan boyunca bir akşam olsun rakısını aksatmaz ama kendinden daha Müslüman kimse de tanımazdı.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Dul kadınların evlerini basıp tecavüz edenler oldu. Vallahi oğlum, kıyamete hazırlanan ilçede, dul kadınlara tecavüz edenler oldu&amp;hellip;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Hayatın yüzde onunu bütün ömrümde öğrendiysem, yüzde doksanını bir buçuk günde öğrendim. Anladım ki, kıyamet saatinde bile insanlar yine çeşit çeşit olacak. Cennet ne vaat ederse etsin, insanların dünya nimetlerinde gözü kalacak&amp;hellip;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Melek teyzem, “Kimsede yemek yiyecek hal kalmadı,” gibisinden bir şeyler söyledi. Anneannem kızdı. Ve biz, altı erkek sofraya geri döndük. İçimden, “Yaşa anneanne!” diyordum. Karnım doyduktan sonra daha iyi üzülebilirdim dayım için.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Kocasının ve kaynanasının asıl katillerine gelince&amp;hellip; Onların son isteklerini soramıyor Emine. Çünkü Emine’ye idam cezası veren mahkeme onlara yirmişer yıl veriyor.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Şebeğin şah olduğu yerde aslan, eşeğin padişah olduğu yerde insan durmazmış!”&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Babam, “Vicdan meselesi,” derdi, “kolay mı, kalem kırdık yüzüne karşı.” Babam ikinci davada idam kararını veren hâkimdi, annem ise ilk davada Emine’yi kurtaran avukat. Hâkim babam olduğu için annem ikinci davayı üstlenememiş.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Böyle bir paragraf yazabilmeyi isterdim. Ama her şeyi olduğu gibi anlatmaya söz verdim bir kere&amp;hellip; Hayattaysa ve kazara bu kitabı okuyacağı tutarsa beni affetsin, Raziye Abla odun gibi masal anlatırdı: “Bir eşek varmış. Bir de dağ varmış. Eşek bir gün dağa gitmiş. Karnı da açmış. Ot yemiş. Sonra ayı gelmiş. O da yemek yemiş.”&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Yakaladıktan sonra, etkisizleştirmek için gözlerini bağlamışlardı Raziye Abla’nın. Haberin başlığı “Büyülü Gözler Yakayı Ele Verdi” şeklindeydi.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Yazı şöyle bitiyordu: “Ispanaklı ve fener balıklı tortellini’yi yedikten sonra tatlı olarak frenk üzümlü krep getirdiklerini görünce sordum Suat Çetin’e, ‘Frenk üzümlü-hurmalı krep yapmayı düşünmez misiniz?’ Suat Çetin bunun çok iyi bir fikir olduğunu söyledi. Hatta frenk üzümlü-hurmalı krepe bir isim de bulduk. Orient Ekspres!”&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Annenizle babanız adliye kapısında tanışırsa olacağı budur zaten. Hem de nasıl tanışma&amp;hellip; Karpuzla başlayıp kavunla biten bir evlilik.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Bükreş’in en büyük ekmek fırınlarından birini açtı. Chemil’i. Che’nin adıyla babamın adını birleştirmişti. Bükreş’te fırıncılık yapan, Che hayranı ve babasına karşı vefalı bir profesör&amp;hellip;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;şakaları için değil. On beş yaşında ve hiç beklenmedik bir anda babanızı kaybedince, ölüm üzerine düşünmeye başlıyorsunuz. Genelleme yapmayayım hadi, ben ölüm üzerine düşünmeye başladım.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Askerlik yapanlar, birine “oğlum” diye seslenilmesi sonucunda çıkan kavgalara tanık olmuşlardır mutlaka. Kendisine oğlum denmesini, “Asıl baban benim, ananı s&amp;hellip;” şeklinde algılayıp saldırganlaşan insanlarımız vardır. Ben bu hassasiyet türüyle ilk kez o gün karşılaşmış ve şaşırmıştım. Arkadaşlarımla birbirimize bol bol oğlum derdik, kavga çıkmazdı.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;İnsan, köpek, maymun, ağaç; ne olduğu önemli değil. Bir zamanlar kendisine tutkuyla bağlandığını hissettiği bir canlıdan yüz bulamamak ağır geliyor Salim’e. Köpek bir kez daha yanına gelse, başını bacaklarına sürtse, Salim, “Hadi lan, hoşt!” diyecek rahatlayacak. Ama nerdee&amp;hellip;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Eşofman diyemeyen gelinin atladığı gibi bir kaya, üzerinde iki adam. Adamlardan biri aşağıdaki ovayı göstermiş. “Buranın toprağı çok verimlidir. Bire elli verir.” Diğeri dövünmeye başlamış: “Aman birader, yapma&amp;hellip; Geçen ay kaynanamı buraya gömmüştük!”&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Daha doğrusu, büyüklerin rollerine soyunmuş tüm çocuklar gibi, sevimsiz geliyordu insana.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Ve bir gün, kum torbasının dibine yığılıp kalıyor. Mustafa’yla Refik hastaneye yetiştirmeye çalışıyorlar ama çok geç. Yeniden doğma azmindeki Sporcu Celal, spor yaparken dünyaya veda ediyor. Eski formunu tutamadan; hayata, sevdiklerine doyamadan&amp;hellip; Hele hele Şeref’e hiç doyamadan&amp;hellip;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Liberal iktisat profesörü Nadir Balcı’nın hazin ölümünü hatırlayanlar çoktur. Gazeteler, tokatçı albayı da bulmuşlardı. Albay önce hiçbir pişmanlık dile getirmemiş, sonra ağlayarak özür dilemişti.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;“Ne dediğini anlıyorum, anne. Bir yerden kurtarmak filan yok. Ayten orada çalışmaya devam edecek. Realist ol Şeref, realist ol oğlum&amp;hellip; Realist oldum. Benim muhasebe bürosundan aldığım parayla geçinemeyiz. Ayten çalışmaya devam edecek!” Komedi filmlerinde küt diye düşüp bayılma sahneleri vardır ya, hazır ol vaziyetinde düşüp kalırlar. Anneannem öyle bayıldı.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Duygusal savunma cümleleri kurmaya çalışıyordum kafamda. “Sizlere söylemiyorum ama ben bazen dayımı o kadar özlüyorum ki&amp;hellip;” Yerler miydi? Yemezlerdi.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Daha ilk teneffüste dayak yemiş, iftiraya uğramıştım. Mutsuzdum. Okul kötü bir yerdi. Çok kötü bir yer!&lt;/p&gt;
-
-&lt;hr /&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/acemi_egitimi.jpg&#34;/&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -607,92 +111,7 @@ gibi anlatsa da kurgu olduğunu anlaması uzun sürmüyor. Akrabaları arasında
 
 &lt;p&gt;Hash fonksiyonları belirli özellikleri sağlayan fonksiyonlardır. Bu özelliklere değinmeden önce fonksiyonları kısaca hatırlatmak istiyorum.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;fonksiyonlar&#34;&gt;Fonksiyonlar&lt;/h3&gt;
-
-&lt;h4 id=&#34;tanım&#34;&gt;Tanım&lt;/h4&gt;
-
-&lt;p&gt;Fonksiyonlar tanım kümesindeki her bir elemanı görüntü kümesinde yalnızca bir elemana bağlayan ilişkilerdir.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Tanım Kümesi: X&lt;/li&gt;
-&lt;li&gt;Görüntü Kümesi: Y&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 1:&lt;/em&gt;&lt;/strong&gt; Tanım kümesindeki bütün elemanlar eşleşmemiş. 4 açıkta kalmış. Onun için bu ilişki bir fonksiyon değil.
-&lt;img src=&#34;https://erkanerol.github.io/img/hash/fonksiyon_degil.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 2:&lt;/em&gt;&lt;/strong&gt; Tanım kümesindeki bir değer görüntü kümesindeki iki değer ile eşleşmiş. Onun için bu ilişki bir fonksiyon değil.
-&lt;img src=&#34;https://erkanerol.github.io/img/hash/fonksiyon_degil_2.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 3:&lt;/em&gt;&lt;/strong&gt;Tanım kümesindeki bütün elemanlar görüntü kümesinde yalnızca bir elemen ile eşleşmiş. Onun için bu ilişki bir fonksiyon. f(1)=A, f(2)=B, f(3), f(4)=C
-&lt;img src=&#34;https://erkanerol.github.io/img/hash/fonksiyon.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;ters-fonksiyon&#34;&gt;Ters Fonksiyon&lt;/h4&gt;
-
-&lt;p&gt;Dikkatinizi çektiyse ilişkinin fonksiyon olması için görüntü kümesindeki bütün elemanların ilişkide yer almasına gerek yok. Son örnekte D elemanı açıkta kalmış. Görüntü kümesindeki bütün elemanlar eşleşmede yer alır ise bu fonksiyonlara &lt;strong&gt;&lt;em&gt;örten&lt;/em&gt;&lt;/strong&gt; fonksiyonlar diyoruz.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 4:&lt;/em&gt;&lt;/strong&gt; Örten fonksiyon
-&lt;img src=&#34;https://erkanerol.github.io/img/hash/orten.png&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Bu örnekteki fonksiyon iyi, güzel, hoş ama tersini alamıyoruz. f(x)=A dendiğinde x değerinin 1 olduğunu tahmin ediyoruz ama f(x)=C dendiğinde x değeri 3 mü 4 mü bilemiyoruz. Fonksiyonların tersini alabilmek için hem birebir hem de örten olmaları gerekiyor.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Örnek 5:&lt;/em&gt;&lt;/strong&gt; Birebir ve örten fonksiyon. f(1)=A, f(4)=D, f&lt;sup&gt;-1&lt;/sup&gt;(D)=4
-&lt;img src=&#34;https://erkanerol.github.io/img/hash/birebir_ve_orten.png&#34;/&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;tek-yönlü-fonksiyonlar&#34;&gt;Tek Yönlü Fonksiyonlar&lt;/h4&gt;
-
-&lt;p&gt;Tek yönlü fonksiyonlar (one-way functions) hesaplaması kolay ancak tersini alması çok zor olan fonksiyonlara verilen genel bir isim. Teorik olarak tersi olması da gerekmiyor. Önceki örneklerde &amp;ldquo;f(x)=C dendiğinde x değeri 3 mü 4 mü bilemiyoruz&amp;rdquo; demiştik. Tek yönlü fonksiyonlar öyle fonksiyonlar ki f(x)=C dendiğinde bu koşulu sağlacak herhangi bir x değeri bulmak çok zor.&lt;/p&gt;
-
-&lt;p&gt;Şöyle anlatalım. f(x)=x*x , f(x)=81 dendiğinde x=9 veya x=-9 diyebiliyoruz. Tek yönlü fonksiyonlarda ise fonksiyonun hesaplama formülü ortada olmasına rağmen herhangi bir sonucu çıkarabilecek girdiyi tahmin edemiyoruz. Tersini bu örnekteki gibi &amp;ldquo;karekökünü alırım&amp;rdquo; şeklinde bulamıyoruz. Bir çıktıyı üretecek girdiyi bulabilmek için şu andaki işlem gücümüz ile yıllar süren çalışmalar yapmamız gerekiyor. Matematikçilerin bize verdiği altın değerinde ve hayati işler gören bu fonksiyonlara ilerde tekrar değineceğiz.&lt;/p&gt;
-
-&lt;h3 id=&#34;hash-fonksiyonları&#34;&gt;Hash Fonksiyonları&lt;/h3&gt;
-
-&lt;p&gt;Hash fonksiyonları değişken büyüklükteki tanım kümeleri ile sınırlı büyükteki görüntü kümeleri arasında ilişki kuran fonksiyonlardır. Bu anlamda özetleme görevi üstlenirler. Kümeler arasındaki bu genişlik farklılığı nedeniyle çoğu zaman birden fazla değerin sonucu aynıdır. Hash fonksiyonları adı üzerinde fonksiyonlardır ve genel fonksiyon özelliklerini taşırlar: &lt;strong&gt;&lt;em&gt;Tanım kümesindeki bütün değerler için sonuç verirler ve her değer için her seferinde aynı sonucu verirler.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Hash Fonksiyon Örneği&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Tanım kümesi: En fazla 1000 karakter(ASCII) uzunluğundaki bütün karakter dizileri. Kümenin eleman sayısı 128&lt;sup&gt;1001&lt;/sup&gt;/127, yaklaşık 1.63*10&lt;sup&gt;2107&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Görüntü kümesi: [0,10&lt;sup&gt;7&lt;/sup&gt;) arasındaki doğal sayılar. Kümenin eleman sayısı 10&lt;sup&gt;7&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Örnekler:&lt;/p&gt;
-
-&lt;p&gt;f(&amp;ldquo;erkan&amp;rdquo;)=23, f(&amp;ldquo;hash değeri alınan string&amp;rdquo;)=133453, f(&amp;ldquo;h&amp;rdquo;)=101112, f(&amp;ldquo;a&amp;rdquo;)=23&lt;/p&gt;
-
-&lt;p&gt;Bu örnekte ortalama olarak tanım kümesindeki her  1.63*&lt;sup&gt;2100&lt;/sup&gt; değer görüntü kümesindeki bir eleman ile ilişkili oluyor. Buna &lt;strong&gt;&lt;em&gt;collision yani çakışma/çarpışma&lt;/em&gt;&lt;/strong&gt; adı veriliyor.Yukarıdaki örnekte &amp;ldquo;erkan&amp;rdquo; ve &amp;ldquo;a&amp;rdquo; girdilerinin hash değerleri çakışmış örneğin.&lt;/p&gt;
-
-&lt;h3 id=&#34;nerelerde-kullanılır&#34;&gt;Nerelerde Kullanılır?&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Bir sitemiz var ve üyelerimizin bilgilerini bir yerde tutmak istiyoruz. Her bir üye için bir üye nesnesi oluşturuyoruz. Üyeleri (dolayısıyla nesneleri) birbirinden ayırt edebilmemizi sağlayan şey email adresleri. Bu üye nesnelerini nasıl saklayacağız?&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Birinci alternatif: Düz bir listeye sırasız koyalım. Gerektiğinde listenin başından sonuna tarayalım ve bulalım. En kötü ihtimalde complexity: O(N)&lt;/li&gt;
-&lt;li&gt;İkinci alternatif: Düz bir listeye email adreslerine göre sıralı koyalım. Arama yaparken ikili arama (binary search) uygulayalım. En kötü ihtimalde complexity: O(logN)&lt;/li&gt;
-&lt;li&gt;Üçüncü alternatif: Hash fonksiyonları kullanalım :) Öyle bir fonksiyon olsun ki herhangi bir email adresini alsın ve sonuç olarak listeden bir index dönsün. Elimdeki üyeyi o index&amp;rsquo;e yerleştireyim. Sonradan lazım olduğunda hash değerini üretip doğrudan index&amp;rsquo;e gideyim. En kötü ihtimal ile complexity: O(1). Evet yanlış duymadınız O(1). Yani üye sayımız ne kadar artarsa artsın sabit(constant) bir sürede üye bilgilerini şıp diye bulabiliyoruz. Buna &lt;strong&gt;&lt;em&gt;hash tablosu&lt;/em&gt;&lt;/strong&gt; diyorlar. Lakin farketti iseniz burada hash fonksiyonumuz iki farklı email değeri için aynı index&amp;rsquo;i üretirse batıyoruz :) O zaman hash fonksiyonunu güncellememiz ve tabloyu genişletmemiz gerekiyor. &lt;strong&gt;&lt;em&gt;İyi bir hash fonksiyonu collision&amp;rsquo;ı olabildiğince azaltır (collision-resistant) ve görüntü kümesi üzerine eşit bir dağılım hedefler (uniformity).&lt;/em&gt;&lt;/strong&gt;  Bu örnekte kullanıcı emaillerinin alabileceği değerler çok fazla olmasına rağmen, index olarak tutabileceğimiz listenin uzunluğu sınırlı. İstesek bütün email adreslerini sayısal değerler çevirip o şekilde de indeksleriz ama yerimiz dar :)  &lt;strong&gt;&lt;em&gt;Onun için hash fonksiyonu tanımlanan bir aralıkta dönmeli (defined range).&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;İnternetten 10TB&amp;rsquo;lık program indirdim. Program ile nükleer bomba atacağım. Lakin ağ üzerinden indirdiğim dosyasının içinde bir şeyler değişmişse Allah muhafaza bombayı yanlış yere atabilirim. Onun için dosyanın birebir aynı şekilde indiğinden emin olmam lazım. Dosyayı bir kaç kere indirip bit bit kontrol etsem işimi görür aslında. Aynı yerlerde hata yaşanma olasılığı çok düşük. Ama dosya çok büyük yahu. Şunun kolay bir yolu olmalı. Mesela elimde bir fonksiyon olsa, kaynak tarafında dosyayı bit bit okuyup bir özet çıkarsa, sonra indirdikten sonra bilgisayarımda ben de çıkarsam ve özetler aynıysa dosyalar aynıdır diyebilsem ve gönül rahatlığıyla(!) bombamı atabilsem süper olurdu değil mi? Hash fonksiyonları ayağınıza geldi :) Dosya boyutu ne kadar uzun olursa olsun hash fonksiyonu onu özetler ve size kısa bir özet verebilir. Örneğin 256 karakterlik bir anahtar. Ve bu fonksiyon öyle maharetlidir ki dosyanın bir biti değişmiş ise bu anahtarda değişir. Dosyanın değişmiş olmasına rağmen aynı anahtarı üretmesi o kadar küçük bir ihtimaldir ki ona güvenip nükleer bomba atabilirsiniz. (Ya da &lt;a href=&#34;https://coinmarketcap.com/&#34; target=&#34;_blank&#34;&gt;milyar dolarlarınızı&lt;/a&gt; ona emanet edebilirsiniz. Nasıl diye sorduğunuzu duyar gibiyim sevgili okuyucu. Oraya da geleceğiz. Takipte kalın :) )&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Şifre ile girilebilen bir sitemiz var. Kullanıcıların şifrelerini veritabanında kabak gibi saklamak istemiyoruz. Kendimize bile güvenmiyoruz, o derece bir güvenlik lazım. Öyle bir şey olmalı ki kullanıcının şifresini alsın, bir şeye dönüştürsün, ben elimde şifre varsa onu tekrar üretebileyim ama geriye döndürerek o şeyden şifreyi bulamayayım. Yüz yılın icadı &amp;ldquo;Cryptographic Hash Functions&amp;rdquo; imdadınıza yetişti. Bu fonksiyonlar yukarıda bahsettiğimiz tek yönlü fonksiyonları kullanır. Elinizde şifrenin hash değeri olsa bile şifreyi bulamazsınız. Lakin bir şifreyi bu fonksiyonlara soktuğumuzda çat diye aynı sonucu elde ederiz her seferinde (determinism).&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Sistemi şöyle kurduğumuzu düşünelim: Şifreyi kullanıcıdan al, hash değerini hesapla, veri tabanındaki değer ile karşılaştır. Aynıysa kullanıcıyı içeri al, değilse reddet. Burada önemli noktalar var.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Kullanıcı başka bir şifre girmiş olabilir. Aynı hash değerini üretmişsek onu içeri alıyoruz. Demek ki görüntü kümemiz o kadar büyük olmalı ki çakışmalar imkansıza yakın olmalı. Şu sıralar kullanılan SHA-512 için görüntü kümesi büyüklüğü 2&lt;sup&gt;512&lt;/sup&gt;~1.34*10&lt;sup&gt;154&lt;/sup&gt;&lt;/li&gt;
-&lt;li&gt;Önceki örnekte de olduğu gibi hash fonksiyonumuz görüntü kümesi üzerine eşit dağılmaz ve hep yakın hash değerleri üretirse çakışma artar ve verimsizleşir. Onun için uniformity şart!&lt;/li&gt;
-&lt;li&gt;Diyelim ki sitenin veri tabanını patlattık ve bütün hash değerleri elimizde. Sitenin de kullandığı hash fonksiyonunu biliyoruz. Örneğin MD5. Oturup rastgele şifreler ile hash üretiyoruz. O kadar çok üretiyoruz ki bütün hash değerlerini üretecek en az bir girdi var elimizde. Bu şekilde kullanıcının şifresini bilmesek de onun yerine giriş yapabiliriz çünkü onun hash değerini üretebiliyoruz. Site şifrenin kendisine değil hash değerine bakıyor sonuçta. Buna &amp;ldquo;pre-computed dictionary attack&amp;rdquo; diyorlar. Korunmak için görüntü kümesi büyük fonksiyonlar tercih edilmeli. Ayrıca &lt;strong&gt;&lt;em&gt;salt&lt;/em&gt;&lt;/strong&gt; denen ek bir parametre ile fonksiyonların sonuçlarını değiştirebiliyoruz. Yani kendimize özel bir SHA 512 hash fonksiyonumuz oluyor. Böylece bu atağı yapmak isteyenler benim bu salt değerimi bilerek sözlüklerini oluşturmalılar. Bu da işlerini oldukça zorlaştırıyor.&lt;/li&gt;
-&lt;li&gt;Burada kullandığımız hash fonksiyonları benzer girdiler için benzer değerler üretmemeli. Girdide 1 karakter bile değişse çıktı bambaşka bir şey olmalı. Bu şekilde tersine mühendisliğe bütünüyle kapalı olmalı. Burada olmamalı dediğimiz özelliğin literatürdeki karşılığı &lt;strong&gt;&lt;em&gt;continuity&lt;/em&gt;&lt;/strong&gt; yani süreklilik. Bunu şöyle düşünebilirsiniz. Bir fonksiyon çizdik x-y düzlemine. f(1)=4 olduğunu biliyoruz. Bu fonksiyon sürekli ise f(1+epsilon) yaklaşık 4 civarı olmalı. &lt;strong&gt;&lt;em&gt;Biz Cryptographic hash fonksiyonlarında bunu istemiyoruz.&lt;/em&gt;&lt;/strong&gt; Tamamen alakasız olmalı. Yukarıdaki dosya özet örneğinde de istediğimiz bir şey bu. Bir bit bile değişse hash değeri farklı hatta alakasız olmalı.&lt;/li&gt;
-&lt;li&gt;Kullanıcılarımıza ek bir hizmet sunmak isteyebiliriz. Caps lock yüzünden yanlış şifre girilmesini istemiyoruz mesela. Şifre &amp;ldquo;zOrŞifRe123&amp;rdquo; ise kullanıcı &amp;ldquo;ZoRşİFRE123&amp;rdquo; girse de kabul etmek istiyoruz örneğin. Bu tip ihtiyaçlar için bazı hash fonksiyonlarına &lt;strong&gt;&lt;em&gt;&amp;ldquo;Data Normalization&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; denen özellik de eklenmiş. Bazı farklılıkları göz ardı ederek yani veriyi önce &amp;ldquo;normalize&amp;rdquo; ederek aynı sonucu veriyor.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;
-Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata gördüyseniz lütfen aşağıya yorum olarak belirtin. Bir sonraki yazıda görüşmek üzere.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -703,101 +122,7 @@ Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata 
       <guid>https://erkanerol.github.io/post/some-laws-and-principles/</guid>
       <description>&lt;p&gt;Bir şekilde öğrendiğim bir takım teoriler, kanunlar, ilkeler var. Bunları çevremdeki insanlarla paylaştığımda ilgi çektiklerini ve çok bilinmediklerini farkettim. Ben de bir blog yazısı ile bunları kısa kısa ve basit cümleler ile paylaşayım dedim. Bu yazıda 5 tanesine değineceğim. Başlıklara wikipedia linklerini ekledim. Formal şekillerini okumak isteyenler oradan devam edebilir.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;conway-in-kanunu-conway-s-law-https-en-wikipedia-org-wiki-conway-s-law&#34;&gt;Conway&amp;rsquo;in Kanunu ( &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway&#39;s_law&#34;&gt;Conway&amp;rsquo;s Law&lt;/a&gt;)&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;Organizasyonların kendi iletişim yapılarını yansıtan tasarımlar yapması kaçınılmazdır.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Başka bir ifade ile&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;Bir üründeki problemler onu yaratan organizasyonun problemlerini yansıtır.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Örneğin;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Bir yazılım takımında iletişim problemleri ve uyumsuzluklar varsa çıkan ürünün parçaları arasında da uyumsuzluk gözlenir. Hatta şöyle düşünebiliriz. Birbirinden kopuk 3 takımın geliştirdiği yazılımda birbiriyle uyumsuz 3 parça gözlemlemek mümkündür.&lt;/li&gt;
-&lt;li&gt;Hiyerarşik yapısı güçlü ve çok geniş takımlardan oluşan organizasyonlarda geliştirilen yazılımların monolithic&amp;rsquo;e kayması kaçınılmaz olur. Mikroservis geliştirmek için takımları küçültmek ve onlara belli başlı bağımsızlıklar vermek gerekir.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Konu ile ilişkili makaleler:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.thoughtworks.com/insights/blog/demystifying-conways-law&#34;&gt;Demystifying Conway&amp;rsquo;s Law by Sam Newman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.safkan.org/agile-turk-kasigiyla-amerikan-cikolatasi/&#34;&gt;Agile: Türk Kaşığıyla Amerikan Çikolatası&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://itrevolution.com/conways-law/&#34;&gt;How to Design With Conway’s Law in Mind&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;kırık-camlar-teorisi-broken-windows-theory-https-en-wikipedia-org-wiki-broken-windows-theory&#34;&gt;Kırık Camlar Teorisi (&lt;a href=&#34;https://en.wikipedia.org/wiki/Broken_windows_theory&#34;&gt;Broken Windows Theory&lt;/a&gt;)&lt;/h3&gt;
-
-&lt;p&gt;Kırık Camlar Teorisi kısaca şunu söyler:&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;Bir ev düşünün. Yolun kenarında. Camları sapasağlam. Yoldan geçen hiç kimse onun camlarını kırmayı düşünmez, düşünen varsa da kırmaktan çekinir. Fakat camların çoğu kırık ise yoldan geçen herhangi biri kalan camlardan birini indirmek konusunda çok tereddüt etmez. Çünkü bunun suç olduğunu ya da zarar verici bir eylem olduğunu düşünmez. Eğer birisi gelip sağlam evin bir camını kırarsa hızla müdahale etmelisin. Yoksa diğerleri de hızla kırılır.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;Teorinin çıkışı ABD&amp;rsquo;deki bazı suçların işlenmesi üzerine yapılan araştırmalar olmakla beraber günümüzde yazılım alanında da sıklıkla kullanılıyor. Şöyle ki;&lt;/p&gt;
-
-&lt;p&gt;Bir yazılım geliştiricisi hata yapıp standartların dışında kod ekleme teşebbüsünde bulunabilir. Eğer buna müsamaha edersek diğer geliştiriciler de benzer davranışı sergiler ve kalite hızla düşer. Bu nedenle gözden geçirme süreçleri ve çeşitli araçlarla sürekli kalite takibi yapılması, hatalara çabuk müdahale edilmesi zaruridir.&lt;/p&gt;
-
-&lt;p&gt;Konu ile ilgili makaleler:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy&#34;&gt;Software Entropy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://alexandrebrisebois.wordpress.com/2013/06/08/the-broken-windows-principle/&#34;&gt;The Broken Windows Principle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.smartbear.com/lean-software-development/always-fix-broken-windows/&#34;&gt;Always Fix Broken Windows&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ayrıca yazar abimizden bir dörtlük:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I keep a close watch on these tests of mine&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I keep my Jenkins open all the time&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I see a defect coming down the line&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Because you’re mine, I stop the line&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;peter-ilkesi-peter-principle-https-en-wikipedia-org-wiki-peter-principle&#34;&gt;Peter İlkesi (&lt;a href=&#34;https://en.wikipedia.org/wiki/Peter_principle&#34;&gt;Peter Principle&lt;/a&gt;)&lt;/h3&gt;
-
-&lt;p&gt;Peter ilkesi şöyle diyor:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Bir pozisyona seçim yapılırken adayların o pozisyonlar için yeteneklerine bakılmaz, daha ziyade adayların hali hazırdaki pozisyonlarındaki başarılarına bakılır. Örneğin, yönetici seçeceğimiz zaman en iyi kim yönetici olabilir diye bakmıyoruz da en iyi geliştirici kim diye bakıyoruz. En iyi geliştiricinin yönetici yetenekleri çok iyi olmasa da onu seçiyoruz.&lt;/li&gt;
-&lt;li&gt;Bir çalışan başarılı oldukça yükselir ta ki başarısız olduğu bir posizyona gelene kadar. O pozisyonda başarısız olduğu için yükselmez ve hep o pozisyonu işgal eder.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Sonuç olarak zaman içinde yeteneklerine göre seçilmediği için başarısız olan, başarısız olduğu için o pozisyonu sürekli işgal eden &amp;ldquo;yetersiz üst yönetici&amp;rdquo; grubu oluşur.&lt;/p&gt;
-
-&lt;h3 id=&#34;parkinson-kanunu-parkinson-s-law-https-en-wikipedia-org-wiki-parkinson-27s-law&#34;&gt;Parkinson Kanunu (&lt;a href=&#34;https://en.wikipedia.org/wiki/Parkinson%27s_law&#34;&gt;Parkinson&amp;rsquo;s Law&lt;/a&gt;)&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;Bir iş, daima, bitirilmesi için kendisine ayrılan sürenin hepsini kapsıyacak şekilde uzar.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yani diyor ki;
-&amp;ldquo;Sen bu işi 4 günde bitiririm dedin ve bitirdin fakat belki de 3 günde bitirebilirdin. İşi uzatıp 4 günde bitirmiş olman muhtemel. 3 günlük efor verseydin belki de 3 güne biterdi. Hatta fazla verip 5 gün verseydin eminim 5. günde bitirirdin.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;Bu kanun ile ilişkili bazı durumlar/çıkarımlar var. Mesela;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Uygulamalar verilen bant genişliğinin tamamını kullanma eğilimindeler.&lt;/li&gt;
-&lt;li&gt;Veri miktarı saklama kapasitesi miktarına göre büyüme eğiliminde.&lt;/li&gt;
-&lt;li&gt;Donanım çok hızlanmış olmasına rağmen yazılımların hızları çok hızlanmıyor. Çünkü yazılımcılar ona göre karmaşıklık ekliyor. (bkz: 10 saatte yüklenen lunapark gibi web siteleri)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Bu kanunun ışığında şöyle bir soru çıkıyor: Ne kadar ihtiyacımız var? Yapacağımız işler için zaman tahmini yaparken &lt;a href=&#34;https://www.youtube.com/watch?v=ptSZkp0y0p4&#34;&gt;şunu&lt;/a&gt; kullabiliriz diye düşünüyorum.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Not:&lt;/strong&gt; Wikipedia&amp;rsquo;da da görüleceği üzere bu kanun daha sonraları bürokrasinin kendine çalışmasını ve işlerden bağımsız şekilde büyümesini ifade etmek için kullanılmış.&lt;/p&gt;
-
-&lt;h3 id=&#34;pareto-ilkesi-pareto-principle-https-en-wikipedia-org-wiki-pareto-principle&#34;&gt;Pareto İlkesi (&lt;a href=&#34;https://en.wikipedia.org/wiki/Pareto_principle&#34;&gt;Pareto Principle&lt;/a&gt;)&lt;/h3&gt;
-
-&lt;p&gt;&lt;sup&gt;80&lt;/sup&gt;&amp;frasl;&lt;sub&gt;20&lt;/sub&gt; kuralı  olarak da bilinen bu ilke bazı tecrübeler üzerine öne sürülmüş. Çok formal tanımlara girmektense örnekler ile açıklamayı tercih ediyorum.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Müşterilerin ihtiyaçlarının yüzde seksenini bütün ihtiyaçlar için gerekli toplam eforun yüzde yirmisini harcayarak giderebiliriz. Başka bir ifadeyle düzgün bir önceliklendirme ile yüzde yirmilik bir efor yüzde seksenlik bir geri dönüş getirir.&lt;/li&gt;
-&lt;li&gt;Hata üreten sebeplerin yüzde yirmisi hataların yüzde sekseninin sebebidir. Yani doğru önceliklendirme ve yüzde yirmilik bir çalışma bug sayımızı yüzde seksen azaltır.&lt;/li&gt;
-&lt;li&gt;Satışların yüzde sekseni müşterilerin yüzde yirmisinden gelir.&lt;/li&gt;
-&lt;li&gt;Uygulamaya gelen trafiğin yüzde sekseni yüzde yirmilik zaman diliminde gerçekleşir.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Nüfus, ekonomi, matematik gibi alanlarda da bu ilkeye uyduğu düşünülen çeşitli örnekler Wikipedia sayfasında mevcut.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -808,33 +133,7 @@ Hash fonksiyonları ile ilgili benim anlatacaklarım bu kadar. Metinde bir hata 
       <guid>https://erkanerol.github.io/post/misuse-inheritance/</guid>
       <description>&lt;p&gt;Geçenlerde &amp;ldquo;Composition over Inheritance&amp;rdquo; ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında bir makaleye denk geldim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Makalede geçen iki kod parçasına bir an bakalım.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;
-class Stack extends ArrayList {
-    public void push(Object value) { … }
-    public Object pop() { … }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Buradaki sorularımız şunlar:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Stack, ArrayList&amp;rsquo;in uygun bir alt tipi midir? (bkz: Liskov Substitution Principle)&lt;/li&gt;
-&lt;li&gt;CustomerGroup dediğimiz sınıfın domain&amp;rsquo;i ile ArrayList&amp;rsquo;in domain&amp;rsquo;i aynı mıdır?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Cevaplar ve ayrıntılar için makaleyi okumanızı şiddetle öneririm. Yazar gayet güzel anlatmış. Benim için aydınlanma olan kısmı &amp;ldquo;cross-domain inheritance relationship&amp;rdquo; olarak ifade edilen kısımdı. Okuduğum kodlardan gelen ezberlerim vardı ve kodu ben yazsaydım zaten böyle yazmazdım. Ama zihnimde bu ayrımı bu kadar net yapmamıştım hiç.&lt;/p&gt;
-
-&lt;p&gt;Makalenin linkini &lt;a href=&#34;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&#34;&gt;veriyor&lt;/a&gt;  ve iyi okumalar diliyorum.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -847,97 +146,7 @@ class CustomerGroup extends ArrayList&amp;lt;Customer&amp;gt; {
 
 &lt;p&gt;Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;diyelim-ki&#34;&gt;Diyelim ki&amp;hellip;&lt;/h3&gt;
-
-&lt;p&gt;Diyelim ki bir yazılım geliştiriyoruz. Yazılımımızın yapması gereken belirli işler var. Bu işleri yapabilmek için irili ufaklı onlarca/yüzlerce/binlerce fonksiyona ihtiyacımız var. Bunların rastgele bir fonksiyon uzayında yer aldığını düşünelim.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/functionSpace.png&#34; title=&#34;Function Space&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor olabilirler, aynı veri yapılarını kullanıyor olabilirler, aynı fonsiyonlara bağımlılıkları olabilir vs. Şimdilik o kısmı bir kenara bırakıyoruz ve şu soruya odaklanıyoruz. Bunlar yazılımımızda bu şekilde mi bulunur? Böyle dağınık, başıboş, düzensiz :( Elbette bunları gruplara ayırır, modüllerin içine koyarız değil mi? Java açısından baktığımızda bunları sınıfların(classes) içine koyarız, paketleme yaparız. Olmadı bunları modüllere/projelere ayırır, build araçları ile birbirine bağlarız.&lt;/p&gt;
-
-&lt;h3 id=&#34;deneme-bir-ki&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
-
-&lt;p&gt;Kabaca fonksiyonları modüllere ayırmaya çalışalım.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/modules1.png&#34; title=&#34;Modules1&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;Ya şimdi writeLog ile sendMail ne alaka&amp;rdquo; cümlesini duyar gibiyim sevgili okuyucu :) Maalesef ki bizim Utils/Helpers gibi isimler verdiğimiz nesnelerin içi de biraz böyle. Bu neden böyle olmamalı konusuna geliyorum hemen.&lt;/p&gt;
-
-&lt;p&gt;Modüllere ayırırken nasıl ayırırız? Neyi amaçlarız? Hedefimiz nedir? Ne kadar büyük olmalılar? Aradaki ilişkiler nasıl olmalı?&lt;/p&gt;
-
-&lt;h3 id=&#34;amaç&#34;&gt;Amaç&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Öğelerimizi modüllere ayırırken genel olarak izlediğimiz prensip şu: Bir değişiklik yapmamız gerekiyorsa sadece bir yerde yapmamız gerekmeli, bir yeri değiştirmemiz gerekiyorsa bunun sadece bir nedeni olmalı.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Burada biraz duralım. Şimdi şöyle düşünelim. Elimizde öğeler var. Herhangi bir modülün parçaları bunlar. Bir de olası değişiklik nedenleri var.&lt;/p&gt;
-
-&lt;p&gt;Eğer alakasız şeyleri bir araya koyarsak birden fazla sebep orayı değiştirmemizi gerektirebilir. Yani modülümüz &lt;strong&gt;odaklı&lt;/strong&gt; olmaz, ne iş yaptığı kolay anlaşılamaz, bakımı zorlaşır. Bu istediğimiz bir durum değil. Öğeler olabildiğince birbirine yapışık olmalı. Tabi ki bunun için öğeleri gereksiz yere birbirine yapıştırmıyoruz :) Yapışık olmayanları ayırmamız lazım.
-&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/lowCohesion.png&#34; title=&#34;lowCohesion&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;Eğer ayırdığımız modüller birbirleriyle çok bağlantılı ise bir nedenden dolayı birden fazla yeri değiştirmemiz gerekebilir ki bunu istemiyoruz. Çünkü bu durumu yönetmek zaman içinde zorlaşır.
-&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/highCoupling.png&#34; title=&#34;highCoupling&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;
-İdeal olan, istediğimiz bu ilişkinin bire bir olmasıdır. Bunun için tek sorumluluk prensibini ( &lt;a href=&#34;http://webpro.github.io/programming-principles/#single-responsibility-principle&#34; &gt;Single Responsibility Principle - SRP &lt;/a&gt;) iyi uygulamamız gerekir.&lt;/p&gt;
-
-&lt;p&gt;bkz: &lt;a href=&#34;https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well&#34;&gt; Do One Thing and Do It Well. &lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/ideal.png&#34; title=&#34;ideal&#34;/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;tanımlar&#34;&gt;Tanımlar&lt;/h3&gt;
-
-&lt;p&gt;Bir modülün içindeki öğelerin birlikteliğini ve modülün odaklılığını ifade etmek için kullandığımız kavram &lt;strong&gt;cohesion&lt;/strong&gt;. Düşük cohesion dediğimizde bu birlikteliğin zayıflığını, yüksek cohesion dediğimizde bu birlikteliğin yüksekliğini ifade ederiz. Az önce anlattığım üzere hedef olabildiğince yüksek (&lt;strong&gt;high cohesion&lt;/strong&gt;) olmasıdır.&lt;/p&gt;
-
-&lt;p&gt;Modüllerin arasındaki irtibatı ifade etmek için kullandığımız kavram da &lt;strong&gt;coupling&lt;/strong&gt;. Düşük coupling modüllerin daha bağımsız olduğunu, yüksek coupling birbirlerine daha bağlı olduğunu ifade eder. Hedef olabildiğince düşük (&lt;strong&gt;low coupling&lt;/strong&gt;) olmasıdır. İlk şekildeki modüllerin arasındaki okların olabildiğinca az ve zayıf olmasıdır.&lt;/p&gt;
-
-&lt;h3 id=&#34;deneme-bir-ki-1&#34;&gt;Deneme bir ki&amp;hellip;&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/cohesion-coupling/modules2.png&#34; title=&#34;Modules2&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;Şimdi biraz daha iyi oldu gibi. Ama içlerini görmeden tam olarak emin olamayız :)&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;cohesion-çeşitleri&#34;&gt;Cohesion Çeşitleri&lt;/h3&gt;
-
-&lt;p&gt;Sevgili büyüklerimiz, yazılımcılar modülleri nasıl oluşturuyor, ne tür cohesion oluşturma tipleri var gibi bir araştırma yapmış ve şu tipleri bulmuşlar.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tesadüfi (Coincidental):&lt;/strong&gt;
-Modüldeki öğelerin rastgele seçilmesi durumu. Yukarıdaki writeLog ile sendMail&amp;rsquo;in aynı modülde olması gibi. Bu daha çok Utils, Helpers gibi isimlendirilen modüllerde görülüyor. &lt;strong&gt;En kötüsü budur.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Mantıksal (Logical):&lt;/strong&gt;
-Aynı kategoride olduğu düşünülen öğelerin aynı modüle konulması durumu. Mesela bütün veri tabanı işlemlerinin ya da bütün input girişlerine ilişkin işlemlerin aynı modüle konulması.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Geçici (Temporal):&lt;/strong&gt;
-Zaman içinde lazım oldukça eklenen öğelerin modül oluşturması durumu. Bu işlemler birbirleriyle alakasız olabilir. Gereksinimler değiştiğinde bambaşka yerlere de gidebilir ama o an için oradalar işte.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Prosedürel (Procedural):&lt;/strong&gt;
-Bir akışın içindeki işlemlerin beraberce modüller oluşturması durumu. Örnek olarak dosyanın varlığının kontrolü, dosyanın açılması, yazılacak içeriğin oluşturulması, verinin yazılması, dosyanın kapatılması gibi işlemlerden oluşan bir modül düşünebilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;İletişimsel(Communication):&lt;/strong&gt;
-Aynı veri/girdi/çıktı üzerinde çalışan işlemlerin aynı modüllere konulması durumu. Örneğin bir nesneniz var ve bu nesneye ilişkin bütün herşey bir arada. Kontroller, hesaplamalar, güncellemeler vs.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sıralı (Sequential):&lt;/strong&gt;
-Birbirleriyle girdi-çıktı ilişkisi olan, sıralı işlemlerin aynı modüllere konulması durumu. Prosedürel olan tipe oldukça benziyor. Farkı şöyle. Bu tipteki işlemlerden birinin çıktısı, diğerinin girdisi durumunda. Dosyanın okunması işlemi ile okunan verinin işlenmesi işlemi bu tipte aynı modülde oluyor. Prosedürel de böyle bir girdi-çıktı ilişkisi gerekli değil. Ard arda olması yeterli.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fonksiyonel (Functional):&lt;/strong&gt;
-Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya getirilmesi ile modüllerin oluşturulmasıdır. XML formatındaki bir string&amp;rsquo;i parse eden bir modül örneğin. &lt;strong&gt;En iyisi budur.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;şunlara-bakılabilir&#34;&gt;Şunlara bakılabilir&lt;/h3&gt;
-
-&lt;p&gt;Bu konu epey uzun. Daha çok okumak ve öğrenmek isteyenlere aşağıdaki linkleri verip konuyu kapatalım.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://codurance.com/software-creation/2016/03/03/cohesion-cornerstone-software-design/&#34;&gt;Cohesion - Sandro Mancuso&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#maximise-cohesion&#34;&gt;Maximise Cohesion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#minimise-coupling&#34;&gt;Minimise Coupling&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.cs.toronto.edu/~penny/teaching/csc407-02s/lectures/04structured-design.pdf&#34;&gt;Structured Design - CSC407&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719&#34;&gt;Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design - Yourdon Press , Larry L. Constantine&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -954,234 +163,7 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
 &lt;li&gt;new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sorun&#34;&gt;Sorun&lt;/h2&gt;
-
-&lt;p&gt;Yazdığımız uygulamanın değişik platformlarda çalışmasını istediğimizde bu platformlara özgü farklılıklar sorun oluşturur ve nesne yaratımlarında bu farklılıkları ele almamız gerekir. Örneğin, windows işletim sistemindeki arayüz birleşenleri ile ubuntu işletim sistemindekler arasında ciddi farklar vardır ve biz her yeni birleşen oluşturma esnasında platformu kontrol etmek, ona göre farklı şekilde yaratmak istemeyiz. Bir arayüz tasarlamak ve bu ortak arayüz üzerinden bütün nesneleri yaratmak ve kullanmak isteriz. Platforma özgü sınıflar bu arayüzü destekleyecek şekilde kendi birleşenlerini oluşturacak işlevselliği sağlarlar.&lt;/p&gt;
-
-&lt;h2 id=&#34;yöntem&#34;&gt;Yöntem&lt;/h2&gt;
-
-&lt;p&gt;Bu tasarım şablonunda nesnelerin sınıflarını ve nesneleri üreten üretici sınıfları soyutlamamız gerekir. Bu nesneler kullanıcılar (clients) tarafından doğrudan oluşturulmayıp nesne üretici (fabrika) sınıflar vasıtası ile üretilirler.&lt;/p&gt;
-
-&lt;h2 id=&#34;yapı&#34;&gt;Yapı&lt;/h2&gt;
-
-&lt;p&gt;Abstract Factory her bir ürün için bir Factory Method (makeProductOne,makeProductTwo vb.) tanımlar. Her Factory Method new operatörünü ve platforma özgü ürün sınıflarını sarmalar. Her platform fabrika sınıflarıyla modellenir.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Abstract_Factory-2x.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;örnek&#34;&gt;Örnek&lt;/h2&gt;
-
-&lt;p&gt;Örneğimizde Ubuntu ve Windows platformları için UI birleşenleri üreten bir Abstract Factory şablonu oluşturalım. Bu örnekte platformlardan bağımsız bir şekilde pencere ve buton üreten bir yapı kuralım. Örneğin UML diagramı ve kodu aşağıda mevcuttur.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/abstract-factory-design-patterns-button.png&#34; /&gt;
-Buton arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları&lt;/p&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;
-&lt;img src=&#34;https://erkanerol.github.io/img/abstract-factory-design-patterns-window.png&#34; /&gt;
-Pencere arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
-&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;
-&lt;img src=&#34;https://erkanerol.github.io/img/abstract-factory-design-patterns-factory.png&#34; /&gt;
-Abstract Factory ve Windows+Ubuntu Platformları için fabrika sınıfları
-&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;kod&#34;&gt;Kod&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public interface Button {
-    public void click();
-    public void setLabel(String label);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public interface Window {
-    public void setHeader(String label);
-    public void openWindow();
-    public void closeWindow();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public interface AbstractUIFactory {
-    public Button createButton();
-    public Window createWindow();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class UbuntuButton implements Button {
-
-    @Override
-    public void click() {
-        System.out.println(&#34;UbuntuButton is  Clicked&#34;);
-    }
-
-    @Override
-    public void setLabel(String label) {
-        System.out.println(&#34;UbuntuButton label is set as &#34;+label);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class UbuntuWindow implements Window {
-
-    @Override
-    public void setHeader(String label) {
-        System.out.println(&#34;Ubuntu window header is set as &#34;+label);
-    }
-
-    @Override
-    public void openWindow() {
-        System.out.println(&#34;Ubuntu window is opened&#34;);
-    }
-
-    @Override
-    public void closeWindow() {
-        System.out.println(&#34;Ubuntu window is closed&#34;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class UbuntuUIFactory implements UIFactory {
-
-    @Override
-    public Button createButton() {
-        return new UbuntuButton();
-    }
-
-    @Override
-    public Window createWindow() {
-        return new UbuntuWindow();
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class WindowsButton implements Button {
-
-    @Override
-    public void click() {
-        System.out.println(&#34;Windows Button is  Clicked&#34;);
-    }
-
-    @Override
-    public void setLabel(String label) {
-        System.out.println(&#34;WindowsButton Label is set as &#34;+label);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class WindowsWindow implements Window {
-
-    @Override
-    public void setHeader(String label) {
-        System.out.println(&#34;Windows window header is set as &#34;+label);
-    }
-
-    @Override
-    public void openWindow() {
-        System.out.println(&#34;Windows window is opened&#34;);
-    }
-
-    @Override
-    public void closeWindow() {
-        System.out.println(&#34;Windows window is closed&#34;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class WindowsUIFactory implements UIFactory {
-
-    @Override
-    public Button createButton() {
-        return new WindowsButton();
-    }
-
-    @Override
-    public Window createWindow() {
-        return new WindowsWindow();
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;
-public class Client {
-
-    public static void main(String[] args) {
-
-        /**
-         *  buradan sonra abstractUiFactory üzerinden nesneleri olusturuyoruz.
-         *  windows mu ubuntu mu umrumuzda değil.
-         */
-        AbstractUIFactory abstractUiFactory =  createUIFactoryAccordingToOS();
-
-        doButtonOperations(abstractUiFactory);
-        doWindowOperations(abstractUiFactory);
-    }
-
-    private static void doWindowOperations(AbstractUIFactory abstractUiFactory) {
-        Window window = abstractUiFactory.createWindow();
-        window.setHeader(&#34;Header of Window&#34;);
-        window.openWindow();
-        window.closeWindow();
-    }
-
-    private static void doButtonOperations(AbstractUIFactory abstractUiFactory) {
-        Button button = abstractUiFactory.createButton();
-        button.setLabel(&#34;Click me&#34;);
-        button.click();
-    }
-
-    private static AbstractUIFactory createUIFactoryAccordingToOS() {
-        if (System.getProperty(&#34;os.name&#34;).startsWith(&#34;Windows&#34;)) {
-            return new WindowsUIFactory();
-        } else {
-            return new UbuntuUIFactory();
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;kontrol-listesi&#34;&gt;Kontrol Listesi&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Platformdan bağımsızlık ve nesnelerin oluşturulması sorun oluşturuyor ise bu şablonu kullanın&lt;/li&gt;
-&lt;li&gt;Platform vs. nesne matrisi oluşturun&lt;/li&gt;
-&lt;li&gt;Her bir nesnenin yaratma metodlarını içeren  bir fabrika arayüzü tanımlayın&lt;/li&gt;
-&lt;li&gt;Her bir platform için new operatörünü kapsülleyen fabrika sınıfları tanımlayın&lt;/li&gt;
-&lt;li&gt;Kullanıcı sınıflar (clients) bu nesneleri new  operatörü ile oluşturmamalı ve fabrika sınıflarının arayüzlerini kullanmalı&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;genel-kabul-görmüş-kurallar&#34;&gt;Genel Kabul Görmüş Kurallar&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Zaman zaman aynı sorunu çözmek için farklı oluştucu tasarım şablonları kullanılabilir. Prototype veya Abstract Factory şablonlarından hangisi daha uygunsa o kullanılır. Diğer zamanlarda oluşturucu tasarım şablonları birbirlerinin tamamlayıcısıdırlar. Abstract Factory şablonunda nesne yaratmak için Prototype şablonu kullanılabilir. Builder şablonu hangi birleşenlerin yaratılacağına karar verme kısmında kullanılabilir. Abstract Factory, Builder ve Prototype şablonları kendi uygulamalarında (implementation) Singleton şablonunu kullanabilirler.&lt;/li&gt;
-&lt;li&gt;Abstract Factory, Builder ve Prototype şablonları ürün nesnelerini bilen ve yaratan, sistem içinde parametrik bir şekilde yaratılmasını sağlayan fabrika nesneleri tanımlarlar. Benzer gözükmekle beraber aralarında önemli farklar vardır. * Abstract Factory bir çok sınıfa ait nesne yaratan fabrika nesnelerine sahiptir. Builder şablonu karmışık bir ürünü, ilişkili karmaşık bir protokolü takip ederek oluşturan fabrika nesnesine sahiptir. Prototype şablonu ise prototip objeden kopyalarak yeni nesne yaratan fabrika nesnesine sahiptir.&lt;/li&gt;
-&lt;li&gt;Abstract Factory sınıfları genellikle Factory Methods kullanılarak uygulanır (implemented). Ancak Prototype kullanılarak da uygulanabilir.&lt;/li&gt;
-&lt;li&gt;Abstract Factory şablonu platforma özgü sınıfları gizlemek amacıyla Facade şablonuna alternatif olarak da kullanılabilir.&lt;/li&gt;
-&lt;li&gt;Builder şablonu karmaşık bir nesneyi adım adım oluşturmaya odaklanır. Abstract Factory şablonu ise benzer ürün ailelerin* i karmaşık veya basit farketmeksizin oluşturmak için kullanılır. Builder şablonu ürünü son adımda kullanıcıya teslim ederken Abstract Factory şablonu anında ürünü verir.&lt;/li&gt;
-&lt;li&gt;Tasarımlar genelde Factory Method (daha basit, daha özelleştilebilir) kullanılarak başlasa da tasarımcılar daha fazla esnekliğe*  ihtiyaç duyduklarını farkettiklerinde tasarım zamanla Abstract Factory, Prototype veya Builder (daha esnek ve daha karmaşık) şablonlarına evrilir.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;repo&#34;&gt;Repo&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/design-patterns/tree/master/src/com/erkanerol/examples/abstractfactory&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcemaking.com&#34;&gt;https://sourcemaking.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Önemli Not 1:&lt;/strong&gt; sourcemaking.com sitesinde  About Us sayfasında &amp;ldquo;We also welcome translation.&amp;rdquo; ibaresi yer almaktadır. Bu yazının yazılmasında/çevrilmesinde herhangi bir ticari amaç bulunmamaktadır.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Önemli Not 2:&lt;/strong&gt; Yazıda gördüğünüz hataları bana bildirirseniz sevinirim.&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1204,125 +186,7 @@ public class Client {
 
 &lt;p&gt;Keep Things Dry&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
-
-&lt;p&gt;Don&amp;rsquo;t repeat yourself&lt;/p&gt;
-
-&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
-
-&lt;p&gt;DRY prensibi yazılımın en temel prensiplerinden biridir. &amp;ldquo;Kendini tekrar etme&amp;rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.&lt;/p&gt;
-
-&lt;p&gt;Programcılar olarak bizler bilgiyi toplar, organize eder, bakımını yapar ve programlarımızda kullanırız. Zaman zaman dökümanlar hazırlarız. Testlerde kontrol amaçlı kullanırız. Fakat maalesef bilgi durağan değildir, zaman içinde sıklıkla değişir. Bizler elimizdeki bilgiler her değiştiğinde yaptığımız işleri gözden geçirmek ve onları bu güncellemeye göre değiştirmek zorundayız.  Bu bakım sırasında bilginin sistem içindeki bütün gösterimlerini bulmamız gerekir. Eğer sistem içerisinde değişen bilgilerin bir çok yerde gösterimleri var ise bu bakım kabusa dönüşür. Bu nedenle yazılımın daha güvenilir olması, bakımının kolay yapılabilmesi ve anlaşılması adına şu prensibe ihtiyacımız vardır:&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&amp;rdquo;
-Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir.  Şimdi bunu iki örnek ile açıklayalım.&lt;/p&gt;
-
-&lt;p&gt;Birincisi çok basit bir kod tekrar örneği. [4]&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code class=&#34;language-js&#34;&gt;
-// BAD
-if ( eventfade.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-    eventfade.stop();
-}
- 
-if ( eventhover.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-    eventhover.stop();
-}
- 
-if ( spans.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-    spans.stop();
-}
- 
-// GOOD!!
-var elems = [ eventfade, eventhover, spans ];
- 
-$.each( elems, function( i, elem ) {
-    if ( elem.data( &#34;currently&#34; ) !== &#34;showing&#34; ) {
-        elem.stop();
-    }
-});
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz.  Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.&lt;/p&gt;
-
-&lt;p&gt;İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.&lt;/p&gt;
-
-&lt;pre&gt;
-&lt;code class=&#34;language-java&#34;&gt;
-//BAD
-HashMap&amp;lt;String,String&amp;gt; pages = new HashMap&amp;lt;String, String&amp;gt;();
-pages.put(&#34;book&#34;,&#34;mybooks.xhtml&#34;);
-pages.put(&#34;author&#34;,&#34;myauthors.xhtml&#34;);
-pages.put(&#34;reader&#34;,&#34;myreaders.xhtml&#34;);
-pages.put(&#34;library&#34;,&#34;mylibraries.xhtml&#34;);
-
-HashMap&amp;lt;String,String&amp;gt; adminAuthority = new HashMap&amp;lt;String,String&amp;gt;();
-adminAuthority.put(&#34;book&#34;,&#34;all&#34;);
-adminAuthority.put(&#34;author&#34;,&#34;all&#34;);
-adminAuthority.put(&#34;reader&#34;,&#34;all&#34;);
-adminAuthority.put(&#34;library&#34;,&#34;all&#34;);
-
-HashMap&amp;lt;String,String&amp;gt; registeredUserAuthority = new HashMap&amp;lt;String,String&amp;gt;();
-registeredUserAuthority.put(&#34;book&#34;,&#34;create&#34;);
-registeredUserAuthority.put(&#34;author&#34;,&#34;create&#34;);
-registeredUserAuthority.put(&#34;reader&#34;,&#34;read&#34;);
-registeredUserAuthority.put(&#34;library&#34;,&#34;read&#34;);
-
-HashMap&amp;lt;String,String&amp;gt; guestUserAuthority = new HashMap&amp;lt;String,String&amp;gt;();
-adminAuthority.put(&#34;book&#34;,&#34;read&#34;);
-adminAuthority.put(&#34;author&#34;,&#34;read&#34;);
-adminAuthority.put(&#34;reader&#34;,&#34;read&#34;);
-adminAuthority.put(&#34;library&#34;,&#34;read&#34;);
-
-
-
-//GOOD
-public class MyEntity {
-    String page;
-    HashMap&amp;lt;String,String&amp;gt; authorities;
-}
-&lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.&lt;/p&gt;
-
-&lt;p&gt;DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.&lt;/p&gt;
-
-&lt;p&gt;Tipler, Nedenler ve Çözüm Önerileri&lt;/p&gt;
-
-&lt;h3 id=&#34;1-zorla-tekrarlama&#34;&gt;1. Zorla Tekrarlama&lt;/h3&gt;
-
-&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.&lt;/p&gt;
-
-&lt;p&gt;a) Bilginin birden fazla gösteriminin zorunlu olması: Bazen yazılımın mimarisi tekrarlamayı sorunlu kılar. Örneğin, server-client yapısı kullandığımızda iki tarafta da aynı bilgiyi kullanmamız gerekir. Bu gibi durumlarda dilin metadata özelliklerini kullanarak kod üreten kodlar geliştirmeye, tekrarlamaları otomotik olarak üretmeye çalışmalıyız.
-b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yorum eklenen kod olduğunu düşünse de iyi kod çok yorum gerektirmez. Özellikle alt düzeylerde çok açık işlemleri yorumlamak tekrarlama olarak düşünülebilir. Bu nedenle sadece gerekli yerlerde yorumlar eklenmelidir.
-c)Kod ve Dökümantasyon: Dökümanlar ve kod  çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
-d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.&lt;/p&gt;
-
-&lt;h3 id=&#34;2-yanlışlıkla-tekrarlama&#34;&gt;2. Yanlışlıkla Tekrarlama&lt;/h3&gt;
-
-&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.&lt;/p&gt;
-
-&lt;h3 id=&#34;3-sabırsızlıktan-tekrarlama&#34;&gt;3. Sabırsızlıktan Tekrarlama&lt;/h3&gt;
-
-&lt;p&gt;Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )&lt;/p&gt;
-
-&lt;h3 id=&#34;4-geliştiriciler-arası-tekrarlama&#34;&gt;4. Geliştiriciler Arası Tekrarlama&lt;/h3&gt;
-
-&lt;p&gt;Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.&lt;/p&gt;
-
-&lt;h3 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Hunt, Andrew, and David Thomas. &amp;ldquo;7. The Evils of Duplication.&amp;rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.kurumsaljava.com/2009/11/17/dry/&#34;&gt;http://www.kurumsaljava.com/2009/11/17/dry/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://learn.jquery.com/code-organization/dont-repeat-yourself/&#34;&gt;https://learn.jquery.com/code-organization/dont-repeat-yourself/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1346,36 +210,7 @@ You Aint Gonna Need It&lt;/p&gt;
 
 &lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Diyelim ki projemize bir &amp;ldquo;oturum açma&amp;rdquo; özelliği ekliyoruz. O anda bizden istenen şey kullanıcıların kullanıcı adı ve şifreleri ile giriş yapabilmelerini sağlayan bir özellik. Fakat biz &amp;ldquo;ilerde lazım olur&amp;rdquo; düşüncesi ile facebook ile de oturum açılmasını sağlayabilecek şekilde geliştiriyoruz arka taraftaki methodlarımızı. İşte tam bu noktada YAGNI diyor ki &amp;ldquo;YAPMA&amp;rdquo;.  Peki neden?&lt;/p&gt;
-
-&lt;p&gt;Yazılımcıların o an kullanmayacakları özellikleri geliştirmesinin en yaygın sebebi o özelliği o an geliştirmenin daha ucuz olacağını düşünmeleridir. Örneğimizden gidecek olursak geliştirici şöyle düşünür: &amp;ldquo;Şimdiden ben arka tarafta facebook entegrasyonunu yapayım. Yarın bir gün zaten istenecek bu benden. O zaman bu yazdıklarımı değiştirmem gerekmez.&amp;rdquo; Fakat bu özellik yazıldığı an itibari ile &amp;ldquo;varsayımsal özellik&amp;rdquo; kategorisindedir ve hiç bir zaman sizden talep edilmeyecek olabilir. Bu noktada bazıları bunun planlama olduğunu ve iyi analizler sonucu bu tip geliştirmeler yapılabileceğini iddia edebilir. Ne var ki gerçek hayat tecrübeleri bunun çok uzağındadır ve geliştiriciler yanlış öngördükleri varsayımsal özelliklerin geliştirme maliyetine katlanmak zorunda kalır. Bu özellik için harcanan analiz, programlama ve test etme süreleri boşa harcanmış olur.&lt;/p&gt;
-
-&lt;p&gt;Diyelim ki biz doğru tahmin ettik ve o özellik gerçekten bize lazım olacaktı. Bu durumda bile bu varsayımsal özelliğin bize getirdiği ciddi maliyetler vardır. Birincisi biz gelecekte lazım olacağını düşündüğümüz bu özelliği yaparken bugün yapmamız gereken işlerin bir kısmını geciktiririz. Örneğin, oturum açma özelliğinden sonra bir arama özelliği eklememiz gerekiyordu ve biz facebook entegrasyonunu da yaptığımız için bu özellik 2 gün gecikti. Yani varsayımsal bu özellik bize gecikme maliyeti getirdi. Yapılan araştırmalara göre geliştirilen özelliklerin ancak &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt;&amp;rsquo;ünün gerçekten faydalı olduğu da düşünülürse hali hazırda gerekli olan bir özelliği varsayımlar üzerine geciktirmek yeniden düşünülmesi gereken bir eylemdir.&lt;/p&gt;
-
-&lt;p&gt;Doğru tahmin ettiğimiz durumdaki tek maliyet geciktirme maliyeti değildir. Taşıma maliyeti de en önemli sorunlardan biridir. Biz gelecekte işe yarayacağımız bu özelliğin kodunu projemizde taşımak zorunda kalırız. Bütün değişikliklerde kodun o kısmını da değiştirmemiz gerekir. O an hiç kullanmadığımız bu kod parçacığı hatalara sebep olabilir. Debug sırasında o kısmı da debug etmemiz gerekir. Özetle projeye eklenen her bir satır kodun bedellerini bu özellik için eklenen satırlar için de öderiz. Halbuki bu özelliği sonradan projeye ekleseydik bu süre içinde bu maliyete katlanmamız gerekmeyecekti.&lt;/p&gt;
-
-&lt;p&gt;Şu ana kadar varsayımımızın doğru ve yanlış olduğu durumları ele aldık. Fakat daha gerçekçi olan olasılık tahminimizin doğru olması ama geliştirmenin tam doğru olmamasıdır. Yazılımcıların sürekli öğrendiğini ve gereksinimlerin sürekli değiştiğini düşünürsek eklediğimiz bu özelliği ilerleyen dönemlerde kullanmak istesek bile bazı değişikler yapmamız gerekir. Örneğin facabook API&amp;rsquo;da bir değişiklik yapmış olabilir. Kullandığımız kütüphaneden daha güzel bir kütüphane çıkmış olabilir ve onu değiştirmek isteyebiliriz. Bu durumlarda da bakım maliyetine katlanmak zorunda kalırız. Geliştirdiğimizi düşündüğümüz özelliği projeye gerçekten dahil etmek için fazladan efor harcarız.&lt;/p&gt;
-
-&lt;p&gt;Aşağıda şu ana kadar anlattıklarımı özetleyen bir grafik mevcut.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/yagni.png&#34; title=&#34;YAGNI&#34;/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;ölçü&#34;&gt;Ölçü&lt;/h2&gt;
-
-&lt;p&gt;YAGNI prensibinin ne zaman geçerli olduğu konusu biraz göreceli fakat kısaca şöyle denebilir: Varsaydığımız özelliğin büyüklüğü arttıkça YAGNI prensibinin önemi artar. 1-2 saatlik bir iş yapılacaksa ve bu ilerde bir kaç günlük bir geliştirmeyi karşılayacaksa bunda çok sakınca olmayabilir fakat bu süre uzadıkça riskleriniz artar.&lt;/p&gt;
-
-&lt;p&gt;Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına gelmez. Aksine YAGNI bir Extreme Programming prensibidir ve XP&amp;rsquo;nin en önemli pratiklerinden biri Refactoring&amp;rsquo;dir. XP kodun kolay değiştirilebilir olmasını öğütler. Bol bol refactoring yaparak kodumuzu temiz tuttuğumuzda, methodlarımızı parametrik yazdığımızda zaten özellikleri sonradan eklemek bize çok maliyet getirmez. Bu anlamda YAGNI esnek kod yazma ile çatışmaz, uyum içerisindedir.&lt;/p&gt;
-
-&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://martinfowler.com/bliki/Yagni.html&#34;&gt;http://martinfowler.com/bliki/Yagni.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://webpro.github.io/programming-principles/#yagni&#34;&gt;http://webpro.github.io/programming-principles/#yagni&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.extremeprogramming.org/rules/early.html&#34;&gt;http://www.extremeprogramming.org/rules/early.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://c2.com/xp/YouArentGonnaNeedIt.html&#34;&gt;http://c2.com/xp/YouArentGonnaNeedIt.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1392,387 +227,7 @@ You Aint Gonna Need It&lt;/p&gt;
 TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şiddetle tavsiye ediyorum.
 &lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/apprenticeship-cover.png&#34; title=&#34;Apprenticeship Patterns&#34;/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;tanıtım&#34;&gt;Tanıtım&lt;/h2&gt;
-
-&lt;p&gt;Benim gözümde yazılımcılar ikiye ayrılıyor.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Para karşılığı bir süre kod yazan ve 40 yaşında kod yazmak istemeyenler.&lt;/li&gt;
-&lt;li&gt;Para vermeselerde kod yazacak olan ve 40 yaşında bile kod yazmaktan kopmak istemeyenler.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Bu kitap 2. kategori yazılımcı olmak isteyen çıraklar için bire bir. Meslek hayatının belirli dönemlerinde, belirli durumlarda yapılması gerekenlere dair tavsiyeler içeriyor. Bir çok yazılımcının tecrübelerinden yola çıkarak hazırlanan bu kitabın içinde bir çok şablon bulunuyor.&lt;/p&gt;
-
-&lt;p&gt;Örnek olması açısında &amp;ldquo;Find Mentors&amp;rdquo; isimli şablonun özetini çıkardım:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Context:  Yürüdüğünüz yoldan daha önce geçenlerin olduğunu farkettiniz ve yolunuzu aramak için çok fazla zaman kaybediyorsunuz.&lt;/li&gt;
-&lt;li&gt;Problem: Yürüdüğünüz yolda tek başınasınız ve önünüzü göremiyorsunuz. Yardıma ve rehberliğe ihtiyacınız var.&lt;/li&gt;
-&lt;li&gt;Solution: Size çıraklığa kabul edecek ustalar bulun ve mentörünüz olmalarını isteyin.&lt;/li&gt;
-&lt;li&gt;Action: Bir aracın, kütüphanenin veya topluluğun mail grubuna katılın. Bir süre pusuya yatın ve gözlemleyin. Yeteri derecede olaylara hakim olduktan sonra etkinliklerine katılın ve size mentörlük edebileceğini düşündüğünüz ustalardan &amp;ldquo;informal&amp;rdquo; mentörlük talep edin.&lt;/li&gt;
-&lt;li&gt;See Also: &amp;ldquo;The Deep End&amp;rdquo; ve &amp;ldquo;The Long Road&amp;rdquo; isimli şablonlara da bakabilirsiniz.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;kitapta-bulunan-bütün-şablonlar&#34;&gt;Kitapta Bulunan Bütün Şablonlar&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/apprenticeship-patterns.png&#34; title=&#34;Apprenticeship Patterns&#34;/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;kişisel-yorumlarım&#34;&gt;Kişisel Yorumlarım&lt;/h2&gt;
-
-&lt;p&gt;Ben kitaptaki bir çok şablonun benim durumuma uyduğunu gördüm ve çözüm önerilerini çok mantıklı buldum. Elimden geldiğince uygulamaya çalışacağım. Bu kitap aslında sadece belirli durumlara ilişkin yapılacaklar listesi değil. Kitabın tamamını okuduğunuzda yazılım alanında nasıl iyi bir yazılımcı olunabileceğine dair bir fikriniz oluyor. Mesleki gelişimin usûl esaslarını tanımlıyor ki usûlü esastan her daim önde tutan biri olarak ( bkz: usûl esasa mukaddemdir) benim en sevdiğim kısmı bu oldu. Yani kitap size şu kitapları okuyun demiyor, hangi kitapları okumanız gerektiğini nasıl anlayacağınızı anlatıyor. Yazılım geliştirmenin sadece bir dil/framework/kütüphane/araç bilmek olmadığını, işin ciddi bir felsefesi olduğunu anlamak açısından da oldukça faydalı. Bu arada bunları bilmenin ne kadar önemli olduğuna dair pek çok şablon var. Öyle kuru felsefeyle kalma diyor yani :) Benim yorumlamam bu kadar. Aşağıda altını çizdiğim bazı yerler var.&lt;/p&gt;
-
-&lt;p&gt;Paylaşım linkleri aşağıda mevcuttur. Bu kitap çok önemli. Elden ele yayalım :)&lt;/p&gt;
-
-&lt;h2 id=&#34;alıntılarım-spoiler&#34;&gt;Alıntılarım (SPOILER!!!)&lt;/h2&gt;
-
-&lt;p&gt;Apprentices are people who are willing to take on a junior role that maximizes their learning opportunities, as opposed to people who try to climb as quickly as they can into roles that maximize their financial opportunities. In my experience, if the apprentice has talent and the right attitude, their financial success will inevitably follow their learning success.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Failure is inevitable. It happens to everybody sooner or later. In fact, someone who has never failed at anything has either avoided pushing at the boundaries of their abilities or has learned to overlook their own mistakes.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Working with masters is the best way to learn a craft.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;“I want to change the way people think about programming,” Kent said. I agreed. We both wanted to reverse what we thought had been a wrong turn in the progress of our industry. And, amazingly, we did it.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Humility is one of the foundations of a successful apprenticeship. Combined with ambition, humility will help keep you focused and progressing in the right direction.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;This book is written for software apprentices—for people who have had a taste of developing software and want to take it further, but need some guidance.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;An apprenticeship is a season in your career when your focus is more on your own growth than almost anything else.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;There are many other books we would recommend for people in those roles, but this book is for people at the beginning of the journey.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The strongest patterns are the ones that are applied productively over and over again.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;All the advice that has come out of our revolution does not help much until it becomes second nature. The craftsmanship movement in software recognizes that making this stuff second nature isn’t, well, second nature. These patterns are a welcome contribution to this progression.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;He who knows not and knows not that he knows not, is a fool — shun him!
-He who knows not and knows that he knows not, is unlearned — teach him!
-He who knows and knows not that he knows, is asleep — awaken him!
-He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A pattern is a named description of a recurring solution to a problem in a given context.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Patterns are meant to be open to modification to fit your circumstances rather than mechanically applied.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;As with all pattern languages, you should be careful not to overuse these patterns. Don’t look for excuses to use every single pattern, but instead pick and choose the most appropriate set for your situation.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The journey discussed here starts with “Hello world!”, but where does it end? Far too often, it ends with a promotion to middle management.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The journey discussed here starts with “Hello world!”, but where does it end? Far too often, it ends with a promotion to middle management. Too many talented people thoughtlessly take that promotion and find themselves just a few years later in jobs they don’t enjoy and yearning for retirement. But for those who have a knack for developing software and enjoy the learning process, software development is a career that can last a lifetime, and it can be a great ride.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;For any programmer proficient in his first language, it’s always a temptation to fall back to the standards and idioms of your native language when you’re learning a new language.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Our goal here is not simply to hand people a rule book, but to give them the ability to create new practices for new contexts, which in turn drives the discipline of software development forward.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;An attachment to Carol Dweck’s research, which calls for a “growth mindset.” This entails a belief that you can be better and everything can be improved if you’re prepared to work at it. In her words, “effort is what makes you smart or talented” (Mindset, p. 16), and failure is merely an incentive to try a different approach next time. It is the opposite of the belief that we’re all born with a given amount of talent, and that failure is an indication that you don’t have enough of it.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A need to always be adapting and changing based on the feedback you get from the world around you.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A desire to be pragmatic rather than dogmatic.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A belief that it is better to share what we know than to create scarcity by hoarding it.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A willingness to experiment and be proven wrong. This means we try stuff. We fail. Then we use the lessons from that failure in the next experiment.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A dedication to what psychologists call an internal locus of control.[6] This involves taking control of and responsibility for our destinies rather than just waiting for someone else to give us the answers.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Instead, we think that a useful system should be able to identify and absorb the best ideas from all elements of the software development community.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;“I guess it basically means having the attitude that there’s always a better/smarter/faster way to do what you just did and what you’re currently doing. Apprenticeship is the state/process of evolving and looking for better ways and finding people, companies and situations that force you to learn those better/smarter/faster ways.”&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;“It is not an internal quantity that is fed by easy successes and diminished by failures&amp;hellip;. It is not something we give to people by telling them about their high intelligence. It is something we equip them to get for themselves—by teaching them to value learning over the appearance of smartness, to relish challenge and to use errors as routes to mastery”&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;you must learn to grow yourself, to learn how you learn.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;At some point, an apprentice is approached by a master or a journeyman and told that her work and her role in the community are that of a journeyman. In such a case, the apprentice had previously begun taking on more responsibilities, and like a “boiled frog” had made a gradual but not discrete transition from one state to another. That transition may take longer for some people than for others. For some, the transition may take longer than their professional careers.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The journeyman’s responsibilities are wider than those of an apprentice. As such his failures can do more harm. Some of the patterns we will discuss are not appropriate for a journeyman, precisely because he has a greater responsibility to others who may see him as a mentor.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;They might be facing overbearing and/or incompetent managers, de-motivated coworkers, impossible deadlines, and work environments that treat novice developers like workhorses, storing them in small, rectangular stalls with a PC and a crippled Internet connection.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The more experience you already have, the more effort you will need to put into “emptying your cup,” clearing your mind of bad habits, setting aside the pride you have in your skills, and opening yourself up to the different, often counterintuitive, approaches of your more experienced colleagues.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;One of the fundamental ways to improve the experience of learning your first language is to have an actual problem to solve.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;It is possible to learn a language on your own, but it takes a long time to learn the spirit of a language unless you interact with experts.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;One danger of digging deep into your first language is getting stuck. It likely will remain with you throughout your career as your native tongue.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Apprentices comfortable with an object-oriented language should explore a functional programming language. Apprentices comfortable with dynamic typing should explore static typing. Apprentices comfortable with server-side programming should explore user interface design.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;You shouldn’t be wedded to any particular technology, but have a broad enough background and experience base to allow you to choose good solutions in particular situations.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;never stopping to think that the freedom to be foolish might well be one of the keys to the genius’s success.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Find an opportunity to unlearn something. Ideally, this would be something that forces you to put aside your previous experience.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Ask that person to explain some of the misconceptions that people from your particular background usually have about their community.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Despite (and because of!) your inexperience, you bring some unique attributes to your team, including an infectious enthusiasm. Do not allow anyone to dampen your excitement for the craft—it is a precious commodity and will accelerate your learning.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;They either repress their enthusiasm altogether, or allow it to manifest only outside of their day jobs.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Comprehension can be increased if more levels of experience are connected, as when newcomers who take nothing for granted interrelate more often with old-timers who think they have seen it all.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Craftsmen learn from the apprentices, even as the apprentices learn from them. Enthusiastic beginners not only renew the craftsmen, but also challenge the craftsmen by bringing in new ideas from the outside. A well chosen apprentice can make even a master craftsman more productive.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Collect the CVs of people whose skills you respect.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;According to research by the social psychologist Carol Dweck, the need to appear competent is ingrained into people of most industrialized societies.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Software craftsmen build their reputations through strong relationships with their clients and colleagues.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Expertise is a by-product of the long road we’re all on, but it is not the destination. Over the course of their journey, craftsmen will work with countless technologies and domains.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;However, as an apprentice with aspirations to mastery, you need to be willing to Expose Your Ignorance as well.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Remember that learning in public is one of the ways in which an apprentice begins the transition to journeyman. It’s a small step from learning where people can see you to teaching.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;One of the distinguishing facets of the craft approach is a willingness to put the wider interests of your community before your own, rather than using the team and the client to further your personal growth.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;This new knowledge you have may reveal gaps you hadn’t noticed before; don’t forget to add these things to your list.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;It’s your responsibility to offset the risks of this approach by Finding Mentors and Kindred Spirits who can provide help when you need it.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Dave saw that although these exceptional people were miles ahead of him, they were all walking the same road.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;you should keep in mind the expectation that you will be a working software developer even when you are middle-aged.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;And rather than counting the days to retirement, the craftsman will willingly and joyfully work into her final decades.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Imagine that 40 years from now you are asked to write a short description of your professional history and the biggest influences on your path. Use the output from that thought experiment to help you plan your future career choices.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The things we build for customers can be beautiful, but must be useful.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;utility and beauty are not opposed, but interdependent.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Sometimes you will make the wrong trade-off, and fixing that mistake by rewriting the system from scratch may not be in the customer’s best interest. In those situations you will need to develop the ability to refactor and repair.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Anyone who has ever seen a programmer at work&amp;hellip;knows that programming itself, if the programmer is given the chance to do it his way, is the biggest motivation in programming.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;“I’d like to learn something new, but what I already know pays too well.”&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Your mother might think you deserve it, but impressive titles and responsibilities do not indicate that your apprenticeship is over.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;more time with your family or more money, or perhaps a new vocation has captured your attention.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;If and when they came back, we welcomed them with open arms because those experiences had given them new perspectives they could share. Sadly, conventional software organizations may not be so welcoming. They often see these detours as suspicious gaps in your career that you must justify. They will expect you to have a rationale that makes sense within their value system for why you left and why you’re coming back.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Be the lion’s tail rather than the fox’s head!&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Organizational cultures that encourage software craftsmanship are rare.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Andy Hunt, a highly respected software craftsman, has asserted numerous times that software development is composed of two primary activities: learning and communication&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;We would build on that idea and assert that the core theme of an apprenticeship is learning and the dominant trait of a successful apprentice is a demonstration of her learning abilities.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;The only people who achieve much are those who want knowledge so badly that they seek it while the conditions are still unfavourable.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Apprentices are thirsty for opportunities to replace their ignorance with skill.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;A good way to ensure you have interesting exercises to use in your practice sessions is to trawl through old books like Programming Pearls, More Programming Pearls, or Etudes for Programmers.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Over time, maintaining a wiki can teach you about HTTP, REST, parsing, web design, caching, full-text search, databases, and concurrency.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Your notebook, blog, or wiki should be a nursery, not a graveyard—lessons should be born from this record, rather than going there to die.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Early in your apprenticeship, develop the habit of regularly sharing the lessons you have learned. This may take the form of maintaining a blog or running “brown bag” sessions amongst your Kindred Spirits.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Furthermore, teaching is a powerful learning tool for the person doing the teaching, perhaps even more so than for the students. Thus the old saying “When one person teaches, two people learn.”&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Ingenuity is often misunderstood. It is not a matter of superior intelligence but of character. It demands more than anything a willingness to recognize failure, to not paper over the cracks, and to change. It arises from deliberate, even obsessive, reflection on failure and a constant searching for new solutions. —Atul Gawande, Better&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Be sure to intermingle classics with modern, pragmatic books and/or articles in your Reading List.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;This means that the next time someone talks to you about Representation State Transfer, better known as REST, you should take that as an excuse to read Roy Fielding’s PhD thesis in which he defined the concept.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Armed with your deeper knowledge of HTTP, try to implement a client and a server for RFC 707.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;We can guarantee that the tools you use as an apprentice will be obsolete by the time you become a journeyman. In time, all of your favorite tools will become junk. For your career to prosper, you must learn to acquire and abandon familiar tools with ease.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;When we say that something is a craft, one of the things we mean is that it is a discipline and a tradition that places a high value on skill. This includes acquiring, growing, and eventually transmitting that skill. We believe true mastery is shown in the effect you have on others by transmitting your superior skill.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;In software development, we don’t know exactly what constitutes mastery, but we do know what it isn’t.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;As an apprentice, you should aim to become better than your teachers. And if they are good teachers, they should try to help you achieve that goal.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;Mere genius is not mastery, but if a person is able to train others to equal or surpass her genius, then it becomes evident that person is a potential master.&lt;/p&gt;
-
-&lt;p&gt;==========&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;there are no masters&amp;hellip;yet.&lt;/strong&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1787,57 +242,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
-
-&lt;p&gt;KISS&lt;/p&gt;
-
-&lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;Keep It Simple, Stupid&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep it Simple, Silly&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep It Short and Simple&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep It Simple and Straightforward&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Keep It Small and Simple&amp;rdquo;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
-
-&lt;p&gt;KISS, basitlik için çabalamayı öneren bir prensiptir. 1960&amp;rsquo;lı yıllarda Amerikan donanmasında ilk olarak ifade edilen bu prensip günümüzde en önemli programlama prensiplerinden biridir. Bir problemi çözerken olabilecek en basit ve yalın çözümü seçmeyi önerir. Hatta o kadar basit olmalıdır ki ilk bakışta &amp;ldquo;Bunu bir aptal bile yapar ve anlar&amp;rdquo; demeliyiz.&lt;/p&gt;
-
-&lt;p&gt;KISS, karmaşık çözümlerin daha &amp;ldquo;zekice&amp;rdquo;  çözümler olduğu fikrini reddeder. Çoğu mühendis/yazılımcı karmaşık çözümler bularak, karmaşık yapılar inşa ederek &amp;ldquo;zekice&amp;rdquo; işler yaptığını düşünür. Dışarıdan bakan bir insan ne kadar zor anlar ise o kadar artı değer ürettiğini sanır. Ancak zor olan basitleştirmektir. Yazılım süreçlerinde kod/yazılım mimarisi zaten zaman içinde büyüme ve karmaşıklaşma eğilimindedir. Önemli ve zor olan istenen işlevselliği asgari karmaşıklık düzeyinde sağlayabilmektir.&lt;/p&gt;
-
-&lt;p&gt;Basit çözümler daha iyidir çünkü:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Basit çözümlerin uygulanması daha kolaydır.&lt;/li&gt;
-&lt;li&gt;Basit çözümler hataya daha az açıktır.&lt;/li&gt;
-&lt;li&gt;Basit çözümlerin bakımını yapmak daha kolaydır. Zaman tasarrufu sağlar.&lt;/li&gt;
-&lt;li&gt;Basit çözümler kolay değiştirilebilir. Çevik olma açısından gereklidir.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;yöntemler&#34;&gt;Yöntemler&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Zekanızı kodun karmaşıklığı üzerinden göstemeyin.&lt;/li&gt;
-&lt;li&gt;Ufak çaplı performans kazançları için basit çözümler yerine karmaşık çözümleri tercih etmeyin.&lt;/li&gt;
-&lt;li&gt;Problemleri alt problemlere ayırın. Alt problemleri az parametreli, kısa methodlar ile çözün.&lt;/li&gt;
-&lt;li&gt;İstisnai durumları çok fazla düşünüp yapıyı karmaşıklaştırmayın.&lt;/li&gt;
-&lt;li&gt;Geleceğin problemlerini bugünden çözmeye çalışmayın. (bkz: YAGNI)&lt;/li&gt;
-&lt;li&gt;Kod silmekten çekinmeyin. En iyi kod en kısa koddur.&lt;/li&gt;
-&lt;li&gt;Kodu yeniden düzenlemekten çekinmeyin. IDE&amp;rsquo;lerin de yardımıyla kodunuzu sık sık bölüp, sadeleştirin.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;kaynakça&#34;&gt;Kaynakça&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;http://principles-wiki.net/principles:keep_it_simple_stupid&#34;&gt;http://principles-wiki.net/principles:keep_it_simple_stupid&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/KISS_principle&#34;&gt;https://en.wikipedia.org/wiki/KISS_principle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://people.apache.org/~fhanik/kiss.html&#34;&gt;https://people.apache.org/~fhanik/kiss.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&#34;&gt;http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1852,193 +257,7 @@ He who knows and knows that he knows, is enlightened — follow him!&lt;/p&gt;
 
 &lt;p&gt;Dersi &lt;a href=&#34;https://www.udacity.com/course/software-development-process--ud805&#34;&gt;şurada&lt;/a&gt; bulabilirsiniz. Ayrıca dersin içeriğini de aşağıya ekledim.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h5 id=&#34;lesson-1-introduction-and-overview&#34;&gt;Lesson 1: Introduction and Overview&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Importance of Software Engineering&lt;/li&gt;
-&lt;li&gt;Discipline of Software Engineering&lt;/li&gt;
-&lt;li&gt;The Software Crisis&lt;/li&gt;
-&lt;li&gt;Software Phases&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-2-life-cycle-models&#34;&gt;Lesson 2: Life Cycle Models&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Introduction with Barry Bohem&lt;/li&gt;
-&lt;li&gt;Requirements Engineering&lt;/li&gt;
-&lt;li&gt;Design&lt;/li&gt;
-&lt;li&gt;Maintenance&lt;/li&gt;
-&lt;li&gt;Software Process Model Introduction&lt;/li&gt;
-&lt;li&gt;Waterfall Process&lt;/li&gt;
-&lt;li&gt;Spiral Process&lt;/li&gt;
-&lt;li&gt;Evolutionary Prototyping Process&lt;/li&gt;
-&lt;li&gt;Rational Unified Process&lt;/li&gt;
-&lt;li&gt;Agile Process&lt;/li&gt;
-&lt;li&gt;Choosing a Model&lt;/li&gt;
-&lt;li&gt;Lifecycle Documents&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-3-integrated-development-environment&#34;&gt;Lesson 3: Integrated Development Environment&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Eclipse Introduction&lt;/li&gt;
-&lt;li&gt;IDE Overview&lt;/li&gt;
-&lt;li&gt;Plug-Ins&lt;/li&gt;
-&lt;li&gt;Eclipse Demo: Create Java Project&lt;/li&gt;
-&lt;li&gt;Eclipse Demo: Create a Class&lt;/li&gt;
-&lt;li&gt;Eclipse Demo: Run Configuration&lt;/li&gt;
-&lt;li&gt;Eclipse Demo: Debugging&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-4-version-control-systems&#34;&gt;Lesson 4: Version Control Systems&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Interview with John Britton&lt;/li&gt;
-&lt;li&gt;Version Control System Introduction&lt;/li&gt;
-&lt;li&gt;Two Main Types of VCS&lt;/li&gt;
-&lt;li&gt;Introduction to Git&lt;/li&gt;
-&lt;li&gt;Git Workflow&lt;/li&gt;
-&lt;li&gt;Git Demo: Intro to Git&lt;/li&gt;
-&lt;li&gt;Git Demo: Git + Eclipse&lt;/li&gt;
-&lt;li&gt;Git Demo: Github&lt;/li&gt;
-&lt;li&gt;Git Recap: Local Repositories&lt;/li&gt;
-&lt;li&gt;Git Recap: Remote Repositories&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-5-requirements-engineering&#34;&gt;Lesson 5: Requirements Engineering&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Interview with Jane Cleland-Huang&lt;/li&gt;
-&lt;li&gt;General RE Definition&lt;/li&gt;
-&lt;li&gt;Software Intensive Systems&lt;/li&gt;
-&lt;li&gt;Functional and Nonfunctional Requirements&lt;/li&gt;
-&lt;li&gt;User and System Requirements&lt;/li&gt;
-&lt;li&gt;Modeling Requirements&lt;/li&gt;
-&lt;li&gt;Analyzing Requirements&lt;/li&gt;
-&lt;li&gt;Requirements Prioritization&lt;/li&gt;
-&lt;li&gt;Requirements Engineering Process&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-6-oo-software-and-uml&#34;&gt;Lesson 6: OO Software and UML&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Object Orientation Introduction&lt;/li&gt;
-&lt;li&gt;UML Structural Diagrams: Class Diagrams&lt;/li&gt;
-&lt;li&gt;Class Diagram: Creation Tips&lt;/li&gt;
-&lt;li&gt;UML Structural Diagrams: Component Diagram&lt;/li&gt;
-&lt;li&gt;UML Structural Diagram: Deployment Diagram&lt;/li&gt;
-&lt;li&gt;UML Behavioral Diagram: Use Case&lt;/li&gt;
-&lt;li&gt;Use Case Diagram: Creation Tips&lt;/li&gt;
-&lt;li&gt;UML Behavioral Diagrams: Sequence&lt;/li&gt;
-&lt;li&gt;UML Behavioral Diagrams: State Transition Diagram&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-7-software-architecture&#34;&gt;Lesson 7: Software Architecture&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Interview with Nenad Medvidovic&lt;/li&gt;
-&lt;li&gt;What is Software Architecture?&lt;/li&gt;
-&lt;li&gt;Prescriptive vs. Descriptive Architecture&lt;/li&gt;
-&lt;li&gt;Architectural Evolution&lt;/li&gt;
-&lt;li&gt;Architectural Degradation&lt;/li&gt;
-&lt;li&gt;Architectural Recovery&lt;/li&gt;
-&lt;li&gt;Architectural Elements&lt;/li&gt;
-&lt;li&gt;Components, Connectors, and Configuration&lt;/li&gt;
-&lt;li&gt;Deployment Architectural Perspective&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-8-a-tale-of-analysis-and-design&#34;&gt;Lesson 8: A Tale of Analysis and Design&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Analyzing Requirements&lt;/li&gt;
-&lt;li&gt;Refining Classes and Attributes&lt;/li&gt;
-&lt;li&gt;Adding Attributes&lt;/li&gt;
-&lt;li&gt;Identifying Operations&lt;/li&gt;
-&lt;li&gt;Refining the Class Diagram&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-9-design-patterns&#34;&gt;Lesson 9: Design Patterns&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Patterns Catalogue&lt;/li&gt;
-&lt;li&gt;Pattern Format&lt;/li&gt;
-&lt;li&gt;Factory Method Pattern&lt;/li&gt;
-&lt;li&gt;Strategy Pattern&lt;/li&gt;
-&lt;li&gt;Choosing a Pattern&lt;/li&gt;
-&lt;li&gt;Negative Design Patterns&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-10-unified-software-process&#34;&gt;Lesson 10: Unified Software Process&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Use-Case Driven&lt;/li&gt;
-&lt;li&gt;Inception Phase&lt;/li&gt;
-&lt;li&gt;Elaboration Phase&lt;/li&gt;
-&lt;li&gt;Construction Phase&lt;/li&gt;
-&lt;li&gt;Transition Phase&lt;/li&gt;
-&lt;li&gt;Phases and Iterations&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-11-general-concepts&#34;&gt;Lesson 11: General Concepts&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Failure, Fault and Error&lt;/li&gt;
-&lt;li&gt;Verification Approaches&lt;/li&gt;
-&lt;li&gt;Pros and Cons of Approaches&lt;/li&gt;
-&lt;li&gt;Testing Introduction&lt;/li&gt;
-&lt;li&gt;Testing Granularity Levels&lt;/li&gt;
-&lt;li&gt;Alpha and Beta Testing&lt;/li&gt;
-&lt;li&gt;Black and White Box Testing Introduction&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-12-black-box-testing&#34;&gt;Lesson 12: Black-Box Testing&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Systematic Functional Testing Approach&lt;/li&gt;
-&lt;li&gt;Test Data Selection&lt;/li&gt;
-&lt;li&gt;Category Partition Method&lt;/li&gt;
-&lt;li&gt;Produce and Evaluate Test Case Specifications&lt;/li&gt;
-&lt;li&gt;Generate Test Cases from Test Case Specifications&lt;/li&gt;
-&lt;li&gt;Model Based Testing&lt;/li&gt;
-&lt;li&gt;Finite State Machines&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-13-white-box-testing&#34;&gt;Lesson 13: White-Box Testing&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Coverage Criteria Intro&lt;/li&gt;
-&lt;li&gt;Statement Coverage&lt;/li&gt;
-&lt;li&gt;Control Flow Graphs&lt;/li&gt;
-&lt;li&gt;Test Criteria Subsumption&lt;/li&gt;
-&lt;li&gt;MC/DC Coverage&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-14-agile-development-methods&#34;&gt;Lesson 14: Agile Development Methods&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Cost of Change&lt;/li&gt;
-&lt;li&gt;Agile Software Development&lt;/li&gt;
-&lt;li&gt;Extreme Programming (XP)&lt;/li&gt;
-&lt;li&gt;XP’s Values and Principles&lt;/li&gt;
-&lt;li&gt;Test First Development&lt;/li&gt;
-&lt;li&gt;Refactoring&lt;/li&gt;
-&lt;li&gt;Pair Programming&lt;/li&gt;
-&lt;li&gt;Continuous Integration&lt;/li&gt;
-&lt;li&gt;Testing Strategy&lt;/li&gt;
-&lt;li&gt;High Level Scrum Process&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;lesson-15-software-refactoring&#34;&gt;Lesson 15: Software Refactoring&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Reasons to Refactor&lt;/li&gt;
-&lt;li&gt;Refactoring Demo&lt;/li&gt;
-&lt;li&gt;Refactoring Risks&lt;/li&gt;
-&lt;li&gt;Cost of Refactoring&lt;/li&gt;
-&lt;li&gt;When Not to Refactor&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -2054,154 +273,134 @@ The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_j
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/screenshot.png&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h5 id=&#34;1-create-a-maven-project-and-add-your-dependencies&#34;&gt;1. Create a maven project and add your dependencies.&lt;/h5&gt;
-
-&lt;h5 id=&#34;2-add-your-scm-url-s-to-pom-xml&#34;&gt;2. Add your scm url&amp;rsquo;s to pom.xml&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
-&amp;lt;scm&amp;gt;
-    &amp;lt;url&amp;gt;
-        https://github.com/erkanerol/versioning_javaee_maven_git
-    &amp;lt;/url&amp;gt;
-    &amp;lt;connection&amp;gt;
-       scm:git:git://github.com/erkanerol/versioning_javaee_maven_git.git
-    &amp;lt;/connection&amp;gt;
-    &amp;lt;developerConnection&amp;gt;
-        scm:git:git@github.com:erkanerol/versioning_javaee_maven_git.git
-    &amp;lt;/developerConnection&amp;gt;
-&amp;lt;/scm&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;3-define-time-format-in-pom&#34;&gt;3. Define time format in pom.&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
-&amp;lt;properties&amp;gt;
-        &amp;lt;maven.build.timestamp.format&amp;gt;
-            dd.MM.yyyy_HH_mm
-        &amp;lt;/maven.build.timestamp.format&amp;gt;
-        &amp;lt;buildDate&amp;gt;
-            ${maven.build.timestamp}
-        &amp;lt;/buildDate&amp;gt;
-&amp;lt;/properties&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;4-add-mojo-plugin-in-pom-xml&#34;&gt;4. Add mojo plugin  in pom.xml&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
-&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.codehaus.mojo&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;buildnumber-maven-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;1.4&amp;lt;/version&amp;gt;
-    &amp;lt;executions&amp;gt;
-        &amp;lt;execution&amp;gt;
-            &amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;
-            &amp;lt;goals&amp;gt;
-                &amp;lt;goal&amp;gt;create&amp;lt;/goal&amp;gt;
-            &amp;lt;/goals&amp;gt;
-        &amp;lt;/execution&amp;gt;
-    &amp;lt;/executions&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;shortRevisionLength&amp;gt;5&amp;lt;/shortRevisionLength&amp;gt;
-        &amp;lt;doCheck&amp;gt;false&amp;lt;/doCheck&amp;gt;
-        &amp;lt;doUpdate&amp;gt;false&amp;lt;/doUpdate&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-&amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;5-add-version-properties-to-your-resource-directory&#34;&gt;5. Add version.properties to your resource directory&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;
-version=${version}.${buildNumber}
-versionLong=${version}.${buildNumber}.${buildDate}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;6-add-your-resource-folder-in-pom-xml&#34;&gt;6. Add your resource folder in pom.xml&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code class=&#34;xml&#34;&gt;
-&amp;lt;resources&amp;gt;
-    &amp;lt;resource&amp;gt;
-        &amp;lt;directory&amp;gt;src/main/webapp&amp;lt;/directory&amp;gt;
-    &amp;lt;/resource&amp;gt;
-    &amp;lt;resource&amp;gt;
-        &amp;lt;directory&amp;gt;src/main/resources&amp;lt;/directory&amp;gt;
-        &amp;lt;filtering&amp;gt;true&amp;lt;/filtering&amp;gt;
-    &amp;lt;/resource&amp;gt;
-&amp;lt;/resources&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;7-create-an-application-scoped-bean&#34;&gt;7. Create an application scoped bean&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code class=&#34;java&#34;&gt;
-
-package com.erkanerol.example.versioning;
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Properties;
-
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-
-
-@ManagedBean
-@ApplicationScoped
-public class VersionBean implements Serializable {
-
-    private String version;
-    private String versionLong;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
-    @PostConstruct
-    public void init(){
-        
-        try {
-            Properties properties = new Properties();
-            properties
-                .load(this
-                    .getClass()
-                    .getClassLoader()
-                    .getResourceAsStream(&#34;version.properties&#34;));
-        
-            version = properties.getProperty(&#34;version&#34;);
-            versionLong = properties.getProperty(&#34;versionLong&#34;);
-            
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        
-    }
-        
-    public String getVersion() {
-        return version;
-    }
-    public void setVersion(String version) {
-        this.version = version;
-    }
-    public String getVersionLong() {
-        return versionLong;
-    }
-    public void setVersionLong(String versionLong) {
-        this.versionLong = versionLong;
-    }   
-}
+    <item>
+      <title>&#34;Best Practice&#34; Üzerine Etkinlik Önerisi</title>
+      <link>https://erkanerol.github.io/post/best-practice-event/</link>
+      <pubDate>Sat, 09 Jan 2016 22:44:45 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/best-practice-event/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR
+&lt;br&gt;&lt;/br&gt;
+Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; dediğim bir etkinlik fikrini anlatacağım.
+&lt;br&gt;&lt;/br&gt;
+Özet: Belli senaryolar üzerinden, 3-4 uzmanın kendi en iyi uygulamalarını anlattığı, katılımcıların sorularıyla desteklediği etkinlikler olsa çok faydalı olabilir.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Farklı dillerin alfabelerine göre sıralama (Collator kullanımı)</title>
+      <link>https://erkanerol.github.io/post/collator/</link>
+      <pubDate>Sat, 09 Jan 2016 21:56:21 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/collator/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Java&amp;rsquo;da farklı dillerin alfabelerine göre sıralama yapmak mümkün.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h5 id=&#34;8-use-the-bean-in-your-application&#34;&gt;8. Use the bean in your application.&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java&#34;&gt;Github Repo&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Startup Playbook (Ekitap halinde)</title>
+      <link>https://erkanerol.github.io/post/startup-playbook/</link>
+      <pubDate>Sat, 07 Nov 2015 21:43:13 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/startup-playbook/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR &lt;br&gt;&lt;/br&gt;
+Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir şirket. Şirket çalışanlarından Sam Altman tecrübelerinden yola çıkarak yazdığı kısa bir Playbook yayınladı. Şu adresten okuyabileceğiniz yazıyı ekitap haline getirdim. Yazının sonundan dosyaları indirebilirsiniz.Altını çizdiğim yerler de aşağıda.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;pre&gt;&lt;code&gt;
-&amp;lt;h:outputText value=&#34;version #{versionBean.version}&#34; /&amp;gt;
-&amp;lt;h:outputText value=&#34;long version #{versionBean.versionLong}&#34; /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Software Architecture Patterns (Ücretsiz Ekitap)</title>
+      <link>https://erkanerol.github.io/post/software-architecture-patterns/</link>
+      <pubDate>Sat, 03 Oct 2015 21:31:46 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/software-architecture-patterns/</guid>
+      <description>TL;DR O&amp;rsquo;Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti
+ Geçenlerde Hacker News üzerinden bulduğum bir yazıyı okurken sağ tarafta ücretsiz ekitap indirebileceğime dair bir şey görünce beleşçiliğim tuttu ve kitabı (mobi formatı da var 👏) indirdim. Kitabın temel uygulama mimarilerini uzatmadan (pdf versiyonu 55 sayfa) anlatması çok hoşuma gitti ve okudum. Benim için çok faydalı olduğunu söyleyebilirim. Bir çok terim öğrendim. Buradan önermeye karar verdim.
+Kitapta 5 ana mimariden söz ediliyor.</description>
+    </item>
+    
+    <item>
+      <title>Gölgede ve Güneşte Futbol - Eduardo Galeano</title>
+      <link>https://erkanerol.github.io/post/golgede-ve-guneste-futbol/</link>
+      <pubDate>Fri, 11 Sep 2015 20:41:00 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/golgede-ve-guneste-futbol/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR   Kitabı okudum,beğendim.Tavsiye ediyorum.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &amp;ldquo;/version.jsf&amp;rdquo;.
-If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
-You can put the version in name of war file. It makes easy to store executable files.&lt;/p&gt;</description>
+&lt;p&gt;Uzun betimlemelerden,derin analizlerden,anlaşılması güç metaforlardan yorulmuştum. Okuması kolay bir kitap arıyordum. Zihnimi yormayacak ama saçma sapan da olmayacak. Meritokrasi listemi gezerken Eduardo Galeano&amp;rsquo;nun Gölgede ve Güneşte Futbol isimli kitabı dikkatimi çekti. Kitabın girişindeki şu bölümü okuyunca Ntvspor&amp;rsquo;da  Bağış Erten ve Banu Yelkovan&amp;rsquo;ın sunduğu programının adının nereden esinlendiğini anlamış oldum ve tamamen okumaya karar verdim.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Okuyacağınız sayfalar, yıllar önce Calella de la Costa&amp;rsquo;da karşılaştığım çocuklara ithaf edilmiştir. Futbol oynamaktan dönen o çocuklar bir şarkı tutturmuşlardı:   &amp;ldquo;Yensek de, yenilsek de, değişmez eğlencemiz&amp;hellip;&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/golgede-guneste-futbol-kapak.jpg&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Yazılım Mühendisi olmak veya Stackoverflow Google&#39;lamak</title>
+      <link>https://erkanerol.github.io/post/yazilim-muhendisi-olmak-veya-stackoverflow-googlelamak/</link>
+      <pubDate>Mon, 24 Aug 2015 20:40:00 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/yazilim-muhendisi-olmak-veya-stackoverflow-googlelamak/</guid>
+      <description>Geçenlerde gördüğüm zaytung tarzı bir haber beni epey güldürmüştü ve hemen arkadaşlarımla paylaşmıştım. Haber şöyleydi: IEEE, bilgisayar programlama disiplininin bundan sonra resmi olarak &amp;ldquo;Stackoverflow google&amp;rsquo;lamak&amp;rdquo; olarak yeniden adlandırılmasına ilişkin şiddetli tavsiye içeren bir rapor yayınladı. Haber komik olmakla birlikte çok büyük bir gerçeğe işaret ediyor bana kalırsa. Bu yazıda bu konuya ilişkin bir kaç şeyden söz etmeye çalışacağım. (bkz: abstract)
+Bir aydan kısa bir süredir Java tabanlı web yazılımları geliştirmekle meşgulüm.</description>
+    </item>
+    
+    <item>
+      <title>2 General/Ordu Problemi</title>
+      <link>https://erkanerol.github.io/post/two-army-problem/</link>
+      <pubDate>Mon, 24 Aug 2015 20:31:00 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/two-army-problem/</guid>
+      <description>&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hakkımda</title>
+      <link>https://erkanerol.github.io/post/about/</link>
+      <pubDate>Tue, 30 Aug 2016 12:37:57 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/about/</guid>
+      <description>&lt;h3 id=&#34;ünvan-title&#34;&gt;Ünvan (Title)&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Üniversite -&amp;gt; Bilgisayar Mühendisi / Computer Engineer&lt;/li&gt;
+&lt;li&gt;Piyasa -&amp;gt; Genç Yazılım Gelişticisi / Junior Software Developer&lt;/li&gt;
+&lt;li&gt;Kendim -&amp;gt; Çırak Yazılım Ustası / &lt;strong&gt;Apprentice Software Craftsman&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>İzlenesi Videolar</title>
+      <link>https://erkanerol.github.io/post/videos/</link>
+      <pubDate>Mon, 29 Aug 2016 20:47:34 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/videos/</guid>
+      <description>&lt;p&gt;İzlediğim, sevdiğim ve paylaşmak istediğim videoaları aşağıdaki oynatma listesine ekliyorum. İyi seyirler :)
+&lt;/p&gt;</description>
     </item>
     
   </channel>

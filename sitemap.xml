@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/distributed-systems-1/</loc>
+    <lastmod>2017-10-01T17:00:00+03:00</lastmod>
+  </url>
   
   <url>
     <loc>https://erkanerol.github.io/post/primitive_obsession/</loc>
@@ -123,7 +129,7 @@
   
   <url>
     <loc>https://erkanerol.github.io/</loc>
-    <lastmod>2017-03-25T00:37:43+03:00</lastmod>
+    <lastmod>2017-10-01T17:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -135,6 +141,12 @@
   <url>
     <loc>https://erkanerol.github.io/categories/design-patterns/</loc>
     <lastmod>2016-06-09T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/categories/distributed-systems/</loc>
+    <lastmod>2017-10-01T17:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -176,7 +188,7 @@
   
   <url>
     <loc>https://erkanerol.github.io/post/</loc>
-    <lastmod>2017-03-25T00:37:43+03:00</lastmod>
+    <lastmod>2017-10-01T17:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -188,7 +200,7 @@
   
   <url>
     <loc>https://erkanerol.github.io/categories/software/</loc>
-    <lastmod>2017-03-25T00:37:43+03:00</lastmod>
+    <lastmod>2017-10-01T17:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
