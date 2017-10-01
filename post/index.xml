@@ -6,18 +6,39 @@
     <description>Recent content in Posts on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 01 Oct 2017 17:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 01 Oct 2017 19:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://erkanerol.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Dağıtık Sistemler (Distributed Systems): Giriş </title>
+      <title>Dağıtık Sistemler: Ölçeklenebilirlik </title>
+      <link>https://erkanerol.github.io/post/distributed-systems-2/</link>
+      <pubDate>Sun, 01 Oct 2017 19:00:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/distributed-systems-2/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-1/&#34; target=&#34;_blank&#34;&gt;Önceki&lt;/a&gt; yazımızda dağıtık sistemlere genel bir giriş yapmıştık. Bu yazımızda ölçeklenebilirlik üzerine eğileceğiz.&lt;/p&gt;
+
+&lt;h2 id=&#34;tanım&#34;&gt;Tanım&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dağıtık Sistemler: Giriş </title>
       <link>https://erkanerol.github.io/post/distributed-systems-1/</link>
       <pubDate>Sun, 01 Oct 2017 17:00:00 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/distributed-systems-1/</guid>
-      <description>&lt;p&gt;Önümüzdeki süreçte &amp;ldquo;Distributed Systems&amp;rdquo; üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım. Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+
+&lt;p&gt;Önümüzdeki süreçte &amp;ldquo;Distributed Systems&amp;rdquo; üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım.&lt;/p&gt;
 
 &lt;h2 id=&#34;nedir-bu-dağıtık-sistemler&#34;&gt;Nedir bu dağıtık sistemler?&lt;/h2&gt;
 
@@ -26,8 +47,6 @@
 &lt;blockquote&gt;
 &lt;p&gt;Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
