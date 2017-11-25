@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility) &middot; Erkan Erol</title>
+  <title>Dağıtık Sistemler: Performans ve Gecikme (Latency) &middot; Erkan Erol</title>
 
   
   <link rel="stylesheet" href="https://erkanerol.github.io/css/poole.css">
@@ -107,8 +107,8 @@
 
 <div class="content container">
   <div class="post">
-    <h1 class="post-title">Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</h1>
-    <span class="post-date">Oct 1, 2017 &middot; <a href="https://erkanerol.github.io/post/distributed-systems-2/#disqus_thread">Comments</a>
+    <h1 class="post-title">Dağıtık Sistemler: Performans ve Gecikme (Latency)</h1>
+    <span class="post-date">Oct 4, 2017 &middot; <a href="https://erkanerol.github.io/post/distributed-systems-3/#disqus_thread">Comments</a>
     
     <br/>
     <a class="label" href="https://erkanerol.github.io/categories/software">Software</a><a class="label" href="https://erkanerol.github.io/categories/distributed-systems">Distributed Systems</a>
@@ -117,39 +117,34 @@
 
 <p><strong><em>NOT 2:</em></strong> Bu blogda yer alan bu konu hakkındaki bütün içeriğe <a href="/post/distributed-systems-0/" target="_blank">şuradan</a> erişebilirsiniz.</p>
 
-<h2 id="tanım">Tanım</h2>
+<h2 id="perfomans-nedir">Perfomans nedir?</h2>
 
 <blockquote>
-<p>Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.</p>
+<p>Bir bilgisayar sisteminin tükettiği kaynaklara ve zamana kıyasla çıkardığı faydalı iş miktarı o sistemin performansını tanımlar.</p>
 </blockquote>
+
+<p>Performanslı sistemlerden</p>
+
+<ul>
+<li>Cevapları kısa sürede üretebilmesini</li>
+<li>Verilen iş için düşük gecikme miktarlarına sahip olmasını</li>
+<li>Birim zamanda yaptığı iş sayısının fazla olmasını</li>
+<li>Kaynakları az kullanmasını</li>
+</ul>
+
+<p>bekleriz.</p>
 
 <p></p>
 
-<p>Örnek vermemiz gerekirse diyelim ki bir web siteniz var. Sitede anlık olarak gördüğünüz kullanıcı sayısı 100 olduğunda da, 1000 olduğunda da, 10000 olduğunda da kullanıcılar siteyi düzgün şekilde kullanabiliyor ve sitenin üzerinde çalıştığı sistemler buna adapte olacak şekilde büyüyebiliyor ise sitenin üzerindeki sisteme &ldquo;ölçeklenebilir&rdquo; diyebiliriz.</p>
+<p>Ancak bu hedefler arasında tradeoff&rsquo;lar vardır. Yani bir parametrede sistemi iyileştirmeye çalıştıkça diğerinden tavizler verirsiniz. Söz gelimi birim zamanda çok iş yapmak isterseniz kaynakları çok kullanmaya başlarsınız. Veya yapılan iş miktarını arttırmak için işleri tek tek değil, grup (batch) olarak yaparsanız, bir iş için gecikme süresi artacaktır</p>
 
-<h2 id="peki-hangi-açılardan-ölçeklenebilir">Peki hangi açılardan ölçeklenebilir?</h2>
+<h2 id="gecikmenin-tanımı">Gecikmenin tanımı</h2>
 
-<p>Bir sistemin ölçeklenilebilirliğini farklı açılardan değerlendirebiliriz.</p>
+<blockquote>
+<p>Bir değişikliğin gerçekleşme anından sistemde kendini gösterdiği ana kadar olan periyota gecikme diyoruz.</p>
+</blockquote>
 
-<h4 id="1-büyüklükte-ölçeklenebilirlik">1. Büyüklükte Ölçeklenebilirlik</h4>
-
-<p>Sisteme yeni makinalar ekledikçe sistemin işlevselliğinde bozulma olmuyor ve sistem güç kazanıyorsa büyüklükte ölçeklenebilir bir sistemdir diyebiliriz. Aksi bir örnek vererek neyi kastettiğimizi açıklayalım. Diyelim ki bir mesajlaşma uygulaması yazdık. 3 makinada dağıtık şekilde çalışırken sorunsuz çalışıyor. Bir kullanıcı bir mesajı bir makinaya attığında diğer bir kullanıcı başka bir makina üzerinden bunu 10ms içinde okuyabiliyor ki bu süre bir insan için farkedilebilecek bir süre bile değil. Ancak 30 makinaya çıkardığımızda bir makinaya atılan mesaj bir diğer makinadan ancak 3sn sonra okunabiliyor ise uygulamamızın kullanımında ciddi problemler ortaya çıkmaya başlar. Bu durumda bu sistem büyüklük açısından ölçeklenebilir değildir.</p>
-
-<p>Artan yüke karşı cevap verebilen sistemler inşa etmek için sistemlerimizin büyüklükte ölçeklenebilir olması şarttır. Burada farkettiğiniz üzere büyüklük ile gecikme arasında bir orantı vardır. Bu dağıtık sistemlerin başlıca sorunlarından biridir. İlerleyen yazılarda bu konu üzerine ayrıca eğileceğiz.</p>
-
-<h4 id="2-coğrafi-ölçeklenebilirlik">2. Coğrafi Ölçeklenebilirlik</h4>
-
-<p>Sistemin coğrafi olarak dağıtılabilirliği onun coğrafi ölçeklenebilirliğini ifade eder. Yine bir örnek vererek açıklamaya çalışalım. Diyelim ki çok yoğun kullanılan bir sosyal medya platformumuz var ve dünyanın her yerinden kullanıcılarımız var. Hızlı bir hizmet verebilmek adına bütün sunucularımızı Amerika&rsquo;da tutmak yerine dünyanın çeşitli noktalarına dağıtmak isteriz. Fakat sistemi coğrafi olarak dağıttıkça bazı sorunlarla karşılaşmamız muhtemeldir. Önceden aynı ağ üzerinde çalışan makinalar ağ içinde çok hızlı iletişim kurup, senkronize olabilirken artık mesafeler uzadıkça senkronize olmaları zorlaşır. Türkiye&rsquo;den atılan bir tweet&rsquo;in Çin&rsquo;den ancak 1 dakika sonra okunabiliyor olması kabul edilebilir değildir. İşte bu noktada &ldquo;coğrafi ölçeklenebilirlik&rdquo; kavramı anlam kazanır. Çok geniş coğrafyalarda, yüksek miktarlarda isteğe hızlı ve doğru yanıt dönebilmemiz için sistemlerimizin coğrafi ölçeklenebilir olması şarttır.</p>
-
-<h4 id="3-yönetimsel-ölçeklenebilirlik">3. Yönetimsel Ölçeklenebilirlik</h4>
-
-<p>Dağıtık sistemlerde sistem büyüdükçe sistemin yönetim maaliyetinin çok fazla artmaması gerekir. İdeal olan, sistemin büyüklüğünün yönetenler açısından basit bir parametre olmasıdır. Şöyle ifade edelim: Dağıtık sistemimizi ayağa kaldırıyoruz. Bir parametre var. İstersek sistem 10 makina ile kalkıyor, istersek 100 makina ile. Arada bir miktar süre farkı olabilir. Bu sistem yönetimsel açıdan ölçeklenebilirdir diyebiliriz. Ancak 100 makina çalıştırmak istediğimizde bu makinalara tek tek konfigürasyon yapmamız gerekiyor ve yönetim maaliyeti her bir makina için ciddi miktarda artıyorsa bu sistem yönetim açısından ölçeklenebilir değildir.</p>
-
-<p>Canlı sistemlerin artan/azalan yük ihtiyacına göre adaptive bir şekilde kendi büyüklüğünü değiştirebilmesi için yönetimsel açıdan ölçeklenilebilirlik kritik önem arz eder.</p>
-
-<h2 id="kapanış">Kapanış</h2>
-
-<p>Bu yazıda ölçeklenilebilirlik üzerinde durduk. Önümüzdeki yazılarda ölçeklenen dağıtık sistemlerde neleri arttırmaya, neleri makul miktarlarda tutmaya, neleri azaltmaya çalışmalıyız konularına değineceğiz.</p>
+<p>Gecikme kavramını örnek üzerinden açıklamaya çalışalım. Diyelim ki bir Java uygulamamız var ve 100 instance ile çalışıyor. Uygulamamızda Hazelcast&rsquo;in Distributed Hash Map&rsquo;ini kullandık. Yani uygulamanın bir instance&rsquo;ından put/delete yaptığımızda, dağıtık sistemdeki diğer instance&rsquo;lardan bu değişikliği görebiliyoruz. Sanki ortada tek bir map varmış gibi çalışabiliyoruz. Bu sistemde bir yerden yapılan bir put işleminin bilgisi mesajlar yoluyla diğerlerine dağıtılır ve bu mesajı alan herkes ilgili değişikliği kendi elindeki veri üzerinde gerçekleştirir. Ancak bu işlemlerden sonra bu değişikliği diğer instance&rsquo;lar üzerinde görebiliriz. İşte arada geçen bu süreye gecikme (latency) diyoruz.</p>
   </div>
   <div id="disqus_thread"></div>
 </div>

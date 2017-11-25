@@ -6,20 +6,50 @@
     <description>Recent content in Software on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 01 Oct 2017 19:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 04 Oct 2017 22:30:00 +0300</lastBuildDate>
     
 	<atom:link href="https://erkanerol.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Dağıtık Sistemler: Ölçeklenebilirlik </title>
+      <title>Dağıtık Sistemler: Performans ve Gecikme (Latency)</title>
+      <link>https://erkanerol.github.io/post/distributed-systems-3/</link>
+      <pubDate>Wed, 04 Oct 2017 22:30:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/distributed-systems-3/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 2:&lt;/em&gt;&lt;/strong&gt; Bu blogda yer alan bu konu hakkındaki bütün içeriğe &lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-0/&#34; target=&#34;_blank&#34;&gt;şuradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
+
+&lt;h2 id=&#34;perfomans-nedir&#34;&gt;Perfomans nedir?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Bir bilgisayar sisteminin tükettiği kaynaklara ve zamana kıyasla çıkardığı faydalı iş miktarı o sistemin performansını tanımlar.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Performanslı sistemlerden&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cevapları kısa sürede üretebilmesini&lt;/li&gt;
+&lt;li&gt;Verilen iş için düşük gecikme miktarlarına sahip olmasını&lt;/li&gt;
+&lt;li&gt;Birim zamanda yaptığı iş sayısının fazla olmasını&lt;/li&gt;
+&lt;li&gt;Kaynakları az kullanmasını&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;bekleriz.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</title>
       <link>https://erkanerol.github.io/post/distributed-systems-2/</link>
       <pubDate>Sun, 01 Oct 2017 19:00:00 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/distributed-systems-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-1/&#34; target=&#34;_blank&#34;&gt;Önceki&lt;/a&gt; yazımızda dağıtık sistemlere genel bir giriş yapmıştık. Bu yazımızda ölçeklenebilirlik üzerine eğileceğiz.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 2:&lt;/em&gt;&lt;/strong&gt; Bu blogda yer alan bu konu hakkındaki bütün içeriğe &lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-0/&#34; target=&#34;_blank&#34;&gt;şuradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
 
 &lt;h2 id=&#34;tanım&#34;&gt;Tanım&lt;/h2&gt;
 
@@ -36,9 +66,9 @@
       <pubDate>Sun, 01 Oct 2017 17:00:00 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/distributed-systems-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
 
-&lt;p&gt;Önümüzdeki süreçte &amp;ldquo;Distributed Systems&amp;rdquo; üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 2:&lt;/em&gt;&lt;/strong&gt; Bu blogda yer alan bu konu hakkındaki bütün içeriğe &lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-0/&#34; target=&#34;_blank&#34;&gt;şuradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
 
 &lt;h2 id=&#34;nedir-bu-dağıtık-sistemler&#34;&gt;Nedir bu dağıtık sistemler?&lt;/h2&gt;
 
@@ -327,6 +357,17 @@ Bir aydan kısa bir süredir Java tabanlı web yazılımları geliştirmekle me�
       <description>&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dağıtık Sistemler</title>
+      <link>https://erkanerol.github.io/post/distributed-systems-0/</link>
+      <pubDate>Wed, 04 Oct 2017 22:30:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/distributed-systems-0/</guid>
+      <description> NOT 1: Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan şuraya davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
+NOT 2: Önümüzdeki süreçte &amp;ldquo;Distributed Systems&amp;rdquo; üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım.
+Dağıtık Sistemler (Distributed Systems)  Giriş Ölçeklenebilirlik (Scalibility) Performans ve Gecikme (Latency)  </description>
     </item>
     
   </channel>
