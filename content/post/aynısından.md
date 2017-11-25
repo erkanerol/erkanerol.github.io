@@ -42,5 +42,5 @@ O saçlarımı keserken kendimi kollamama hiç gerek yoktu. Hesap, kitap yapmad�
 <br></br>
 ## BONUS: Meleği Tanı - Melek Arslanbenzer
 
-<iframe src="https://player.vimeo.com/video/95602174" width="640" height="470" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/95602174" width="320" height="235" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <p><a href="https://vimeo.com/95602174">Melek Arslanbenzer okuyor: Meleği Tanı</a> from <a href="https://vimeo.com/populistkultur">Populist K&uuml;lt&uuml;r</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
