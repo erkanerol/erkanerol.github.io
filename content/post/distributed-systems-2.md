@@ -2,16 +2,16 @@
 date = "2017-10-01T19:00:00+03:00"
 keywords = ["Distributed Systems"]
 description = ""
-title = "Dağıtık Sistemler: Ölçeklenebilirlik "
+title = "Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)"
 categories = ["Software", "Distributed Systems"]
 weight=1
 
 +++
 
-***NOT:*** Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href="http://book.mixu.net/distsys/" target="_blank">şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
+***NOT 1:*** Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href="http://book.mixu.net/distsys/" target="_blank">şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
 
+***NOT 2:*** Bu blogda yer alan bu konu hakkındaki bütün içeriğe <a href="/post/distributed-systems-0/" target="_blank">şuradan</a> erişebilirsiniz.
 
-<a href="/post/distributed-systems-1/" target="_blank">Önceki</a> yazımızda dağıtık sistemlere genel bir giriş yapmıştık. Bu yazımızda ölçeklenebilirlik üzerine eğileceğiz.
 
 ## Tanım
 

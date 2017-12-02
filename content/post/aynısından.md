@@ -12,7 +12,7 @@ Kahvaltımı yapmış, odamı toplamıştım. Sonrasında yeni bulaşık makinas
 <!--more-->
 
 
-Eski evden taşınırken 22 yıllık berberimle gidip vedalaşmıştık. 3 yaşımdan beri beni o traş ediyordu. Çocukluğumda 2-3 kez, İstanbul dışındayken başka berbere gitmiştim ama en az 10 senedir ondan başkası olmamıştı. O gün Yılmaz abi gülüp "Böyle diyip giden çok oldu ama çoğu geri döndü Erkan." demişti. Yanılıyorsun Yılmaz abi demiştim içimden, yanılıyorsun.
+Eski evden taşınırken 22 yıllık berberime gidip vedalaşmıştım. 3 yaşımdan beri beni o traş ediyordu. Çocukluğumda 2-3 kez, İstanbul dışındayken başka berbere gitmiştim ama en az 10 senedir ondan başkası olmamıştı. O gün Yılmaz abi gülüp "Böyle diyip giden çok oldu ama çoğu geri döndü Erkan." demişti. Yanılıyorsun Yılmaz abi demiştim içimden, yanılıyorsun.
 
 Taşınalı 6 ay oldu. Oralarda işim oldukça, uğrayıp saçımı yine Yılmaz abinin berberinde kestirdim bugüne kadar. Yalnız bugün farklıydı. Saçımı kestirmem gerekiyordu ve o civarda işim yoktu. Evet artık zamanı geldi Erkan dedim kendime, yeni maceralara atılmanın zamanı geldi. Hadi, korkma. 
 

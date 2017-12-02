@@ -8,10 +8,9 @@ weight=1
 
 +++
 
-***NOT:*** Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href="http://book.mixu.net/distsys/" target="_blank">şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
+***NOT 1:*** Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href="http://book.mixu.net/distsys/" target="_blank">şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
 
-
-Önümüzdeki süreçte "Distributed Systems" üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım. 
+***NOT 2:*** Bu blogda yer alan bu konu hakkındaki bütün içeriğe <a href="/post/distributed-systems-0/" target="_blank">şuradan</a> erişebilirsiniz.
 
 ## Nedir bu dağıtık sistemler?
 
