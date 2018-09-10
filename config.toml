@@ -30,11 +30,7 @@ enableRobotsTXT = true
     # Hide estimated reading time for posts.
     # Default (if omitted) is false.
     hideReadingTime = true
-
-    # Changes sidebar background and link/accent colours.
-    # See below for more colour options.
-    # This also works: "theme-base-08 layout-reverse", or just "layout-reverse".
-    theme = ""
+ 
 
     # Select a syntax highight.
     # Check the static/css/highlight directory for options.

@@ -17,15 +17,17 @@ weight = 1001
 ### Eğitim
 1. İstanbul Atatürk Fen Lisesi (2006-2010)
 * Boğaziçi Üniversitesi - Bilgisayar Mühendisliği - Lisans (2010-2015)
-* Boğaziçi Üniversitesi - Bilgisayar Mühendisliği - Master (2017-?)
 
 ### İş
-1. Netaş (2015-?)
+1. Netaş (Haziran 2015 - Aralık 2017)
+2. SAP Development Center Turkey(Ocak 2018 - ? )
 
 
 ### İlgi Alanları
 1. Software Craftsmanship
-2. İnsana dair filmler (örneğin Demirkubuz, Farhadi, Ceylan, Majidi filmleri)
+2. DevOps
+3. Kahve
+4. İnsana dair filmler (örneğin Demirkubuz, Farhadi, Ceylan, Majidi filmleri)
 
 
 **NOT: Herhangi bir hobim yoktur.**
@@ -35,7 +37,7 @@ weight = 1001
 1. Okuma, öğrenme, deneme, yanılma, kodlama, kodlama, kodlama
 * [ScTurkey](www.meetup.com/Software-Craftsmanship-Turkey) etkinliklerini düzenleme, aktif rol alma
 * Meetup/Everbrite üzerinden yapılan bazı etkinliklere katılma
-* Blog yazma
+
 * **Şimdilik bir Open Source katkım yok :(**
 
 ### Yetenekler
@@ -54,35 +56,12 @@ weight = 1001
 * Gereksinimlerin toplanması
 * Çözüm geliştirme
 * Algoritmalar ve veri yapıları 
-* Java, JavaEE,
-* Spring Core, Spring MVC, Spring Security
-* JPA, Hibernate, SQL
-* JSF, Primefaces
-* SOAP, REST
-* Maven, Gradle
-* Git, SVN
-* Unix komutları
-* Vagrant, Docker, Nomad, Consul, Packer
-
-#### Orta
-
-* TDD
-* BDD, Serenity, Cucumber
-* Yazılım Mimarileri
-* Design Patterns
-* JS, Angular2
-
-
-#### Başlangıç
-* Jenkins autobuild & autodeploy
-* Selenium
-* Microservices
-* Service Discovery
-* MongoDB
-
+* Java ile backend
+* Angular ile frontend
+* Bash, Docker, Kubernetes ile DevOps
 
 ### Olmak istediklerim
-1. Kısa vade => Full Stack Developer => JS konusunda kendimi geliştirebilirsem olabilirim.
+1. Kısa vade => Devops => Kubernetes uzmanı olmak
 * Orta vade =>  Full Stack + Devops + Scrum Master => Modern bir yazılım projesindeki bütün bileşenlere hakim olmak
 * Uzun vade => Software Craftsman => Hem teknik bilgi, hem davranış bakımından
 
