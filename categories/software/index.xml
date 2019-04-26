@@ -6,10 +6,27 @@
     <description>Recent content in Software on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 01 Oct 2017 19:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 22:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://erkanerol.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Adapting a software project</title>
+      <link>https://erkanerol.github.io/post/adapting-a-project/</link>
+      <pubDate>Fri, 26 Apr 2019 22:00:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/post/adapting-a-project/</guid>
+      <description>&lt;p&gt;Throughout my career, a few times,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I joined a project&lt;/li&gt;
+&lt;li&gt;I became one of the main maintainers of the project/a component after a while&lt;/li&gt;
+&lt;li&gt;I helped new people to adapt the project&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting a software project. In this blog post, I am going to share &amp;ldquo;my way&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</title>
@@ -25,9 +42,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -46,9 +61,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -60,9 +73,7 @@
       <description>&lt;p&gt;Primitive Obsession ünlü &lt;a href=&#34;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&#34; target=&#34;_blank&#34;&gt;Refactoring&lt;/a&gt; kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/primitive.jpg&#34; /&gt;
-&lt;a href=&#34;https://dzone.com/articles/primitive-obsession&#34; target=&#34;_blank&#34;&gt;Görselin Kaynağı&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;a href=&#34;https://dzone.com/articles/primitive-obsession&#34; target=&#34;_blank&#34;&gt;Görselin Kaynağı&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -81,9 +92,7 @@
 &lt;p&gt;Topluluğumuz cinsiyet, cinsel kimlik, cinsel tercih, yaş, engellilik hali, fiziksel görünüm, vücut ölçüleri, ırk ve din (veya dinsizlik), &lt;strong&gt;&lt;em&gt;teknolojik tercihler&lt;/em&gt;&lt;/strong&gt; ayrımı yapmaksızın herkese rahatsızlıktan uzak bir deneyim sunmaya adanmıştır.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Teknolojik tercihleri yüzünden ayrımcılığa maruz kalan var mıdır bilmiyorum ama bazı yazılımcıların &lt;strong&gt;&lt;em&gt;&amp;ldquo;fanatik&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; olarak nitelendirilebileceğini biliyorum. Bu yazılım camiasında da bilinen bir durum zaten. Belirli bir ölçüye kadar güzel ve sevimli olan bu fan olma hali bir yerden sonra büyük sorunlara neden oluyor. Bu konu hakkında biraz kafa yordum ve düşüncelerimi bu yazıda ifade etmeye çalışacağım.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Teknolojik tercihleri yüzünden ayrımcılığa maruz kalan var mıdır bilmiyorum ama bazı yazılımcıların &lt;strong&gt;&lt;em&gt;&amp;ldquo;fanatik&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; olarak nitelendirilebileceğini biliyorum. Bu yazılım camiasında da bilinen bir durum zaten. Belirli bir ölçüye kadar güzel ve sevimli olan bu fan olma hali bir yerden sonra büyük sorunlara neden oluyor. Bu konu hakkında biraz kafa yordum ve düşüncelerimi bu yazıda ifade etmeye çalışacağım.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -94,9 +103,7 @@
       <guid>https://erkanerol.github.io/post/hash-functions/</guid>
       <description>&lt;p&gt;Not: İşbu yazı Wikipedia kullanılarak yazılmıştır. Arzu edenler &lt;a href=&#34;https://en.wikipedia.org/wiki/Hash_function&#34; target=&#34;_blank&#34;&gt;şu&lt;/a&gt; link üzerinden devam edebilir.&lt;/p&gt;
 
-&lt;p&gt;Hash fonksiyonları belirli özellikleri sağlayan fonksiyonlardır. Bu özelliklere değinmeden önce fonksiyonları kısaca hatırlatmak istiyorum.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Hash fonksiyonları belirli özellikleri sağlayan fonksiyonlardır. Bu özelliklere değinmeden önce fonksiyonları kısaca hatırlatmak istiyorum.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -105,9 +112,7 @@
       <pubDate>Wed, 23 Nov 2016 23:11:42 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/misuse-inheritance/</guid>
-      <description>&lt;p&gt;Geçenlerde &amp;ldquo;Composition over Inheritance&amp;rdquo; ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında bir makaleye denk geldim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Geçenlerde &amp;ldquo;Composition over Inheritance&amp;rdquo; ile alakalı bazı okumalar yapmaya karar verdim. Bu prensibi duymuştum ve genel olarak anlamıştım ama biraz derinlere inmek istedim. Yaptığım google aramalarında bir makaleye denk geldim. Makaleyi okurken bir aydınlanma yaşadım ve paylaşmak istedim.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -118,9 +123,7 @@
       <guid>https://erkanerol.github.io/post/cohesion-coupling/</guid>
       <description>&lt;h2 id=&#34;giriş&#34;&gt;Giriş&lt;/h2&gt;
 
-&lt;p&gt;Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça konuşmalar izlemeye çalışıyorum. Yazılımın temel prensipleri ve kavramları bu alanın ana başlıklarından. Ben de okuduğum, anlamaya çalıştığım bu 2 kavramı çok çok basit şekilde,  kendimce açıklamaya çalışacağım.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -135,9 +138,7 @@
 &lt;li&gt;Elimizde benzer ve ilişkili nesneler var ve bunları somut sınıflarını belirtmeden oluşturmak için bir arayüz istiyoruz&lt;/li&gt;
 &lt;li&gt;Platformlara özgü özellikleri ve nesnelerin platformlara göre farklılık gösteren yaratılışını sarmalamak (encapsulation) istiyoruz.&lt;/li&gt;
 &lt;li&gt;new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -158,9 +159,7 @@
 
 &lt;p&gt;Keep It Dry&lt;/p&gt;
 
-&lt;p&gt;Keep Things Dry&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Keep Things Dry&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -182,9 +181,7 @@ You Aint Gonna Need It&lt;/p&gt;
 
 &lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
 
-&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -199,9 +196,7 @@ You Aint Gonna Need It&lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/br&gt;
 TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şiddetle tavsiye ediyorum.
-&lt;br&gt;&lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;br&gt;&lt;/br&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -214,9 +209,7 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 &lt;p&gt;Basitlik nihai karmaşıklıktır.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -229,9 +222,7 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 &lt;p&gt;Udacity üzerinden ücretsiz alabileceğiniz, yazılım mühendisliğine giriş niteliğindeki bu ders hali hazırda bildiğimiz bir çok şeyi içerse de bilmediğimiz bir çok püf noktasını da içinde barındırıyor. Özellikle yazılım geliştirmeye yeni başlamış herkesin alması gerektiğine inanıyorum.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Dersi &lt;a href=&#34;https://www.udacity.com/course/software-development-process--ud805&#34;&gt;şurada&lt;/a&gt; bulabilirsiniz. Ayrıca dersin içeriğini de aşağıya ekledim.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Dersi &lt;a href=&#34;https://www.udacity.com/course/software-development-process--ud805&#34;&gt;şurada&lt;/a&gt; bulabilirsiniz. Ayrıca dersin içeriğini de aşağıya ekledim.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -245,9 +236,7 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_javaee_maven_git&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/screenshot.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/screenshot.png&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -262,9 +251,7 @@ The example project is &lt;a href=&#34;https://github.com/erkanerol/versioning_j
 Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; dediğim bir etkinlik fikrini anlatacağım.
 &lt;br&gt;&lt;/br&gt;
 Özet: Belli senaryolar üzerinden, 3-4 uzmanın kendi en iyi uygulamalarını anlattığı, katılımcıların sorularıyla desteklediği etkinlikler olsa çok faydalı olabilir.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -277,8 +264,7 @@ Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; de
 &lt;p&gt;Java&amp;rsquo;da farklı dillerin alfabelerine göre sıralama yapmak mümkün.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java&#34;&gt;Github Repo&lt;/a&gt;
-&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java&#34;&gt;Github Repo&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -292,9 +278,7 @@ Bu yazıda &amp;ldquo;şöyle bir etkinlik olsa çok faydalı olur&amp;rdquo; de
 Y Combinator Startup&amp;rsquo;lara yatırım yapan ve danışmanlık yapan bir şirket. Şirket çalışanlarından Sam Altman tecrübelerinden yola çıkarak yazdığı kısa bir Playbook yayınladı. Şu adresten okuyabileceğiniz yazıyı ekitap haline getirdim. Yazının sonundan dosyaları indirebilirsiniz.Altını çizdiğim yerler de aşağıda.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/startup-playbook-cover.jpeg&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -324,9 +308,7 @@ Bir aydan kısa bir süredir Java tabanlı web yazılımları geliştirmekle me�
       <pubDate>Mon, 24 Aug 2015 20:31:00 +0200</pubDate>
       
       <guid>https://erkanerol.github.io/post/two-army-problem/</guid>
-      <description>&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;</description>
     </item>
     
     <item>

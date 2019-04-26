@@ -6,25 +6,17 @@
     <description>Recent content in Categories on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
+    <lastBuildDate>Fri, 26 Apr 2019 22:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://erkanerol.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Design Patterns</title>
-      <link>https://erkanerol.github.io/categories/design-patterns/</link>
-      <pubDate>Thu, 09 Jun 2016 00:00:00 +0200</pubDate>
+      <title>Software</title>
+      <link>https://erkanerol.github.io/categories/software/</link>
+      <pubDate>Fri, 26 Apr 2019 22:00:00 +0300</pubDate>
       
-      <guid>https://erkanerol.github.io/categories/design-patterns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Distributed Systems</title>
-      <link>https://erkanerol.github.io/categories/distributed-systems/</link>
-      <pubDate>Sun, 01 Oct 2017 19:00:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/categories/distributed-systems/</guid>
+      <guid>https://erkanerol.github.io/categories/software/</guid>
       <description></description>
     </item>
     
@@ -38,47 +30,11 @@
     </item>
     
     <item>
-      <title>Futbol</title>
-      <link>https://erkanerol.github.io/categories/futbol/</link>
-      <pubDate>Fri, 11 Sep 2015 20:41:00 +0200</pubDate>
+      <title>Distributed Systems</title>
+      <link>https://erkanerol.github.io/categories/distributed-systems/</link>
+      <pubDate>Wed, 04 Oct 2017 22:30:00 +0300</pubDate>
       
-      <guid>https://erkanerol.github.io/categories/futbol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genel</title>
-      <link>https://erkanerol.github.io/categories/genel/</link>
-      <pubDate>Sat, 07 Jan 2017 13:42:18 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/categories/genel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>https://erkanerol.github.io/categories/java/</link>
-      <pubDate>Thu, 11 Feb 2016 22:02:50 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/categories/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kavramlar</title>
-      <link>https://erkanerol.github.io/categories/kavramlar/</link>
-      <pubDate>Thu, 29 Sep 2016 22:27:32 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/categories/kavramlar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kitap</title>
-      <link>https://erkanerol.github.io/categories/kitap/</link>
-      <pubDate>Sat, 11 Feb 2017 19:10:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/categories/kitap/</guid>
+      <guid>https://erkanerol.github.io/categories/distributed-systems/</guid>
       <description></description>
     </item>
     
@@ -92,6 +48,42 @@
     </item>
     
     <item>
+      <title>Kitap</title>
+      <link>https://erkanerol.github.io/categories/kitap/</link>
+      <pubDate>Sat, 11 Feb 2017 19:10:00 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/categories/kitap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genel</title>
+      <link>https://erkanerol.github.io/categories/genel/</link>
+      <pubDate>Sat, 07 Jan 2017 13:42:18 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/categories/genel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kavramlar</title>
+      <link>https://erkanerol.github.io/categories/kavramlar/</link>
+      <pubDate>Thu, 29 Sep 2016 22:27:32 +0300</pubDate>
+      
+      <guid>https://erkanerol.github.io/categories/kavramlar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design Patterns</title>
+      <link>https://erkanerol.github.io/categories/design-patterns/</link>
+      <pubDate>Thu, 09 Jun 2016 00:00:00 +0200</pubDate>
+      
+      <guid>https://erkanerol.github.io/categories/design-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Prensipler</title>
       <link>https://erkanerol.github.io/categories/prensipler/</link>
       <pubDate>Thu, 02 Jun 2016 20:23:06 +0300</pubDate>
@@ -101,20 +93,20 @@
     </item>
     
     <item>
-      <title>Software</title>
-      <link>https://erkanerol.github.io/categories/software/</link>
-      <pubDate>Sun, 01 Oct 2017 19:00:00 +0300</pubDate>
+      <title>Java</title>
+      <link>https://erkanerol.github.io/categories/java/</link>
+      <pubDate>Thu, 11 Feb 2016 22:02:50 +0300</pubDate>
       
-      <guid>https://erkanerol.github.io/categories/software/</guid>
+      <guid>https://erkanerol.github.io/categories/java/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Video</title>
-      <link>https://erkanerol.github.io/categories/video/</link>
-      <pubDate>Mon, 29 Aug 2016 20:47:34 +0300</pubDate>
+      <title>Futbol</title>
+      <link>https://erkanerol.github.io/categories/futbol/</link>
+      <pubDate>Fri, 11 Sep 2015 20:41:00 +0200</pubDate>
       
-      <guid>https://erkanerol.github.io/categories/video/</guid>
+      <guid>https://erkanerol.github.io/categories/futbol/</guid>
       <description></description>
     </item>
     

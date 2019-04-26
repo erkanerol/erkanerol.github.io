@@ -6,7 +6,7 @@
     <description>Recent content in Distributed Systems on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 01 Oct 2017 19:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 04 Oct 2017 22:30:00 +0300</lastBuildDate>
     
 	<atom:link href="https://erkanerol.github.io/categories/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
     
@@ -25,9 +25,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -46,9 +44,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>

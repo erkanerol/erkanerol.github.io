@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Adapting a software project &middot; Erkan Erol</title>
+
+  
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://erkanerol.github.io/css/highlight/monokai.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://erkanerol.github.io/touch-icon-144-precomposed.png">
+  <link href="https://erkanerol.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Erkan Erol&#39;s Blog">
+  <meta name="keywords" content="software,books,software craftsmanship,erkan erol,blog">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57796113-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">  
+      
+        <img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200"
+             alt="gravatar" title="Erkan Erol">
+      
+      <h1>Erkan Erol</h1>
+      
+    </div>
+
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="https://erkanerol.github.io/">
+        
+        Blog</a>
+      </li>
+      
+      <li class="sidebar-nav-item">
+         
+        <a href="https://erkanerol.github.io/categories/software/">Software</a>
+      </li>
+      
+      <li class="sidebar-nav-item">
+         
+        <a href="https://erkanerol.github.io/categories/kitap/">Kitap</a>
+      </li>
+      
+      <li class="sidebar-nav-item">
+        
+        <a href="https://erkanerol.github.io/post/about/">Hakkımda</a>
+      </li>
+      
+
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/erkanerol"><i class="fa fa-github-square fa-2x"></i></a>
+      
+      <a href="http://stackoverflow.com/users/2900777/erkan-erol"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/erkan-erol-26488b91?"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      
+      
+      <a href="https://twitter.com/erkan_erol_"><i class="fa fa-twitter-square fa-2x"></i></a>
+      
+      <a href="https://erkanerol.github.io/index.xml" type="application/rss+xml"><i class="fa fa-rss-square fa-2x"></i></a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Adapting a software project</h1>
+    <span class="post-date">Apr 26, 2019 &middot; <a href="https://erkanerol.github.io/post/adapting-a-project/#disqus_thread">Comments</a>
+    
+    <br/>
+    <a class="label" href="https://erkanerol.github.io/categories/software">Software</a>
+    </span>
+    <p>Throughout my career, a few times,</p>
+
+<ul>
+<li>I joined a project</li>
+<li>I became one of the main maintainers of the project/a component after a while</li>
+<li>I helped new people to adapt the project</li>
+</ul>
+
+<p>The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting a software project. In this blog post, I am going to share &ldquo;my way&rdquo;.</p>
+
+<ul>
+<li><p>First of all, don&rsquo;t judge people and decisions from day one. Some decisions/design choices/solutions may seem silly to you at first glance. Without understanding the problems well and without knowing the conditions under which the decisions were taken, your opinions are -most probably- so poor. Wait until you get the everyting. Just try to adapt the team/the team&rsquo;s way in this period. After a while, you will notice</p>
+
+<ul>
+<li>Some of the weird decisions are not actually weird. There are some logical explanations. -&gt; Your opinion was wrong.</li>
+<li>Some of the stupid solutions are not actually so stupid. There are some tradeoff between alternative solutions but the difference is not so much. It is not a big failure to select the wrong one. -&gt; You overestimated the failure.</li>
+<li>Some of the incompetent implementations have some reasonable excuses. -&gt; Your judgement was not fair.</li>
+<li>Some of the mistakes are real mistakes. -&gt; That is why you are there to contribute the team and the project!</li>
+</ul></li>
+
+<li><p>Don&rsquo;t try to understand everything from day one. There may be thousands lines of code. The stack may be totally new to you. The architecture may be so complicated to understand in a few days. The project may require deep domain knowledge. Nobody expects you to get the everything in a week. Give enough time to yourself. Software is more than the boxes in the white board and it requires huge amount of effort to reveal itself.</p></li>
+
+<li><p>Don&rsquo;t wait for getting everything to get a task. Pick the easiest one and try to do it. For example, adding a new button/endpoint/service/flag which is almost same as one of the existing ones. While doing this task, try to understand which kind of activities you need to finish a task. Implementing production code, implementing unit/integration tests, code review, adding new sections into internal/user documents, doing some configurations in other tools/systems, conducting necessary negotiation with other stakeholders, security scan, bringing it into production (or internal usage) etc. DO NOT rush. Juniors sometimes try to finish the task as soon as possible to show their performance. This is a very common conversation:</p>
+
+<pre><code>Newbie: Hey. I am done😎Only in a half day.
+
+Veteran: Hımmm. Did you do X?
+
+Newbie: Not yet😳
+</code></pre></li>
+</ul>
+
+<p>It is ok to make this conversation a few times. However, you should know what to do in order to finish a task after a while. You should be able to finish tasks in every aspects without bothering the other people so much. If your team has a proper, well-written definition of done, you are so lucky :)</p>
+
+<ul>
+<li><p>Every task is an opportunity to learn new things. If you are working in an insightful team, given time for a task includes enough amount of time to increase your knowledge about the project. Don&rsquo;t try to learn everything with a task but ensure every task is a step in your level. You can select one aspect of the task and learn it before delivering the output. For example, goroutines in Go, services in k8s, threads in Python etc. Read documentation about the topic, break somethings to understand the effects, question the design and ask your teammates if there are some open points. Don&rsquo;t ask so much at a time :) I always keep a map in my mind about which topics can be asked to whom and use &ldquo;Round-robin&rdquo; to distribute my questions.</p></li>
+
+<li><p>Invest in your skills and knowledge about the technology stack and the domain. Learn deeply regardless of whether they are necessary for the current tasks or not.  If you are working with Java, be the one of the people who try newest Java version. If you are working with kubernetes, follow the CNCF tools closely. New problems require different perspectives/approaches. You should be one of the &ldquo;go-to people&rdquo;. In order to achieve this level, sacrifice some of your personal time if necessary. Tasks/roles/companies/projects are temporary. Knowledge and skills are permanent. Do it not only for the project but also for yourself!</p></li>
+
+<li><p>Let&rsquo;s say enough time has passed. You made a progress. You are able to finish given tasks but you are not a part of decision making process effectively. Now, it is time to shadow decision makers. Try to be a part of decision making process even you cannot say anything at the beginning. Join meetings and discussions. Observe decision makers, get concerns, learn parameters, notice &ldquo;balances&rdquo;. Figure out the anatomy of decision making. Don&rsquo;t forget every decision has some risks and you cannot decide anything without risk. Be brave! Contribute the discussions. Most of the time, the veterans of the project are conservative about giving these kind of responsibilities. Show your capabailities and ask more autonomy. When they see your abilities, they will trust you more.</p></li>
+
+<li><p>Last but not least. Feel responsible from day one. You are a part of the team and you are responsible for every failure and every success.  More or less. If there is a pain in somewhere in your team, feel it in your heart. In companies, there are always some &ldquo;local people&rdquo; and &ldquo;tourists&rdquo;. Tourists are only interested in &ldquo;fancy&rdquo; things. They follow their interests. They hate problematic situations. They don&rsquo;t take some much responsibility in case of failure. They always blame decision makers since they never try to be one of them. When they get bored, they just fly to yet another city. In reality, there are lots of limitations and we are not living in a perfect world. Unfortunately they are not aware of this fact. Maybe they are just prefering ignoring it. I don&rsquo;t know. What I want to say be one of the &ldquo;local people&rdquo;. Local people know not only good places of the city but also the suburb. Local people think about how to manage the city, how to &ldquo;survive&rdquo; in the city, how to make the city more beautiful. They can live with the bad sides of the city. At least for a while :)</p></li>
+</ul>
+
+<p>These are my approaches as of now. I am sure some of them will change in time. It is a long way&hellip;</p>
+
+<p><br><br>
+Reviewers:</p>
+
+<ul>
+<li><a href="https://www.linkedin.com/in/turkenh/">Hasan Turken</a></li>
+<li><a href="https://www.linkedin.com/in/mmonus/">Muvaffak Onuş</a></li>
+</ul>
+
+<p><br><br><br>
+<strong>BONUS</strong></p>
+
+<p>I will be talking about &ldquo;Being an apprentice software crafter&rdquo; in April 30th. Here is the details
+<a href="https://www.meetup.com/Software-Craftsmanship-Turkey/events/260696392">https://www.meetup.com/Software-Craftsmanship-Turkey/events/260696392</a></p>
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "erkanerol-github-io";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "erkanerol-github-io";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58713be9ad6e45ec"></script> 
+
+<script src="https://erkanerol.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

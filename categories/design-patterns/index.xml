@@ -23,9 +23,7 @@
 &lt;li&gt;Elimizde benzer ve ilişkili nesneler var ve bunları somut sınıflarını belirtmeden oluşturmak için bir arayüz istiyoruz&lt;/li&gt;
 &lt;li&gt;Platformlara özgü özellikleri ve nesnelerin platformlara göre farklılık gösteren yaratılışını sarmalamak (encapsulation) istiyoruz.&lt;/li&gt;
 &lt;li&gt;new operatörü ile yeni nesne yaratmanın sorunlu olduğunu düşünüyoruz&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
   </channel>
