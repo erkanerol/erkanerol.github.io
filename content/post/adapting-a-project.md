@@ -1,5 +1,5 @@
 +++
-date = "2019-04-22T20:00:00+03:00"
+date = "2019-04-26T22:00:00+03:00"
 description = ""
 title = "Adapting a software project"
 categories = ["Software"]
