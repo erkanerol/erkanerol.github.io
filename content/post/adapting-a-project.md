@@ -1,7 +1,7 @@
 +++
 date = "2019-04-26T22:00:00+03:00"
 description = ""
-title = "Adapting a software project"
+title = "Adapting to a software project"
 categories = ["Software"]
 weight=1
 
@@ -11,13 +11,13 @@ Throughout my career, a few times,
 
 - I joined a project
 - I became one of the main maintainers of the project/a component after a while 
-- I helped new people to adapt the project
+- I helped new people to adapt to the project
 
-The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting a software project. In this blog post, I am going to share "my way".
+The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting to a software project. In this blog post, I am going to share "my way".
 
 <!--more-->
 
-- First of all, don't judge people and decisions from day one. Some decisions/design choices/solutions may seem silly to you at first glance. Without understanding the problems well and without knowing the conditions under which the decisions were taken, your opinions are -most probably- so poor. Wait until you get the everyting. Just try to adapt the team/the team's way in this period. After a while, you will notice
+- First of all, don't judge people and decisions from day one. Some decisions/design choices/solutions may seem silly to you at first glance. Without understanding the problems well and without knowing the conditions under which the decisions were taken, your opinions are -most probably- so poor. Wait until you get the everyting. Just try to adapt to the team/the team's way in this period. After a while, you will notice
 
   - Some of the weird decisions are not actually weird. There are some logical explanations. -> Your opinion was wrong.
   - Some of the stupid solutions are not actually so stupid. There are some tradeoff between alternative solutions but the difference is not so much. It is not a big failure to select the wrong one. -> You overestimated the failure.
