@@ -49,6 +49,12 @@ It is ok to make this conversation a few times. However, you should know what to
 
 These are my approaches as of now. I am sure some of them will change in time. It is a long way... 
 
+<br><br>
+Reviewers:
+
+- [Hasan Turken](https://www.linkedin.com/in/turkenh/)
+- [Muvaffak Onuş](https://www.linkedin.com/in/mmonus/)
+
 <br><br><br>
 **BONUS**
 
