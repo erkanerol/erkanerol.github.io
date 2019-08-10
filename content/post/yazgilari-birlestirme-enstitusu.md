@@ -1,5 +1,5 @@
 +++
-date = "2019-08-10T10:20:20+03:00"
+date = "2019-08-10T19:00:00+03:00"
 description = ""
 title = "Yazgıları Birleştirme Enstitüsü"
 categories = ["Freestyle"]
@@ -109,4 +109,11 @@ Sağ olun, var olun.
 
 -----------------
 
-Dipnot: Tövbe haşa Allah günah yazmasın :( 
+<div style="text-align: right">
+    <br>Hayatın farklı dönemlerindeki 
+    <br>mecburi yol ayrımlarında göz yaşı ile
+    <br>veda edilen ve hep özlenen dostlara ithafen.
+    <br>
+    <br>Erkan Erol
+    <br>İstanbul / 2019
+</div>
