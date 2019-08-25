@@ -6,7 +6,7 @@ keywords = ["Software", "k8s", "Kubernetes"]
 weight = 1
 +++
 
-Last Friday, one of my colleagues approached me and asked a question about regarding how to exec a command in a pod via client-go in a k8s operator. I didn't know the answer and I noticed that I had never thought about the mechanism in "kubectl exec". I had some ideas about how it should be, but I wasn't 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings. 
+Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn't know the answer and I noticed that I had never thought about the mechanism in "kubectl exec". I had some ideas about how it should be, but I wasn't 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings. 
 
 > Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 
@@ -14,7 +14,7 @@ Last Friday, one of my colleagues approached me and asked a question about regar
 <br><br>
 ## Setup
 
-I cloned https://github.com/ecomm-integration-ballerina/kubernetes-cluster in order to create a k8s cluster in my Mac. I fixed IP addresses of the nodes in kubelet configurations since the default configuration didn't let me run `kubectl exec`. You can find the root cause [here](https://medium.com/@joatmon08/playing-with-kubeadm-in-vagrant-machines-part-2-bac431095706).
+I cloned https://github.com/ecomm-integration-ballerina/kubernetes-cluster in order to create a k8s cluster in my MacBook. I fixed IP addresses of the nodes in kubelet configurations since the default configuration didn't let me run `kubectl exec`. You can find the root cause [here](https://medium.com/@joatmon08/playing-with-kubeadm-in-vagrant-machines-part-2-bac431095706).
 
 * Any machine = my MacBook
 * IP of master node = 192.168.205.10
