@@ -1,6 +1,6 @@
 +++
 categories = ["Software","k8s"]
-date = "2019-08-23T10:23:23+03:00"
+date = "2019-08-25T19:00:00+03:00"
 title = "How does kubectl work?"
 keywords = ["Software", "k8s", "Kubernetes"]
 weight = 1
