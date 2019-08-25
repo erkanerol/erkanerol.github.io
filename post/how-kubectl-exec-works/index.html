@@ -183,7 +183,7 @@ tcp4       0      0  192.168.205.1.51672    192.168.205.10.6443    ESTABLISHED 1
 </code></pre></li>
 
 <li><p>Let&rsquo;s check the code. kubectl creates a POST request with subresource <code>exec</code> and sends a rest request.
-<script src="http://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go?slice=344:359"></script></p></li>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go?slice=344:359"></script></p></li>
 </ul>
 
 <p><img src="/img/kubectl-exec/rest-request.png"  title="rest-request"/></p>
@@ -205,16 +205,16 @@ Headers: map[Connection:[Upgrade] Content-Length:[0] Upgrade:[SPDY/3.1] User-Age
 </blockquote></li>
 
 <li><p>Api server receives the request and binds it into a <code>PodExecOptions</code>
-<script src="http://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/apis/core/types.go?slice=4124:4147"></script></p></li>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/apis/core/types.go?slice=4124:4147"></script></p></li>
 
 <li><p>To be able to take necessary actions, api-server needs to know which location it should contact.
-<script src="http://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=455:467"></script><br></p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=455:467"></script><br></p>
 
 <p>Of course the endpoint is derived from node info.
-<script src="http://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=504:510"></script><br></p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=504:510"></script><br></p>
 
 <p>GOTCHA! KUBELET HAS A PORT (<code>node.Status.DaemonEndpoints.KubeletEndpoint.Port</code>) TO WHICH API-SERVER CAN CONNECT.
-<script src="http://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/kubelet/client/kubelet_client.go?slice=180:206"></script><br></p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/kubelet/client/kubelet_client.go?slice=180:206"></script><br></p>
 
 <blockquote>
 <p><a href="https://kubernetes.io/docs/concepts/architecture/master-node-communication/#apiserver-to-kubelet">Master-Node Communication &gt; Master to Cluster &gt; apiserver to kubelet</a></p>
@@ -223,7 +223,7 @@ Headers: map[Connection:[Upgrade] Content-Length:[0] Upgrade:[SPDY/3.1] User-Age
 </blockquote></li>
 
 <li><p>Now, api server knows the endpoint and it opens a connections.
-<script src="http://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/rest/subresources.go?slice=132:144"></script><br></p></li>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/rest/subresources.go?slice=132:144"></script><br></p></li>
 
 <li><p>Let&rsquo;s check what is going on the master node.</p></li>
 </ul>
@@ -288,25 +288,25 @@ tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
 <li><p>Wait! How did kubelet do it?</p></li>
 
 <li><p>kubelet has a daemon which serves an api over a port for api-server requests.
-<script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/server/streaming/server.go?slice=41:60"></script><br></p></li>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/server/streaming/server.go?slice=41:60"></script><br></p></li>
 
 <li><p>kubelet computes a response endpoint for exec requests.
-<script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/server/streaming/server.go?slice=177:190"></script><br></p></li>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/server/streaming/server.go?slice=177:190"></script><br></p></li>
 </ul>
 
 <p>Don&rsquo;t confuse. It doesn&rsquo;t return the result of the command. It returns an endpoint for communication.
-<script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=4533:4540"></script><br></p>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=4533:4540"></script><br></p>
 
 <p>kubelet implements <code>RuntimeServiceClient</code> interface which is part of Container Runtime Interface.
-  <script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7157:7229"></script><br></p>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7157:7229"></script><br></p>
 
 <p>It just uses gRPC to invoke a method through Container Runtime Interface.
-  <script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7229:7233"></script><br></p>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7229:7233"></script><br></p>
 
-<p><script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7372:7381"></script><br></p>
+<p><script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7372:7381"></script><br></p>
 
 <p>Container Runtime is responsible to implement <code>RuntimeServiceServer</code>
-  <script src="http://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br></p>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br></p>
 
 <p><img src="/img/kubectl-exec/kubelet-to-container-runtime.png"  title="kubelet-to-container-runtime"/></p>
 
@@ -352,12 +352,12 @@ $ ps -afx
 </ul>
 
 <p>It has a server which implements RuntimeServiceServer.
-  <script src="http://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/server/server.go?slice=60:82"></script><br></p>
+  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/server/server.go?slice=60:82"></script><br></p>
 
-<p><script src="http://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/server/container_exec.go?slice=13:28"></script><br></p>
+<p><script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/server/container_exec.go?slice=13:28"></script><br></p>
 
 <p>At the end of the chain, container runtime executes the command in the worker node.
-  <script src="http://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/internal/oci/runtime_oci.go?slice=292:342"></script><br></p>
+  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/internal/oci/runtime_oci.go?slice=292:342"></script><br></p>
 
 <p><img src="/img/kubectl-exec/container-runtime-to-kernel.png"  title="container-runtime-to-kernel"/></p>
 
