@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Blog</title>
-    <link>https://erkanerol.github.io/post/</link>
-    <description>Recent content in Posts on Blog</description>
+    <title>TR on Blog</title>
+    <link>https://erkanerol.github.io/categories/tr/</link>
+    <description>Recent content in TR on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr-tr</language>
-    <lastBuildDate>Sun, 25 Aug 2019 19:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 19:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://erkanerol.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://erkanerol.github.io/categories/tr/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>How does &#39;kubectl exec&#39; work?</title>
-      <link>https://erkanerol.github.io/post/how-kubectl-exec-works/</link>
-      <pubDate>Sun, 25 Aug 2019 19:00:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/how-kubectl-exec-works/</guid>
-      <description>&lt;p&gt;Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn&amp;rsquo;t know the answer and I noticed that I had never thought about the mechanism in &amp;ldquo;kubectl exec&amp;rdquo;. I had some ideas about how it should be, but I wasn&amp;rsquo;t 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Please ping me if there is something wrong. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34;&gt;https://twitter.com/erkan_erol_&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
     
     <item>
       <title>Yazgıları Birleştirme Enstitüsü</title>
@@ -47,23 +34,6 @@
 &lt;p&gt;Bugün, buraya, tarihin akışını değiştirecek bu enstitümüzün açılışına hoş geldiniz!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;&amp;mdash;alkışlar&amp;mdash;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Adapting to a software project</title>
-      <link>https://erkanerol.github.io/post/adapting-a-project/</link>
-      <pubDate>Fri, 26 Apr 2019 22:00:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/adapting-a-project/</guid>
-      <description>&lt;p&gt;Throughout my career, a few times,&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;I joined a project&lt;/li&gt;
-&lt;li&gt;I became one of the main maintainers of the project/a component after a while&lt;/li&gt;
-&lt;li&gt;I helped new people to adapt to the project&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting to a software project. In this blog post, I am going to share &amp;ldquo;my way&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -416,17 +386,6 @@ Bir aydan kısa bir süredir Java tabanlı web yazılımları geliştirmekle me�
       
       <guid>https://erkanerol.github.io/post/two-army-problem/</guid>
       <description>&lt;p&gt;Bu yazıda Two Generals&amp;rsquo; Problem ya da The Two Army Problem olarak anılan problemi anlatmaya çalışacağım.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://erkanerol.github.io/post/about/</link>
-      <pubDate>Tue, 30 Aug 2016 12:37:57 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/about/</guid>
-      <description>&lt;p&gt;Hi,&lt;/p&gt;
-
-&lt;p&gt;I am Erkan. I am a software engineer at SAP and co-organizer at Software Craftsmanship Turkey community.&lt;/p&gt;</description>
     </item>
     
     <item>

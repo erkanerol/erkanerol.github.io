@@ -160,6 +160,12 @@
   </url>
   
   <url>
+    <loc>https://erkanerol.github.io/categories/en/</loc>
+    <lastmod>2019-08-25T19:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://erkanerol.github.io/post/</loc>
     <lastmod>2019-08-25T19:00:00+03:00</lastmod>
     <priority>0</priority>
@@ -179,6 +185,12 @@
   
   <url>
     <loc>https://erkanerol.github.io/categories/freestyle/</loc>
+    <lastmod>2019-08-10T19:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/categories/tr/</loc>
     <lastmod>2019-08-10T19:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>

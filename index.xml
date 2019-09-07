@@ -419,18 +419,14 @@ Bir aydan kısa bir süredir Java tabanlı web yazılımları geliştirmekle me�
     </item>
     
     <item>
-      <title>Hakkımda</title>
+      <title>About me</title>
       <link>https://erkanerol.github.io/post/about/</link>
       <pubDate>Tue, 30 Aug 2016 12:37:57 +0300</pubDate>
       
       <guid>https://erkanerol.github.io/post/about/</guid>
-      <description>&lt;h3 id=&#34;ünvan-title&#34;&gt;Ünvan (Title)&lt;/h3&gt;
+      <description>&lt;p&gt;Hi,&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Üniversite -&amp;gt; Bilgisayar Mühendisi / Computer Engineer&lt;/li&gt;
-&lt;li&gt;Piyasa -&amp;gt; Genç Yazılım Gelişticisi / Junior Software Developer&lt;/li&gt;
-&lt;li&gt;Kendim -&amp;gt; Çırak Yazılım Ustası / &lt;strong&gt;Apprentice Software Craftsman&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;p&gt;I am Erkan. I am a software engineer at SAP and co-organizer at Software Craftsmanship Turkey community.&lt;/p&gt;</description>
     </item>
     
     <item>
