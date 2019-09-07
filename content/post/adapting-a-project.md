@@ -2,7 +2,7 @@
 date = "2019-04-26T22:00:00+03:00"
 description = ""
 title = "Adapting to a software project"
-categories = ["Software"]
+categories = ["Software", "EN"]
 weight=1
 
 +++

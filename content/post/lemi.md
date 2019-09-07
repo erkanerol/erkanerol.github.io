@@ -1,6 +1,6 @@
 +++
 date = "2017-03-12T22:24:38+03:00"
-categories = ["Kişisel"]
+categories = ["Kişisel","TR"]
 keywords = []
 description = ""
 title = "Ustam: Lemi Orhan Ergin"

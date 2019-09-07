@@ -2,7 +2,7 @@
 date = "2017-02-11T00:31:42+03:00"
 keywords = ["hash functions","Hash Fonksiyonları"]
 title = "Hash Fonksiyonları"
-categories = ["Software"]
+categories = ["Software","TR"]
 draft=false
 weight = 1
 +++

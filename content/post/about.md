@@ -1,79 +1,55 @@
 +++
 date = "2016-08-30T12:37:57+03:00"
 draft = false
-title = "Hakkımda"
+title = "About me"
 menu = "main"
 keywords = ["About","Hakkımda","Erkan Erol"]
 weight = 1001
 +++
 
-### Ünvan (Title)
-1. Üniversite -> Bilgisayar Mühendisi / Computer Engineer
-* Piyasa -> Genç Yazılım Gelişticisi / Junior Software Developer
-* Kendim -> Çırak Yazılım Ustası / **Apprentice Software Craftsman**
+Hi,
+
+I am Erkan. I am a software engineer at SAP and co-organizer at Software Craftsmanship Turkey community. 
 
 <!--more-->
+<br>
 
-### Eğitim
-1. İstanbul Atatürk Fen Lisesi (2006-2010)
-* Boğaziçi Üniversitesi - Bilgisayar Mühendisliği - Lisans (2010-2015)
-
-### İş
-1. Netaş (Haziran 2015 - Aralık 2017)
-2. SAP Development Center Turkey(Ocak 2018 - ? )
+### Career Summary (4.5 years)
+  - Last 3.5 years: Organizing events about software development and craftsmanship
+  - Last 2 years: Running distributed systems on top of kubernetes (Bash/Go/Helm/Operators)
+  - First 2.5 years: Full stack developer (Java/JSF/Spring/Angular/Docker)
 
 
-### İlgi Alanları
-1. Software Craftsmanship
-2. DevOps
-3. Kahve
-4. İnsana dair filmler (örneğin Demirkubuz, Farhadi, Ceylan, Majidi filmleri)
+<br>
 
+### Professional Interests
+  - Running apps on top of kubernetes 
+  - [Developing cloud native software](https://www.youtube.com/watch?v=ttg5QGv9Uvo&t=3253s)
+  - Software Craftsmanship
 
-**NOT: Herhangi bir hobim yoktur.**
+<br>
 
+### Personal Interests
+  - Art House Movies. [My Ratings in IMDb](https://www.imdb.com/user/ur50587721/ratings)
+  - Short Stories in Turkish
+  - [Preparing drinks for my friends](https://twitter.com/erkan_erol_/status/1165292260927389696)
 
-### Aktivite
-1. Okuma, öğrenme, deneme, yanılma, kodlama, kodlama, kodlama
-* [ScTurkey](www.meetup.com/Software-Craftsmanship-Turkey) etkinliklerini düzenleme, aktif rol alma
-* Meetup/Everbrite üzerinden yapılan bazı etkinliklere katılma
+<br>
 
-* **Şimdilik bir Open Source katkım yok :(**
+### Contributions
+  - Giving talks about the topics which I am interested in. [Here](https://speakerdeck.com/erkanerol) is my speakerdeck accout.
+  - Writing blog posts in English and Turkish
 
-### Yetenekler
-1. Karşıdaki insanı anlama ve kendini düzgün ifade edebilme 
-* Kendi kendine öğrenebilme
-* Analiz + Soyut düşünme
-* Bildiğini öğretebilme 
+<br>
 
+### Dream
+I want to learn everything which influences software engineering process including product management, software design, development, operational activities, people management, hiring, team composition etc. and I want to drive a medium-sized engineering team in my forties.
 
-### Bildiklerim / Yaptıklarım / Kullandıklarım
+<br>
 
-#### İleri
+### Contact
 
-* Yazılım geliştirmenin temel prensipleri
-* Analiz ve sorunların tespiti
-* Gereksinimlerin toplanması
-* Çözüm geliştirme
-* Algoritmalar ve veri yapıları 
-* Java ile backend
-* Angular ile frontend
-* Bash, Docker, Kubernetes ile DevOps
-
-### Olmak istediklerim
-1. Kısa vade => Devops => Kubernetes uzmanı olmak
-* Orta vade =>  Full Stack + Devops + Scrum Master => Modern bir yazılım projesindeki bütün bileşenlere hakim olmak
-* Uzun vade => Software Craftsman => Hem teknik bilgi, hem davranış bakımından
-
-
-### Ustalar
-1. [Lemi Orhan Ergin](http://www.lemiorhanergin.com/)
-* [Sandro Mancuso](http://codurance.com/blog/author/sandro-mancuso/)
-* [Gökhan Şengün](http://www.gokhansengun.com/)
-* [Uncle Bob](https://sites.google.com/site/unclebobconsultingllc/)
-
-### İletişim
-Sol taraftaki menüde çeşitli sitelerdeki hesaplarım mevcut. 
+Feel free to contact with me via the channels in the left menu.
 
 Email: erkanerol92[at]gmail[dot]com
 

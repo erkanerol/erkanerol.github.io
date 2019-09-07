@@ -2,7 +2,7 @@
 date = "2017-02-25T20:00:00+03:00"
 keywords = ["Yazılım","Fanatik"]
 title = "Yazılımcı Fanatikliğinin Anatomisi"
-categories = ["Software"]
+categories = ["Software","TR"]
 draft=false
 weight = 1
 +++

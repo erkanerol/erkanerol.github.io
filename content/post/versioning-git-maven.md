@@ -1,5 +1,5 @@
 +++
-categories = ["Software","Java"]
+categories = ["Software","Java","TR"]
 date = "2016-02-11T22:02:50+03:00"
 title = "How to version a JavaEE Web application with Maven and Git"
 keywords = ["Maven","Git","Versioning"]

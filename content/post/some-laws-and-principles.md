@@ -1,5 +1,5 @@
 +++
-categories = ["Genel"]
+categories = ["Genel","TR"]
 date = "2017-01-07T13:42:18+03:00"
 title = "Bir takım teoriler, kanunlar ve ilkeler"
 keywords = ["Conway's Law",

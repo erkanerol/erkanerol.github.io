@@ -3,7 +3,7 @@ date = "2017-03-25T00:37:43+03:00"
 keywords = ["Primitive Obsession"]
 description = ""
 title = "Primitive Takıntısı ve Değer Nesneleri"
-categories = ["Software"]
+categories = ["Software","TR"]
 weight=1
 
 +++

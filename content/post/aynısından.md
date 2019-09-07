@@ -2,7 +2,7 @@
 date = "2017-11-26T20:00:00+03:00"
 description = ""
 title = "Aynısından"
-categories = ["Freestyle"]
+categories = ["Freestyle","TR"]
 weight=1
 
 +++

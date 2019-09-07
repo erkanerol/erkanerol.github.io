@@ -1,5 +1,5 @@
 +++
-categories = ["Software","k8s"]
+categories = ["Software","k8s","EN"]
 date = "2019-08-25T19:00:00+03:00"
 title = "How does 'kubectl exec' work?"
 keywords = ["Software", "k8s", "Kubernetes"]

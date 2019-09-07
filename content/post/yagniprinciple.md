@@ -1,5 +1,5 @@
 +++
-categories = ["Software","Prensipler"]
+categories = ["Software","Prensipler","TR"]
 date = "2016-05-25T22:46:50+03:00"
 title = "YAGNI Prensibi"
 keywords = ["YAGNI Prensibi","Yazılım Prensipleri","YAGNI","Software Principles"]

@@ -1,5 +1,5 @@
 +++
-categories = ["Software"]
+categories = ["Software","TR"]
 date = "2016-03-14T22:33:53+03:00"
 title = "Fikirden Ürüne Yazılım Geliştirme Süreçleri (Ücretsiz Ders)"
 keywords = ["Udacity","Ücretsiz Ders"]

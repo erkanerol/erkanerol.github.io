@@ -1,5 +1,5 @@
 +++
-Categories = ["Kitap","Futbol"]
+Categories = ["Kitap","Futbol","TR"]
 date = "2015-09-11T20:41:00+02:00"
 title = "Gölgede ve Güneşte Futbol - Eduardo Galeano"
 keywords = ["Gölgede ve Güneşte Futbol","Eduardo Galeano"]

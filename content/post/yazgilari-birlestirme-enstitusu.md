@@ -2,7 +2,7 @@
 date = "2019-08-10T19:00:00+03:00"
 description = ""
 title = "Yazgıları Birleştirme Enstitüsü"
-categories = ["Freestyle"]
+categories = ["Freestyle","TR"]
 weight=1
 
 +++

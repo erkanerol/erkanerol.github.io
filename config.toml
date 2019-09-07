@@ -65,15 +65,15 @@ enableRobotsTXT = true
     rss = true  # switch to true to enable RSS icon link
 
     [[menu.main]]
-    name = "Software"
+    name = "Turkish"
     pre = " "
     weight = -110
-    identifier = "software"
-    url = "/categories/software/"
+    identifier = "TR"
+    url = "/categories/tr/"
 
     [[menu.main]]
-    name = "Kitap"
+    name = "English"
     pre = " "
     weight = -100
-    identifier = "kitap"
-    url = "/categories/kitap/"
+    identifier = "EN"
+    url = "/categories/en/"

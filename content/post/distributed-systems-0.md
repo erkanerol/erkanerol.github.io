@@ -3,7 +3,7 @@ date = "2017-10-04T22:30:00+03:00"
 keywords = ["Distributed Systems"]
 description = ""
 title = "Dağıtık Sistemler"
-categories = ["Software", "Distributed Systems"]
+categories = ["Software", "Distributed Systems","TR"]
 
 +++
 
