@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -150,49 +150,41 @@
   <url>
     <loc>https://erkanerol.github.io/</loc>
     <lastmod>2019-08-25T19:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/</loc>
     <lastmod>2019-08-25T19:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/en/</loc>
     <lastmod>2019-08-25T19:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/post/</loc>
-    <lastmod>2019-08-25T19:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://erkanerol.github.io/categories/software/</loc>
-    <lastmod>2019-08-25T19:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/k8s/</loc>
     <lastmod>2019-08-25T19:00:00+03:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/post/</loc>
+    <lastmod>2019-08-25T19:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://erkanerol.github.io/categories/software/</loc>
+    <lastmod>2019-08-25T19:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/freestyle/</loc>
     <lastmod>2019-08-10T19:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/tr/</loc>
     <lastmod>2019-08-10T19:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -203,55 +195,46 @@
   <url>
     <loc>https://erkanerol.github.io/categories/distributed-systems/</loc>
     <lastmod>2017-10-04T22:30:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/ki%C5%9Fisel/</loc>
     <lastmod>2017-03-12T22:24:38+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/kitap/</loc>
     <lastmod>2017-02-11T19:10:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/genel/</loc>
     <lastmod>2017-01-07T13:42:18+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/kavramlar/</loc>
     <lastmod>2016-09-29T22:27:32+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/design-patterns/</loc>
     <lastmod>2016-06-09T00:00:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/prensipler/</loc>
     <lastmod>2016-06-02T20:23:06+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/java/</loc>
     <lastmod>2016-02-11T22:02:50+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://erkanerol.github.io/categories/futbol/</loc>
     <lastmod>2015-09-11T20:41:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
