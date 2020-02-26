@@ -165,24 +165,24 @@ tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
 - Wait! How did kubelet do it?
   
 - kubelet has a daemon which serves an api over a port for api-server requests. 
-   <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/server/streaming/server.go?slice=41:60"></script><br>
+   <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go?slice=41:60"></script><br>
 
 - kubelet computes a response endpoint for exec requests.
-   <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/server/streaming/server.go?slice=177:190"></script><br>
+   <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go?slice=177:190"></script><br>
 
   Don't confuse. It doesn't return the result of the command. It returns an endpoint for communication. 
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=4533:4540"></script><br>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=4533:4540"></script><br>
   
   kubelet implements `RuntimeServiceClient` interface which is part of Container Runtime Interface.
-  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7157:7229"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7157:7229"></script><br>
 
   It just uses gRPC to invoke a method through Container Runtime Interface.
-  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7229:7233"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7229:7233"></script><br>
 
-  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7372:7381"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7372:7381"></script><br>
 
   Container Runtime is responsible to implement `RuntimeServiceServer`
-  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br>
 
 
 <img src="/img/kubectl-exec/kubelet-to-container-runtime.png"  title="kubelet-to-container-runtime"/>
@@ -227,12 +227,12 @@ $ ps -afx
 - Let's check cri-o's source code to understand how it can happen. The logic is similar in docker.
 
   It has a server which implements RuntimeServiceServer.
-  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/server/server.go?slice=60:82"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/server.go?slice=60:82"></script><br>
 
-  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/server/container_exec.go?slice=13:28"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/container_exec.go?slice=13:28"></script><br>
 
   At the end of the chain, container runtime executes the command in the worker node.
-  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/master/internal/oci/runtime_oci.go?slice=292:342"></script><br>
+  <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/internal/oci/runtime_oci.go?slice=292:342"></script><br>
 
 <img src="/img/kubectl-exec/container-runtime-to-kernel.png"  title="container-runtime-to-kernel"/>
 
