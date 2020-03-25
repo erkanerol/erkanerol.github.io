@@ -3,7 +3,7 @@ name: Github Page CD
 on:
   push:
     branches:
-    - hugo-test
+    - hugo
 
 jobs:
   build-deploy:
