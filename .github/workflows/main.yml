@@ -9,7 +9,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@hugo-test
+    - uses: actions/checkout@master
       with:
         submodules: true
 
