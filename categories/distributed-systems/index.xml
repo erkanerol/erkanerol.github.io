@@ -1,62 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Distributed Systems on Blog</title>
-    <link>https://erkanerol.github.io/categories/distributed-systems/</link>
-    <description>Recent content in Distributed Systems on Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>tr-tr</language>
-    <lastBuildDate>Wed, 04 Oct 2017 22:30:00 +0300</lastBuildDate>
-    
-	<atom:link href="https://erkanerol.github.io/categories/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</title>
-      <link>https://erkanerol.github.io/post/distributed-systems-2/</link>
-      <pubDate>Sun, 01 Oct 2017 19:00:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/distributed-systems-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
-
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Distributed Systems on Blog</title><link>https://erkanerol.github.io/categories/distributed-systems/</link><description>Recent content in Distributed Systems on Blog</description><generator>Hugo -- gohugo.io</generator><language>tr-tr</language><lastBuildDate>Wed, 04 Oct 2017 22:30:00 +0300</lastBuildDate><atom:link href="https://erkanerol.github.io/categories/distributed-systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</title><link>https://erkanerol.github.io/post/distributed-systems-2/</link><pubDate>Sun, 01 Oct 2017 19:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/distributed-systems-2/</guid><description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 2:&lt;/em&gt;&lt;/strong&gt; Bu blogda yer alan bu konu hakkındaki bütün içeriğe &lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-0/&#34; target=&#34;_blank&#34;&gt;şuradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
-
 &lt;h2 id=&#34;tanım&#34;&gt;Tanım&lt;/h2&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>Dağıtık Sistemler: Giriş </title>
-      <link>https://erkanerol.github.io/post/distributed-systems-1/</link>
-      <pubDate>Sun, 01 Oct 2017 17:00:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/distributed-systems-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
-
+&lt;/blockquote&gt;</description></item><item><title>Dağıtık Sistemler: Giriş</title><link>https://erkanerol.github.io/post/distributed-systems-1/</link><pubDate>Sun, 01 Oct 2017 17:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/distributed-systems-1/</guid><description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 1:&lt;/em&gt;&lt;/strong&gt; Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan &lt;a href=&#34;http://book.mixu.net/distsys/&#34; target=&#34;_blank&#34;&gt;şuraya&lt;/a&gt; davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOT 2:&lt;/em&gt;&lt;/strong&gt; Bu blogda yer alan bu konu hakkındaki bütün içeriğe &lt;a href=&#34;https://erkanerol.github.io/post/distributed-systems-0/&#34; target=&#34;_blank&#34;&gt;şuradan&lt;/a&gt; erişebilirsiniz.&lt;/p&gt;
-
 &lt;h2 id=&#34;nedir-bu-dağıtık-sistemler&#34;&gt;Nedir bu dağıtık sistemler?&lt;/h2&gt;
-
 &lt;p&gt;Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage) ve hesaplama (computation). Ve günün sonunda hedefimiz bir problemi çözmektir. Bazen bu problemin doğası ve/veya büyüklüğü bizi birden fazla bilgisayar kullanmaya zorlar. İşte bu noktada &amp;ldquo;dağıtık programlama&amp;rdquo; devreye girer.&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>Dağıtık Sistemler</title>
-      <link>https://erkanerol.github.io/post/distributed-systems-0/</link>
-      <pubDate>Wed, 04 Oct 2017 22:30:00 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/distributed-systems-0/</guid>
-      <description> NOT 1: Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan şuraya davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
+&lt;/blockquote&gt;</description></item><item><title>Dağıtık Sistemler</title><link>https://erkanerol.github.io/post/distributed-systems-0/</link><pubDate>Wed, 04 Oct 2017 22:30:00 +0300</pubDate><guid>https://erkanerol.github.io/post/distributed-systems-0/</guid><description> NOT 1: Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan şuraya davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.
 NOT 2: Önümüzdeki süreçte &amp;ldquo;Distributed Systems&amp;rdquo; üzerine çalışmayı planlıyorum. Bu konuda okumalar yapmaya başladım. Okuduklarımı blog yazılarına dökersem daha iyi anlayacağımı düşündüğüm için işbu blog serisini başlatmış bulunmaktayım.
-Dağıtık Sistemler (Distributed Systems)  Giriş Ölçeklenebilirlik (Scalibility) Performans ve Gecikme (Latency)  </description>
-    </item>
-    
-  </channel>
-</rss>
+Dağıtık Sistemler (Distributed Systems) Giriş Ölçeklenebilirlik (Scalibility) Performans ve Gecikme (Latency)</description></item></channel></rss>

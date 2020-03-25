@@ -1,71 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Prensipler on Blog</title>
-    <link>https://erkanerol.github.io/categories/prensipler/</link>
-    <description>Recent content in Prensipler on Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>tr-tr</language>
-    <lastBuildDate>Thu, 02 Jun 2016 20:23:06 +0300</lastBuildDate>
-    
-	<atom:link href="https://erkanerol.github.io/categories/prensipler/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Dry Prensibi</title>
-      <link>https://erkanerol.github.io/post/dryprinciple/</link>
-      <pubDate>Thu, 02 Jun 2016 20:23:06 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/dryprinciple/</guid>
-      <description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Prensipler on Blog</title><link>https://erkanerol.github.io/categories/prensipler/</link><description>Recent content in Prensipler on Blog</description><generator>Hugo -- gohugo.io</generator><language>tr-tr</language><lastBuildDate>Thu, 02 Jun 2016 20:23:06 +0300</lastBuildDate><atom:link href="https://erkanerol.github.io/categories/prensipler/index.xml" rel="self" type="application/rss+xml"/><item><title>Dry Prensibi</title><link>https://erkanerol.github.io/post/dryprinciple/</link><pubDate>Thu, 02 Jun 2016 20:23:06 +0300</pubDate><guid>https://erkanerol.github.io/post/dryprinciple/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;NOT: Bu yazı The Pragmatic Programmer kitabındaki &amp;ldquo;The Evils of Duplication&amp;rdquo; bölümünden yararlanılarak yazılmıştır.&lt;/p&gt;
-
 &lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
-
 &lt;p&gt;DRY&lt;/p&gt;
-
 &lt;p&gt;Keep It Dry&lt;/p&gt;
-
-&lt;p&gt;Keep Things Dry&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>YAGNI Prensibi</title>
-      <link>https://erkanerol.github.io/post/yagniprinciple/</link>
-      <pubDate>Wed, 25 May 2016 22:46:50 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/yagniprinciple/</guid>
-      <description>&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
-
+&lt;p&gt;Keep Things Dry&lt;/p&gt;</description></item><item><title>YAGNI Prensibi</title><link>https://erkanerol.github.io/post/yagniprinciple/</link><pubDate>Wed, 25 May 2016 22:46:50 +0300</pubDate><guid>https://erkanerol.github.io/post/yagniprinciple/</guid><description>&lt;p&gt;Not: Bu yazı Martin Fowler&amp;rsquo;ın YAGNI yazısının özeti ve tercümesi niteliğindedir.&lt;/p&gt;
 &lt;h2 id=&#34;programlama-prensibi&#34;&gt;Programlama Prensibi&lt;/h2&gt;
-
 &lt;p&gt;YAGNI&lt;/p&gt;
-
 &lt;h2 id=&#34;açılımlar&#34;&gt;Açılımlar&lt;/h2&gt;
-
 &lt;p&gt;You Aren’t Gonna Need It
 You Aint Gonna Need It&lt;/p&gt;
-
 &lt;h2 id=&#34;açıklama&#34;&gt;Açıklama&lt;/h2&gt;
-
-&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>KISS Prensibi</title>
-      <link>https://erkanerol.github.io/post/kiss/</link>
-      <pubDate>Sat, 14 May 2016 16:15:53 +0300</pubDate>
-      
-      <guid>https://erkanerol.github.io/post/kiss/</guid>
-      <description>&lt;blockquote&gt;
+&lt;p&gt;YAGNI, Extreme programlamanın prensiplerinden biridir. Gelecekte lazım olacak düşüncesi ile bir takım özelliklerin geliştirilmemesi gerektiğini savunur. Şimdi bir örnek üzerinden bu prensibi anlamaya çalışalım.&lt;/p&gt;</description></item><item><title>KISS Prensibi</title><link>https://erkanerol.github.io/post/kiss/</link><pubDate>Sat, 14 May 2016 16:15:53 +0300</pubDate><guid>https://erkanerol.github.io/post/kiss/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Basitlik nihai karmaşıklıktır.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;&lt;img src=&#34;https://erkanerol.github.io/img/Simplicity.jpg&#34;/&gt;&lt;/p&gt;</description></item></channel></rss>
