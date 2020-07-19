@@ -14,9 +14,9 @@ I am Erkan. I am a software engineer at SAP and co-organizer at Software Craftsm
 <!--more-->
 <br>
 
-### Career Summary (4.5 years)
-  - Last 3.5 years: Organizing events about software development and craftsmanship
-  - Last 2 years: Running distributed systems on top of kubernetes (Bash/Go/Helm/Operators)
+### Career Summary (5 years)
+  - Last 4 years: Organizing events about software development and craftsmanship
+  - Last 2.5 years: Running distributed systems on top of kubernetes (Go/Operators/BASH/Helm)
   - First 2.5 years: Full stack developer (Java/JSF/Spring/Angular/Docker)
 
 
@@ -43,7 +43,7 @@ I am Erkan. I am a software engineer at SAP and co-organizer at Software Craftsm
 <br>
 
 ### Dream
-I want to learn everything which influences software engineering process including product management, software design, development, operational activities, people management, hiring, team composition etc. and I want to drive a medium-sized engineering team in my forties.
+I want to learn everything which influences software engineering process including product management, software design, development, operational activities, people management, hiring, team composition etc., and I want to drive a medium-sized engineering team in my forties.
 
 <br>
 
