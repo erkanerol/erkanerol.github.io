@@ -19,7 +19,7 @@ weight = 1
 >-In theory, you can delete any pod of our application. Nevertheless, be careful :D 
 
 
-I don't remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, **I noticed that pods are not fully restartable, they are "re-creatable" or partially restartable.**
+I don't remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, **I noticed that pods are not fully restartable, they are re-creatable or partially restartable.**
 
 <br>
 
@@ -91,7 +91,7 @@ It seems Kubernetes is able to restart failed containers on behalf of us when th
 
 > livenessProbe: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its restart policy.  
 
-It seems <u>the containers in pods are restartable</u>. The temporary states in the containers are not a problem in Kubernetes world. <u>What about the shared context under the containers? Do we have a mechanism to refresh it in pod level. Unfortunately, NO.</u> 
+So <u>the containers in pods are restartable</u>. The temporary states in the containers are not a problem in Kubernetes world. <u>What about the shared context under the containers? Do we have a mechanism to refresh it in pod level. Unfortunately, NO.</u> 
 
 What? What happens when the shared context enters an invalid state somehow? Who is going to take care of it? 
 
@@ -105,4 +105,30 @@ Quote [the official doc](https://kubernetes.io/docs/concepts/architecture/contro
 
 <img src="/img/pods_simplified_with_controller.png"  title="pods_simplified_with_controller"/>
 
-Wow!!! It seems Kubernetes is  designed in such a way that every agent has one job and does it well. There may be some problematic pods in the cluster but we aim to solve this problem by using some controllers. Refreshing whole pod may not be in the scope of pod controller, but it must handled by other controllers in higher levels (See [Indirection](https://en.wikipedia.org/wiki/Indirection)). Let's check how they handle the issue.
+***My comments&expectations:*** Wow!!! It seems Kubernetes is  designed in such a way that every agent has one job and does it well. There may be some problematic/missing pods in the cluster but we aim to solve this problem by using some controllers. Refreshing whole pod may not be in the scope of pod controller, but it must handled by other controllers in higher levels (See [Indirection](https://en.wikipedia.org/wiki/Indirection)). 
+
+***Reality:*** There [a bunch of built-in controllers](https://kubernetes.io/docs/concepts/workloads/controllers/) in Kubernetes. StatefulSets for stateful applications, DaemonSets for running an application in every node, ReplicaSets for running multiple instances with same pod spec, Deployments for declarative updates etc. <u> However, none of them has a functionality to fix a pod in `CrashLoopBackOff` state. For them, the state of a pod is "given.". The only thing they do is adapt their behaviour according to this fact. Stopping updates or creating new pods. BUT THEY DON'T TOUCH THE UNHEALTHY PODS. </u>
+
+
+Don't you believe me? Here is an example: https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047 After one minute, you are going to observe 3 pods in `CrashLoopBackOff` state which will stick at this state forever if you don't delete them manually. 
+
+<br>
+
+## Comments and Wishes
+
+The error in the example above may seem silly to you but there are a lot of real cases in which people hit the similar issues because of different errors in different components: A problem in storage plugin, an anomaly in CNI plugin, an invalid state in shared volumes etc.
+
+People are still containerizing legacy applications and there are numerous hacks with init containers to be able to run them into Kubernetes. Many platform is still relatively immature. It is inevitable to do some mistakes that disrupt the *temporary shared context*. I think it doesn't make sense to expect perfection from users/applications/plugins. There are some external tools for monitoring and handling these kinds of issues, but I believe Kubernetes must be more robust and provide some built-in functionalities. 
+
+
+Here are some ideas:
+
+- Pods can have a restart policy for the whole pod including the shared context. There can be maxRestartCount field like `backoffLimit` in Jobs to stop restarting repeatedly.
+
+- Now, we mostly run pods with some high-level workloads (e.g. deployments) and what we do is to delete the pod and to allow the high level controller to recreate them. However, "naked pods" are also in the game. Recreation can be a solution in higher levels, but it should not be solution in pod level. Pods can be fully restartable and it can be possible to trigger a restart via the API and a kubectl command. 
+
+- Built-in controllers should watch the state and intervene the errors with some primitive, retry logic. For example, deployment controller can delete a pod in `CrashLoopBackOff` state and recreate it from scratch. Sometimes, to schedule a problematic pod into another node solves a temporary problem in  storage plugin and this feature can solve many cases like this. 
+
+
+
+

@@ -51,5 +51,7 @@ I want to learn everything which influences software engineering process includi
 
 Feel free to contact with me via the channels in the left menu.
 
-Email: erkanerol92[at]gmail[dot]com
+I am open for new opportunities. You can drop me an email.
+
+Email: erkanerol92 [at] gmail [dot] com
 
