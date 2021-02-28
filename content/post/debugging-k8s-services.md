@@ -32,7 +32,7 @@ Here is the source code of these services: https://github.com/erkanerol/service-
 
 <br><br>
 
-## Level 1: `kubectl port-forward`
+## Tool 1: `kubectl port-forward`
 
 #### Scenario:
 As a developer, I want to send some requests to `service-back` directly and see the result without touching the other services. 
@@ -71,7 +71,7 @@ Timestamp from back:1614508193
 
 <br><br>
 
-## Level 2: `kubefwd`
+## Tool 2: `kubefwd`
 
 
 #### Scenario:
@@ -142,7 +142,7 @@ Then your local `front` app can access the `service-middle` like in k8s cluster 
 <br><br>
 
 
-## Level 3: `telepresence`
+## Tool 3: `telepresence`
 
 #### Scenario:
 As a developer, I want to run `service-middle` in my local machine so that I can put breakpoints in my IDE to debug my application.
