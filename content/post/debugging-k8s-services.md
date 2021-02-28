@@ -1,12 +1,12 @@
 +++
 categories = ["Software","k8s","EN"]
-date = "2021-02-28T11:00:00+03:00"
+date = "2021-02-28T16:00:00+03:00"
 title = "Debugging k8s services: 3 tools for 3 scenarios"
-keywords = ["Software", "k8s", "Kubernetes"]
+keywords = [ "kubectl", "kubefwd", "telepresence"]
 weight = 1
 +++
 
-Let's assume you are developing some services which run on Kubernetes and you want to debug that services. This blog post explains three different scenarios+tools for you.
+While developing/debugging applications that serve some services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
 
 > Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 
@@ -63,7 +63,7 @@ Timestamp from back:1614508193
 
 <img src="/img/k8s-services/Level1.png" title="Level1"/>
 
-`kubectl` starts a process which binds `localhost:8080`. It listens that port and establishes a connection to API Server, which forwards the requests to `service-back`.
+`kubectl` starts a process which binds `localhost:8080`. It listens that port and establishes a connection to api-server, which forwards the requests to `service-back`.
 
 
 <br><br>
@@ -177,7 +177,7 @@ Response from service middle:'Response from service back:'Timestamp from back:16
 <img src="/img/k8s-services/Level3.png" title="Level3"/>
 
 
-Basically, `telepresence` deploys a proxy/fake agent into cluster and open a two way tunnel between your local environment and the cluster via that agent. Then you are able to run the `middle` service without adapting the consumers/dependent services.
+Basically, `telepresence` deploys a proxy/fake agent into cluster and opens a two-way tunnel between your local environment and the cluster via that agent. Then you are able to run the `middle` service in your local machine without adapting the consumers/dependent services.
 
 The detailed explanation about how telepresence works is available here: https://www.telepresence.io/discussion/how-it-works
 
@@ -187,9 +187,9 @@ The detailed explanation about how telepresence works is available here: https:/
 ## Summary
 
 - If you need to access a service without exposing it to public, `kubectl port-forward` is enough.
-- If you need to run a service locally for debugging and your service needs to access other services on k8s, `kubefwd` is enough. It manages DNS entries in your local machine and opens a one-way tunnel from your machine to cluster. 
+- If you need to run a service locally for debugging and your service needs to access other services on k8s, `kubefwd` is enough. It manages DNS entries in your local machine and opens a one-way tunnel from your machine to cluster for the dependencies of your service.
 - If you need to run a service locally for debugging and your application has some consumers in the cluster as well,`telepresence` is your tool. It opens two-way network channel and it forwards requests from cluster to your local instance as well.
 
 <br>
 
-p.s. Admission webhooks in Kubernetes are similar to `service-middle`. They receives some requests from API server and they may send some requests to other services in the cluster. Therefore, `telepresence` is a useful tool for debugging admission webhooks. In the next blog post, I am going to explain how to debug validating webhooks.
+p.s. Admission webhooks in Kubernetes are similar to `service-middle`. They receive some requests from api-server and they may send some requests to other services in the cluster. Therefore, `telepresence` is a useful tool for debugging admission webhooks. In the next blog post, I am going to explain how to debug validating webhooks.
