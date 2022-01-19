@@ -1,116 +1,84 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><link href=http://gmpg.org/xfn/11 rel=profile><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>How to version a JavaEE Web application with Maven and Git &middot; Erkan Erol</title><link rel=stylesheet href=https://erkanerol.github.io/css/poole.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde.css><link rel=stylesheet href=https://erkanerol.github.io/css/poole-overrides.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde-overrides.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde-x.css><link rel=stylesheet href=https://erkanerol.github.io/css/highlight/monokai.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://erkanerol.github.io/touch-icon-144-precomposed.png><link href=https://erkanerol.github.io/favicon.png rel=icon><meta name=description content="Erkan Erol's Blog"><meta name=keywords content=Maven,Git,Versioning><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57796113-2','auto');ga('send','pageview');</script></head><body><div class=sidebar><div class="container sidebar-sticky"><div class=sidebar-about><img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200" alt=gravatar title="Erkan Erol"><h1>Erkan Erol</h1></div><ul class=sidebar-nav><li class=sidebar-nav-item><a href=https://erkanerol.github.io/>Blog</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/categories/tr/>Turkish</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/categories/en/>English</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/post/about/>About me</a></li></ul><ul class=sidebar-nav><li class=sidebar-nav-item><a href=https://github.com/erkanerol><i class="fa fa-github-square fa-2x"></i></a><a href=http://stackoverflow.com/users/2900777/erkan-erol><i class="fa fa-stack-overflow fa-2x"></i></a><a href=https://www.linkedin.com/in/erkan-erol-26488b91?><i class="fa fa-linkedin-square fa-2x"></i></a><a href=https://twitter.com/erkan_erol_><i class="fa fa-twitter-square fa-2x"></i></a><a href=https://erkanerol.github.io/index.xml type=application/rss+xml><i class="fa fa-rss-square fa-2x"></i></a></li></ul></div></div><div class="content container"><div class=post><h1 class=post-title>How to version a JavaEE Web application with Maven and Git</h1><span class=post-date>Feb 11, 2016 &middot; <a href=https://erkanerol.github.io/post/versioning-git-maven/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/java>Java</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a></span><blockquote><p>In this post, I will show how to version a JavaEE Web Application.
-The example project is <a href=https://github.com/erkanerol/versioning_javaee_maven_git>here</a></p></blockquote><p><img src=/img/screenshot.png></p><h5 id=1-create-a-maven-project-and-add-your-dependencies>1. Create a maven project and add your dependencies.</h5><h5 id=2-add-your-scm-url-s-to-pom-xml>2. Add your scm url&rsquo;s to pom.xml</h5><pre><code class=xml>
-&lt;scm&gt;
-    &lt;url&gt;
-        https://github.com/erkanerol/versioning_javaee_maven_git
-    &lt;/url&gt;
-    &lt;connection&gt;
-       scm:git:git://github.com/erkanerol/versioning_javaee_maven_git.git
-    &lt;/connection&gt;
-    &lt;developerConnection&gt;
-        scm:git:git@github.com:erkanerol/versioning_javaee_maven_git.git
-    &lt;/developerConnection&gt;
-&lt;/scm&gt;
-</code></pre><h5 id=3-define-time-format-in-pom>3. Define time format in pom.</h5><pre><code class=xml>
-&lt;properties&gt;
-        &lt;maven.build.timestamp.format&gt;
-            dd.MM.yyyy_HH_mm
-        &lt;/maven.build.timestamp.format&gt;
-        &lt;buildDate&gt;
-            ${maven.build.timestamp}
-        &lt;/buildDate&gt;
-&lt;/properties&gt;
-</code></pre><h5 id=4-add-mojo-plugin-in-pom-xml>4. Add mojo plugin in pom.xml</h5><pre><code class=xml>
-&lt;plugin&gt;
-    &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-    &lt;artifactId&gt;buildnumber-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;1.4&lt;/version&gt;
-    &lt;executions&gt;
-        &lt;execution&gt;
-            &lt;phase&gt;validate&lt;/phase&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;create&lt;/goal&gt;
-            &lt;/goals&gt;
-        &lt;/execution&gt;
-    &lt;/executions&gt;
-    &lt;configuration&gt;
-        &lt;shortRevisionLength&gt;5&lt;/shortRevisionLength&gt;
-        &lt;doCheck&gt;false&lt;/doCheck&gt;
-        &lt;doUpdate&gt;false&lt;/doUpdate&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
-</code></pre><h5 id=5-add-version-properties-to-your-resource-directory>5. Add version.properties to your resource directory</h5><pre><code>
-version=${version}.${buildNumber}
-versionLong=${version}.${buildNumber}.${buildDate}
-</code></pre><h5 id=6-add-your-resource-folder-in-pom-xml>6. Add your resource folder in pom.xml</h5><pre><code class=xml>
-&lt;resources&gt;
-    &lt;resource&gt;
-        &lt;directory&gt;src/main/webapp&lt;/directory&gt;
-    &lt;/resource&gt;
-    &lt;resource&gt;
-        &lt;directory&gt;src/main/resources&lt;/directory&gt;
-        &lt;filtering&gt;true&lt;/filtering&gt;
-    &lt;/resource&gt;
-&lt;/resources&gt;
-</code></pre><h5 id=7-create-an-application-scoped-bean>7. Create an application scoped bean</h5><pre><code class=java>
-
-package com.erkanerol.example.versioning;
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Properties;
-
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-
-
-@ManagedBean
-@ApplicationScoped
-public class VersionBean implements Serializable {
-
-    private String version;
-    private String versionLong;
-    
-    @PostConstruct
-    public void init(){
-        
-        try {
-            Properties properties = new Properties();
-            properties
-                .load(this
-                    .getClass()
-                    .getClassLoader()
-                    .getResourceAsStream("version.properties"));
-        
-            version = properties.getProperty("version");
-            versionLong = properties.getProperty("versionLong");
-            
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        
-    }
-        
-    public String getVersion() {
-        return version;
-    }
-    public void setVersion(String version) {
-        this.version = version;
-    }
-    public String getVersionLong() {
-        return versionLong;
-    }
-    public void setVersionLong(String versionLong) {
-        this.versionLong = versionLong;
-    }   
-}
-
-</code></pre><h5 id=8-use-the-bean-in-your-application>8. Use the bean in your application.</h5><pre><code>
-&lt;h:outputText value="version #{versionBean.version}" /&gt;
-&lt;h:outputText value="long version #{versionBean.versionLong}" /&gt;
-</code></pre><h2 id=recommendations>Recommendations</h2><p>Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &ldquo;/version.jsf&rdquo;.
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us>
+<head>
+<link href=http://gmpg.org/xfn/11 rel=profile>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>How to version a JavaEE Web application with Maven and Git &#183; Erkan Erol</title>
+<link rel=stylesheet href=https://erkanerol.github.io/css/poole.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/poole-overrides.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde-overrides.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde-x.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/highlight/monokai.css>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+<link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+<link rel=apple-touch-icon-precomposed sizes=144x144 href=https://erkanerol.github.io/touch-icon-144-precomposed.png>
+<link href=https://erkanerol.github.io/favicon.png rel=icon>
+<meta name=description content="Erkan Erol's Blog">
+<meta name=keywords content="Maven,Git,Versioning">
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
+</head>
+<body>
+<div class=sidebar>
+<div class="container sidebar-sticky">
+<div class=sidebar-about>
+<img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200" alt=gravatar title="Erkan Erol">
+<h1>Erkan Erol</h1>
+</div>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/>
+Blog</a>
+</li>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/categories/tr/>Turkish</a>
+</li>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/categories/en/>English</a>
+</li>
+</ul>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a href=https://github.com/erkanerol><i class="fa fa-github-square fa-2x"></i></a>
+<a href=https://www.linkedin.com/in/erkan-erol-26488b91?><i class="fa fa-linkedin-square fa-2x"></i></a>
+<a href=https://twitter.com/erkan_erol_><i class="fa fa-twitter-square fa-2x"></i></a>
+<a href=https://erkanerol.github.io/index.xml type=application/rss+xml><i class="fa fa-rss-square fa-2x"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="content container">
+<div class=post>
+<h1 class=post-title>How to version a JavaEE Web application with Maven and Git</h1>
+<span class=post-date>Feb 11, 2016 &#183; <a href=https://erkanerol.github.io/post/versioning-git-maven/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/java>Java</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
+</span>
+<blockquote>
+<p>In this post, I will show how to version a JavaEE Web Application.
+The example project is <a href=https://github.com/erkanerol/versioning_javaee_maven_git>here</a></p>
+</blockquote>
+<h5 id=1-create-a-maven-project-and-add-your-dependencies>1. Create a maven project and add your dependencies.</h5>
+<h5 id=2-add-your-scm-urls-to-pomxml>2. Add your scm url&rsquo;s to pom.xml</h5>
+<h5 id=3-define-time-format-in-pom>3. Define time format in pom.</h5>
+<h5 id=4-add-mojo-plugin--in-pomxml>4. Add mojo plugin in pom.xml</h5>
+<h5 id=5-add-versionproperties-to-your-resource-directory>5. Add version.properties to your resource directory</h5>
+<h5 id=6-add-your-resource-folder-in-pomxml>6. Add your resource folder in pom.xml</h5>
+<h5 id=7-create-an-application-scoped-bean>7. Create an application scoped bean</h5>
+<h5 id=8-use-the-bean-in-your-application>8. Use the bean in your application.</h5>
+<h2 id=recommendations>Recommendations</h2>
+<p>Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &ldquo;/version.jsf&rdquo;.
 If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
-You can put the version in name of war file. It makes easy to store executable files.</p></div><div id=disqus_thread></div></div><script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var s=document.createElement('script');s.async=true;s.type='text/javascript';s.src='//'+disqus_shortname+'.disqus.com/count.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s);}());</script><script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58713be9ad6e45ec"></script><script src=https://erkanerol.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script></body></html>
+You can put the version in name of war file. It makes easy to store executable files.</p>
+</div>
+<div id=disqus_thread></div>
+</div>
+<script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var a=document.createElement('script');a.async=!0,a.type='text/javascript',a.src='//'+disqus_shortname+'.disqus.com/count.js',(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(a)})()</script>
+<script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var a=document.createElement('script');a.type='text/javascript',a.async=!0,a.src='//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=http://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58713be9ad6e45ec"></script>
+<script src=https://erkanerol.github.io/js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

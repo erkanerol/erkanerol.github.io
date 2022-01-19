@@ -1,2 +1,88 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><link href=http://gmpg.org/xfn/11 rel=profile><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>Dağıtık Sistemler: Giriş &middot; Erkan Erol</title><link rel=stylesheet href=https://erkanerol.github.io/css/poole.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde.css><link rel=stylesheet href=https://erkanerol.github.io/css/poole-overrides.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde-overrides.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde-x.css><link rel=stylesheet href=https://erkanerol.github.io/css/highlight/monokai.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://erkanerol.github.io/touch-icon-144-precomposed.png><link href=https://erkanerol.github.io/favicon.png rel=icon><meta name=description content="Erkan Erol's Blog"><meta name=keywords content="Distributed Systems"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57796113-2','auto');ga('send','pageview');</script></head><body><div class=sidebar><div class="container sidebar-sticky"><div class=sidebar-about><img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200" alt=gravatar title="Erkan Erol"><h1>Erkan Erol</h1></div><ul class=sidebar-nav><li class=sidebar-nav-item><a href=https://erkanerol.github.io/>Blog</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/categories/tr/>Turkish</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/categories/en/>English</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/post/about/>About me</a></li></ul><ul class=sidebar-nav><li class=sidebar-nav-item><a href=https://github.com/erkanerol><i class="fa fa-github-square fa-2x"></i></a><a href=http://stackoverflow.com/users/2900777/erkan-erol><i class="fa fa-stack-overflow fa-2x"></i></a><a href=https://www.linkedin.com/in/erkan-erol-26488b91?><i class="fa fa-linkedin-square fa-2x"></i></a><a href=https://twitter.com/erkan_erol_><i class="fa fa-twitter-square fa-2x"></i></a><a href=https://erkanerol.github.io/index.xml type=application/rss+xml><i class="fa fa-rss-square fa-2x"></i></a></li></ul></div></div><div class="content container"><div class=post><h1 class=post-title>Dağıtık Sistemler: Giriş</h1><span class=post-date>Oct 1, 2017 &middot; <a href=https://erkanerol.github.io/post/distributed-systems-1/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/distributed-systems>Distributed Systems</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a></span><p><strong><em>NOT 1:</em></strong> Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href=http://book.mixu.net/distsys/ target=_blank>şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.</p><p><strong><em>NOT 2:</em></strong> Bu blogda yer alan bu konu hakkındaki bütün içeriğe <a href=/post/distributed-systems-0/ target=_blank>şuradan</a> erişebilirsiniz.</p><h2 id=nedir-bu-dağıtık-sistemler>Nedir bu dağıtık sistemler?</h2><p>Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage) ve hesaplama (computation). Ve günün sonunda hedefimiz bir problemi çözmektir. Bazen bu problemin doğası ve/veya büyüklüğü bizi birden fazla bilgisayar kullanmaya zorlar. İşte bu noktada &ldquo;dağıtık programlama&rdquo; devreye girer.</p><blockquote><p>Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.</p></blockquote><h2 id=neden-ihtiyaç-var>Neden ihtiyaç var?</h2><p>Burada akla ilk gelen soru &ldquo;Madem bir bilgisayarla çözebiliyorduk neden birden fazla bilgisayar kullanıyoruz?&rdquo; olacaktır. Aslında elimizde sonsuz işlem yapma gücünde, sonsuz veri saklama kapasitesinde ve Dünya&rsquo;nın her noktasından hızlıca erişilebilir bir bilgisayar olsaydı dağıtık sistemler kurmaya gerek kalmazdı. Fakat böyle bir bilgisayar yok. Bizim işimizi görecek kadarını yapsak bize yeter diye düşünebilirsiniz. Orada da şöyle bir sorun devreye giriyor: Dağıtık sistemler kurmak yerine elimizdeki donanımların özelliklerini arttırdıkça bu donanımların maaliyetleri aşırı yükseliyor. Aşağıdaki görselde de görüleceği üzere makina sayısını arttırarak yatayda ölçekleme yapmanın (horizontal scaling/scale out) maaliyeti lineer artarken, makinanın özelliklerini artırarak dikeyde ölçekleme yapmanın (vertical scaling/scale up) maaliyeti üssel şekilde artıyor.</p><p><img src=/img/ds/ScaleUpVsScaleOut.jpg></p><p>Kaldı ki donanım öğelerinin de fiziksel limitleri ve bozulma ihtimali var. Milyon dolarlar harcadığınız bir sistemin tek bir donanım öğesinin (disk, memory, cpu vb.) bozulmasıyla çalışamaz hale gelmesini kabul eder miydiniz? Edenleri <a href=http://www.foratoys.com/webkontrol/urun_yonetimi/urunresimalt/urunresimalt_13_06_2013_11_16_501.jpg target=_blank>şuraya</a> alalım. Etmeyenlerle &ldquo;Nasıl şu dağıtık sistemleri kurarız?&rdquo; derdine düşelim hep beraber.</p><p><br></br></p><h2 id=para-çokomel-eğrisi>Para Çokomel Eğrisi</h2><p>1 liraya 1 çokomel alabiliyorum. 2 liraya 2 tane alabilirim. Hatta toplu alsam belki 20 liraya 25 tane alabilirim. Peki bu dağıtık sistemlerde de böyle mi? 1 makina ile 100 birim iş yapabiliyor isem 10 makina ile 1000 işlem yapabilir miyim?</p><p>Dağıtık sistemlerde makina adeti ile toplam işlem gücü arasındaki ilişki lineer değil maalesef. Çünkü sisteme eklenen her bir öğe sistemin karmaşıklığını arttırır ve beraberinde iletişim maaliyetleri getirir. Dolayısıyla 10 makina ile 1000 işlem yapmanız neredeyse olanaksızdır. 900 filan olursa öpüp başınıza koyun derim :)</p><p><br></br></p><h2 id=yüksek-özellikli-makinalar-her-zaman-verimli-mi>Yüksek özellikli makinalar her zaman verimli mi?</h2><p><img src=/img/ds/barroso_holzle.png></p><p>Yazıyı bitirirken yukarıdaki grafiği de açıklamak isterim. Barroso, Clidaras ve Hölzle isimli 3 Google çalışanı bir <a href=http://www.morganclaypool.com/doi/abs/10.2200/S00516ED2V01Y201306CAC024 target=_blank>araştırma</a> yapıyor. Araştırmada şöyle bir soru mevcut: 4 çekirdekli sıradan makinalarla mı çalışsak daha performanslı olur, yoksa high-end dedikleri 128 çekirdekli makinalarla mı çalışsak daha iyi olur? Kurulan kümenin (cluster) boyutu küçükken (toplamda 512 çekirdekli iken mesela) 128&rsquo;lik makinalı küme çok daha iyi. Çünkü iletişimin büyük bölümü makina içlerinde ve tahmin edersiniz ki belleğe ulaşmak (memory access) ağ üzerinden haberleşmeye göre oldukça ucuz/hızlı. Fakat kümenin boyutu büyüdükçe bu performans artışı gitgide azalıyor. Sonlara doğru %1-2 düzeylerinde gördüğünüz üzere. Yani dağıtık sistemlerde ölçek büyüdükçe sistem üzerindeki birimlerin büyüklüklerinin önemi ciddi ölçüde azalıyor. Problemi/çözümü kümeye nasıl dağıttığımıza kalıyor bütün mesele.</p><p><br></br></p><h2 id=kapanış>Kapanış</h2><p>Bu yazıda dağıtık sistemler üzerine genel bir bakış attık. Önümüzdeki yazılarda hedeflerden söz edeceğiz.</p></div><div id=disqus_thread></div></div><script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var s=document.createElement('script');s.async=true;s.type='text/javascript';s.src='//'+disqus_shortname+'.disqus.com/count.js';(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(s);}());</script><script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=http://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58713be9ad6e45ec"></script><script src=https://erkanerol.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script></body></html>
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us>
+<head>
+<link href=http://gmpg.org/xfn/11 rel=profile>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Dağıtık Sistemler: Giriş &#183; Erkan Erol</title>
+<link rel=stylesheet href=https://erkanerol.github.io/css/poole.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/poole-overrides.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde-overrides.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde-x.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/highlight/monokai.css>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+<link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+<link rel=apple-touch-icon-precomposed sizes=144x144 href=https://erkanerol.github.io/touch-icon-144-precomposed.png>
+<link href=https://erkanerol.github.io/favicon.png rel=icon>
+<meta name=description content="Erkan Erol's Blog">
+<meta name=keywords content="Distributed Systems">
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
+</head>
+<body>
+<div class=sidebar>
+<div class="container sidebar-sticky">
+<div class=sidebar-about>
+<img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200" alt=gravatar title="Erkan Erol">
+<h1>Erkan Erol</h1>
+</div>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/>
+Blog</a>
+</li>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/categories/tr/>Turkish</a>
+</li>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/categories/en/>English</a>
+</li>
+</ul>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a href=https://github.com/erkanerol><i class="fa fa-github-square fa-2x"></i></a>
+<a href=https://www.linkedin.com/in/erkan-erol-26488b91?><i class="fa fa-linkedin-square fa-2x"></i></a>
+<a href=https://twitter.com/erkan_erol_><i class="fa fa-twitter-square fa-2x"></i></a>
+<a href=https://erkanerol.github.io/index.xml type=application/rss+xml><i class="fa fa-rss-square fa-2x"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="content container">
+<div class=post>
+<h1 class=post-title>Dağıtık Sistemler: Giriş </h1>
+<span class=post-date>Oct 1, 2017 &#183; <a href=https://erkanerol.github.io/post/distributed-systems-1/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/distributed-systems>Distributed Systems</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
+</span>
+<p><em><strong>NOT 1:</strong></em> Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan şuraya davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.</p>
+<p><em><strong>NOT 2:</strong></em> Bu blogda yer alan bu konu hakkındaki bütün içeriğe şuradan erişebilirsiniz.</p>
+<h2 id=nedir-bu-dağıtık-sistemler>Nedir bu dağıtık sistemler?</h2>
+<p>Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage) ve hesaplama (computation). Ve günün sonunda hedefimiz bir problemi çözmektir. Bazen bu problemin doğası ve/veya büyüklüğü bizi birden fazla bilgisayar kullanmaya zorlar. İşte bu noktada &ldquo;dağıtık programlama&rdquo; devreye girer.</p>
+<blockquote>
+<p>Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.</p>
+</blockquote>
+<h2 id=neden-ihtiyaç-var>Neden ihtiyaç var?</h2>
+<p>Burada akla ilk gelen soru &ldquo;Madem bir bilgisayarla çözebiliyorduk neden birden fazla bilgisayar kullanıyoruz?&rdquo; olacaktır. Aslında elimizde sonsuz işlem yapma gücünde, sonsuz veri saklama kapasitesinde ve Dünya&rsquo;nın her noktasından hızlıca erişilebilir bir bilgisayar olsaydı dağıtık sistemler kurmaya gerek kalmazdı. Fakat böyle bir bilgisayar yok. Bizim işimizi görecek kadarını yapsak bize yeter diye düşünebilirsiniz. Orada da şöyle bir sorun devreye giriyor: Dağıtık sistemler kurmak yerine elimizdeki donanımların özelliklerini arttırdıkça bu donanımların maaliyetleri aşırı yükseliyor. Aşağıdaki görselde de görüleceği üzere makina sayısını arttırarak yatayda ölçekleme yapmanın (horizontal scaling/scale out) maaliyeti lineer artarken, makinanın özelliklerini artırarak dikeyde ölçekleme yapmanın (vertical scaling/scale up) maaliyeti üssel şekilde artıyor.</p>
+<p>Kaldı ki donanım öğelerinin de fiziksel limitleri ve bozulma ihtimali var. Milyon dolarlar harcadığınız bir sistemin tek bir donanım öğesinin (disk, memory, cpu vb.) bozulmasıyla çalışamaz hale gelmesini kabul eder miydiniz? Edenleri şuraya alalım. Etmeyenlerle &ldquo;Nasıl şu dağıtık sistemleri kurarız?&rdquo; derdine düşelim hep beraber.</p>
+<p></p>
+<h2 id=para-çokomel-eğrisi>Para Çokomel Eğrisi</h2>
+<p>1 liraya 1 çokomel alabiliyorum. 2 liraya 2 tane alabilirim. Hatta toplu alsam belki 20 liraya 25 tane alabilirim. Peki bu dağıtık sistemlerde de böyle mi? 1 makina ile 100 birim iş yapabiliyor isem 10 makina ile 1000 işlem yapabilir miyim?</p>
+<p>Dağıtık sistemlerde makina adeti ile toplam işlem gücü arasındaki ilişki lineer değil maalesef. Çünkü sisteme eklenen her bir öğe sistemin karmaşıklığını arttırır ve beraberinde iletişim maaliyetleri getirir. Dolayısıyla 10 makina ile 1000 işlem yapmanız neredeyse olanaksızdır. 900 filan olursa öpüp başınıza koyun derim :)</p>
+<p></p>
+<h2 id=yüksek-özellikli-makinalar-her-zaman-verimli-mi>Yüksek özellikli makinalar her zaman verimli mi?</h2>
+<p>Yazıyı bitirirken yukarıdaki grafiği de açıklamak isterim. Barroso, Clidaras ve Hölzle isimli 3 Google çalışanı bir araştırma yapıyor. Araştırmada şöyle bir soru mevcut: 4 çekirdekli sıradan makinalarla mı çalışsak daha performanslı olur, yoksa high-end dedikleri 128 çekirdekli makinalarla mı çalışsak daha iyi olur? Kurulan kümenin (cluster) boyutu küçükken (toplamda 512 çekirdekli iken mesela) 128&rsquo;lik makinalı küme çok daha iyi. Çünkü iletişimin büyük bölümü makina içlerinde ve tahmin edersiniz ki belleğe ulaşmak (memory access) ağ üzerinden haberleşmeye göre oldukça ucuz/hızlı. Fakat kümenin boyutu büyüdükçe bu performans artışı gitgide azalıyor. Sonlara doğru %1-2 düzeylerinde gördüğünüz üzere. Yani dağıtık sistemlerde ölçek büyüdükçe sistem üzerindeki birimlerin büyüklüklerinin önemi ciddi ölçüde azalıyor. Problemi/çözümü kümeye nasıl dağıttığımıza kalıyor bütün mesele.</p>
+<p></p>
+<h2 id=kapanış>Kapanış</h2>
+<p>Bu yazıda dağıtık sistemler üzerine genel bir bakış attık. Önümüzdeki yazılarda hedeflerden söz edeceğiz.</p>
+</div>
+<div id=disqus_thread></div>
+</div>
+<script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var a=document.createElement('script');a.async=!0,a.type='text/javascript',a.src='//'+disqus_shortname+'.disqus.com/count.js',(document.getElementsByTagName('HEAD')[0]||document.getElementsByTagName('BODY')[0]).appendChild(a)})()</script>
+<script type=text/javascript>var disqus_shortname="erkanerol-github-io";(function(){var a=document.createElement('script');a.type='text/javascript',a.async=!0,a.src='//'+disqus_shortname+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=http://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+<script type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58713be9ad6e45ec"></script>
+<script src=https://erkanerol.github.io/js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

@@ -1,20 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>k8s on Blog</title><link>https://erkanerol.github.io/categories/k8s/</link><description>Recent content in k8s on Blog</description><generator>Hugo -- gohugo.io</generator><language>tr-tr</language><lastBuildDate>Sun, 28 Feb 2021 16:00:00 +0300</lastBuildDate><atom:link href="https://erkanerol.github.io/categories/k8s/index.xml" rel="self" type="application/rss+xml"/><item><title>Debugging k8s services: 3 tools for 3 scenarios</title><link>https://erkanerol.github.io/post/debugging-k8s-services/</link><pubDate>Sun, 28 Feb 2021 16:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/debugging-k8s-services/</guid><description>&lt;p&gt;While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Please ping me if there is something wrong. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34;&gt;https://twitter.com/erkan_erol_&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>I wish pods were fully restartable</title><link>https://erkanerol.github.io/post/restartable-pods/</link><pubDate>Sun, 19 Jul 2020 21:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/restartable-pods/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?&lt;/p&gt;
-&lt;p&gt;-Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.&lt;/p&gt;
-&lt;p&gt;+How?&lt;/p&gt;
-&lt;p&gt;-Just delete the pod.&lt;/p&gt;
-&lt;p&gt;+Really? May I delete any pod in my cluster?&lt;/p&gt;
-&lt;p&gt;-In theory, you can delete any pod of our application. Nevertheless, be careful :D&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;I don&amp;rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, &lt;strong&gt;I noticed that pods are not fully restartable, they are re-creatable or partially restartable.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This blog post consists of my understanding and my comments. Please ping me if there is something wrong. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34;&gt;https://twitter.com/erkan_erol_&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>Who sets the IP of a pod?</title><link>https://erkanerol.github.io/post/who-sets-ip-of-a-pod/</link><pubDate>Tue, 14 Jul 2020 22:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/who-sets-ip-of-a-pod/</guid><description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Short Quiz (please RT)&lt;br&gt;&lt;br&gt;Who sets the IP of a pod?&lt;/p&gt;&amp;mdash; Erkan Erol (@erkan&lt;em&gt;erol&lt;/em&gt;) &lt;a href=&#34;https://twitter.com/erkan_erol_/status/1282761232987160576?ref_src=twsrc%5Etfw&#34;&gt;July 13, 2020&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description></item><item><title>How does &#39;kubectl exec&#39; work?</title><link>https://erkanerol.github.io/post/how-kubectl-exec-works/</link><pubDate>Sun, 25 Aug 2019 19:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/how-kubectl-exec-works/</guid><description>&lt;p&gt;Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn&amp;rsquo;t know the answer and I noticed that I had never thought about the mechanism in &amp;ldquo;kubectl exec&amp;rdquo;. I had some ideas about how it should be, but I wasn&amp;rsquo;t 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Please ping me if there is something wrong. &lt;a href=&#34;https://twitter.com/erkan_erol_&#34;&gt;https://twitter.com/erkan_erol_&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>k8s on Blog</title><link>https://erkanerol.github.io/categories/k8s/</link><description>Recent content in k8s on Blog</description><generator>Hugo -- gohugo.io</generator><language>tr-tr</language><lastBuildDate>Sun, 28 Feb 2021 16:00:00 +0300</lastBuildDate><atom:link href="https://erkanerol.github.io/categories/k8s/index.xml" rel="self" type="application/rss+xml"/><item><title>Debugging k8s services: 3 tools for 3 scenarios</title><link>https://erkanerol.github.io/post/debugging-k8s-services/</link><pubDate>Sun, 28 Feb 2021 16:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/debugging-k8s-services/</guid><description>&lt;p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.&lt;/p>
+&lt;blockquote>
+&lt;p>Please ping me if there is something wrong. &lt;a href="https://twitter.com/erkan_erol">https://twitter.com/erkan_erol&lt;/a>_&lt;/p>
+&lt;/blockquote></description></item><item><title>I wish pods were fully restartable</title><link>https://erkanerol.github.io/post/restartable-pods/</link><pubDate>Sun, 19 Jul 2020 21:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/restartable-pods/</guid><description>&lt;blockquote>
+&lt;p>+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>-Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>+How?&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>-Just delete the pod.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>+Really? May I delete any pod in my cluster?&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>-In theory, you can delete any pod of our application. Nevertheless, be careful :D&lt;/p>
+&lt;/blockquote>
+&lt;p>I don&amp;rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, &lt;strong>I noticed that pods are not fully restartable, they are re-creatable or partially restartable.&lt;/strong>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;blockquote>
+&lt;p>This blog post consists of my understanding and my comments. Please ping me if there is something wrong. &lt;a href="https://twitter.com/erkan_erol">https://twitter.com/erkan_erol&lt;/a>_&lt;/p>
+&lt;/blockquote></description></item><item><title>Who sets the IP of a pod?</title><link>https://erkanerol.github.io/post/who-sets-ip-of-a-pod/</link><pubDate>Tue, 14 Jul 2020 22:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/who-sets-ip-of-a-pod/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
+&lt;!-- raw HTML omitted --></description></item><item><title>How does 'kubectl exec' work?</title><link>https://erkanerol.github.io/post/how-kubectl-exec-works/</link><pubDate>Sun, 25 Aug 2019 19:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/how-kubectl-exec-works/</guid><description>&lt;p>Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn&amp;rsquo;t know the answer and I noticed that I had never thought about the mechanism in &amp;ldquo;kubectl exec&amp;rdquo;. I had some ideas about how it should be, but I wasn&amp;rsquo;t 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings.&lt;/p>
+&lt;blockquote>
+&lt;p>Please ping me if there is something wrong. &lt;a href="https://twitter.com/erkan_erol">https://twitter.com/erkan_erol&lt;/a>_&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

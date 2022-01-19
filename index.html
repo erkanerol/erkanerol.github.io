@@ -1,2 +1,241 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta name=generator content="Hugo 0.56.3"><link href=http://gmpg.org/xfn/11 rel=profile><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>Blog &middot; Erkan Erol</title><link rel=stylesheet href=https://erkanerol.github.io/css/poole.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde.css><link rel=stylesheet href=https://erkanerol.github.io/css/poole-overrides.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde-overrides.css><link rel=stylesheet href=https://erkanerol.github.io/css/hyde-x.css><link rel=stylesheet href=https://erkanerol.github.io/css/highlight/monokai.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://erkanerol.github.io/touch-icon-144-precomposed.png><link href=https://erkanerol.github.io/favicon.png rel=icon><link href=/index.xml rel=alternate type=application/rss+xml title="Blog &middot; Erkan Erol"><meta name=description content="Erkan Erol's Blog"><meta name=keywords content="software,books,software craftsmanship,erkan erol,blog"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-57796113-2','auto');ga('send','pageview');</script></head><body><div class=sidebar><div class="container sidebar-sticky"><div class=sidebar-about><img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200" alt=gravatar title="Erkan Erol"><h1>Erkan Erol</h1></div><ul class=sidebar-nav><li class=sidebar-nav-item><a href=https://erkanerol.github.io/>Blog</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/categories/tr/>Turkish</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/categories/en/>English</a></li><li class=sidebar-nav-item><a href=https://erkanerol.github.io/post/about/>About me</a></li></ul><ul class=sidebar-nav><li class=sidebar-nav-item><a href=https://github.com/erkanerol><i class="fa fa-github-square fa-2x"></i></a><a href=http://stackoverflow.com/users/2900777/erkan-erol><i class="fa fa-stack-overflow fa-2x"></i></a><a href=https://www.linkedin.com/in/erkan-erol-26488b91?><i class="fa fa-linkedin-square fa-2x"></i></a><a href=https://twitter.com/erkan_erol_><i class="fa fa-twitter-square fa-2x"></i></a><a href=https://erkanerol.github.io/index.xml type=application/rss+xml><i class="fa fa-rss-square fa-2x"></i></a></li></ul></div></div><div class="content container"><div class=posts><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/debugging-k8s-services/>Debugging k8s services: 3 tools for 3 scenarios</a></h1><span class=post-date>Feb 28, 2021 &middot; <a href=https://erkanerol.github.io/post/debugging-k8s-services/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a></span><p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.</p><blockquote><p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol_>https://twitter.com/erkan_erol_</a></p></blockquote><a href=https://erkanerol.github.io/post/debugging-k8s-services/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/basics-of-container-runtimes/>Learning Path: Basics of Container Runtimes</a></h1><span class=post-date>Aug 1, 2020 &middot; <a href=https://erkanerol.github.io/post/basics-of-container-runtimes/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a><a class=label href=https://erkanerol.github.io/categories/twitter>Twitter</a></span><h2 id=intro>Intro</h2><p><blockquote class=twitter-tweet><p lang=en dir=ltr>After a couple of productive hours, now I have a clear understanding of what are the difference/relationship between cgroups, namespaces, runc, containerd, docker, rkt, dockerd, docker-containerd-shim, cri-o, cri, dockershim, gVisor, kata-containers, etc.</p>&mdash; Erkan Erol (@erkan<em>erol</em>) <a href="https://twitter.com/erkan_erol_/status/1252343453402361858?ref_src=twsrc%5Etfw">April 20, 2020</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script></p><a href=https://erkanerol.github.io/post/basics-of-container-runtimes/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/restartable-pods/>I wish pods were fully restartable</a></h1><span class=post-date>Jul 19, 2020 &middot; <a href=https://erkanerol.github.io/post/restartable-pods/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a></span><blockquote><p>+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?</p><p>-Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.</p><p>+How?</p><p>-Just delete the pod.</p><p>+Really? May I delete any pod in my cluster?</p><p>-In theory, you can delete any pod of our application. Nevertheless, be careful :D</p></blockquote><p>I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, <strong>I noticed that pods are not fully restartable, they are re-creatable or partially restartable.</strong></p><p><br></p><blockquote><p>This blog post consists of my understanding and my comments. Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol_>https://twitter.com/erkan_erol_</a></p></blockquote><a href=https://erkanerol.github.io/post/restartable-pods/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/>Who sets the IP of a pod?</a></h1><span class=post-date>Jul 14, 2020 &middot; <a href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a><a class=label href=https://erkanerol.github.io/categories/twitter>Twitter</a></span><h2 id=intro>Intro</h2><p><blockquote class=twitter-tweet><p lang=en dir=ltr>Short Quiz (please RT)<br><br>Who sets the IP of a pod?</p>&mdash; Erkan Erol (@erkan<em>erol</em>) <a href="https://twitter.com/erkan_erol_/status/1282761232987160576?ref_src=twsrc%5Etfw">July 13, 2020</a></blockquote><script async src=https://platform.twitter.com/widgets.js></script></p><a href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/how-kubectl-exec-works/>How does &#39;kubectl exec&#39; work?</a></h1><span class=post-date>Aug 25, 2019 &middot; <a href=https://erkanerol.github.io/post/how-kubectl-exec-works/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a></span><p>Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn&rsquo;t know the answer and I noticed that I had never thought about the mechanism in &ldquo;kubectl exec&rdquo;. I had some ideas about how it should be, but I wasn&rsquo;t 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings.</p><blockquote><p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol_>https://twitter.com/erkan_erol_</a></p></blockquote><a href=https://erkanerol.github.io/post/how-kubectl-exec-works/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/yazgilari-birlestirme-enstitusu/>Yazgıları Birleştirme Enstitüsü</a></h1><span class=post-date>Aug 10, 2019 &middot; <a href=https://erkanerol.github.io/post/yazgilari-birlestirme-enstitusu/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/freestyle>Freestyle</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a></span>
-<iframe width=100% height=166 scrolling=no frameborder=no allow=autoplay src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/28366936&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style=text-align:right><br>"The souls of heaven<br>Are stars at night.<br>They will guide us on our way,<br>Until we meet again<br>Another day."</div><p><br></p><p>Kıymetli vatandaşlarım!</p><p>Bugün, buraya, tarihin akışını değiştirecek bu enstitümüzün açılışına hoş geldiniz!</p><p><strong><em>&mdash;alkışlar&mdash;</em></strong></p><a href=https://erkanerol.github.io/post/yazgilari-birlestirme-enstitusu/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/adapting-a-project/>Adapting to a software project</a></h1><span class=post-date>Apr 26, 2019 &middot; <a href=https://erkanerol.github.io/post/adapting-a-project/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a></span><p>Throughout my career, a few times,</p><ul><li>I joined a project</li><li>I became one of the main maintainers of the project/a component after a while</li><li>I helped new people to adapt to the project</li></ul><p>The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting to a software project. In this blog post, I am going to share &ldquo;my way&rdquo;.</p><a href=https://erkanerol.github.io/post/adapting-a-project/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/>Aynısından</a></h1><span class=post-date>Nov 26, 2017 &middot; <a href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/freestyle>Freestyle</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a></span><p>Kahvaltımı yapmış, odamı toplamıştım. Sonrasında yeni bulaşık makinasının gideri için gerekli parçaları tespit etmiş, nalbura gidip almış, montajını yapmıştım. Makinayı çalıştırmış, lavoba giderini test etmiştim. Her şey olumluydu ve artık sıradaki işime geçebilirdim: <strong>Berbere gitmek.</strong></p><a href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/distributed-systems-2/>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</a></h1><span class=post-date>Oct 1, 2017 &middot; <a href=https://erkanerol.github.io/post/distributed-systems-2/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/distributed-systems>Distributed Systems</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a></span><p><strong><em>NOT 1:</em></strong> Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href=http://book.mixu.net/distsys/ target=_blank>şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.</p><p><strong><em>NOT 2:</em></strong> Bu blogda yer alan bu konu hakkındaki bütün içeriğe <a href=/post/distributed-systems-0/ target=_blank>şuradan</a> erişebilirsiniz.</p><h2 id=tanım>Tanım</h2><blockquote><p>Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.</p></blockquote><a href=https://erkanerol.github.io/post/distributed-systems-2/>Read On &rarr;</a></div><div class=post><h1 class=post-title><a href=https://erkanerol.github.io/post/distributed-systems-1/>Dağıtık Sistemler: Giriş</a></h1><span class=post-date>Oct 1, 2017 &middot; <a href=https://erkanerol.github.io/post/distributed-systems-1/#disqus_thread>Comments</a><br><a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/distributed-systems>Distributed Systems</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a></span><p><strong><em>NOT 1:</em></strong> Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan <a href=http://book.mixu.net/distsys/ target=_blank>şuraya</a> davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.</p><p><strong><em>NOT 2:</em></strong> Bu blogda yer alan bu konu hakkındaki bütün içeriğe <a href=/post/distributed-systems-0/ target=_blank>şuradan</a> erişebilirsiniz.</p><h2 id=nedir-bu-dağıtık-sistemler>Nedir bu dağıtık sistemler?</h2><p>Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage) ve hesaplama (computation). Ve günün sonunda hedefimiz bir problemi çözmektir. Bazen bu problemin doğası ve/veya büyüklüğü bizi birden fazla bilgisayar kullanmaya zorlar. İşte bu noktada &ldquo;dağıtık programlama&rdquo; devreye girer.</p><blockquote><p>Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.</p></blockquote><a href=https://erkanerol.github.io/post/distributed-systems-1/>Read On &rarr;</a></div><ul class=pagination><li class=page-item><a href=/ class=page-link aria-label=First><span aria-hidden=true>&laquo;&laquo;</span></a></li><li class="page-item disabled"><a class=page-link aria-label=Previous><span aria-hidden=true>&laquo;</span></a></li><li class="page-item active"><a class=page-link href=/>1</a></li><li class=page-item><a class=page-link href=/page/2/>2</a></li><li class=page-item><a class=page-link href=/page/3/>3</a></li><li class=page-item><a class=page-link href=/page/4/>4</a></li><li class=page-item><a href=/page/2/ class=page-link aria-label=Next><span aria-hidden=true>&raquo;</span></a></li><li class=page-item><a href=/page/4/ class=page-link aria-label=Last><span aria-hidden=true>&raquo;&raquo;</span></a></li></ul></div></div><script src=https://erkanerol.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script></body></html>
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us>
+<head>
+<meta name=generator content="Hugo 0.92.0">
+<link href=http://gmpg.org/xfn/11 rel=profile>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Blog &#183; Erkan Erol</title>
+<link rel=stylesheet href=https://erkanerol.github.io/css/poole.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/poole-overrides.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde-overrides.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/hyde-x.css>
+<link rel=stylesheet href=https://erkanerol.github.io/css/highlight/monokai.css>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+<link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+<link rel=apple-touch-icon-precomposed sizes=144x144 href=https://erkanerol.github.io/touch-icon-144-precomposed.png>
+<link href=https://erkanerol.github.io/favicon.png rel=icon>
+<link href=/index.xml rel=alternate type=application/rss+xml title="Blog &#183; Erkan Erol">
+<meta name=description content="Erkan Erol's Blog">
+<meta name=keywords content="software,books,software craftsmanship,erkan erol,blog">
+<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
+</head>
+<body>
+<div class=sidebar>
+<div class="container sidebar-sticky">
+<div class=sidebar-about>
+<img src="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76?s=200" alt=gravatar title="Erkan Erol">
+<h1>Erkan Erol</h1>
+</div>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/>
+Blog</a>
+</li>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/categories/tr/>Turkish</a>
+</li>
+<li class=sidebar-nav-item>
+<a href=https://erkanerol.github.io/categories/en/>English</a>
+</li>
+</ul>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a href=https://github.com/erkanerol><i class="fa fa-github-square fa-2x"></i></a>
+<a href=https://www.linkedin.com/in/erkan-erol-26488b91?><i class="fa fa-linkedin-square fa-2x"></i></a>
+<a href=https://twitter.com/erkan_erol_><i class="fa fa-twitter-square fa-2x"></i></a>
+<a href=https://erkanerol.github.io/index.xml type=application/rss+xml><i class="fa fa-rss-square fa-2x"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="content container">
+<div class=posts>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/debugging-k8s-services/>Debugging k8s services: 3 tools for 3 scenarios</a>
+</h1>
+<span class=post-date>Feb 28, 2021 &#183; <a href=https://erkanerol.github.io/post/debugging-k8s-services/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a>
+</span>
+<p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.</p>
+<blockquote>
+<p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
+</blockquote>
+<a href=https://erkanerol.github.io/post/debugging-k8s-services/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/basics-of-container-runtimes/>Learning Path: Basics of Container Runtimes</a>
+</h1>
+<span class=post-date>Aug 1, 2020 &#183; <a href=https://erkanerol.github.io/post/basics-of-container-runtimes/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a><a class=label href=https://erkanerol.github.io/categories/twitter>Twitter</a>
+</span>
+<h2 id=intro>Intro</h2>
+<a href=https://erkanerol.github.io/post/basics-of-container-runtimes/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/restartable-pods/>I wish pods were fully restartable</a>
+</h1>
+<span class=post-date>Jul 19, 2020 &#183; <a href=https://erkanerol.github.io/post/restartable-pods/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a>
+</span>
+<blockquote>
+<p>+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?</p>
+</blockquote>
+<blockquote>
+<p>-Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.</p>
+</blockquote>
+<blockquote>
+<p>+How?</p>
+</blockquote>
+<blockquote>
+<p>-Just delete the pod.</p>
+</blockquote>
+<blockquote>
+<p>+Really? May I delete any pod in my cluster?</p>
+</blockquote>
+<blockquote>
+<p>-In theory, you can delete any pod of our application. Nevertheless, be careful :D</p>
+</blockquote>
+<p>I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, <strong>I noticed that pods are not fully restartable, they are re-creatable or partially restartable.</strong></p>
+<blockquote>
+<p>This blog post consists of my understanding and my comments. Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
+</blockquote>
+<a href=https://erkanerol.github.io/post/restartable-pods/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/>Who sets the IP of a pod?</a>
+</h1>
+<span class=post-date>Jul 14, 2020 &#183; <a href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a><a class=label href=https://erkanerol.github.io/categories/twitter>Twitter</a>
+</span>
+<h2 id=intro>Intro</h2>
+<a href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/how-kubectl-exec-works/>How does 'kubectl exec' work?</a>
+</h1>
+<span class=post-date>Aug 25, 2019 &#183; <a href=https://erkanerol.github.io/post/how-kubectl-exec-works/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/k8s>k8s</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a>
+</span>
+<p>Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn&rsquo;t know the answer and I noticed that I had never thought about the mechanism in &ldquo;kubectl exec&rdquo;. I had some ideas about how it should be, but I wasn&rsquo;t 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings.</p>
+<blockquote>
+<p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
+</blockquote>
+<a href=https://erkanerol.github.io/post/how-kubectl-exec-works/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/yazgilari-birlestirme-enstitusu/>Yazgıları Birleştirme Enstitüsü</a>
+</h1>
+<span class=post-date>Aug 10, 2019 &#183; <a href=https://erkanerol.github.io/post/yazgilari-birlestirme-enstitusu/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/freestyle>Freestyle</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
+</span>
+<p>Kıymetli vatandaşlarım!</p>
+<p>Bugün, buraya, tarihin akışını değiştirecek bu enstitümüzün açılışına hoş geldiniz!</p>
+<p><em><strong>&mdash;alkışlar&mdash;</strong></em></p>
+<a href=https://erkanerol.github.io/post/yazgilari-birlestirme-enstitusu/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/adapting-a-project/>Adapting to a software project</a>
+</h1>
+<span class=post-date>Apr 26, 2019 &#183; <a href=https://erkanerol.github.io/post/adapting-a-project/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/en>EN</a>
+</span>
+<p>Throughout my career, a few times,</p>
+<ul>
+<li>I joined a project</li>
+<li>I became one of the main maintainers of the project/a component after a while</li>
+<li>I helped new people to adapt to the project</li>
+</ul>
+<p>The companies were different. The teams were different. The technology stacks were different. However, I realized my approach was similar. I think I can say some things about adapting to a software project. In this blog post, I am going to share &ldquo;my way&rdquo;.</p>
+<a href=https://erkanerol.github.io/post/adapting-a-project/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/>Aynısından</a>
+</h1>
+<span class=post-date>Nov 26, 2017 &#183; <a href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/freestyle>Freestyle</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
+</span>
+<p>Kahvaltımı yapmış, odamı toplamıştım. Sonrasında yeni bulaşık makinasının gideri için gerekli parçaları tespit etmiş, nalbura gidip almış, montajını yapmıştım. Makinayı çalıştırmış, lavoba giderini test etmiştim. Her şey olumluydu ve artık sıradaki işime geçebilirdim: <strong>Berbere gitmek.</strong></p>
+<a href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/distributed-systems-2/>Dağıtık Sistemler: Ölçeklenebilirlik (Scalibility)</a>
+</h1>
+<span class=post-date>Oct 1, 2017 &#183; <a href=https://erkanerol.github.io/post/distributed-systems-2/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/distributed-systems>Distributed Systems</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
+</span>
+<p><em><strong>NOT 1:</strong></em> Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan şuraya davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.</p>
+<p><em><strong>NOT 2:</strong></em> Bu blogda yer alan bu konu hakkındaki bütün içeriğe şuradan erişebilirsiniz.</p>
+<h2 id=tanım>Tanım</h2>
+<blockquote>
+<p>Ölçeklenebilirlik, bir sistemin artan iş yüküne rağmen işlevselliğini düzgün bir şekilde devam ettirebilmesidir.</p>
+</blockquote>
+<a href=https://erkanerol.github.io/post/distributed-systems-2/>Read On &rarr;</a>
+</div>
+<div class=post>
+<h1 class=post-title>
+<a href=https://erkanerol.github.io/post/distributed-systems-1/>Dağıtık Sistemler: Giriş </a>
+</h1>
+<span class=post-date>Oct 1, 2017 &#183; <a href=https://erkanerol.github.io/post/distributed-systems-1/#disqus_thread>Comments</a>
+<br>
+<a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/distributed-systems>Distributed Systems</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
+</span>
+<p><em><strong>NOT 1:</strong></em> Bu sayfayı görüntülediğiniz için teşekkür ederim yalnız sizi asıl kaynak olan şuraya davet ediyorum. Benim yazdıklarım bu serinin tercümesi, yeniden ifade edilmesi ve birkaç örnek eklenmesidir o kadar.</p>
+<p><em><strong>NOT 2:</strong></em> Bu blogda yer alan bu konu hakkındaki bütün içeriğe şuradan erişebilirsiniz.</p>
+<h2 id=nedir-bu-dağıtık-sistemler>Nedir bu dağıtık sistemler?</h2>
+<p>Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage) ve hesaplama (computation). Ve günün sonunda hedefimiz bir problemi çözmektir. Bazen bu problemin doğası ve/veya büyüklüğü bizi birden fazla bilgisayar kullanmaya zorlar. İşte bu noktada &ldquo;dağıtık programlama&rdquo; devreye girer.</p>
+<blockquote>
+<p>Dağıtık programlama, bir bilgisayar ile çözebileceğiniz bir sorunu birden fazla bilgisayar kullanarak çözmeye çalışma sanatıdır.</p>
+</blockquote>
+<a href=https://erkanerol.github.io/post/distributed-systems-1/>Read On &rarr;</a>
+</div>
+<ul class="pagination pagination-default">
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class="page-item active">
+<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
+</li>
+<li class=page-item>
+<a href=/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
+</li>
+<li class=page-item>
+<a href=/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/page/4/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+</div>
+</div>
+<script src=https://erkanerol.github.io/js/highlight.pack.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
