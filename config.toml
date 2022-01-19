@@ -54,7 +54,7 @@ enableRobotsTXT = true
     # Sidebar social links, these must be full URLs.
     github = "https://github.com/erkanerol"
     bitbucket = ""
-    stackOverflow = "http://stackoverflow.com/users/2900777/erkan-erol"
+    stackOverflow = ""
     linkedin = "https://www.linkedin.com/in/erkan-erol-26488b91?"
     googleplus = ""
     facebook = ""
