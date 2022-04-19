@@ -58,7 +58,7 @@ Blog</a>
 <blockquote>
 <p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
 </blockquote>
-<p></p>
+<p><br><br></p>
 <h2 id=setup>Setup</h2>
 <p>I cloned <a href=https://github.com/ecomm-integration-ballerina/kubernetes-cluster>https://github.com/ecomm-integration-ballerina/kubernetes-cluster</a> in order to create a k8s cluster in my MacBook. I fixed IP addresses of the nodes in kubelet configurations since the default configuration didn&rsquo;t let me run <code>kubectl exec</code>. You can find the root cause <a href=https://medium.com/@joatmon08/playing-with-kubeadm-in-vagrant-machines-part-2-bac431095706>here</a>.</p>
 <ul>
@@ -67,8 +67,9 @@ Blog</a>
 <li>IP of worker node = 192.168.205.11</li>
 <li>API server port = 6443</li>
 </ul>
-<p></p>
+<p><br><br></p>
 <h2 id=components>Components</h2>
+<p><img src=/img/kubectl-exec/components.png alt=Components></p>
 <ul>
 <li>
 <p><em><strong>kubectl exec process:</strong></em> When we run &ldquo;kubectl exec &mldr;&rdquo; in a machine, a process starts. You can run it in any machine which has an access to k8s api server.</p>
@@ -89,7 +90,7 @@ Blog</a>
 <p><em><strong>target container:</strong></em> A container which is a part of a pod and which is running on one of the worker nodes.</p>
 </li>
 </ul>
-<p></p>
+<p><br><br></p>
 <h2 id=findings>Findings</h2>
 <h3 id=1-activities-in-client-side>1. Activities in Client Side</h3>
 <ul>
@@ -118,8 +119,12 @@ tcp4       0      0  192.168.205.1.51673    192.168.205.10.6443    ESTABLISHED 1
 tcp4       0      0  192.168.205.1.51672    192.168.205.10.6443    ESTABLISHED 131072 131768   8507      0 0x0102 0x00000028
 </code></pre><ul>
 <li>Let&rsquo;s check the code. kubectl creates a POST request with subresource <code>exec</code> and sends a rest request.
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go?slice=344:359"></script>
 </li>
 </ul>
+<p><img src=/img/kubectl-exec/rest-request.png alt=rest-request></p>
+<br>
+<h3 id=2-activities-in-master-node>2. Activities in Master Node</h3>
 <ul>
 <li>We can observe the request in api-server side as well.</li>
 </ul>
@@ -131,11 +136,15 @@ Headers: map[Connection:[Upgrade] Content-Length:[0] Upgrade:[SPDY/3.1] User-Age
 <ul>
 <li>Api server receives the request and binds it into a <code>PodExecOptions</code></li>
 </ul>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/apis/core/types.go?slice=4124:4147"></script>
 <ul>
 <li>
 <p>To be able to take necessary actions, api-server needs to know which location it should contact.</p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=455:467"></script><br>
 <p>Of course the endpoint is derived from node info.</p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=504:510"></script><br>
 <p>GOTCHA! KUBELET HAS A PORT (<code>node.Status.DaemonEndpoints.KubeletEndpoint.Port</code>) TO WHICH API-SERVER CAN CONNECT.</p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/kubelet/client/kubelet_client.go?slice=180:206"></script><br>
 <blockquote>
 <p><a href=https://kubernetes.io/docs/concepts/architecture/master-node-communication/#apiserver-to-kubelet>Master-Node Communication > Master to Cluster > apiserver to kubelet</a></p>
 </blockquote>
@@ -145,6 +154,7 @@ Headers: map[Connection:[Upgrade] Content-Length:[0] Upgrade:[SPDY/3.1] User-Age
 </li>
 <li>
 <p>Now, api server knows the endpoint and it opens a connections.</p>
+<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/rest/subresources.go?slice=132:144"></script><br>
 </li>
 <li>
 <p>Let&rsquo;s check what is going on the master node.</p>
@@ -164,11 +174,11 @@ map[Port:10250]
 $ netstat -atn |grep 192.168.205.11
 tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
 ...
-</code></pre>
+</code></pre><p><img src=/img/kubectl-exec/api-server-to-kubelet.png alt=api-server-to-kubelet></p>
 <ul>
 <li>Now the connection between kubectl and api-server is still open and there is another connection between api-server and kubelet.</li>
 </ul>
-<p></p>
+<p><br><br></p>
 <h3 id=3-activities-in-worker-node>3. Activities in Worker Node</h3>
 <ul>
 <li>
@@ -192,15 +202,23 @@ $ ps -afx
 </li>
 <li>
 <p>kubelet has a daemon which serves an api over a port for api-server requests.</p>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go?slice=41:60"></script><br>
 </li>
 <li>
 <p>kubelet computes a response endpoint for exec requests.</p>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go?slice=177:190"></script><br>
 <p>Don&rsquo;t confuse. It doesn&rsquo;t return the result of the command. It returns an endpoint for communication.</p>
 </li>
 </ul>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=4533:4540"></script><br>
 <p>kubelet implements <code>RuntimeServiceClient</code> interface which is part of Container Runtime Interface.</p>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7157:7229"></script><br>
 <p>It just uses gRPC to invoke a method through Container Runtime Interface.</p>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7229:7233"></script><br>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7372:7381"></script><br>
 <p>Container Runtime is responsible to implement <code>RuntimeServiceServer</code></p>
+<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br>
+<p><img src=/img/kubectl-exec/kubelet-to-container-runtime.png alt=kubelet-to-container-runtime></p>
 <ul>
 <li>If it is so, we need to observe a connection between kubelet and container runtime. Right? Let&rsquo;s check.</li>
 </ul>
@@ -231,12 +249,16 @@ $ ps -afx
 <li>
 <p>Let&rsquo;s check cri-o&rsquo;s source code to understand how it can happen. The logic is similar in docker.</p>
 <p>It has a server which implements RuntimeServiceServer.</p>
+<script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/server.go?slice=60:82"></script><br>
+<script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/container_exec.go?slice=13:28"></script><br>
 <p>At the end of the chain, container runtime executes the command in the worker node.</p>
+<script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/internal/oci/runtime_oci.go?slice=292:342"></script><br>
 </li>
 </ul>
+<p><img src=/img/kubectl-exec/container-runtime-to-kernel.png alt=container-runtime-to-kernel></p>
 <p>Finally, kernel executes commands.
-</p>
-<p></p>
+![/img/kubectl-exec/kernel-puts.png" title=&ldquo;kernel-puts](/img/kubectl-exec/kernel-puts.png&rdquo; title=&ldquo;kernel-puts)</p>
+<p><br><br></p>
 <h2 id=reminders>Reminders</h2>
 <ul>
 <li>api-server can also initialize a connection to kubelet.</li>
@@ -249,7 +271,7 @@ $ ps -afx
 </li>
 <li>kubectl or api-server cannot run anything in the worker nodes. kubelet can run but it also interacts with container runtime for this kind of actions.</li>
 </ul>
-<p></p>
+<p><br><br></p>
 <h2 id=resources>Resources</h2>
 <ul>
 <li><a href=https://groups.google.com/forum/#!topic/kubernetes-dev/Cjia36v39vM>https://groups.google.com/forum/#!topic/kubernetes-dev/Cjia36v39vM</a></li>

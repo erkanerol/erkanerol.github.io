@@ -70,9 +70,62 @@ Blog</a>
 <p>&ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&rdquo;
 Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir. Şimdi bunu iki örnek ile açıklayalım.</p>
 <p>Birincisi çok basit bir kod tekrar örneği. [4]</p>
-<p>Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz. Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// BAD
+</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>eventfade</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+    <span style=color:#a6e22e>eventfade</span>.<span style=color:#a6e22e>stop</span>();
+}
+ 
+<span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>eventhover</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+    <span style=color:#a6e22e>eventhover</span>.<span style=color:#a6e22e>stop</span>();
+}
+ 
+<span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>spans</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+    <span style=color:#a6e22e>spans</span>.<span style=color:#a6e22e>stop</span>();
+}
+ 
+<span style=color:#75715e>// GOOD!!
+</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> [ <span style=color:#a6e22e>eventfade</span>, <span style=color:#a6e22e>eventhover</span>, <span style=color:#a6e22e>spans</span> ];
+ 
+<span style=color:#a6e22e>$</span>.<span style=color:#a6e22e>each</span>( <span style=color:#a6e22e>elems</span>, <span style=color:#66d9ef>function</span>( <span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>elem</span> ) {
+    <span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>stop</span>();
+    }
+});
+</code></pre></div><p>Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz. Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.</p>
 <p>İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.</p>
-<p>İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>//BAD
+</span><span style=color:#75715e></span>HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> pages <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;();</span>
+pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;mybooks.xhtml&#34;</span><span style=color:#f92672>);</span>
+pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;myauthors.xhtml&#34;</span><span style=color:#f92672>);</span>
+pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;myreaders.xhtml&#34;</span><span style=color:#f92672>);</span>
+pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;mylibraries.xhtml&#34;</span><span style=color:#f92672>);</span>
+
+HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> adminAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;();</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
+
+HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> registeredUserAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;();</span>
+registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;create&#34;</span><span style=color:#f92672>);</span>
+registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;create&#34;</span><span style=color:#f92672>);</span>
+registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
+registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
+
+HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> guestUserAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;();</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
+adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
+
+
+
+<span style=color:#75715e>//GOOD
+</span><span style=color:#75715e></span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyEntity</span> <span style=color:#f92672>{</span>
+    String page<span style=color:#f92672>;</span>
+    HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> authorities<span style=color:#f92672>;</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.</p>
 <p>DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.</p>
 <p>Tipler, Nedenler ve Çözüm Önerileri</p>
 <h3 id=1-zorla-tekrarlama>1. Zorla Tekrarlama</h3>

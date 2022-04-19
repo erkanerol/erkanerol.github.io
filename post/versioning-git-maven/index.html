@@ -58,15 +58,120 @@ Blog</a>
 <p>In this post, I will show how to version a JavaEE Web Application.
 The example project is <a href=https://github.com/erkanerol/versioning_javaee_maven_git>here</a></p>
 </blockquote>
+<p><img src=/img/screenshot.png alt=screenshot></p>
 <h5 id=1-create-a-maven-project-and-add-your-dependencies>1. Create a maven project and add your dependencies.</h5>
 <h5 id=2-add-your-scm-urls-to-pomxml>2. Add your scm url&rsquo;s to pom.xml</h5>
-<h5 id=3-define-time-format-in-pom>3. Define time format in pom.</h5>
-<h5 id=4-add-mojo-plugin--in-pomxml>4. Add mojo plugin in pom.xml</h5>
-<h5 id=5-add-versionproperties-to-your-resource-directory>5. Add version.properties to your resource directory</h5>
-<h5 id=6-add-your-resource-folder-in-pomxml>6. Add your resource folder in pom.xml</h5>
-<h5 id=7-create-an-application-scoped-bean>7. Create an application scoped bean</h5>
-<h5 id=8-use-the-bean-in-your-application>8. Use the bean in your application.</h5>
-<h2 id=recommendations>Recommendations</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;scm&gt;</span>
+	<span style=color:#f92672>&lt;url&gt;</span>
+		https://github.com/erkanerol/versioning_javaee_maven_git
+	<span style=color:#f92672>&lt;/url&gt;</span>
+	<span style=color:#f92672>&lt;connection&gt;</span>
+	   scm:git:git://github.com/erkanerol/versioning_javaee_maven_git.git
+	<span style=color:#f92672>&lt;/connection&gt;</span>
+	<span style=color:#f92672>&lt;developerConnection&gt;</span>
+		scm:git:git@github.com:erkanerol/versioning_javaee_maven_git.git
+	<span style=color:#f92672>&lt;/developerConnection&gt;</span>
+<span style=color:#f92672>&lt;/scm&gt;</span>
+</code></pre></div><h5 id=3-define-time-format-in-pom>3. Define time format in pom.</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;properties&gt;</span>
+		<span style=color:#f92672>&lt;maven.build.timestamp.format&gt;</span>
+			dd.MM.yyyy_HH_mm
+		<span style=color:#f92672>&lt;/maven.build.timestamp.format&gt;</span>
+		<span style=color:#f92672>&lt;buildDate&gt;</span>
+			${maven.build.timestamp}
+		<span style=color:#f92672>&lt;/buildDate&gt;</span>
+<span style=color:#f92672>&lt;/properties&gt;</span>
+</code></pre></div><h5 id=4-add-mojo-plugin--in-pomxml>4. Add mojo plugin in pom.xml</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;plugin&gt;</span>
+	<span style=color:#f92672>&lt;groupId&gt;</span>org.codehaus.mojo<span style=color:#f92672>&lt;/groupId&gt;</span>
+	<span style=color:#f92672>&lt;artifactId&gt;</span>buildnumber-maven-plugin<span style=color:#f92672>&lt;/artifactId&gt;</span>
+	<span style=color:#f92672>&lt;version&gt;</span>1.4<span style=color:#f92672>&lt;/version&gt;</span>
+	<span style=color:#f92672>&lt;executions&gt;</span>
+		<span style=color:#f92672>&lt;execution&gt;</span>
+			<span style=color:#f92672>&lt;phase&gt;</span>validate<span style=color:#f92672>&lt;/phase&gt;</span>
+			<span style=color:#f92672>&lt;goals&gt;</span>
+				<span style=color:#f92672>&lt;goal&gt;</span>create<span style=color:#f92672>&lt;/goal&gt;</span>
+			<span style=color:#f92672>&lt;/goals&gt;</span>
+		<span style=color:#f92672>&lt;/execution&gt;</span>
+	<span style=color:#f92672>&lt;/executions&gt;</span>
+	<span style=color:#f92672>&lt;configuration&gt;</span>
+		<span style=color:#f92672>&lt;shortRevisionLength&gt;</span>5<span style=color:#f92672>&lt;/shortRevisionLength&gt;</span>
+		<span style=color:#f92672>&lt;doCheck&gt;</span>false<span style=color:#f92672>&lt;/doCheck&gt;</span>
+		<span style=color:#f92672>&lt;doUpdate&gt;</span>false<span style=color:#f92672>&lt;/doUpdate&gt;</span>
+	<span style=color:#f92672>&lt;/configuration&gt;</span>
+<span style=color:#f92672>&lt;/plugin&gt;</span>
+</code></pre></div><h5 id=5-add-versionproperties-to-your-resource-directory>5. Add version.properties to your resource directory</h5>
+<pre tabindex=0><code>version=${version}.${buildNumber}
+versionLong=${version}.${buildNumber}.${buildDate}
+</code></pre><h5 id=6-add-your-resource-folder-in-pomxml>6. Add your resource folder in pom.xml</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;resources&gt;</span>
+	<span style=color:#f92672>&lt;resource&gt;</span>
+		<span style=color:#f92672>&lt;directory&gt;</span>src/main/webapp<span style=color:#f92672>&lt;/directory&gt;</span>
+	<span style=color:#f92672>&lt;/resource&gt;</span>
+	<span style=color:#f92672>&lt;resource&gt;</span>
+		<span style=color:#f92672>&lt;directory&gt;</span>src/main/resources<span style=color:#f92672>&lt;/directory&gt;</span>
+		<span style=color:#f92672>&lt;filtering&gt;</span>true<span style=color:#f92672>&lt;/filtering&gt;</span>
+	<span style=color:#f92672>&lt;/resource&gt;</span>
+<span style=color:#f92672>&lt;/resources&gt;</span>
+</code></pre></div><h5 id=7-create-an-application-scoped-bean>7. Create an application scoped bean</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>
+<span style=color:#f92672>package</span> com.erkanerol.example.versioning<span style=color:#f92672>;</span>
+
+<span style=color:#f92672>import</span> java.io.IOException<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.io.Serializable<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.util.Properties<span style=color:#f92672>;</span>
+
+<span style=color:#f92672>import</span> javax.annotation.PostConstruct<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> javax.faces.bean.ApplicationScoped<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> javax.faces.bean.ManagedBean<span style=color:#f92672>;</span>
+
+
+<span style=color:#a6e22e>@ManagedBean</span>
+<span style=color:#a6e22e>@ApplicationScoped</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>VersionBean</span> <span style=color:#66d9ef>implements</span> Serializable <span style=color:#f92672>{</span>
+
+	<span style=color:#66d9ef>private</span> String version<span style=color:#f92672>;</span>
+	<span style=color:#66d9ef>private</span> String versionLong<span style=color:#f92672>;</span>
+	
+	<span style=color:#a6e22e>@PostConstruct</span>
+	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>init</span><span style=color:#f92672>(){</span>
+		
+		<span style=color:#66d9ef>try</span> <span style=color:#f92672>{</span>
+			Properties properties <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Properties<span style=color:#f92672>();</span>
+			properties
+				<span style=color:#f92672>.</span><span style=color:#a6e22e>load</span><span style=color:#f92672>(</span><span style=color:#66d9ef>this</span>
+					<span style=color:#f92672>.</span><span style=color:#a6e22e>getClass</span><span style=color:#f92672>()</span>
+					<span style=color:#f92672>.</span><span style=color:#a6e22e>getClassLoader</span><span style=color:#f92672>()</span>
+					<span style=color:#f92672>.</span><span style=color:#a6e22e>getResourceAsStream</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;version.properties&#34;</span><span style=color:#f92672>));</span>
+		
+			version <span style=color:#f92672>=</span> properties<span style=color:#f92672>.</span><span style=color:#a6e22e>getProperty</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;version&#34;</span><span style=color:#f92672>);</span>
+			versionLong <span style=color:#f92672>=</span> properties<span style=color:#f92672>.</span><span style=color:#a6e22e>getProperty</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;versionLong&#34;</span><span style=color:#f92672>);</span>
+			
+		<span style=color:#f92672>}</span> <span style=color:#66d9ef>catch</span> <span style=color:#f92672>(</span>IOException e<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+			<span style=color:#75715e>// TODO Auto-generated catch block
+</span><span style=color:#75715e></span>			e<span style=color:#f92672>.</span><span style=color:#a6e22e>printStackTrace</span><span style=color:#f92672>();</span>
+		<span style=color:#f92672>}</span>
+		
+	<span style=color:#f92672>}</span>
+		
+	<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getVersion</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+		<span style=color:#66d9ef>return</span> version<span style=color:#f92672>;</span>
+	<span style=color:#f92672>}</span>
+	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setVersion</span><span style=color:#f92672>(</span>String version<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>version</span> <span style=color:#f92672>=</span> version<span style=color:#f92672>;</span>
+	<span style=color:#f92672>}</span>
+	<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getVersionLong</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+		<span style=color:#66d9ef>return</span> versionLong<span style=color:#f92672>;</span>
+	<span style=color:#f92672>}</span>
+	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setVersionLong</span><span style=color:#f92672>(</span>String versionLong<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>versionLong</span> <span style=color:#f92672>=</span> versionLong<span style=color:#f92672>;</span>
+	<span style=color:#f92672>}</span>	
+<span style=color:#f92672>}</span>
+
+</code></pre></div><h5 id=8-use-the-bean-in-your-application>8. Use the bean in your application.</h5>
+<pre tabindex=0><code>&lt;h:outputText value=&quot;version #{versionBean.version}&quot; /&gt;
+&lt;h:outputText value=&quot;long version #{versionBean.versionLong}&quot; /&gt;
+</code></pre><h2 id=recommendations>Recommendations</h2>
 <p>Use both long and short version in your application. Short version can be shown to users and long version can be shown in a spesific page like &ldquo;/version.jsf&rdquo;.
 If your repository is private, you have to put git password in your pom.xml. You can create a different, read-only account.
 You can put the version in name of war file. It makes easy to store executable files.</p>

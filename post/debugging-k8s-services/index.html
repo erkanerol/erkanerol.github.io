@@ -58,7 +58,10 @@ Blog</a>
 <blockquote>
 <p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
 </blockquote>
+<br>
+<h2 id=setup>Setup</h2>
 <p>Here is our basic setup to explain the scenarios.</p>
+<p><img src=/img/k8s-services/Setup.png alt=Setup></p>
 <p>We have 3 services. <code>service-front</code> is exposed to the public via an ingress. <code>service-front</code> depends on <code>service-middle</code> and <code>service-middle</code> depends on <code>service-back</code>. The communications are done through k8s services.</p>
 <p>To install this setup, here are the necessary commands:</p>
 <pre tabindex=0><code>kubectl create ns service-debug
@@ -66,7 +69,7 @@ kubectl -n service-debug run service-back --image=erkanerol/service-back:v1 --po
 kubectl -n service-debug run service-middle --image=erkanerol/service-middle:v1 --port=8081 --expose=true --labels=&quot;app=middle&quot;
 kubectl -n service-debug run service-front --image=erkanerol/service-front:v1 --port=8082 --expose=true --labels=&quot;app=front&quot;
 </code></pre><p>Here is the source code of these services: <a href=https://github.com/erkanerol/service-examples-for-blog>https://github.com/erkanerol/service-examples-for-blog</a></p>
-<p></p>
+<p><br><br></p>
 <h2 id=tool-1-kubectl-port-forward>Tool 1: <code>kubectl port-forward</code></h2>
 <h4 id=scenario>Scenario:</h4>
 <p>As a developer, I want to send some requests to <code>service-back</code> directly and see the result without touching the other services.</p>
@@ -79,13 +82,15 @@ kubectl -n service-debug run service-front --image=erkanerol/service-front:v1 --
 <pre tabindex=0><code>$ kubectl -n service-debug port-forward service/service-back 8080:8080
 Forwarding from 127.0.0.1:8080 -&gt; 8080
 Forwarding from [::1]:8080 -&gt; 8080
-</code></pre>
+</code></pre><br>
+Then run the curl command below in another terminal to see that you are able to access `service-back`
 <pre tabindex=0><code>$ curl localhost:8080
 Timestamp from back:1614508193
-</code></pre>
+</code></pre><br>
 <h4 id=how-does-it-work>How does it work?</h4>
+<p><img src=/img/k8s-services/Level1.png alt=Level1></p>
 <p><code>kubectl</code> starts a process which binds <code>localhost:8080</code>. It listens that port and establishes a connection to api-server, which forwards the requests to <code>service-back</code>.</p>
-<p></p>
+<p><br><br></p>
 <h2 id=tool-2-kubefwd>Tool 2: <code>kubefwd</code></h2>
 <h4 id=scenario-1>Scenario:</h4>
 <p>As a developer, I want to run <code>service-front</code> in my local machine so that I can put breakpoints in my IDE to debug my application.</p>
@@ -99,17 +104,19 @@ Timestamp from back:1614508193
 </code></pre><blockquote>
 <p>Note that <code>kubefwd</code> requires root privileges and it has to be run with <code>sudo</code>. Set <code>KUBECONFIG</code> variable without any home folder reference beforehand.</p>
 </blockquote>
+<br>
 <p>In another terminal, run <code>front</code> application in your local machine. Note that you can run it in debug mode as well and put breakpoints.</p>
 <pre tabindex=0><code>$ cd /tmp
 $ git clone https://github.com/erkanerol/service-examples-for-blog.git
 $ cd service-examples-for-blog/front
 $ go run main.go
-</code></pre>
+</code></pre><br>
 <p>In another terminal, Send a request to <code>front</code> app to see that your front app serves locally and it accesses <code>service-middle</code> in the cluster.</p>
 <pre tabindex=0><code>$ curl localhost:8082
 Response from service middle:'Response from service back:'Timestamp from back:1614513901''
-</code></pre>
+</code></pre><br>
 <h4 id=how-does-it-work-1>How does it work?</h4>
+<p><img src=/img/k8s-services/Level2.png alt=Level2></p>
 <p>As you can see from the logs of <code>kubefwd</code></p>
 <pre tabindex=0><code>...
 INFO[14:07:38] 'cat /etc/hosts' to see all host entries.    
@@ -118,12 +125,12 @@ INFO[14:07:38] HostFile management: Original hosts backup already exists at /roo
 ...
 INFO[14:07:38] Port-Forward: 127.1.27.1 service-middle:8081 to pod service-middle:8081 
 ...
-</code></pre>
+</code></pre><br>
 <p>It starts a process that binds <code>127.1.27.1:8081</code> and manipulates the <code>/etc/hosts</code> for <code>service-middle</code></p>
 <pre tabindex=0><code>$ cat /etc/hosts |grep service-middle
 127.1.27.1       service-middle.default service-middle.default.svc service-middle.default.svc.cluster.local service-middle.default.minikube service-middle.default.svc.minikube service-middle.default.svc.cluster.minikube service-middle service-middle.service-debug service-middle.service-debug.svc service-middle.service-debug.svc.cluster.local service-middle.service-debug.minikube service-middle.service-debug.svc.minikube service-middle.service-debug.svc.cluster.minikube
 </code></pre><p>Then your local <code>front</code> app can access the <code>service-middle</code> like in k8s cluster without any extra effort.
-</p>
+<br><br></p>
 <h2 id=tool-3-telepresence>Tool 3: <code>telepresence</code></h2>
 <h4 id=scenario-2>Scenario:</h4>
 <p>As a developer, I want to run <code>service-middle</code> in my local machine so that I can put breakpoints in my IDE to debug my application.</p>
@@ -135,23 +142,37 @@ INFO[14:07:38] Port-Forward: 127.1.27.1 service-middle:8081 to pod service-middl
 <p>Delete <code>service-middle</code> from your k8s cluster at first. We will run it locally.</p>
 <pre tabindex=0><code>kubectl -n service-debug delete service service-middle --ignore-not-found=true
 kubectl -n service-debug delete pod service-middle --ignore-not-found=true
-</code></pre>
+</code></pre><br>
+Run telepresence for `service-middle`
+```
+telepresence --namespace service-debug --new-deployment service-middle --expose 8081
+```
+<br>
+In another terminal, run `middle` application in your local machine. Note that you can run it in debug mode as well and put breakpoints.
 <pre tabindex=0><code>$ cd /tmp
 $ git clone https://github.com/erkanerol/service-examples-for-blog.git
 $ cd service-examples-for-blog/middle
 $ go run main.go
-</code></pre>
+</code></pre><br>
+In another terminal, run the command below to send a request to `service-front` via a temporary pod in the cluster.
+```
+$ kubectl -n service-debug run curl -it --rm=true --image=curlimages/curl --restart=Never -- http://service-front:8082
+Response from service middle:'Response from service back:'Timestamp from back:1614517363''pod "curl" deleted
+```
 <p>Note that your request goes to <code>service-front</code> in k8s, which sends a request to <code>service-middle</code> in your local machine, which sends a request to <code>service-back</code> in the cluster.</p>
+<br>
 <h4 id=how-does-it-work-2>How does it work?</h4>
+<p><img src=/img/k8s-services/Level3.png alt=Level3></p>
 <p>Basically, <code>telepresence</code> deploys a proxy/fake agent into cluster and opens a two-way tunnel between your local environment and the cluster via that agent. Then you are able to run the <code>middle</code> service in your local machine without adapting the consumers/dependent services.</p>
 <p>A detailed explanation about how telepresence works is available here: <a href=https://www.telepresence.io/discussion/how-it-works>https://www.telepresence.io/discussion/how-it-works</a></p>
+<br>
 <h2 id=summary>Summary</h2>
 <ul>
 <li>If you need to access a service without exposing it to public, <code>kubectl port-forward</code> is enough.</li>
 <li>If you need to run a service locally for debugging and your service needs to access other services on k8s, <code>kubefwd</code> is enough. It manages DNS entries in your local machine and opens a one-way tunnel from your machine to cluster for the dependencies of your service.</li>
 <li>If you need to run a service locally for debugging and your application has some consumers in the cluster, <code>telepresence</code> is your tool. It opens two-way network channel and it forwards requests from cluster to your local instance as well.</li>
 </ul>
-<p></p>
+<p><br><br></p>
 <p>p.s. Admission webhooks in Kubernetes are similar to <code>service-middle</code>. They receive some requests from api-server and they may send some requests to other services in the cluster. Therefore, <code>telepresence</code> is a useful tool for debugging admission webhooks. In the next blog post, I am going to explain how to debug validating webhooks.</p>
 </div>
 <div id=disqus_thread></div>

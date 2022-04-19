@@ -54,18 +54,83 @@ Blog</a>
 <br>
 <a class=label href=https://erkanerol.github.io/categories/software>Software</a><a class=label href=https://erkanerol.github.io/categories/java>Java</a><a class=label href=https://erkanerol.github.io/categories/tr>TR</a>
 </span>
-<blockquote>
 <p>Java&rsquo;da farklı dillerin alfabelerine göre sıralama yapmak mümkün.</p>
-</blockquote>
-<p><a href=https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java>Github Repo</a></p>
-<h2 id=console>Console</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#f92672>package</span> com.erkanerol.examples.collator<span style=color:#f92672>;</span>
+
+<span style=color:#f92672>import</span> java.text.Collator<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.util.ArrayList<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.util.Collections<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.util.Comparator<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.util.List<span style=color:#f92672>;</span>
+<span style=color:#f92672>import</span> java.util.Locale<span style=color:#f92672>;</span>
+
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CollatorExample</span> <span style=color:#f92672>{</span>
+
+	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+		
+		ArrayList<span style=color:#f92672>&lt;</span>City<span style=color:#f92672>&gt;</span> list <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;</span>City<span style=color:#f92672>&gt;();</span>
+		list<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> City<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;London&#34;</span><span style=color:#f92672>));</span>
+		list<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> City<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Newyork&#34;</span><span style=color:#f92672>));</span>
+		list<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> City<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Ankara&#34;</span><span style=color:#f92672>));</span>
+		list<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> City<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Paris&#34;</span><span style=color:#f92672>));</span>
+		list<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> City<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Venice&#34;</span><span style=color:#f92672>));</span>
+		list<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> City<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Çankırı&#34;</span><span style=color:#f92672>));</span>
+
+		Comparator<span style=color:#f92672>&lt;</span>City<span style=color:#f92672>&gt;</span> compDef <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Comparator<span style=color:#f92672>&lt;</span>CollatorExample<span style=color:#f92672>.</span><span style=color:#a6e22e>City</span><span style=color:#f92672>&gt;()</span> <span style=color:#f92672>{</span>
+			<span style=color:#a6e22e>@Override</span>
+			<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>compare</span><span style=color:#f92672>(</span>City c0<span style=color:#f92672>,</span> City c1<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+				<span style=color:#66d9ef>return</span> c0<span style=color:#f92672>.</span><span style=color:#a6e22e>getName</span><span style=color:#f92672>().</span><span style=color:#a6e22e>compareTo</span><span style=color:#f92672>(</span>c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getName</span><span style=color:#f92672>());</span>
+			<span style=color:#f92672>}</span>
+		<span style=color:#f92672>};</span>
+		
+		Comparator<span style=color:#f92672>&lt;</span>City<span style=color:#f92672>&gt;</span> compTr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Comparator<span style=color:#f92672>&lt;</span>CollatorExample<span style=color:#f92672>.</span><span style=color:#a6e22e>City</span><span style=color:#f92672>&gt;()</span> <span style=color:#f92672>{</span>
+			<span style=color:#a6e22e>@Override</span>
+			<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>compare</span><span style=color:#f92672>(</span>City c0<span style=color:#f92672>,</span> City c1<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+				Collator collator <span style=color:#f92672>=</span> Collator<span style=color:#f92672>.</span><span style=color:#a6e22e>getInstance</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> Locale<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;tr&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;TR&#34;</span><span style=color:#f92672>));</span>
+				<span style=color:#66d9ef>return</span> collator<span style=color:#f92672>.</span><span style=color:#a6e22e>compare</span><span style=color:#f92672>(</span>c0<span style=color:#f92672>.</span><span style=color:#a6e22e>getName</span><span style=color:#f92672>(),</span> c1<span style=color:#f92672>.</span><span style=color:#a6e22e>getName</span><span style=color:#f92672>());</span>
+			<span style=color:#f92672>}</span>
+		<span style=color:#f92672>};</span>
+		
+		Collections<span style=color:#f92672>.</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>(</span>list<span style=color:#f92672>,</span>compDef<span style=color:#f92672>);</span>
+		printList<span style=color:#f92672>(</span>list<span style=color:#f92672>);</span>
+		Collections<span style=color:#f92672>.</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>(</span>list<span style=color:#f92672>,</span>compTr<span style=color:#f92672>);</span>
+		printList<span style=color:#f92672>(</span>list<span style=color:#f92672>);</span>
+	<span style=color:#f92672>}</span>
+	
+	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>printList</span><span style=color:#f92672>(</span>List<span style=color:#f92672>&lt;</span>City<span style=color:#f92672>&gt;</span> list<span style=color:#f92672>){</span>
+		<span style=color:#66d9ef>for</span><span style=color:#f92672>(</span>City c<span style=color:#f92672>:</span>list<span style=color:#f92672>){</span>
+			System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>c<span style=color:#f92672>);</span>
+		<span style=color:#f92672>}</span>
+		System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;nn&#34;</span><span style=color:#f92672>);</span>
+	<span style=color:#f92672>}</span>
+	
+	
+	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>City</span><span style=color:#f92672>{</span>
+		<span style=color:#66d9ef>private</span> String name<span style=color:#f92672>;</span>
+		
+		<span style=color:#66d9ef>public</span> <span style=color:#a6e22e>City</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>){</span>
+			<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>					
+		<span style=color:#f92672>}</span>		
+		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getName</span><span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+			<span style=color:#66d9ef>return</span> name<span style=color:#f92672>;</span>
+		<span style=color:#f92672>}</span>
+		<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setName</span><span style=color:#f92672>(</span>String name<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+			<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> name<span style=color:#f92672>;</span>
+		<span style=color:#f92672>}</span>
+		<span style=color:#a6e22e>@Override</span>
+		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>toString</span><span style=color:#f92672>(){</span>
+			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>name</span><span style=color:#f92672>;</span>
+		<span style=color:#f92672>}</span>
+	<span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><h2 id=console>Console</h2>
 <p>Ankara</p>
 <p>London</p>
 <p>Newyork</p>
 <p>Paris</p>
 <p>Venice</p>
 <p>Çankırı</p>
-<p></p>
+<p><br></br></p>
 <p>Ankara</p>
 <p>Çankırı</p>
 <p>London</p>

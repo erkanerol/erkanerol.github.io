@@ -2,7 +2,4 @@
 &lt;p>In this post, I will show how to version a JavaEE Web Application.
 The example project is &lt;a href="https://github.com/erkanerol/versioning_javaee_maven_git">here&lt;/a>&lt;/p>
 &lt;/blockquote>
-&lt;!-- raw HTML omitted --></description></item><item><title>Farklı dillerin alfabelerine göre sıralama (Collator kullanımı)</title><link>https://erkanerol.github.io/post/collator/</link><pubDate>Sat, 09 Jan 2016 21:56:21 +0300</pubDate><guid>https://erkanerol.github.io/post/collator/</guid><description>&lt;blockquote>
-&lt;p>Java&amp;rsquo;da farklı dillerin alfabelerine göre sıralama yapmak mümkün.&lt;/p>
-&lt;/blockquote>
-&lt;p>&lt;a href="https://github.com/erkanerol/Examples/blob/master/src/com/erkanerol/examples/collator/CollatorExample.java">Github Repo&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>&lt;img src="https://erkanerol.github.io/img/screenshot.png" alt="screenshot">&lt;/p></description></item><item><title>Farklı dillerin alfabelerine göre sıralama (Collator kullanımı)</title><link>https://erkanerol.github.io/post/collator/</link><pubDate>Sat, 09 Jan 2016 21:56:21 +0300</pubDate><guid>https://erkanerol.github.io/post/collator/</guid><description>&lt;p>Java&amp;rsquo;da farklı dillerin alfabelerine göre sıralama yapmak mümkün.&lt;/p></description></item></channel></rss>
