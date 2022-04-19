@@ -14,7 +14,7 @@ weight=1
 
 Primitive Obsession ünlü <a href="https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672" target="_blank">Refactoring</a> kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
-<img src="/img/primitive.jpg" />
+![primitive](/img/primitive.jpg)
 <a href="https://dzone.com/articles/primitive-obsession" target="_blank">Görselin Kaynağı</a>
 
 <!--more-->

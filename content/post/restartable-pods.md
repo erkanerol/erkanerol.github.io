@@ -76,7 +76,7 @@ The main subject of this write-up is pods in Kubernetes. Let's take a closer loo
 <br>
 
 Shortly, Pod = Shared Context + Containers. 
-<img src="/img/pods_simplified.png"  title="pods-simplified"/>
+![pods_simplified.png](/img/pods_simplified.png)
 
 
 Since pods are the smallest and fundamental workloads in Kubernetes, <u>to be able to restart pods is extremely crucial/necessary to reach the level at which we want to be by accepting to spend tremendous effort unrelated to our core application.</u> ( [See Kubernetes criticisms](https://lmgtfy.com/?q=is+kubernetes+too+complicated) )
@@ -107,7 +107,7 @@ Quote [the official doc](https://kubernetes.io/docs/concepts/architecture/contro
 
 - "In Kubernetes, controllers are control loops that watch the state of your cluster, then make or request changes where needed."
 
-<img src="/img/pods_simplified_with_controller.png"  title="pods_simplified_with_controller"/>
+![pods_simplified_with_controller](/img/pods_simplified_with_controller.png)
 
 ***My comments&expectations:*** Wow!!! It seems Kubernetes is designed in such a way that every agent has one job and does it well. There may be some problematic/missing pods in the cluster but we aim to solve this problem by using some controllers. Refreshing the whole pod may not be in the scope of pod controller, but it must be handled by other controllers in higher levels (See [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)). 
 

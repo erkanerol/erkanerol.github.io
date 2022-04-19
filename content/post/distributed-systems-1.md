@@ -24,7 +24,7 @@ Bütün bilgisayar sistemlerinde temelde iki iş yaparız: Veri saklama (storage
 
 Burada akla ilk gelen soru "Madem bir bilgisayarla çözebiliyorduk neden birden fazla bilgisayar kullanıyoruz?" olacaktır. Aslında elimizde sonsuz işlem yapma gücünde, sonsuz veri saklama kapasitesinde ve Dünya'nın her noktasından hızlıca erişilebilir bir bilgisayar olsaydı dağıtık sistemler kurmaya gerek kalmazdı. Fakat böyle bir bilgisayar yok. Bizim işimizi görecek kadarını yapsak bize yeter diye düşünebilirsiniz. Orada da şöyle bir sorun devreye giriyor: Dağıtık sistemler kurmak yerine elimizdeki donanımların özelliklerini arttırdıkça bu donanımların maaliyetleri aşırı yükseliyor. Aşağıdaki görselde de görüleceği üzere makina sayısını arttırarak yatayda ölçekleme yapmanın (horizontal scaling/scale out) maaliyeti lineer artarken, makinanın özelliklerini artırarak dikeyde ölçekleme yapmanın (vertical scaling/scale up) maaliyeti üssel şekilde artıyor.
 
-<img src="/img/ds/ScaleUpVsScaleOut.jpg"/>
+![ScaleUpVsScaleOut](/img/ds/ScaleUpVsScaleOut.jpg)
 
 Kaldı ki donanım öğelerinin de fiziksel limitleri ve bozulma ihtimali var. Milyon dolarlar harcadığınız bir sistemin tek bir donanım öğesinin (disk, memory, cpu vb.) bozulmasıyla çalışamaz hale gelmesini kabul eder miydiniz? Edenleri <a href="http://www.foratoys.com/webkontrol/urun_yonetimi/urunresimalt/urunresimalt_13_06_2013_11_16_501.jpg" target="_blank">şuraya</a> alalım. Etmeyenlerle "Nasıl şu dağıtık sistemleri kurarız?" derdine düşelim hep beraber.
 
@@ -38,7 +38,7 @@ Dağıtık sistemlerde makina adeti ile toplam işlem gücü arasındaki ilişki
 <br></br>
 ## Yüksek özellikli makinalar her zaman verimli mi?
 
-<img src="/img/ds/barroso_holzle.png"/>
+![barroso_holzle](/img/ds/barroso_holzle.png)
 
 Yazıyı bitirirken yukarıdaki grafiği de açıklamak isterim. Barroso, Clidaras ve Hölzle isimli 3 Google çalışanı bir <a href="http://www.morganclaypool.com/doi/abs/10.2200/S00516ED2V01Y201306CAC024" target="_blank">araştırma</a> yapıyor. Araştırmada şöyle bir soru mevcut: 4 çekirdekli sıradan makinalarla mı çalışsak daha performanslı olur, yoksa high-end dedikleri 128 çekirdekli makinalarla mı çalışsak daha iyi olur? Kurulan kümenin (cluster) boyutu küçükken (toplamda 512 çekirdekli iken mesela) 128'lik makinalı küme çok daha iyi. Çünkü iletişimin büyük bölümü makina içlerinde ve tahmin edersiniz ki belleğe ulaşmak (memory access) ağ üzerinden haberleşmeye göre oldukça ucuz/hızlı. Fakat kümenin boyutu büyüdükçe bu performans artışı gitgide azalıyor. Sonlara doğru %1-2 düzeylerinde gördüğünüz üzere. Yani dağıtık sistemlerde ölçek büyüdükçe sistem üzerindeki birimlerin büyüklüklerinin önemi ciddi ölçüde azalıyor. Problemi/çözümü kümeye nasıl dağıttığımıza kalıyor bütün mesele.
 

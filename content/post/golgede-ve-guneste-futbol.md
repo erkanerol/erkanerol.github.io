@@ -14,7 +14,7 @@ Uzun betimlemelerden,derin analizlerden,anlaşılması güç metaforlardan yorul
 >Okuyacağınız sayfalar, yıllar önce Calella de la Costa'da karşılaştığım çocuklara ithaf edilmiştir. Futbol oynamaktan dönen o çocuklar bir şarkı tutturmuşlardı:   "Yensek de, yenilsek de, değişmez eğlencemiz..."
 
 
-<img src="/img/golgede-guneste-futbol-kapak.jpg"/>
+![golgede-guneste-futbol-kapak](/img/golgede-guneste-futbol-kapak.jpg)
 
 <!--more-->
 

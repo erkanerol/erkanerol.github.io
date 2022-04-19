@@ -26,21 +26,21 @@ Bu tasarım şablonunda nesnelerin sınıflarını ve nesneleri üreten üretici
 
 Abstract Factory her bir ürün için bir Factory Method (makeProductOne,makeProductTwo vb.) tanımlar. Her Factory Method new operatörünü ve platforma özgü ürün sınıflarını sarmalar. Her platform fabrika sınıflarıyla modellenir.
 
-<img src="/img/Abstract_Factory-2x.png" />
+![Abstract_Factory](/img/Abstract_Factory-2x.png)
 
 
 ## Örnek
 
 Örneğimizde Ubuntu ve Windows platformları için UI birleşenleri üreten bir Abstract Factory şablonu oluşturalım. Bu örnekte platformlardan bağımsız bir şekilde pencere ve buton üreten bir yapı kuralım. Örneğin UML diagramı ve kodu aşağıda mevcuttur.
 
-<img src="/img/abstract-factory-design-patterns-button.png" />
+![abstract-factory-design-patterns-button](/img/abstract-factory-design-patterns-button.png)
 Buton arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
 
 <br></br><br></br>
-<img src="/img/abstract-factory-design-patterns-window.png" />
+![abstract-factory-design-patterns-window](/img/abstract-factory-design-patterns-window.png)
 Pencere arayüzü ve Windows+Ubuntu Platformları için ürün sınıfları
 <br></br><br></br>
-<img src="/img/abstract-factory-design-patterns-factory.png" />
+![abstract-factory-design-patterns-factory](/img/abstract-factory-design-patterns-factory.png)
 Abstract Factory ve Windows+Ubuntu Platformları için fabrika sınıfları
 <br></br><br></br>
 

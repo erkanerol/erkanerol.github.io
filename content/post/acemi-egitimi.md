@@ -14,7 +14,7 @@ okumam da etkili oldu :) Kitabı şiddetle tavsiye ediyorum!
 Not: Kitapta müstehcen ifadelerin yer aldığını belirtmeyi tavsiye eden olarak borç bilirim.
 
 
-<img src="/img/acemi_egitimi.jpg"/>
+![acemi_egitimi](/img/acemi_egitimi.jpg)
 
 <!--more-->
 <br></br>

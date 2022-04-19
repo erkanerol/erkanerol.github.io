@@ -16,7 +16,7 @@ TL;DR Şu kitabı her yazılımcının okuması gerektiğine inanıyorum ve şid
 
 <!--more-->
 
-<img src="/img/apprenticeship-cover.png" title="Apprenticeship Patterns"/>
+![Apprenticeship Patterns](/img/apprenticeship-cover.png)
 
 
 ## Tanıtım
@@ -39,7 +39,7 @@ Bu kitap 2. kategori yazılımcı olmak isteyen çıraklar için bire bir. Mesle
 
 ## Kitapta Bulunan Bütün Şablonlar
 
-<img src="/img/apprenticeship-patterns.png" title="Apprenticeship Patterns"/>
+![Apprenticeship Patterns](/img/apprenticeship-patterns.png)
 
 
 ## Kişisel Yorumlarım

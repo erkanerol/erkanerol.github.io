@@ -12,11 +12,12 @@ While developing/debugging applications that serve services on k8s in production
 
 <!--more-->
 <br>
+
 ## Setup
 
 Here is our basic setup to explain the scenarios.
 
-<img src="/img/k8s-services/Setup.png" title="Setup"/>
+![Setup](/img/k8s-services/Setup.png)
 
 We have 3 services. `service-front` is exposed to the public via an ingress. `service-front` depends on `service-middle` and `service-middle` depends on `service-back`. The communications are done through k8s services. 
 
@@ -64,7 +65,7 @@ Timestamp from back:1614508193
 
 #### How does it work?
 
-<img src="/img/k8s-services/Level1.png" title="Level1"/>
+![Level1](/img/k8s-services/Level1.png)
 
 `kubectl` starts a process which binds `localhost:8080`. It listens that port and establishes a connection to api-server, which forwards the requests to `service-back`.
 
@@ -116,7 +117,7 @@ Response from service middle:'Response from service back:'Timestamp from back:16
 #### How does it work?
 
 
-<img src="/img/k8s-services/Level2.png" title="Level2"/>
+![Level2](/img/k8s-services/Level2.png)
 
 As you can see from the logs of `kubefwd`
 ```
@@ -191,7 +192,7 @@ Note that your request goes to `service-front` in k8s, which sends a request to 
 
 #### How does it work?
 
-<img src="/img/k8s-services/Level3.png" title="Level3"/>
+![Level3](/img/k8s-services/Level3.png)
 
 
 Basically, `telepresence` deploys a proxy/fake agent into cluster and opens a two-way tunnel between your local environment and the cluster via that agent. Then you are able to run the `middle` service in your local machine without adapting the consumers/dependent services.

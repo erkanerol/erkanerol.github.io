@@ -8,7 +8,7 @@ weight = 1
 
 >TL;DR O'Reilly sitesinden ücretsiz indirebileceğiniz kısa,güzel bir kitabın özeti
 
-<img src="/img/software_design_cover.png" />
+![software_design_cover](/img/software_design_cover.png)
 
 Geçenlerde Hacker News üzerinden bulduğum bir yazıyı okurken sağ tarafta ücretsiz ekitap indirebileceğime dair bir şey görünce beleşçiliğim tuttu ve kitabı (mobi formatı da var 👏) indirdim. Kitabın temel uygulama mimarilerini uzatmadan (pdf versiyonu 55 sayfa) anlatması çok hoşuma gitti ve okudum. Benim için çok faydalı olduğunu söyleyebilirim. Bir çok terim öğrendim. Buradan önermeye karar verdim.
 
@@ -24,39 +24,39 @@ http://www.oreilly.com/programming/free/software-architecture-patterns.csp
 
 ## 1. Layered Architecture
 
-<img src="/img/layered.png" />
+![layered](/img/layered.png)
 
 ## 2. Event-Driven Architecture
 
 ### a. Mediator
 
-<img src="/img/mediator.png" />
+![mediator](/img/mediator.png)
 
 
 ### b. Broker
 
-<img src="/img/broker.png" />
+![broker](/img/broker.png)
 
 
 ## 3. Microkernel Architecture
 
-<img src="/img/kernel.png" />
+![kernel](/img/kernel.png)
 
 
 ## 4. Microservices Architecture Pattern
 
-<img src="/img/microservices.png" />
+![microservices](/img/microservices.png)
 
 
 
 ## 5. Space-Based Architecture
 
-<img src="/img/space_based.png" />
+![space_based](/img/space_based.png)
 
 
 ## A. Pattern Analysis Summary
 
-<img src="/img/summary.png" />
+![summary](/img/summary.png)
 
 
 

@@ -8,7 +8,7 @@ weight = 1
 
 >Basitlik nihai karmaşıklıktır.
 
-<img src="/img/Simplicity.jpg"/>
+![Simplicity](/img/Simplicity.jpg)
 
 <!--more-->
 

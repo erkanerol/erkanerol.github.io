@@ -24,13 +24,13 @@ Fonksiyonlar tanım kümesindeki her bir elemanı görüntü kümesinde yalnızc
 
 
 ***Örnek 1:*** Tanım kümesindeki bütün elemanlar eşleşmemiş. 4 açıkta kalmış. Onun için bu ilişki bir fonksiyon değil.
-<img src="/img/hash/fonksiyon_degil.png"/>
+![fonksiyon_degil](/img/hash/fonksiyon_degil.png)
 
 ***Örnek 2:*** Tanım kümesindeki bir değer görüntü kümesindeki iki değer ile eşleşmiş. Onun için bu ilişki bir fonksiyon değil.
-<img src="/img/hash/fonksiyon_degil_2.png"/>
+![fonksiyon_degil_2](/img/hash/fonksiyon_degil_2.png)
 
 ***Örnek 3:***Tanım kümesindeki bütün elemanlar görüntü kümesinde yalnızca bir elemen ile eşleşmiş. Onun için bu ilişki bir fonksiyon. f(1)=A, f(2)=B, f(3), f(4)=C
-<img src="/img/hash/fonksiyon.png"/>
+![fonksiyon](/img/hash/fonksiyon.png)
 
 <br><br>
 #### Ters Fonksiyon
@@ -38,13 +38,13 @@ Fonksiyonlar tanım kümesindeki her bir elemanı görüntü kümesinde yalnızc
 Dikkatinizi çektiyse ilişkinin fonksiyon olması için görüntü kümesindeki bütün elemanların ilişkide yer almasına gerek yok. Son örnekte D elemanı açıkta kalmış. Görüntü kümesindeki bütün elemanlar eşleşmede yer alır ise bu fonksiyonlara ***örten*** fonksiyonlar diyoruz.
 
 ***Örnek 4:*** Örten fonksiyon
-<img src="/img/hash/orten.png"/>
+![orten](/img/hash/orten.png)
 
 
 Bu örnekteki fonksiyon iyi, güzel, hoş ama tersini alamıyoruz. f(x)=A dendiğinde x değerinin 1 olduğunu tahmin ediyoruz ama f(x)=C dendiğinde x değeri 3 mü 4 mü bilemiyoruz. Fonksiyonların tersini alabilmek için hem birebir hem de örten olmaları gerekiyor.
 
 ***Örnek 5:*** Birebir ve örten fonksiyon. f(1)=A, f(4)=D, f<sup>-1</sup>(D)=4
-<img src="/img/hash/birebir_ve_orten.png"/>
+![birebir_ve_orten](/img/hash/birebir_ve_orten.png)
 
 
 #### Tek Yönlü Fonksiyonlar

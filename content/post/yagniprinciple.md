@@ -35,7 +35,7 @@ Doğru tahmin ettiğimiz durumdaki tek maliyet geciktirme maliyeti değildir. Ta
 
 Aşağıda şu ana kadar anlattıklarımı özetleyen bir grafik mevcut.
 
-<img src="/img/yagni.png" title="YAGNI"/>
+![YAGNI](/img/yagni.png)
 
 ## Ölçü
 
