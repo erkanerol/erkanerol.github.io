@@ -35,8 +35,7 @@ Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişikl
 
 Birincisi çok basit bir kod tekrar örneği. [4]
 
-<pre>
-<code class="language-js">
+```javascript
 // BAD
 if ( eventfade.data( "currently" ) !== "showing" ) {
     eventfade.stop();
@@ -58,35 +57,33 @@ $.each( elems, function( i, elem ) {
         elem.stop();
     }
 });
-</code>
-</pre>
+```
 
 Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz.  Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.
 
 İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.
 
-<pre>
-<code class="language-java">
+```java
 //BAD
-HashMap&lt;String,String&gt; pages = new HashMap&lt;String, String&gt;();
+HashMap<String,String> pages = new HashMap<String, String>();
 pages.put("book","mybooks.xhtml");
 pages.put("author","myauthors.xhtml");
 pages.put("reader","myreaders.xhtml");
 pages.put("library","mylibraries.xhtml");
 
-HashMap&lt;String,String&gt; adminAuthority = new HashMap&lt;String,String&gt;();
+HashMap<String,String> adminAuthority = new HashMap<String,String>();
 adminAuthority.put("book","all");
 adminAuthority.put("author","all");
 adminAuthority.put("reader","all");
 adminAuthority.put("library","all");
 
-HashMap&lt;String,String&gt; registeredUserAuthority = new HashMap&lt;String,String&gt;();
+HashMap<String,String> registeredUserAuthority = new HashMap<String,String>();
 registeredUserAuthority.put("book","create");
 registeredUserAuthority.put("author","create");
 registeredUserAuthority.put("reader","read");
 registeredUserAuthority.put("library","read");
 
-HashMap&lt;String,String&gt; guestUserAuthority = new HashMap&lt;String,String&gt;();
+HashMap<String,String> guestUserAuthority = new HashMap<String,String>();
 adminAuthority.put("book","read");
 adminAuthority.put("author","read");
 adminAuthority.put("reader","read");
@@ -97,10 +94,9 @@ adminAuthority.put("library","read");
 //GOOD
 public class MyEntity {
     String page;
-    HashMap&lt;String,String&gt; authorities;
+    HashMap<String,String> authorities;
 }
-</code>
-</pre>
+```
 
 
 İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.

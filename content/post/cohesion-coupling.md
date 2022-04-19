@@ -18,7 +18,7 @@ Bu aralar Software Craftsmanship alanında okumalar yapmaya ve vakit buldukça k
 
 Diyelim ki bir yazılım geliştiriyoruz. Yazılımımızın yapması gereken belirli işler var. Bu işleri yapabilmek için irili ufaklı onlarca/yüzlerce/binlerce fonksiyona ihtiyacımız var. Bunların rastgele bir fonksiyon uzayında yer aldığını düşünelim.
 
-<img src="/img/cohesion-coupling/functionSpace.png" title="Function Space"/>
+![Function Space](/img/cohesion-coupling/functionSpace.png)
 
 Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor olabilirler, aynı veri yapılarını kullanıyor olabilirler, aynı fonsiyonlara bağımlılıkları olabilir vs. Şimdilik o kısmı bir kenara bırakıyoruz ve şu soruya odaklanıyoruz. Bunlar yazılımımızda bu şekilde mi bulunur? Böyle dağınık, başıboş, düzensiz :( Elbette bunları gruplara ayırır, modüllerin içine koyarız değil mi? Java açısından baktığımızda bunları sınıfların(classes) içine koyarız, paketleme yaparız. Olmadı bunları modüllere/projelere ayırır, build araçları ile birbirine bağlarız.
 
@@ -27,7 +27,7 @@ Bu fonksiyonlar arasındaki elbette ilişkiler var. Birbirlerini çağırıyor o
 
 Kabaca fonksiyonları modüllere ayırmaya çalışalım.
 
-<img src="/img/cohesion-coupling/modules1.png" title="Modules1"/>
+![Modules1](/img/cohesion-coupling/modules1.png)
 
 "Ya şimdi writeLog ile sendMail ne alaka" cümlesini duyar gibiyim sevgili okuyucu :) Maalesef ki bizim Utils/Helpers gibi isimler verdiğimiz nesnelerin içi de biraz böyle. Bu neden böyle olmamalı konusuna geliyorum hemen.
 
@@ -40,12 +40,12 @@ Modüllere ayırırken nasıl ayırırız? Neyi amaçlarız? Hedefimiz nedir? Ne
 Burada biraz duralım. Şimdi şöyle düşünelim. Elimizde öğeler var. Herhangi bir modülün parçaları bunlar. Bir de olası değişiklik nedenleri var.
 
 Eğer alakasız şeyleri bir araya koyarsak birden fazla sebep orayı değiştirmemizi gerektirebilir. Yani modülümüz **odaklı** olmaz, ne iş yaptığı kolay anlaşılamaz, bakımı zorlaşır. Bu istediğimiz bir durum değil. Öğeler olabildiğince birbirine yapışık olmalı. Tabi ki bunun için öğeleri gereksiz yere birbirine yapıştırmıyoruz :) Yapışık olmayanları ayırmamız lazım.
-<img src="/img/cohesion-coupling/lowCohesion.png" title="lowCohesion"/>
+![lowCohesion](/img/cohesion-coupling/lowCohesion.png)
 
 <br></br>
 
 Eğer ayırdığımız modüller birbirleriyle çok bağlantılı ise bir nedenden dolayı birden fazla yeri değiştirmemiz gerekebilir ki bunu istemiyoruz. Çünkü bu durumu yönetmek zaman içinde zorlaşır. 
-<img src="/img/cohesion-coupling/highCoupling.png" title="highCoupling"/>
+![highCoupling](/img/cohesion-coupling/highCoupling.png)
 
 
 <br></br>
@@ -53,7 +53,7 @@ Eğer ayırdığımız modüller birbirleriyle çok bağlantılı ise bir nedend
 
 bkz: <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well"> Do One Thing and Do It Well. </a> 
 
-<img src="/img/cohesion-coupling/ideal.png" title="ideal"/>
+![ideal](/img/cohesion-coupling/ideal.png)
 
 
 
@@ -67,7 +67,7 @@ Modüllerin arasındaki irtibatı ifade etmek için kullandığımız kavram da 
 
 ### Deneme bir ki...
 
-<img src="/img/cohesion-coupling/modules2.png" title="Modules2"/>
+![Modules2](/img/cohesion-coupling/modules2.png)
 
 Şimdi biraz daha iyi oldu gibi. Ama içlerini görmeden tam olarak emin olamayız :) 
 

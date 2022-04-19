@@ -19,7 +19,7 @@ Ben şimdilik şöyle bir yol buldum. Çalışma sırasında önemli gördüğü
 Yazıyı şöyle bitireyim: Aşağıdaki fotoğraf bir süre konuşuldu. Whatsapp Türkiye'nin en büyük şirketlerinden (THY, Tüpraş, Turkcell) 3 tanesinin toplamından daha değerli imiş. "Bizim acil yazılım işine girmemiz lazım. Yazılımda çok para var."  muhabbetleri çok döndü. Tabi herkes patronluğa talip kodu yazmaya niyetlenen yok. Fakat o uygulamalar öyle sürükle bırakla, kod kopyalamakla hemen yazılamıyor maalesef. Biz hızlı treni insanla test ederken "gavur" eğlence amaçlı bir uygulamayı bile çok sıkı test ediyor. Bir yandan da Türkiye'de bu işe para yatıran, şirket kuran insanlar kalifiye çalışan bulamamaktan şikayet ediyor. Eğer gerçekten kaliteli yazılımlar geliştirmek ciddi paralar kazanmak (kalite yeterli olmayabilir ama gerekli) istiyorsak, eğer arkadan takip etmeyi bırakmak istiyorsak stackoverflow'da soru cevaplayan adamlar lazım bize galiba. Şuna bile razıyım yahu: "It works for me" :D
 
 
-<img src="/img/stackoverflowlamak.jpg" title="stackoverflowlamak" />
+![stackoverflowlamak](/img/stackoverflowlamak.jpg)
 
 
 

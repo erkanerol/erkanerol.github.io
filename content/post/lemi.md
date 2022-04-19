@@ -12,7 +12,7 @@ Aslında bir video çekmekti planım lakin beceremedim bir türlü☹️Ben de y
 
 <br><br>
 
-<img src="https://avatars0.githubusercontent.com/u/1199195?v=3&s=400" />
+![lemi-avatar](https://avatars0.githubusercontent.com/u/1199195?v=3&s=400)
 
 
 >Bugün (13 Mart) Lemi abinin, <a href="https://twitter.com/lemiorhan" target="_blank">Lemi Orhan Ergin'in</a> doğum günü. En son söyleyeceğim sözü ilk başta söyleyeyim: İyi doğdun Lemi abi. İyi ki varsın!
@@ -27,9 +27,9 @@ Aslında bir video çekmekti planım lakin beceremedim bir türlü☹️Ben de y
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I want to be a Software Craftsman.</p>&mdash; Erkan Erol (@erkan_erol_) <a href="https://twitter.com/erkan_erol_/status/701115261127155712">February 20, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<img src="/img/lemi/lemi-eksi.png" />
+![lemi-eksi](/img/lemi/lemi-eksi.png)
 
-<img src="/img/lemi/kendime-not.png" />
+![kendime-not](/img/lemi/kendime-not.png)
 
 <br>
 ## Gözlem ve Tanışma

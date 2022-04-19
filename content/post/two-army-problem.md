@@ -14,7 +14,7 @@ Bu yazıda Two Generals' Problem ya da The Two Army Problem olarak anılan probl
 Ortada bir savaş var. A1 ve A2 orduları B ordusuna karşı savaşıyor fakat resimdeki gibi ayrı düşmüşler. Ancak elçiler vasıtası ile iletişim kurulabiliyor. Bu iki ordu aynı anda B ordusuna hücum etmek istiyor fakat kesin bir şekilde anlaşmaları lazım. Aksi halde yenilebilirler.
 
 
-<img src="/img/two-army.png" title="Two Army"/>
+![Two Army](/img/two-army.png)
 
 Problemimiz şu: Bu iki ordu elçiler göndererek bir mütabakata varabilirler mi? Anlaştıklarından %100 emin olabilirler mi?
 

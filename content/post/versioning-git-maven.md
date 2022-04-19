@@ -8,88 +8,89 @@ weight = 1
 >In this post, I will show how to version a JavaEE Web Application.
 The example project is [here](https://github.com/erkanerol/versioning_javaee_maven_git)
 
-<img src="/img/screenshot.png" />
+![screenshot](/img/screenshot.png)
 
 <!--more-->
 
 
 ##### 1. Create a maven project and add your dependencies.
+
 ##### 2. Add your scm url's to pom.xml
 
-<pre><code class="xml">
-&lt;scm&gt;
-	&lt;url&gt;
+```xml
+<scm>
+	<url>
 		https://github.com/erkanerol/versioning_javaee_maven_git
-	&lt;/url&gt;
-	&lt;connection&gt;
+	</url>
+	<connection>
 	   scm:git:git://github.com/erkanerol/versioning_javaee_maven_git.git
-	&lt;/connection&gt;
-	&lt;developerConnection&gt;
+	</connection>
+	<developerConnection>
 		scm:git:git@github.com:erkanerol/versioning_javaee_maven_git.git
-	&lt;/developerConnection&gt;
-&lt;/scm&gt;
-</code></pre>
+	</developerConnection>
+</scm>
+```
 
 ##### 3. Define time format in pom.
-<pre><code class="xml">
-&lt;properties&gt;
-		&lt;maven.build.timestamp.format&gt;
+```xml
+<properties>
+		<maven.build.timestamp.format>
 			dd.MM.yyyy_HH_mm
-		&lt;/maven.build.timestamp.format&gt;
-		&lt;buildDate&gt;
+		</maven.build.timestamp.format>
+		<buildDate>
 			${maven.build.timestamp}
-		&lt;/buildDate&gt;
-&lt;/properties&gt;
-</code></pre>
+		</buildDate>
+</properties>
+```
 
 ##### 4. Add mojo plugin  in pom.xml
 
-<pre><code class="xml">
-&lt;plugin&gt;
-	&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
-	&lt;artifactId&gt;buildnumber-maven-plugin&lt;/artifactId&gt;
-	&lt;version&gt;1.4&lt;/version&gt;
-	&lt;executions&gt;
-		&lt;execution&gt;
-			&lt;phase&gt;validate&lt;/phase&gt;
-			&lt;goals&gt;
-				&lt;goal&gt;create&lt;/goal&gt;
-			&lt;/goals&gt;
-		&lt;/execution&gt;
-	&lt;/executions&gt;
-	&lt;configuration&gt;
-		&lt;shortRevisionLength&gt;5&lt;/shortRevisionLength&gt;
-		&lt;doCheck&gt;false&lt;/doCheck&gt;
-		&lt;doUpdate&gt;false&lt;/doUpdate&gt;
-	&lt;/configuration&gt;
-&lt;/plugin&gt;
-</code></pre>
+```xml
+<plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>buildnumber-maven-plugin</artifactId>
+	<version>1.4</version>
+	<executions>
+		<execution>
+			<phase>validate</phase>
+			<goals>
+				<goal>create</goal>
+			</goals>
+		</execution>
+	</executions>
+	<configuration>
+		<shortRevisionLength>5</shortRevisionLength>
+		<doCheck>false</doCheck>
+		<doUpdate>false</doUpdate>
+	</configuration>
+</plugin>
+```
 
 ##### 5. Add version.properties to your resource directory
 
-<pre><code>
+```
 version=${version}.${buildNumber}
 versionLong=${version}.${buildNumber}.${buildDate}
-</code></pre>
+```
 
 
 ##### 6. Add your resource folder in pom.xml
 
-<pre><code class="xml">
-&lt;resources&gt;
-	&lt;resource&gt;
-		&lt;directory&gt;src/main/webapp&lt;/directory&gt;
-	&lt;/resource&gt;
-	&lt;resource&gt;
-		&lt;directory&gt;src/main/resources&lt;/directory&gt;
-		&lt;filtering&gt;true&lt;/filtering&gt;
-	&lt;/resource&gt;
-&lt;/resources&gt;
-</code></pre>
+```xml
+<resources>
+	<resource>
+		<directory>src/main/webapp</directory>
+	</resource>
+	<resource>
+		<directory>src/main/resources</directory>
+		<filtering>true</filtering>
+	</resource>
+</resources>
+```
 
 ##### 7. Create an application scoped bean
 
-<pre><code class="java">
+```java
 
 package com.erkanerol.example.versioning;
 
@@ -144,15 +145,15 @@ public class VersionBean implements Serializable {
 	}	
 }
 
-</code></pre>
+```
 
 
 ##### 8. Use the bean in your application.
 
-<pre><code>
-&lt;h:outputText value="version #{versionBean.version}" /&gt;
-&lt;h:outputText value="long version #{versionBean.versionLong}" /&gt;
-</code></pre>
+```
+<h:outputText value="version #{versionBean.version}" />
+<h:outputText value="long version #{versionBean.versionLong}" />
+```
 
 ## Recommendations
 

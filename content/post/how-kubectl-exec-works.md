@@ -26,7 +26,7 @@ I cloned https://github.com/ecomm-integration-ballerina/kubernetes-cluster in or
 
 ## Components
 
-<img src="/img/kubectl-exec/components.png" title="Components"/>
+![Components](/img/kubectl-exec/components.png)
 
 - ***kubectl exec process:*** When we run "kubectl exec ..." in a machine, a process starts. You can run it in any machine which has an access to k8s api server.
 
@@ -77,9 +77,11 @@ tcp4       0      0  192.168.205.1.51672    192.168.205.10.6443    ESTABLISHED 1
 - Let's check the code. kubectl creates a POST request with subresource `exec` and sends a rest request.
    <script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go?slice=344:359"></script>
 
-<img src="/img/kubectl-exec/rest-request.png"  title="rest-request"/>
+![rest-request](/img/kubectl-exec/rest-request.png)
+
 
 <br>
+
 ### 2. Activities in Master Node
 
 - We can observe the request in api-server side as well.
@@ -134,7 +136,7 @@ tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
 ...
 ```
 
-<img src="/img/kubectl-exec/api-server-to-kubelet.png"  title="api-server-to-kubelet"/>
+![api-server-to-kubelet](/img/kubectl-exec/api-server-to-kubelet.png)
 
 - Now the connection between kubectl and api-server is still open and there is another connection between api-server and kubelet. 
 
@@ -185,7 +187,7 @@ tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
   <script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br>
 
 
-<img src="/img/kubectl-exec/kubelet-to-container-runtime.png"  title="kubelet-to-container-runtime"/>
+![kubelet-to-container-runtime](/img/kubectl-exec/kubelet-to-container-runtime.png)
 
 
 - If it is so, we need to observe a connection between kubelet and container runtime. Right? Let's check.
@@ -234,10 +236,10 @@ $ ps -afx
   At the end of the chain, container runtime executes the command in the worker node.
   <script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/internal/oci/runtime_oci.go?slice=292:342"></script><br>
 
-<img src="/img/kubectl-exec/container-runtime-to-kernel.png"  title="container-runtime-to-kernel"/>
+![container-runtime-to-kernel](/img/kubectl-exec/container-runtime-to-kernel.png)
 
 Finally, kernel executes commands.
-<img src="/img/kubectl-exec/kernel-puts.png"  title="kernel-puts"/>
+![/img/kubectl-exec/kernel-puts.png"  title="kernel-puts](/img/kubectl-exec/kernel-puts.png"  title="kernel-puts)
 
 
 <br><br>

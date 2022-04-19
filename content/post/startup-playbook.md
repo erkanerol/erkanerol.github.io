@@ -8,7 +8,7 @@ weight = 1
 >TL;DR <br></br>
 Y Combinator Startup'lara yatırım yapan ve danışmanlık yapan bir şirket. Şirket çalışanlarından Sam Altman tecrübelerinden yola çıkarak yazdığı kısa bir Playbook yayınladı. Şu adresten okuyabileceğiniz yazıyı ekitap haline getirdim. Yazının sonundan dosyaları indirebilirsiniz.Altını çizdiğim yerler de aşağıda.
 
-<img src="/img/startup-playbook-cover.jpeg" />
+![startup-playbook-cover](/img/startup-playbook-cover.jpeg)
 
 <!--more-->
 
@@ -42,6 +42,6 @@ Y Combinator Startup'lara yatırım yapan ve danışmanlık yapan bir şirket. �
 
 [Epub](https://www.dropbox.com/s/3zna1jyd87joay9/Startup%20Playbook%20-%20playbook.samaltman.com.epub?dl=0)
 
-[Mobi] (https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0)
+[Mobi](https://www.dropbox.com/s/3mpfejxuzp2x8gt/Startup%20Playbook%20-%20playbook.samaltman.com.mobi?dl=0)
 
  
