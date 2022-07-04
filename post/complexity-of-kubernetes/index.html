@@ -128,7 +128,7 @@ networking, single sign-on in security, GitOps in deployment, continuous profili
 <p><img src=/img/complexity-of-kubernetes/cncf-tools.png alt=image></p>
 <p>As we talked about above, specialized companies build state of art solutions for the cloud-native world. Some of the projects are donated to CNCF, and some of them are not. However, the common property of all is that they can be integrated with Kubernetes easily. It explains why you have to learn yet another tool from this picture when you need to do something. It is how the ecosystem is designed. Does it make sense after thinking about the things above? For me, it does.</p>
 <h2 id=integration-cost-is-inevitable>Integration cost is inevitable</h2>
-<p>Okay, we have Kubernetes. We have a huge app catalog. Let&rsquo;s think about how to build e2e solutions.</p>
+<p>OK, we have Kubernetes. We have a huge app catalog. Let&rsquo;s think about how to build e2e solutions.</p>
 <p>It is really simple to try an app on Kubernetes. Go to the &ldquo;Getting started&rdquo; page, copy one command (kubectl or helm),and run it against your cluster. Bam! You have it!</p>
 <p>When you want to configure it for your use case, it is not so hard. Check the doc, learn the possible configurations, and provide the necessary parameters. Bam! It is fine.</p>
 <p>When you want to run multiple applications that are interacting with each other, it can be harder. You need to know which versions of applications are compatible and which configurations are necessary to run them in harmony.</p>
@@ -165,7 +165,7 @@ networking, single sign-on in security, GitOps in deployment, continuous profili
 <p>Then you accept that you cannot solve all problems of all people in a perfect way and you decide to make the product lighter. You still want to provide some features in an opinionated way so that users can easily use your product. Some customers will satisfy with it but some will not. It means your target user base is smaller now. Are you OK with it?</p>
 </li>
 <li>
-<p>Then you decide &ldquo;Okey. I will provide nothing upfront. Tell me your problem and I will build the perfect solution by customizing everything for you and I will keep the configuration interface as small as possible by only caring about your unique case. Then you can easily use it.&rdquo; Congratulations! You have a service company and your solution is much more expensive
+<p>Then you decide &ldquo;OK. I will provide nothing upfront. Tell me your problem and I will build the perfect solution by customizing everything for you and I will keep the configuration interface as small as possible by only caring about your unique case. Then you can easily use it.&rdquo; Congratulations! You have a service company and your solution is much more expensive
 as of now. Are your customers happy with it?</p>
 </li>
 </ul>
