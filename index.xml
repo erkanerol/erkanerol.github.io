@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://erkanerol.github.io/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>tr-tr</language><lastBuildDate>Sun, 28 Feb 2021 16:00:00 +0300</lastBuildDate><atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Debugging k8s services: 3 tools for 3 scenarios</title><link>https://erkanerol.github.io/post/debugging-k8s-services/</link><pubDate>Sun, 28 Feb 2021 16:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/debugging-k8s-services/</guid><description>&lt;p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://erkanerol.github.io/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>tr-tr</language><lastBuildDate>Mon, 04 Jul 2022 10:00:00 +0300</lastBuildDate><atom:link href="https://erkanerol.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Thinking about the complexity of Kubernetes ecosystem</title><link>https://erkanerol.github.io/post/complexity-of-kubernetes/</link><pubDate>Mon, 04 Jul 2022 10:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/complexity-of-kubernetes/</guid><description>&lt;blockquote>
+&lt;p>Disclaimer: I am working for &lt;a href="https://www.giantswarm.io/product">Giant Swarm&lt;/a> as a Platform Engineer. My day-to-day work might have influenced my perspective on this subject since it is pretty related to why/how we help our customers.&lt;/p>
+&lt;/blockquote>
+&lt;p>Over the years, I faced two different reactions from people who are new to Kubernetes:&lt;/p>
+&lt;ol>
+&lt;li>&amp;ldquo;Is Kubernetes genuinely that simple? Why doesn&amp;rsquo;t it have X as a built-in feature?&amp;rdquo;&lt;/li>
+&lt;li>&amp;ldquo;Why is Kubernetes so complex? Why do I have to learn so many things to do just simple Y?&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;p>Before learning Kubernetes in detail, they are under the impression that Kubernetes&lt;/p>
+&lt;ul>
+&lt;li>has all the necessary features of modern infrastructure&lt;/li>
+&lt;li>provides what they need perfectly&lt;/li>
+&lt;li>is easy to use&lt;/li>
+&lt;li>is free&lt;/li>
+&lt;/ul>
+&lt;p>In this blog post, I am going to explain why it is so hard to achieve these goals at the same time by analyzing the anatomy of Kubernetes ecosystem.&lt;/p></description></item><item><title>Debugging k8s services: 3 tools for 3 scenarios</title><link>https://erkanerol.github.io/post/debugging-k8s-services/</link><pubDate>Sun, 28 Feb 2021 16:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/debugging-k8s-services/</guid><description>&lt;p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.&lt;/p>
 &lt;blockquote>
 &lt;p>Please ping me if there is something wrong. &lt;a href="https://twitter.com/erkan_erol">https://twitter.com/erkan_erol&lt;/a>_&lt;/p>
 &lt;/blockquote></description></item><item><title>Learning Path: Basics of Container Runtimes</title><link>https://erkanerol.github.io/post/basics-of-container-runtimes/</link><pubDate>Sat, 01 Aug 2020 00:00:00 +0300</pubDate><guid>https://erkanerol.github.io/post/basics-of-container-runtimes/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
