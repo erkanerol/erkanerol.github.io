@@ -93,7 +93,7 @@ As we talked about above, specialized companies build state of art solutions for
 
 ## Integration cost is inevitable
 
-Okay, we have Kubernetes. We have a huge app catalog. Let's think about how to build e2e solutions.
+OK, we have Kubernetes. We have a huge app catalog. Let's think about how to build e2e solutions.
 
 It is really simple to try an app on Kubernetes. Go to the "Getting started" page, copy one command (kubectl or helm),and run it against your cluster. Bam! You have it! 
 
@@ -138,7 +138,7 @@ And your decisions will shape your business model, your product/service, and you
 
 - Then you accept that you cannot solve all problems of all people in a perfect way and you decide to make the product lighter. You still want to provide some features in an opinionated way so that users can easily use your product. Some customers will satisfy with it but some will not. It means your target user base is smaller now. Are you OK with it?
 
-- Then you decide "Okey. I will provide nothing upfront. Tell me your problem and I will build the perfect solution by customizing everything for you and I will keep the configuration interface as small as possible by only caring about your unique case. Then you can easily use it." Congratulations! You have a service company and your solution is much more expensive 
+- Then you decide "OK. I will provide nothing upfront. Tell me your problem and I will build the perfect solution by customizing everything for you and I will keep the configuration interface as small as possible by only caring about your unique case. Then you can easily use it." Congratulations! You have a service company and your solution is much more expensive 
 as of now. Are your customers happy with it? 
 
 
