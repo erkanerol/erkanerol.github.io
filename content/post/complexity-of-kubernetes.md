@@ -1,7 +1,7 @@
 +++
 categories = ["Software","k8s","EN"]
 date = "2022-07-04T10:00:00+03:00"
-title = "Thinking about the complexity of Kubernetes ecosystem"
+title = "Thinking about the complexity of the Kubernetes ecosystem"
 keywords = ["Software", "k8s", "Kubernetes", "CNCF"]
 weight = 1
 +++
