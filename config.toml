@@ -1,9 +1,8 @@
 baseurl = "https://erkanerol.github.io/"
-languageCode = "tr-tr"
+languageCode = "en-en"
 title = "Blog"
-disqusShortname="erkanerol-github-io"
 
-theme = "hyde-x"
+theme = "hugo-paper"
 paginate = 10
 
 enableRobotsTXT = true
@@ -29,39 +28,22 @@ enableRobotsTXT = true
     defaultDescription = "Erkan Erol's Blog"
     defaultKeywords = "software,books,software craftsmanship,erkan erol,blog"
 
-    # Hide estimated reading time for posts.
-    # Default (if omitted) is false.
-    hideReadingTime = true
- 
-
     # Select a syntax highight.
     # Check the static/css/highlight directory for options.
     highlight = "monokai"
 
-    # Optional additional custom CSS file URL, will override other styles.
-    customCSS = ""
-
-    # Displays under the author name in the sidebar, keep it short.
-    # You can use markdown here.
-    tagline = ""
-
-    # Text for the top menu link, which goes the root URL for the site.
-    # Default (if omitted) is "Blog".
-    home = "Blog"
-
     # Metadata used to drive integrations.
     googleAnalytics = "UA-57796113-2"
-    gravatarhash = "321108fd00753fd95baeddbc3abc8a76"
 
     # Sidebar social links, these must be full URLs.
-    github = "https://github.com/erkanerol"
-    bitbucket = ""
-    stackOverflow = ""
-    linkedin = "https://www.linkedin.com/in/erkan-erol-26488b91?"
-    googleplus = ""
-    facebook = ""
-    twitter = "https://twitter.com/erkan_erol_"
-    youtube = ""
+    github = "erkanerol"
+    linkedin = "/in/erkanerol"
+    twitter = "erkan_erol_"
+    instagram= "theerkanerol"
+
+    avatar="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76"
+    name="Erkan Erol"
+    bio="Software Crafter"
 
     # Other social-like sidebar links
     rss = true  # switch to true to enable RSS icon link
