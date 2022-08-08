@@ -20,7 +20,7 @@ Bir şekilde öğrendiğim bir takım teoriler, kanunlar, ilkeler var. Bunları 
 
 <!--more-->
 
-### Conway'in Kanunu ( [Conway's Law] (https://en.wikipedia.org/wiki/Conway's_law))
+### Conway'in Kanunu ( [Conway's Law](https://en.wikipedia.org/wiki/Conway's_law))
 
 **"Organizasyonların kendi iletişim yapılarını yansıtan tasarımlar yapması kaçınılmazdır."**
 
@@ -54,17 +54,11 @@ Konu ile ilgili makaleler:
 
 * [Software Entropy](https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy)
 * [The Broken Windows Principle](https://alexandrebrisebois.wordpress.com/2013/06/08/the-broken-windows-principle/)
-* [Always Fix Broken Windows] (http://blog.smartbear.com/lean-software-development/always-fix-broken-windows/) 
+* [Always Fix Broken Windows](http://blog.smartbear.com/lean-software-development/always-fix-broken-windows/) 
 
 Ayrıca yazar abimizden bir dörtlük:
 
-*I keep a close watch on these tests of mine*
-
-*I keep my Jenkins open all the time*
-
-*I see a defect coming down the line*
-
-*Because you’re mine, I stop the line*
+>I keep a close watch on these tests of mine<br>I keep my Jenkins open all the time<br>I see a defect coming down the line<br>Because you’re mine, I stop the line
 
 ### Peter İlkesi ([Peter Principle](https://en.wikipedia.org/wiki/Peter_principle))
 

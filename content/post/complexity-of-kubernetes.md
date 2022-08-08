@@ -77,7 +77,7 @@ Basically, we expect two things from the common integration layer:
 2. It should be extendable. It should allow us to customize everything so that we can put our custom solutions on top of it.
 
 
- The common base is `Kubernetes` these days. It was not the main goal of Kubernetes in the beginning. It was yet another container orchestration tool. However, it is the de facto standard to run cloud-native workloads now.
+ The common base is <b>Kubernetes</b> these days. It was not the main goal of Kubernetes in the beginning. It was yet another container orchestration tool. However, it is the de facto standard to run cloud-native workloads now.
 
 The first item explains why Kubernetes doesn't have so many built-in features by default. It doesn't promise to solve your all problems. 
 

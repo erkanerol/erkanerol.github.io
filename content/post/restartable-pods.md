@@ -26,13 +26,12 @@ I don't remember how many times I had this conversation, but I have never though
 > This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 
 <!--more-->
-<br>
 
 ## Thinking out loud
 
 What is "restart"? RE - START. It has "re" prefix. It means doing something again. So restart means starting again. Not "running again". What is the difference?
 
-We are using "rerun" for the things which finish in a short period such as cli commands. For example "Rerun `kubectl delete secrets --all` command to ensure that all secrets are deleted."   We mostly rerun a thing when some external things have changed and when we want to benefit from its execution for the changed state again. 
+We are using "rerun" for the things which finish in a short period such as cli commands. For example "Rerun `kubectl delete secrets --all` command to ensure that all secrets are deleted." We mostly rerun a thing when some external things have changed and when we want to benefit from its execution for the changed state again. 
 
 We are using "restart" for the things which run until someone stops them such as daemon processes, computers, phones etc.  For example, "Is the phone screen frozen? Just restart it."
 
@@ -41,6 +40,7 @@ When do we restart a thing? Why do we like restarting so much? Or do we like it?
 <u>Let's come to the point. Restarting works since it deletes temporary states inside processes. It works since we are not perfect in managing states and our codes may stick at some states because of unhandled states or some bugs.</u>  
  
 <br>
+
 ## Cloud Native World
 
 After decades, there is a consensus in the software industry: Need for restart is inevitable so let's make it less painful. 
@@ -87,7 +87,7 @@ Since pods are the smallest and fundamental workloads in Kubernetes, <u>to be ab
 
 Quote [the official doc](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy), 
 
-> A PodSpec has a `restartPolicy` field with possible values Always, OnFailure, and Never. The default value is Always. `restartPolicy` applies to all Containers in the Pod.
+> A PodSpec has a <b>restartPolicy</b> field with possible values Always, OnFailure, and Never. The default value is Always. <b>restartPolicy</b> applies to all Containers in the Pod.
 
 It seems Kubernetes is able to restart failed containers on behalf of us when they fail. Fine! What about unhealthy ones? We have [livenessProbe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command)
 
@@ -111,10 +111,10 @@ Quote [the official doc](https://kubernetes.io/docs/concepts/architecture/contro
 
 ***My comments&expectations:*** Wow!!! It seems Kubernetes is designed in such a way that every agent has one job and does it well. There may be some problematic/missing pods in the cluster but we aim to solve this problem by using some controllers. Refreshing the whole pod may not be in the scope of pod controller, but it must be handled by other controllers in higher levels (See [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)). 
 
-***Reality:*** There are [a bunch of built-in controllers](https://kubernetes.io/docs/concepts/workloads/controllers/) in Kubernetes. StatefulSets for stateful applications, DaemonSets for running an application in every node, ReplicaSets for running multiple instances with same pod spec, Deployments for declarative updates etc. <u> However, none of them has functionality to fix a pod in `CrashLoopBackOff` state. For them, the state of a pod is "given.". The only thing they do is to adapt their behavior according to this fact such as stopping rolling upgrades. BUT THEY DON'T TOUCH THE UNHEALTHY PODS. </u>
+***Reality:*** There are [a bunch of built-in controllers](https://kubernetes.io/docs/concepts/workloads/controllers/) in Kubernetes. StatefulSets for stateful applications, DaemonSets for running an application in every node, ReplicaSets for running multiple instances with same pod spec, Deployments for declarative updates etc. <u> However, none of them has functionality to fix a pod in <b>CrashLoopBackOff</b> state. For them, the state of a pod is "given.". The only thing they do is to adapt their behavior according to this fact such as stopping rolling upgrades. BUT THEY DON'T TOUCH THE UNHEALTHY PODS. </u>
 
 
-Don't you believe me? Here is an example: https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047 After one minute, you are going to observe 3 pods in `CrashLoopBackOff` state which will stick at this state forever if you don't delete them manually. 
+Don't you believe me? Here is an example: https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047 After one minute, you are going to observe 3 pods in <b>CrashLoopBackOff</b> state which will stick at this state forever if you don't delete them manually. 
 
 <br>
 
@@ -126,11 +126,11 @@ At the end of the day, there is a state in the shared context of the pod and it 
 
 Here are my ideas:
 
-- Pods can have a restart policy for the whole pod including the shared context. There can be maxRestartCount field like `backoffLimit` in Jobs to stop restarting repeatedly. I think it is better to restart only failed containers at first and then restart the whole pod if necessary.
+- Pods can have a restart policy for the whole pod including the shared context. There can be maxRestartCount field like <b>backoffLimit</b> in Jobs to stop restarting repeatedly. I think it is better to restart only failed containers at first and then restart the whole pod if necessary.
 
 - Now, we mostly run pods via some high-level workloads (e.g. deployments) and what we do is to delete the pod and to allow the high-level controller to recreate them. However, "naked pods" are also in the game. Recreation can be a solution in higher levels, but it should not be the solution in pod level. Pods can be fully restartable and it can be possible to trigger a restart via the API and a kubectl command. 
 
-- Built-in controllers can watch the state and intervene in the errors with some primitive, retry logic. For example, the deployment controller can delete a pod in `CrashLoopBackOff` state and recreate it from scratch. Sometimes, to schedule a problematic pod into another node solves a temporary problem in storage plugin and this feature can solve many cases like this. 
+- Built-in controllers can watch the state and intervene in the errors with some primitive, retry logic. For example, the deployment controller can delete a pod in <b>CrashLoopBackOff</b> state and recreate it from scratch. Sometimes, to schedule a problematic pod into another node solves a temporary problem in storage plugin and this feature can solve many cases like this. 
 
 <br>
 
