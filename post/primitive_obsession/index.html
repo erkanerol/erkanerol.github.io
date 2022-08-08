@@ -7,7 +7,9 @@
 <meta name=theme-color>
 <meta name=description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
-Görselin Kaynağı">
+
+Görselin Kaynağı
+">
 <meta name=author content="Erkan Erol">
 <link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css>
 <script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script>
@@ -24,7 +26,9 @@ Görselin Kaynağı">
 <meta property="og:title" content="Primitive Takıntısı ve Değer Nesneleri">
 <meta property="og:description" content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
-Görselin Kaynağı">
+
+Görselin Kaynağı
+">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://erkanerol.github.io/post/primitive_obsession/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2017-03-25T00:37:43+03:00">
@@ -32,15 +36,19 @@ Görselin Kaynağı">
 <meta itemprop=name content="Primitive Takıntısı ve Değer Nesneleri">
 <meta itemprop=description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
-Görselin Kaynağı"><meta itemprop=datePublished content="2017-03-25T00:37:43+03:00">
+
+Görselin Kaynağı
+"><meta itemprop=datePublished content="2017-03-25T00:37:43+03:00">
 <meta itemprop=dateModified content="2017-03-25T00:37:43+03:00">
-<meta itemprop=wordCount content="922">
+<meta itemprop=wordCount content="921">
 <meta itemprop=keywords content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Primitive Takıntısı ve Değer Nesneleri">
 <meta name=twitter:description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
-Görselin Kaynağı">
+
+Görselin Kaynağı
+">
 <script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
 </head>
 <body class="text-black duration-200 ease-out dark:text-white">
@@ -76,33 +84,31 @@ Görselin Kaynağı">
 </div>
 </header>
 <section><p>Primitive Obsession ünlü <a href=https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672 target=_blank>Refactoring</a> kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.</p>
-<p><img src=/img/primitive.jpg alt=primitive>
-<a href=https://dzone.com/articles/primitive-obsession target=_blank>Görselin Kaynağı</a></p>
+<p><img src=/img/primitive.jpg alt=primitive></p>
+<center>
+<a href=https://dzone.com/articles/primitive-obsession target=_blank>Görselin Kaynağı</a>
+</center>
 <br>
-## Tanımlar
+<h2 id=tanımlar>Tanımlar</h2>
 <p>Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu &ldquo;takıntı&rdquo; zamanla çeşitli problemlere neden olur.</p>
 <h2 id=problemler>Problemler</h2>
-<pre>
-<code>
-public class Notebook	{
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span>	<span style=color:#f92672>{</span>
 
-		private long id;
-		private Date productionDate;
-		private int status; // 0=PRODUCED, 1=SOLD, 2=RETURN
-		private String model; // XSI-Q2TU-17-1
-		
+		<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>long</span> id<span style=color:#f92672>;</span>
+		<span style=color:#66d9ef>private</span> Date productionDate<span style=color:#f92672>;</span>
+		<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> status<span style=color:#f92672>;</span> <span style=color:#75715e>// 0=PRODUCED, 1=SOLD, 2=RETURN
+</span><span style=color:#75715e></span>		<span style=color:#66d9ef>private</span> String model<span style=color:#f92672>;</span> <span style=color:#75715e>// XSI-Q2TU-17-1
+</span><span style=color:#75715e></span>		
 
-		public String getSeries(){
-			return this.model.split("-")[0];
-		}
+		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getSeries</span><span style=color:#f92672>(){</span>
+			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>model</span><span style=color:#f92672>.</span><span style=color:#a6e22e>split</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;-&#34;</span><span style=color:#f92672>)[</span>0<span style=color:#f92672>];</span>
+		<span style=color:#f92672>}</span>
 
-		public String getModelYear(){
-			return this.model.split("-")[2];
-		}
-}
-</code>
-</pre>
-<ul>
+		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getModelYear</span><span style=color:#f92672>(){</span>
+			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>model</span><span style=color:#f92672>.</span><span style=color:#a6e22e>split</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;-&#34;</span><span style=color:#f92672>)[</span>2<span style=color:#f92672>];</span>
+		<span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><ul>
 <li>
 <p>Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.</p>
 </li>
@@ -122,89 +128,81 @@ public class Notebook	{
 <li><em><strong>Value Object:</strong></em> Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.</li>
 </ol>
 <h2 id=değer-nesnelerinin-kullanımı>Değer Nesnelerinin Kullanımı</h2>
-<pre>
-<code>
-public class NotebookModel {
-	final String series;
-	final String subseries;
-	final Year year;
-	final Month month;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NotebookModel</span> <span style=color:#f92672>{</span>
+	<span style=color:#66d9ef>final</span> String series<span style=color:#f92672>;</span>
+	<span style=color:#66d9ef>final</span> String subseries<span style=color:#f92672>;</span>
+	<span style=color:#66d9ef>final</span> Year year<span style=color:#f92672>;</span>
+	<span style=color:#66d9ef>final</span> Month month<span style=color:#f92672>;</span>
 		
-	public NotebookModel(String series, String subseries, Year year, Month month) {
-		super();
-		this.series = series;
-		this.subseries = subseries;
-		this.year = year;
-		this.month = month;
-	}
+	<span style=color:#66d9ef>public</span> <span style=color:#a6e22e>NotebookModel</span><span style=color:#f92672>(</span>String series<span style=color:#f92672>,</span> String subseries<span style=color:#f92672>,</span> Year year<span style=color:#f92672>,</span> Month month<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+		<span style=color:#66d9ef>super</span><span style=color:#f92672>();</span>
+		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>series</span> <span style=color:#f92672>=</span> series<span style=color:#f92672>;</span>
+		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>subseries</span> <span style=color:#f92672>=</span> subseries<span style=color:#f92672>;</span>
+		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>year</span> <span style=color:#f92672>=</span> year<span style=color:#f92672>;</span>
+		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>month</span> <span style=color:#f92672>=</span> month<span style=color:#f92672>;</span>
+	<span style=color:#f92672>}</span>
 	
-}
+<span style=color:#f92672>}</span>
 
-public enum NotebookStatus {
-	PRODUCED, SOLD, RETURN;
-}
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> NotebookStatus <span style=color:#f92672>{</span>
+	PRODUCED<span style=color:#f92672>,</span> SOLD<span style=color:#f92672>,</span> RETURN<span style=color:#f92672>;</span>
+<span style=color:#f92672>}</span>
 
-public class Notebook {
-	long id;
-	Date productionDate;
-	NotebookStatus status;
-	NotebookModel model;
-}
-</code>
-</pre>
-<p>Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.</p>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span> <span style=color:#f92672>{</span>
+	<span style=color:#66d9ef>long</span> id<span style=color:#f92672>;</span>
+	Date productionDate<span style=color:#f92672>;</span>
+	NotebookStatus status<span style=color:#f92672>;</span>
+	NotebookModel model<span style=color:#f92672>;</span>
+<span style=color:#f92672>}</span>
+</code></pre></div><p>Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.</p>
 <p>Değer nesneleri <a href=http://wiki.c2.com/?ValueObjectsShouldBeImmutable target=_blank>genellikle</a> NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
 Ancak bu zorunluluk <a href=http://wiki.c2.com/?ValueObjectsCanBeMutable target=_blank>değildir</a> .</p>
 <p><a href=http://www.jbrains.ca/ target=_blank>JbRainsberger</a> değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &ldquo;çekici&rdquo; olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.</p>
 <h2 id=veritabanlarında-tutma-problemi>Veritabanlarında tutma problemi</h2>
 <p>Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.</p>
 <p>Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.</p>
-<pre>
-<code>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>
+<span style=color:#a6e22e>@Embeddable</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NotebookModel</span> <span style=color:#f92672>{</span>
+  
+  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_SERIES&#34;</span><span style=color:#f92672>)</span>
+  String series<span style=color:#f92672>;</span>
+  
+  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_SUBSERIES&#34;</span><span style=color:#f92672>)</span>
+  String subseries<span style=color:#f92672>;</span>
+  
+  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_YEAR&#34;</span><span style=color:#f92672>)</span>
+  Year year<span style=color:#f92672>;</span>
+  
+  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_MONTH&#34;</span><span style=color:#f92672>)</span>
+  Month month<span style=color:#f92672>;</span>
+  
+<span style=color:#f92672>}</span>
 
-@Embeddable
-public class NotebookModel {
+<span style=color:#a6e22e>@Entity</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span> <span style=color:#f92672>{</span>
   
-  @Column(name = "MODEL_SERIES")
-  String series;
+  <span style=color:#a6e22e>@Id</span>
+  <span style=color:#a6e22e>@GeneratedValue</span><span style=color:#f92672>(</span>strategy<span style=color:#f92672>=</span>GenerationType<span style=color:#f92672>.</span><span style=color:#a6e22e>AUTO</span><span style=color:#f92672>)</span>
+  Long id<span style=color:#f92672>;</span>
   
-  @Column(name = "MODEL_SUBSERIES")
-  String subseries;
+  <span style=color:#a6e22e>@Temporal</span><span style=color:#f92672>(</span>TemporalType<span style=color:#f92672>.</span><span style=color:#a6e22e>TIMESTAMP</span><span style=color:#f92672>)</span>
+  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;PRODUCTION_DATE&#34;</span><span style=color:#f92672>)</span>
+  Date productionDate<span style=color:#f92672>;</span>
   
-  @Column(name = "MODEL_YEAR")
-  Year year;
+  <span style=color:#a6e22e>@Enumerated</span><span style=color:#f92672>(</span>EnumType<span style=color:#f92672>.</span><span style=color:#a6e22e>STRING</span><span style=color:#f92672>)</span>
+  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;STATUS&#34;</span><span style=color:#f92672>)</span>
+  NotebookStatus status<span style=color:#f92672>;</span>
   
-  @Column(name = "MODEL_MONTH")
-  Month month;
-  
-}
+  <span style=color:#a6e22e>@Embedded</span>
+  NotebookModel model<span style=color:#f92672>;</span>
+<span style=color:#f92672>}</span>
 
-@Entity
-public class Notebook {
-  
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  Long id;
-  
-  @Temporal(TemporalType.TIMESTAMP)
-  @Column(name="PRODUCTION_DATE")
-  Date productionDate;
-  
-  @Enumerated(EnumType.STRING)
-  @Column(name="STATUS")
-  NotebookStatus status;
-  
-  @Embedded
-  NotebookModel model;
-}
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> NotebookStatus <span style=color:#f92672>{</span>
+	PRODUCED<span style=color:#f92672>,</span> SOLD<span style=color:#f92672>,</span> RETURN<span style=color:#f92672>;</span>
+<span style=color:#f92672>}</span>
 
-public enum NotebookStatus {
-	PRODUCED, SOLD, RETURN;
-}
-
-</code>
-</pre>
-<p>Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.</p>
+</code></pre></div><p>Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.</p>
 <blockquote>
 <p>JPA ile immutable bir sınıfı embeddable yapmak biraz zor olabilir çünkü JPA default constructor ve setter kullanıyor. Ayrıntılı bilgiye <a href="https://www.google.com.tr/search?q=immutable+embeddable+in+jpa" target=_blank>buradan</a> erişebilirsiniz.</p>
 </blockquote>
@@ -215,19 +213,15 @@ public enum NotebookStatus {
 </li>
 <li>
 <p>Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için &ldquo;ilkel&rdquo; kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.</p>
-</li>
-</ul>
-<pre>
-<code>
-amountInvoicedIn(Date start, Date end);
-amountReceviedIn(Date start, Date end);
-amountOverdueIn(Date start, Date end);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>amountInvoicedIn<span style=color:#f92672>(</span>Date start<span style=color:#f92672>,</span> Date end<span style=color:#f92672>);</span>
+amountReceviedIn<span style=color:#f92672>(</span>Date start<span style=color:#f92672>,</span> Date end<span style=color:#f92672>);</span>
+amountOverdueIn<span style=color:#f92672>(</span>Date start<span style=color:#f92672>,</span> Date end<span style=color:#f92672>);</span>
 
-amountInvoicedIn(DateRange range);
-amountReceviedIn(DateRange range);
-amountOverdueIn(DateRange range);
-</code>
-</pre>
+amountInvoicedIn<span style=color:#f92672>(</span>DateRange range<span style=color:#f92672>);</span>
+amountReceviedIn<span style=color:#f92672>(</span>DateRange range<span style=color:#f92672>);</span>
+amountOverdueIn<span style=color:#f92672>(</span>DateRange range<span style=color:#f92672>);</span>
+</code></pre></div></li>
+</ul>
 <h2 id=sonuç>Sonuç</h2>
 <p>Örneklerin hepsini bir arada düşündüğümüzde sorunun sadece dildeki primitive veri türlerini kullanma takıntısı olmadığını anlarız. Asıl sorun karmaşık bir bilgiyi görece ilkel veri türleri ile ifade etmeye çalışmaktır. Dediğimiz gibi. Çare değer nesneleri!</p></section>
 <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">

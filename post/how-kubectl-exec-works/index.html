@@ -37,7 +37,7 @@ Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 "><meta itemprop=datePublished content="2019-08-25T19:00:00+03:00">
 <meta itemprop=dateModified content="2019-08-25T19:00:00+03:00">
-<meta itemprop=wordCount content="1190">
+<meta itemprop=wordCount content="3408">
 <meta itemprop=keywords content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="How does 'kubectl exec' work?">
@@ -83,16 +83,15 @@ Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 <blockquote>
 <p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
 </blockquote>
-<p><br><br></p>
 <h2 id=setup>Setup</h2>
-<p>I cloned <a href=https://github.com/ecomm-integration-ballerina/kubernetes-cluster>https://github.com/ecomm-integration-ballerina/kubernetes-cluster</a> in order to create a k8s cluster in my MacBook. I fixed IP addresses of the nodes in kubelet configurations since the default configuration didn&rsquo;t let me run <code>kubectl exec</code>. You can find the root cause <a href=https://medium.com/@joatmon08/playing-with-kubeadm-in-vagrant-machines-part-2-bac431095706>here</a>.</p>
+<p>I cloned <a href=https://github.com/ecomm-integration-ballerina/kubernetes-cluster>https://github.com/ecomm-integration-ballerina/kubernetes-cluster</a> in order to create a k8s cluster in my MacBook. I fixed IP addresses of the nodes in kubelet configurations since the default configuration didn&rsquo;t let me run <b>kubectl exec</b>. You can find the root cause <a href=https://medium.com/@joatmon08/playing-with-kubeadm-in-vagrant-machines-part-2-bac431095706>here</a>.</p>
 <ul>
 <li>Any machine = my MacBook</li>
 <li>IP of master node = 192.168.205.10</li>
 <li>IP of worker node = 192.168.205.11</li>
 <li>API server port = 6443</li>
 </ul>
-<p><br><br></p>
+<br>
 <h2 id=components>Components</h2>
 <p><img src=/img/kubectl-exec/components.png alt=Components></p>
 <ul>
@@ -121,85 +120,169 @@ Please ping me if there is something wrong. https://twitter.com/erkan_erol_
 <ul>
 <li>Create a pod in default namespace</li>
 </ul>
-<pre tabindex=0><code>// any machine
-$ kubectl run exec-test-nginx --image=nginx
-</code></pre><ul>
-<li>Then run an exec command and <code>sleep 5000</code> to make observation</li>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// any machine
+$ kubectl run exec-test-nginx --image<span style=color:#f92672>=</span>nginx
+</code></pre></div><ul>
+<li>Then run an exec command and <b>sleep 5000</b> to make observation</li>
 </ul>
-<pre tabindex=0><code>// any machine
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// any machine
 $ kubectl exec -it exec-test-nginx-6558988d5-fgxgg -- sh
-# sleep 5000
-</code></pre><ul>
+<span style=color:#75715e># sleep 5000</span>
+</code></pre></div><ul>
 <li>We can observe the kubectl process (pid=8507 in this case)</li>
 </ul>
-<pre tabindex=0><code>// any machine
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// any machine
 $ ps -ef |grep kubectl
-501  8507  8409   0  7:19PM ttys000    0:00.13 kubectl exec -it exec-test-nginx-6558988d5-fgxgg -- sh
-</code></pre><ul>
+<span style=color:#ae81ff>501</span>  <span style=color:#ae81ff>8507</span>  <span style=color:#ae81ff>8409</span>   <span style=color:#ae81ff>0</span>  7:19PM ttys000    0:00.13 kubectl exec -it exec-test-nginx-6558988d5-fgxgg -- sh
+</code></pre></div><ul>
 <li>When we check network activities of the process, we can see that it has some connections to api-server (192.168.205.10.6443)</li>
 </ul>
-<pre tabindex=0><code>// any machine
-$ netstat -atnv |grep 8507
-tcp4       0      0  192.168.205.1.51673    192.168.205.10.6443    ESTABLISHED 131072 131768   8507      0 0x0102 0x00000020
-tcp4       0      0  192.168.205.1.51672    192.168.205.10.6443    ESTABLISHED 131072 131768   8507      0 0x0102 0x00000028
-</code></pre><ul>
-<li>Let&rsquo;s check the code. kubectl creates a POST request with subresource <code>exec</code> and sends a rest request.
-<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go?slice=344:359"></script>
-</li>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// any machine
+$ netstat -atnv |grep <span style=color:#ae81ff>8507</span>
+tcp4       <span style=color:#ae81ff>0</span>      <span style=color:#ae81ff>0</span>  192.168.205.1.51673    192.168.205.10.6443    ESTABLISHED <span style=color:#ae81ff>131072</span> <span style=color:#ae81ff>131768</span>   <span style=color:#ae81ff>8507</span>      <span style=color:#ae81ff>0</span> 0x0102 0x00000020
+tcp4       <span style=color:#ae81ff>0</span>      <span style=color:#ae81ff>0</span>  192.168.205.1.51672    192.168.205.10.6443    ESTABLISHED <span style=color:#ae81ff>131072</span> <span style=color:#ae81ff>131768</span>   <span style=color:#ae81ff>8507</span>      <span style=color:#ae81ff>0</span> 0x0102 0x00000028
+</code></pre></div><ul>
+<li>Let&rsquo;s check the code. kubectl creates a POST request with subresource <b>exec</b> and sends a rest request.
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/staging/src/k8s.io/kubectl/pkg/cmd/exec/exec.go#L344-L359
+</span><span style=color:#75715e></span><span style=color:#a6e22e>req</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>restClient</span>.<span style=color:#a6e22e>Post</span>().
+  <span style=color:#a6e22e>Resource</span>(<span style=color:#e6db74>&#34;pods&#34;</span>).
+  <span style=color:#a6e22e>Name</span>(<span style=color:#a6e22e>pod</span>.<span style=color:#a6e22e>Name</span>).
+  <span style=color:#a6e22e>Namespace</span>(<span style=color:#a6e22e>pod</span>.<span style=color:#a6e22e>Namespace</span>).
+  <span style=color:#a6e22e>SubResource</span>(<span style=color:#e6db74>&#34;exec&#34;</span>)
+<span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>VersionedParams</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>corev1</span>.<span style=color:#a6e22e>PodExecOptions</span>{
+  <span style=color:#a6e22e>Container</span>: <span style=color:#a6e22e>containerName</span>,
+  <span style=color:#a6e22e>Command</span>:   <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>Command</span>,
+  <span style=color:#a6e22e>Stdin</span>:     <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>Stdin</span>,
+  <span style=color:#a6e22e>Stdout</span>:    <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>Out</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span>,
+  <span style=color:#a6e22e>Stderr</span>:    <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>ErrOut</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span>,
+  <span style=color:#a6e22e>TTY</span>:       <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Raw</span>,
+}, <span style=color:#a6e22e>scheme</span>.<span style=color:#a6e22e>ParameterCodec</span>)
+
+<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>Executor</span>.<span style=color:#a6e22e>Execute</span>(<span style=color:#e6db74>&#34;POST&#34;</span>, <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>URL</span>(), <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>Config</span>, <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>In</span>, <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>Out</span>, <span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>ErrOut</span>, <span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Raw</span>, <span style=color:#a6e22e>sizeQueue</span>)
+</code></pre></div></li>
 </ul>
 <p><img src=/img/kubectl-exec/rest-request.png alt=rest-request></p>
 <br>
 <h3 id=2-activities-in-master-node>2. Activities in Master Node</h3>
 <ul>
-<li>We can observe the request in api-server side as well.</li>
-</ul>
+<li>
+<p>We can observe the request in api-server side as well.</p>
 <pre tabindex=0><code>handler.go:143] kube-apiserver: POST &quot;/api/v1/namespaces/default/pods/exec-test-nginx-6558988d5-fgxgg/exec&quot; satisfied by gorestful with webservice /api/v1
 upgradeaware.go:261] Connecting to backend proxy (intercepting redirects) https://192.168.205.11:10250/exec/default/exec-test-nginx-6558988d5-fgxgg/exec-test-nginx?command=sh&amp;input=1&amp;output=1&amp;tty=1
 Headers: map[Connection:[Upgrade] Content-Length:[0] Upgrade:[SPDY/3.1] User-Agent:[kubectl/v1.12.10 (darwin/amd64) kubernetes/e3c1340] X-Forwarded-For:[192.168.205.1] X-Stream-Protocol-Version:[v4.channel.k8s.io v3.channel.k8s.io v2.channel.k8s.io channel.k8s.io]]
-</code></pre><pre><code>&gt; Notice that the http request includes a protocol upgrade request. [SPDY](https://www.wikiwand.com/en/SPDY) allows for separate stdin/stdout/stderr/spdy-error &quot;streams&quot; to be multiplexed over a single TCP connection.
-</code></pre>
-<ul>
-<li>Api server receives the request and binds it into a <code>PodExecOptions</code></li>
-</ul>
-<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/apis/core/types.go?slice=4124:4147"></script>
-<ul>
+</code></pre><blockquote>
+<p>Notice that the http request includes a protocol upgrade request. <a href=https://www.wikiwand.com/en/SPDY>SPDY</a> allows for separate stdin/stdout/stderr/spdy-error &ldquo;streams&rdquo; to be multiplexed over a single TCP connection.</p>
+</blockquote>
+</li>
+<li>
+<p>Api server receives the request and binds it into a <b>PodExecOptions</b></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/apis/core/types.go#L4124-L4147
+</span><span style=color:#75715e>// PodExecOptions is the query options to a Pod&#39;s remote exec call
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>PodExecOptions</span> <span style=color:#66d9ef>struct</span> {
+  <span style=color:#a6e22e>metav1</span>.<span style=color:#a6e22e>TypeMeta</span>
+  <span style=color:#75715e>// Stdin if true indicates that stdin is to be redirected for the exec call
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Stdin</span> <span style=color:#66d9ef>bool</span>
+  <span style=color:#75715e>// Stdout if true indicates that stdout is to be redirected for the exec call
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Stdout</span> <span style=color:#66d9ef>bool</span>
+  <span style=color:#75715e>// Stderr if true indicates that stderr is to be redirected for the exec call
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Stderr</span> <span style=color:#66d9ef>bool</span>
+  <span style=color:#75715e>// TTY if true indicates that a tty will be allocated for the exec call
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>TTY</span> <span style=color:#66d9ef>bool</span>
+  <span style=color:#75715e>// Container in which to execute the command.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Container</span> <span style=color:#66d9ef>string</span>
+  <span style=color:#75715e>// Command is the remote command to execute; argv array; not executed within a shell.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Command</span> []<span style=color:#66d9ef>string</span>
+}
+</code></pre></div></li>
 <li>
 <p>To be able to take necessary actions, api-server needs to know which location it should contact.</p>
-<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=455:467"></script><br>
-<p>Of course the endpoint is derived from node info.</p>
-<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go?slice=504:510"></script><br>
-<p>GOTCHA! KUBELET HAS A PORT (<code>node.Status.DaemonEndpoints.KubeletEndpoint.Port</code>) TO WHICH API-SERVER CAN CONNECT.</p>
-<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/kubelet/client/kubelet_client.go?slice=180:206"></script><br>
-<blockquote>
-<p><a href=https://kubernetes.io/docs/concepts/architecture/master-node-communication/#apiserver-to-kubelet>Master-Node Communication > Master to Cluster > apiserver to kubelet</a></p>
-</blockquote>
-<blockquote>
-<p>These connections terminate at the kubelet’s HTTPS endpoint. By default, the apiserver does not verify the kubelet’s serving certificate, which makes the connection subject to man-in-the-middle attacks, and <em><strong>unsafe</strong></em> to run over untrusted and/or public networks.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go#L455-L467
+</span><span style=color:#75715e>// ExecLocation returns the exec URL for a pod container. If opts.Container is blank
+</span><span style=color:#75715e>// and only one container is present in the pod, that container is used.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>ExecLocation</span>(
+  <span style=color:#a6e22e>getter</span> <span style=color:#a6e22e>ResourceGetter</span>,
+  <span style=color:#a6e22e>connInfo</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>ConnectionInfoGetter</span>,
+  <span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>,
+  <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>,
+  <span style=color:#a6e22e>opts</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>api</span>.<span style=color:#a6e22e>PodExecOptions</span>,
+) (<span style=color:#f92672>*</span><span style=color:#a6e22e>url</span>.<span style=color:#a6e22e>URL</span>, <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>RoundTripper</span>, <span style=color:#66d9ef>error</span>) {
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>streamLocation</span>(<span style=color:#a6e22e>getter</span>, <span style=color:#a6e22e>connInfo</span>, <span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>opts</span>, <span style=color:#a6e22e>opts</span>.<span style=color:#a6e22e>Container</span>, <span style=color:#e6db74>&#34;exec&#34;</span>)
+}
+</code></pre></div><p>Of course the endpoint is derived from node info.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/strategy.go#L504-L510
+</span><span style=color:#75715e></span><span style=color:#a6e22e>nodeName</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>types</span>.<span style=color:#a6e22e>NodeName</span>(<span style=color:#a6e22e>pod</span>.<span style=color:#a6e22e>Spec</span>.<span style=color:#a6e22e>NodeName</span>)
+  <span style=color:#66d9ef>if</span> len(<span style=color:#a6e22e>nodeName</span>) <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> {
+  	<span style=color:#75715e>// If pod has not been assigned a host, return an empty location
+</span><span style=color:#75715e></span>  	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>NewBadRequest</span>(<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;pod %s does not have a host assigned&#34;</span>, <span style=color:#a6e22e>name</span>))
+  }
+  <span style=color:#a6e22e>nodeInfo</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>connInfo</span>.<span style=color:#a6e22e>GetConnectionInfo</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>nodeName</span>)
+</code></pre></div><p>GOTCHA! KUBELET HAS A PORT (<b>node.Status.DaemonEndpoints.KubeletEndpoint.Port</b>) TO WHICH API-SERVER CAN CONNECT.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/kubelet/client/kubelet_client.go#L180-L206
+</span><span style=color:#75715e>// GetConnectionInfo retrieves connection info from the status of a Node API object.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>k</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>NodeConnectionInfoGetter</span>) <span style=color:#a6e22e>GetConnectionInfo</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>nodeName</span> <span style=color:#a6e22e>types</span>.<span style=color:#a6e22e>NodeName</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ConnectionInfo</span>, <span style=color:#66d9ef>error</span>) {
+  <span style=color:#a6e22e>node</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>k</span>.<span style=color:#a6e22e>nodes</span>.<span style=color:#a6e22e>Get</span>(<span style=color:#a6e22e>ctx</span>, string(<span style=color:#a6e22e>nodeName</span>), <span style=color:#a6e22e>metav1</span>.<span style=color:#a6e22e>GetOptions</span>{})
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+  }
+
+  <span style=color:#75715e>// Find a kubelet-reported address, using preferred address type
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>host</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>nodeutil</span>.<span style=color:#a6e22e>GetPreferredNodeAddress</span>(<span style=color:#a6e22e>node</span>, <span style=color:#a6e22e>k</span>.<span style=color:#a6e22e>preferredAddressTypes</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+  }
+
+  <span style=color:#75715e>// Use the kubelet-reported port, if present
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>port</span> <span style=color:#f92672>:=</span> int(<span style=color:#a6e22e>node</span>.<span style=color:#a6e22e>Status</span>.<span style=color:#a6e22e>DaemonEndpoints</span>.<span style=color:#a6e22e>KubeletEndpoint</span>.<span style=color:#a6e22e>Port</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>port</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span> {
+    <span style=color:#a6e22e>port</span> = <span style=color:#a6e22e>k</span>.<span style=color:#a6e22e>defaultPort</span>
+  }
+
+  <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>ConnectionInfo</span>{
+    <span style=color:#a6e22e>Scheme</span>:    <span style=color:#a6e22e>k</span>.<span style=color:#a6e22e>scheme</span>,
+    <span style=color:#a6e22e>Hostname</span>:  <span style=color:#a6e22e>host</span>,
+    <span style=color:#a6e22e>Port</span>:      <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Itoa</span>(<span style=color:#a6e22e>port</span>),
+    <span style=color:#a6e22e>Transport</span>: <span style=color:#a6e22e>k</span>.<span style=color:#a6e22e>transport</span>,
+  }, <span style=color:#66d9ef>nil</span>
+}
+</code></pre></div><blockquote>
+<p><a href=https://kubernetes.io/docs/concepts/architecture/control-plane-node-communication/#api-server-to-kubelet>Communication between Nodes and the Control Plane > API server to kubelet</a>: <em>&ldquo;These connections terminate at the kubelet’s HTTPS endpoint. By default, the apiserver does not verify the kubelet’s serving certificate, which makes the connection subject to man-in-the-middle attacks, and <b>unsafe</b> to run over untrusted and/or public networks."</em></p>
 </blockquote>
 </li>
 <li>
 <p>Now, api server knows the endpoint and it opens a connections.</p>
-<script src="https://gist-it.appspot.com/http://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/rest/subresources.go?slice=132:144"></script><br>
-</li>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/a1f1f0b599e961a5c59b02c349c0ed818b1851a5/pkg/registry/core/pod/rest/subresources.go#L132-L144
+</span><span style=color:#75715e>// Connect returns a handler for the pod exec proxy
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ExecREST</span>) <span style=color:#a6e22e>Connect</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>opts</span> <span style=color:#a6e22e>runtime</span>.<span style=color:#a6e22e>Object</span>, <span style=color:#a6e22e>responder</span> <span style=color:#a6e22e>rest</span>.<span style=color:#a6e22e>Responder</span>) (<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Handler</span>, <span style=color:#66d9ef>error</span>) {
+  <span style=color:#a6e22e>execOpts</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>opts</span>.(<span style=color:#f92672>*</span><span style=color:#a6e22e>api</span>.<span style=color:#a6e22e>PodExecOptions</span>)
+  <span style=color:#66d9ef>if</span> !<span style=color:#a6e22e>ok</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;invalid options object: %#v&#34;</span>, <span style=color:#a6e22e>opts</span>)
+  }
+  <span style=color:#a6e22e>location</span>, <span style=color:#a6e22e>transport</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>pod</span>.<span style=color:#a6e22e>ExecLocation</span>(<span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>Store</span>, <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>KubeletConn</span>, <span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>execOpts</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+  }
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>newThrottledUpgradeAwareProxyHandler</span>(<span style=color:#a6e22e>location</span>, <span style=color:#a6e22e>transport</span>, <span style=color:#66d9ef>false</span>, <span style=color:#66d9ef>true</span>, <span style=color:#66d9ef>true</span>, <span style=color:#a6e22e>responder</span>), <span style=color:#66d9ef>nil</span>
+}
+</code></pre></div></li>
 <li>
 <p>Let&rsquo;s check what is going on the master node.</p>
-</li>
-</ul>
-<p>First, learn the ip of the worker node. It is <code>192.168.205.11</code> in this case.</p>
-<pre tabindex=0><code>// any machine
+<p>First, learn the ip of the worker node. It is <b>192.168.205.11</b> in this case.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// any machine
 $ kubectl get nodes k8s-node-1 -o wide
 NAME         STATUS   ROLES    AGE   VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 k8s-node-1   Ready    &lt;none&gt;   9h    v1.15.3   192.168.205.11   &lt;none&gt;        Ubuntu 16.04.6 LTS   4.4.0-159-generic   docker://17.3.3
-</code></pre><p>Then get the kubelet port. It is <code>10250</code> in this case.</p>
-<pre tabindex=0><code>// any machine
-$ kubectl get nodes k8s-node-1 -o jsonpath='{.status.daemonEndpoints.kubeletEndpoint}'
-map[Port:10250]
-</code></pre><p>Then check the network. Is there a connection to worker node(192.168.205.11)? THE CONNECTİON IS THERE. When I kill the exec process, it disappears so I know it is set by api-server because of my exec command.</p>
-<pre tabindex=0><code>// master node
+</code></pre></div><p>Then get the kubelet port. It is <b>10250</b> in this case.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// any machine
+$ kubectl get nodes k8s-node-1 -o jsonpath<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;{.status.daemonEndpoints.kubeletEndpoint}&#39;</span>
+map<span style=color:#f92672>[</span>Port:10250<span style=color:#f92672>]</span>
+</code></pre></div><p>Then check the network. Is there a connection to worker node(192.168.205.11)? THE CONNECTİON IS THERE. When I kill the exec process, it disappears so I know it is set by api-server because of my exec command.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// master node
 $ netstat -atn |grep 192.168.205.11
-tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
+tcp        <span style=color:#ae81ff>0</span>      <span style=color:#ae81ff>0</span> 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
 ...
-</code></pre><p><img src=/img/kubectl-exec/api-server-to-kubelet.png alt=api-server-to-kubelet></p>
+</code></pre></div></li>
+</ul>
+<p><img src=/img/kubectl-exec/api-server-to-kubelet.png alt=api-server-to-kubelet></p>
 <ul>
 <li>Now the connection between kubectl and api-server is still open and there is another connection between api-server and kubelet.</li>
 </ul>
@@ -208,7 +291,7 @@ tcp        0      0 192.168.205.10:37870    192.168.205.11:10250    ESTABLISHED
 <ul>
 <li>
 <p>Let&rsquo;s continue by connecting to the worker node and checking what is going on the worker node.</p>
-<p>First, we can observe the connection here as well. The second line. <code>192.168.205.10</code> is the IP of master node.</p>
+<p>First, we can observe the connection here as well. The second line. <b>192.168.205.10</b> is the IP of master node.</p>
 <pre tabindex=0><code>// worker node
 $ netstat -atn |grep 10250
 tcp6       0      0 :::10250                :::*                    LISTEN
@@ -227,22 +310,213 @@ $ ps -afx
 </li>
 <li>
 <p>kubelet has a daemon which serves an api over a port for api-server requests.</p>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go?slice=41:60"></script><br>
-</li>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go#L41-L60
+</span><span style=color:#75715e>// Server is the library interface to serve the stream requests.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Server</span> <span style=color:#66d9ef>interface</span> {
+  <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Handler</span>
+
+  <span style=color:#75715e>// Get the serving URL for the requests.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// Requests must not be nil. Responses may be nil iff an error is returned.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>GetExec</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>ExecRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>ExecResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#a6e22e>GetAttach</span>(<span style=color:#a6e22e>req</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>AttachRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>AttachResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#a6e22e>GetPortForward</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>PortForwardRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>PortForwardResponse</span>, <span style=color:#66d9ef>error</span>)
+
+  <span style=color:#75715e>// Start the server.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// addr is the address to serve on (address:port) stayUp indicates whether the server should
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// listen until Stop() is called, or automatically stop after all expected connections are
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// closed. Calling Get{Exec,Attach,PortForward} increments the expected connection count.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// Function does not return until the server is stopped.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Start</span>(<span style=color:#a6e22e>stayUp</span> <span style=color:#66d9ef>bool</span>) <span style=color:#66d9ef>error</span>
+  <span style=color:#75715e>// Stop the server, and terminate any open connections.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Stop</span>() <span style=color:#66d9ef>error</span>
+}
+</code></pre></div></li>
 <li>
 <p>kubelet computes a response endpoint for exec requests.</p>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go?slice=177:190"></script><br>
-<p>Don&rsquo;t confuse. It doesn&rsquo;t return the result of the command. It returns an endpoint for communication.</p>
-</li>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>//source: https://github.com/kubernetes/kubernetes/blob/33081c1f07be128a89441a39c467b7ea2221b23d/pkg/kubelet/server/streaming/server.go#L178-L190
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>s</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>server</span>) <span style=color:#a6e22e>GetExec</span>(<span style=color:#a6e22e>req</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>ExecRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>ExecResponse</span>, <span style=color:#66d9ef>error</span>) {
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>validateExecRequest</span>(<span style=color:#a6e22e>req</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+  }
+  <span style=color:#a6e22e>token</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>s</span>.<span style=color:#a6e22e>cache</span>.<span style=color:#a6e22e>Insert</span>(<span style=color:#a6e22e>req</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+  }
+  <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>runtimeapi</span>.<span style=color:#a6e22e>ExecResponse</span>{
+    <span style=color:#a6e22e>Url</span>: <span style=color:#a6e22e>s</span>.<span style=color:#a6e22e>buildURL</span>(<span style=color:#e6db74>&#34;exec&#34;</span>, <span style=color:#a6e22e>token</span>),
+  }, <span style=color:#66d9ef>nil</span>
+}
+</code></pre></div><p>Don&rsquo;t confuse. It doesn&rsquo;t return the result of the command. It returns an endpoint for communication.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go#L4534-L4540
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>ExecResponse</span> <span style=color:#66d9ef>struct</span> {
+  <span style=color:#75715e>// Fully qualified URL of the exec streaming server.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Url</span>                  <span style=color:#66d9ef>string</span>   <span style=color:#e6db74>`protobuf:&#34;bytes,1,opt,name=url,proto3&#34; json:&#34;url,omitempty&#34;`</span>
+  <span style=color:#a6e22e>XXX_NoUnkeyedLiteral</span> <span style=color:#66d9ef>struct</span>{} <span style=color:#e6db74>`json:&#34;-&#34;`</span>
+  <span style=color:#a6e22e>XXX_sizecache</span>        <span style=color:#66d9ef>int32</span>    <span style=color:#e6db74>`json:&#34;-&#34;`</span>
+}
+</code></pre></div><p>kubelet implements <b>RuntimeServiceClient</b> interface which is part of Container Runtime Interface.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>//source: https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go#L7158-L7229
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>RuntimeServiceClient</span> <span style=color:#66d9ef>interface</span> {
+  <span style=color:#75715e>// Version returns the runtime name, runtime version, and runtime API version.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Version</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>VersionRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>VersionResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// RunPodSandbox creates and starts a pod-level sandbox. Runtimes must ensure
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// the sandbox is in the ready state on success.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>RunPodSandbox</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>RunPodSandboxRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>RunPodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// StopPodSandbox stops any running process that is part of the sandbox and
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// reclaims network resources (e.g., IP addresses) allocated to the sandbox.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// If there are any running containers in the sandbox, they must be forcibly
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// terminated.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if all relevant
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// resources have already been reclaimed. kubelet will call StopPodSandbox
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// at least once before calling RemovePodSandbox. It will also attempt to
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// reclaim resources eagerly, as soon as a sandbox is not needed. Hence,
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// multiple StopPodSandbox calls are expected.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>StopPodSandbox</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>StopPodSandboxRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StopPodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// RemovePodSandbox removes the sandbox. If there are any running containers
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// in the sandbox, they must be forcibly terminated and removed.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if the sandbox has
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// already been removed.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>RemovePodSandbox</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>RemovePodSandboxRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>RemovePodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// PodSandboxStatus returns the status of the PodSandbox. If the PodSandbox is not
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// present, returns an error.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>PodSandboxStatus</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>PodSandboxStatusRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>PodSandboxStatusResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ListPodSandbox returns a list of PodSandboxes.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ListPodSandbox</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ListPodSandboxRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ListPodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// CreateContainer creates a new container in specified PodSandbox
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>CreateContainer</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>CreateContainerRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>CreateContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// StartContainer starts the container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>StartContainer</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>StartContainerRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StartContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// StopContainer stops a running container with a grace period (i.e., timeout).
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if the container has
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// already been stopped.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// TODO: what must the runtime do after the grace period is reached?
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>StopContainer</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>StopContainerRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StopContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// RemoveContainer removes the container. If the container is running, the
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// container must be forcibly removed.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if the container has
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// already been removed.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>RemoveContainer</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>RemoveContainerRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>RemoveContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ListContainers lists all containers by filters.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ListContainers</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainersRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainersResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ContainerStatus returns status of the container. If the container is not
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// present, returns an error.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ContainerStatus</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatusRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatusResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// UpdateContainerResources updates ContainerConfig of the container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>UpdateContainerResources</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateContainerResourcesRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateContainerResourcesResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ReopenContainerLog asks runtime to reopen the stdout/stderr log file
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// for the container. This is often called after the log file has been
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// rotated. If the container is not running, container runtime can choose
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// to either create a new log file and return nil, or return an error.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// Once it returns error, new container log file MUST NOT be created.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ReopenContainerLog</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ReopenContainerLogRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ReopenContainerLogResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ExecSync runs a command in a container synchronously.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ExecSync</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ExecSyncRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ExecSyncResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// Exec prepares a streaming endpoint to execute a command in the container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ExecRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ExecResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// Attach prepares a streaming endpoint to attach to a running container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Attach</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>AttachRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>AttachResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// PortForward prepares a streaming endpoint to forward ports from a PodSandbox.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>PortForward</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>PortForwardRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>PortForwardResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ContainerStats returns stats of the container. If the container does not
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// exist, the call returns an error.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ContainerStats</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatsRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatsResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ListContainerStats returns stats of all running containers.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ListContainerStats</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainerStatsRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainerStatsResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// UpdateRuntimeConfig updates the runtime configuration based on the given request.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>UpdateRuntimeConfig</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateRuntimeConfigRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateRuntimeConfigResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// Status returns the status of the runtime.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Status</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>StatusRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StatusResponse</span>, <span style=color:#66d9ef>error</span>)
+} 
+</code></pre></div><p>It just uses gRPC to invoke a method through Container Runtime Interface.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go#L7230-L7233
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>runtimeServiceClient</span> <span style=color:#66d9ef>struct</span> {
+  <span style=color:#a6e22e>cc</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>ClientConn</span>
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go#L7374-L7381
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeServiceClient</span>) <span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>in</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>ExecRequest</span>, <span style=color:#a6e22e>opts</span> <span style=color:#f92672>...</span><span style=color:#a6e22e>grpc</span>.<span style=color:#a6e22e>CallOption</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ExecResponse</span>, <span style=color:#66d9ef>error</span>) {
+  <span style=color:#a6e22e>out</span> <span style=color:#f92672>:=</span> new(<span style=color:#a6e22e>ExecResponse</span>)
+  <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>cc</span>.<span style=color:#a6e22e>Invoke</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#e6db74>&#34;/runtime.v1alpha2.RuntimeService/Exec&#34;</span>, <span style=color:#a6e22e>in</span>, <span style=color:#a6e22e>out</span>, <span style=color:#a6e22e>opts</span><span style=color:#f92672>...</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+  }
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>out</span>, <span style=color:#66d9ef>nil</span>
+}
+</code></pre></div><p>Container Runtime is responsible to implement <b>RuntimeServiceServer</b></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go#L7436-L7508
+</span><span style=color:#75715e>// RuntimeServiceServer is the server API for RuntimeService service.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>RuntimeServiceServer</span> <span style=color:#66d9ef>interface</span> {
+  <span style=color:#75715e>// Version returns the runtime name, runtime version, and runtime API version.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Version</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>VersionRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>VersionResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// RunPodSandbox creates and starts a pod-level sandbox. Runtimes must ensure
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// the sandbox is in the ready state on success.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>RunPodSandbox</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>RunPodSandboxRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>RunPodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// StopPodSandbox stops any running process that is part of the sandbox and
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// reclaims network resources (e.g., IP addresses) allocated to the sandbox.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// If there are any running containers in the sandbox, they must be forcibly
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// terminated.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if all relevant
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// resources have already been reclaimed. kubelet will call StopPodSandbox
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// at least once before calling RemovePodSandbox. It will also attempt to
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// reclaim resources eagerly, as soon as a sandbox is not needed. Hence,
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// multiple StopPodSandbox calls are expected.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>StopPodSandbox</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>StopPodSandboxRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StopPodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// RemovePodSandbox removes the sandbox. If there are any running containers
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// in the sandbox, they must be forcibly terminated and removed.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if the sandbox has
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// already been removed.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>RemovePodSandbox</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>RemovePodSandboxRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>RemovePodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// PodSandboxStatus returns the status of the PodSandbox. If the PodSandbox is not
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// present, returns an error.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>PodSandboxStatus</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>PodSandboxStatusRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>PodSandboxStatusResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ListPodSandbox returns a list of PodSandboxes.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ListPodSandbox</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ListPodSandboxRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ListPodSandboxResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// CreateContainer creates a new container in specified PodSandbox
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>CreateContainer</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>CreateContainerRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>CreateContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// StartContainer starts the container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>StartContainer</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>StartContainerRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StartContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// StopContainer stops a running container with a grace period (i.e., timeout).
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if the container has
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// already been stopped.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// TODO: what must the runtime do after the grace period is reached?
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>StopContainer</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>StopContainerRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StopContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// RemoveContainer removes the container. If the container is running, the
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// container must be forcibly removed.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// This call is idempotent, and must not return an error if the container has
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// already been removed.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>RemoveContainer</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>RemoveContainerRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>RemoveContainerResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ListContainers lists all containers by filters.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ListContainers</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainersRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainersResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ContainerStatus returns status of the container. If the container is not
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// present, returns an error.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ContainerStatus</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatusRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatusResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// UpdateContainerResources updates ContainerConfig of the container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>UpdateContainerResources</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateContainerResourcesRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateContainerResourcesResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ReopenContainerLog asks runtime to reopen the stdout/stderr log file
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// for the container. This is often called after the log file has been
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// rotated. If the container is not running, container runtime can choose
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// to either create a new log file and return nil, or return an error.
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// Once it returns error, new container log file MUST NOT be created.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ReopenContainerLog</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ReopenContainerLogRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ReopenContainerLogResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ExecSync runs a command in a container synchronously.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ExecSync</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ExecSyncRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ExecSyncResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// Exec prepares a streaming endpoint to execute a command in the container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ExecRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ExecResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// Attach prepares a streaming endpoint to attach to a running container.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Attach</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>AttachRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>AttachResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// PortForward prepares a streaming endpoint to forward ports from a PodSandbox.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>PortForward</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>PortForwardRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>PortForwardResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ContainerStats returns stats of the container. If the container does not
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// exist, the call returns an error.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ContainerStats</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatsRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ContainerStatsResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// ListContainerStats returns stats of all running containers.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ListContainerStats</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainerStatsRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>ListContainerStatsResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// UpdateRuntimeConfig updates the runtime configuration based on the given request.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>UpdateRuntimeConfig</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateRuntimeConfigRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>UpdateRuntimeConfigResponse</span>, <span style=color:#66d9ef>error</span>)
+  <span style=color:#75715e>// Status returns the status of the runtime.
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>Status</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>StatusRequest</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>StatusResponse</span>, <span style=color:#66d9ef>error</span>)
+}
+</code></pre></div></li>
 </ul>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=4533:4540"></script><br>
-<p>kubelet implements <code>RuntimeServiceClient</code> interface which is part of Container Runtime Interface.</p>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7157:7229"></script><br>
-<p>It just uses gRPC to invoke a method through Container Runtime Interface.</p>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7229:7233"></script><br>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7372:7381"></script><br>
-<p>Container Runtime is responsible to implement <code>RuntimeServiceServer</code></p>
-<script src="https://gist-it.appspot.com/https://github.com/kubernetes/kubernetes/blob/6568325ca2bef519e5c8228cd33887660b5ed7b0/staging/src/k8s.io/cri-api/pkg/apis/runtime/v1alpha2/api.pb.go?slice=7436:7508"></script><br>
 <p><img src=/img/kubectl-exec/kubelet-to-container-runtime.png alt=kubelet-to-container-runtime></p>
 <ul>
 <li>If it is so, we need to observe a connection between kubelet and container runtime. Right? Let&rsquo;s check.</li>
@@ -274,15 +548,101 @@ $ ps -afx
 <li>
 <p>Let&rsquo;s check cri-o&rsquo;s source code to understand how it can happen. The logic is similar in docker.</p>
 <p>It has a server which implements RuntimeServiceServer.</p>
-<script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/server.go?slice=60:82"></script><br>
-<script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/container_exec.go?slice=13:28"></script><br>
-<p>At the end of the chain, container runtime executes the command in the worker node.</p>
-<script src="https://gist-it.appspot.com/https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/internal/oci/runtime_oci.go?slice=292:342"></script><br>
-</li>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/server.go#L62-L83
+</span><span style=color:#75715e>// Server implements the RuntimeService and ImageService
+</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Server</span> <span style=color:#66d9ef>struct</span> {
+  <span style=color:#a6e22e>config</span>          <span style=color:#a6e22e>libconfig</span>.<span style=color:#a6e22e>Config</span>
+  <span style=color:#a6e22e>seccompProfile</span>  <span style=color:#f92672>*</span><span style=color:#a6e22e>seccomp</span>.<span style=color:#a6e22e>Seccomp</span>
+  <span style=color:#a6e22e>stream</span>          <span style=color:#a6e22e>StreamService</span>
+  <span style=color:#a6e22e>netPlugin</span>       <span style=color:#a6e22e>ocicni</span>.<span style=color:#a6e22e>CNIPlugin</span>
+  <span style=color:#a6e22e>hostportManager</span> <span style=color:#a6e22e>hostport</span>.<span style=color:#a6e22e>HostPortManager</span>
+
+  <span style=color:#a6e22e>appArmorProfile</span> <span style=color:#66d9ef>string</span>
+  <span style=color:#a6e22e>hostIP</span>          <span style=color:#66d9ef>string</span>
+  <span style=color:#a6e22e>bindAddress</span>     <span style=color:#66d9ef>string</span>
+
+  <span style=color:#f92672>*</span><span style=color:#a6e22e>lib</span>.<span style=color:#a6e22e>ContainerServer</span>
+  <span style=color:#a6e22e>monitorsChan</span>      <span style=color:#66d9ef>chan</span> <span style=color:#66d9ef>struct</span>{}
+  <span style=color:#a6e22e>defaultIDMappings</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>idtools</span>.<span style=color:#a6e22e>IDMappings</span>
+  <span style=color:#a6e22e>systemContext</span>     <span style=color:#f92672>*</span><span style=color:#a6e22e>types</span>.<span style=color:#a6e22e>SystemContext</span> <span style=color:#75715e>// Never nil
+</span><span style=color:#75715e></span>
+  <span style=color:#a6e22e>updateLock</span> <span style=color:#a6e22e>sync</span>.<span style=color:#a6e22e>RWMutex</span>
+
+  <span style=color:#a6e22e>seccompEnabled</span>  <span style=color:#66d9ef>bool</span>
+  <span style=color:#a6e22e>appArmorEnabled</span> <span style=color:#66d9ef>bool</span>
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/server/container_exec.go#L14-L28
+</span><span style=color:#75715e>// Exec prepares a streaming endpoint to execute a command in the container.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>s</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>) <span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>, <span style=color:#a6e22e>req</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>ExecRequest</span>) (<span style=color:#a6e22e>resp</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>ExecResponse</span>, <span style=color:#a6e22e>err</span> <span style=color:#66d9ef>error</span>) {
+  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>operation</span> = <span style=color:#e6db74>&#34;exec&#34;</span>
+  <span style=color:#66d9ef>defer</span> <span style=color:#66d9ef>func</span>() {
+    <span style=color:#a6e22e>recordOperation</span>(<span style=color:#a6e22e>operation</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>())
+    <span style=color:#a6e22e>recordError</span>(<span style=color:#a6e22e>operation</span>, <span style=color:#a6e22e>err</span>)
+  }()
+
+  <span style=color:#a6e22e>resp</span>, <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>s</span>.<span style=color:#a6e22e>getExec</span>(<span style=color:#a6e22e>req</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;unable to prepare exec endpoint: %v&#34;</span>, <span style=color:#a6e22e>err</span>)
+  }
+
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>resp</span>, <span style=color:#66d9ef>nil</span>
+}
+</code></pre></div><p>At the end of the chain, container runtime executes the command in the worker node.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// source: https://github.com/cri-o/cri-o/blob/b3c67952115bee6f44405f547fef0b65a9134c60/internal/oci/runtime_oci.go#L293-L342
+</span><span style=color:#75715e>// ExecContainer prepares a streaming endpoint to execute a command in the container.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>runtimeOCI</span>) <span style=color:#a6e22e>ExecContainer</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Container</span>, <span style=color:#a6e22e>cmd</span> []<span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>stdin</span> <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>Reader</span>, <span style=color:#a6e22e>stdout</span>, <span style=color:#a6e22e>stderr</span> <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>WriteCloser</span>, <span style=color:#a6e22e>tty</span> <span style=color:#66d9ef>bool</span>, <span style=color:#a6e22e>resize</span> <span style=color:#f92672>&lt;-</span><span style=color:#66d9ef>chan</span> <span style=color:#a6e22e>remotecommand</span>.<span style=color:#a6e22e>TerminalSize</span>) <span style=color:#66d9ef>error</span> {
+  <span style=color:#a6e22e>processFile</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>prepareProcessExec</span>(<span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>cmd</span>, <span style=color:#a6e22e>tty</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>err</span>
+  }
+  <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>RemoveAll</span>(<span style=color:#a6e22e>processFile</span>.<span style=color:#a6e22e>Name</span>())
+
+  <span style=color:#a6e22e>args</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>string</span>{<span style=color:#a6e22e>rootFlag</span>, <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>root</span>, <span style=color:#e6db74>&#34;exec&#34;</span>}
+  <span style=color:#a6e22e>args</span> = append(<span style=color:#a6e22e>args</span>, <span style=color:#e6db74>&#34;--process&#34;</span>, <span style=color:#a6e22e>processFile</span>.<span style=color:#a6e22e>Name</span>(), <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>ID</span>())
+  <span style=color:#a6e22e>execCmd</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>exec</span>.<span style=color:#a6e22e>Command</span>(<span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>path</span>, <span style=color:#a6e22e>args</span><span style=color:#f92672>...</span>)
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>v</span>, <span style=color:#a6e22e>found</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>LookupEnv</span>(<span style=color:#e6db74>&#34;XDG_RUNTIME_DIR&#34;</span>); <span style=color:#a6e22e>found</span> {
+    <span style=color:#a6e22e>execCmd</span>.<span style=color:#a6e22e>Env</span> = append(<span style=color:#a6e22e>execCmd</span>.<span style=color:#a6e22e>Env</span>, <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;XDG_RUNTIME_DIR=%s&#34;</span>, <span style=color:#a6e22e>v</span>))
+  }
+  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>cmdErr</span>, <span style=color:#a6e22e>copyError</span> <span style=color:#66d9ef>error</span>
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>tty</span> {
+    <span style=color:#a6e22e>cmdErr</span> = <span style=color:#a6e22e>ttyCmd</span>(<span style=color:#a6e22e>execCmd</span>, <span style=color:#a6e22e>stdin</span>, <span style=color:#a6e22e>stdout</span>, <span style=color:#a6e22e>resize</span>)
+  } <span style=color:#66d9ef>else</span> {
+    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>stdin</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+      <span style=color:#75715e>// Use an os.Pipe here as it returns true *os.File objects.
+</span><span style=color:#75715e></span>      <span style=color:#75715e>// This way, if you run &#39;kubectl exec &lt;pod&gt; -i bash&#39; (no tty) and type &#39;exit&#39;,
+</span><span style=color:#75715e></span>      <span style=color:#75715e>// the call below to execCmd.Run() can unblock because its Stdin is the read half
+</span><span style=color:#75715e></span>      <span style=color:#75715e>// of the pipe.
+</span><span style=color:#75715e></span>      <span style=color:#a6e22e>r</span>, <span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Pipe</span>()
+      <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>err</span>
+      }
+      <span style=color:#66d9ef>go</span> <span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>copyError</span> = <span style=color:#a6e22e>pools</span>.<span style=color:#a6e22e>Copy</span>(<span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>stdin</span>) }()
+
+      <span style=color:#a6e22e>execCmd</span>.<span style=color:#a6e22e>Stdin</span> = <span style=color:#a6e22e>r</span>
+    }
+    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>stdout</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+      <span style=color:#a6e22e>execCmd</span>.<span style=color:#a6e22e>Stdout</span> = <span style=color:#a6e22e>stdout</span>
+    }
+    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>stderr</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+      <span style=color:#a6e22e>execCmd</span>.<span style=color:#a6e22e>Stderr</span> = <span style=color:#a6e22e>stderr</span>
+    }
+
+    <span style=color:#a6e22e>cmdErr</span> = <span style=color:#a6e22e>execCmd</span>.<span style=color:#a6e22e>Run</span>()
+  }
+
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>copyError</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>copyError</span>
+  }
+  <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>exitErr</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cmdErr</span>.(<span style=color:#f92672>*</span><span style=color:#a6e22e>exec</span>.<span style=color:#a6e22e>ExitError</span>); <span style=color:#a6e22e>ok</span> {
+    <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>utilexec</span>.<span style=color:#a6e22e>ExitErrorWrapper</span>{<span style=color:#a6e22e>ExitError</span>: <span style=color:#a6e22e>exitErr</span>}
+  }
+  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>cmdErr</span>
+}
+</code></pre></div></li>
 </ul>
 <p><img src=/img/kubectl-exec/container-runtime-to-kernel.png alt=container-runtime-to-kernel></p>
-<p>Finally, kernel executes commands.
-![/img/kubectl-exec/kernel-puts.png" title=&ldquo;kernel-puts](/img/kubectl-exec/kernel-puts.png&rdquo; title=&ldquo;kernel-puts)</p>
+<p>Finally, kernel executes commands.</p>
+<p><img src=/img/kubectl-exec/kernel-puts.png alt=kernel-puts></p>
 <p><br><br></p>
 <h2 id=reminders>Reminders</h2>
 <ul>
