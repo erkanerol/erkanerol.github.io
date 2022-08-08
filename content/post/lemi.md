@@ -32,11 +32,13 @@ Aslında bir video çekmekti planım lakin beceremedim bir türlü☹️Ben de y
 ![kendime-not](/img/lemi/kendime-not.png)
 
 <br>
+
 ## Gözlem ve Tanışma
 
 Yazılım ustalığı okumalarımda okuduğum, daha önce burada bahsettiğim <a href="https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/" target="_blank">Hevesli Yazılım Ustasının Rehberi'ndeki</a> Find Mentors isimli bölümdeki taktiği uyguladım. Lemi abinin düzenlediği etkinliklere katılıp, bir süre gözlem yaptım. O dönem arkadaşlarım tarafından bir miktar sapıklıkla suçlansam da benim için çok faydalı oldu. (Yeri gelmişken itiraf edeyim, onun dikkatini çekmek için etkinlik boyu bekleyip, sonunda güzel sorular sormaya çalışmışlığım vardır🙈) İnsanlara yaklaşımını, samimiyetini, özverisini gözlemleme fırsatım oldu. En son kendime "Oğlum Erkan bu adamla acil beraber çalışman lazım" dedim. Neyse lafı uzatmayayım en son gidip kendimi tanıttım, kartını aldım. ***Hayatta an itibari ile edindiğim en güzel ünvanı almış oldum: "Lemi'nin yanındaki genç eleman"***
 
 <br>
+
 ## Herkesin saygı duyduğu bir adam
 
 O günden beri onlarca kişiyle hakkında konuşmuşumdur. Daha bir kez kötü bir yorum duymadım hakkında. Herkesin adı geçtiğinde gülümsediği, imrenerek izlediği, keyifle dinlediği bir adam Lemi abi. Bir çok arkadaşımı etkinliklere davet edip, tanıştırdım. İstisnasız hepsi tevazusuna ve samimiyetine hayran kaldılar. ***O gerçekten benim için ve tanıyan pek çok kişi için koca yürekli bir adam ve #1*** 
@@ -50,6 +52,7 @@ O günden beri onlarca kişiyle hakkında konuşmuşumdur. Daha bir kez kötü b
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <br>
+
 ## Öğrenmeye ve öğretmeye sevdalı bir zanaatkar
 
 Ondan çok şey öğrendim, öğreniyorum. Bildiklerini başkalarına öğretmenin bu mesleğin bir parçası olduğunu (bkz: <a href="http://manifesto.softwarecraftsmanship.org/">helping others learn the craft</a>) da ondan öğrendim mesela. Hani Mimar Sinan için "Çok büyük adamdı ama bir çırak yetiştirmedi." derler ya. Lemi abi çırak yetiştirmek için elinden gelenden çok daha fazlasını yapan bir adam. Üniversite topluluklarını bile kırmayan, ailesinden fedakarlık yapıp, genç kuşaklara bu zanaati öğretmek için ordan oraya koşturan bir usta. ***Ona layık çırak olamazsak suç bizimdir, kayıtlara geçsin isterim!***
@@ -68,6 +71,7 @@ Ondan çok şey öğrendim, öğreniyorum. Bildiklerini başkalarına öğretmen
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <br>
+
 ## Tutkulu bir yazılımcı
 
 İnsanların bir bir gittiği, ruhsuzluğun kol gezdiği, mesleğini daha iyi yapma çabasının nadirattan olduğu bir ortamda; her şeye rağmen mücadelesiyle, ***bu mesleğe dair hissettiği tutkusuyla***, gözlerindeki ışıkla  fark yaratan bir isim Lemi Orhan Ergin. Çölde bir vaha, bataklıkta bir lotus çiçeği desem hiç abartmış olmam.
@@ -92,6 +96,7 @@ Bu hayatta ne çektiysek savunması iyi hücumu kötü, hücumu iyi savunması k
 * <a href="https://www.youtube.com/watch?v=GnWbFTQPNHY" target="_blank">Çevik Dünya'da motivasyon kaybı (Yöneticilere)</a>
 
 <br><br>
+
 ## Yol Gösterici
 
 Her daim fikirleriyle bizi aydınlatır.
@@ -139,7 +144,8 @@ Ne diyordu Bob Amca😉
 
 <br><br>
 
-Mart, 2017
-
--Erkan Erol
+<div style="text-align: right">
+    <br>Erkan Erol
+    <br>İstanbul / Mart 2017
+</div>
 

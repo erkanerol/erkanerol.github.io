@@ -15,18 +15,21 @@ weight=1
 Primitive Obsession ünlü <a href="https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672" target="_blank">Refactoring</a> kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
 ![primitive](/img/primitive.jpg)
-<a href="https://dzone.com/articles/primitive-obsession" target="_blank">Görselin Kaynağı</a>
 
+<center>
+<a href="https://dzone.com/articles/primitive-obsession" target="_blank">Görselin Kaynağı</a>
+</center>
 <!--more-->
 
 <br>
+
 ## Tanımlar
 
 Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu "takıntı" zamanla çeşitli problemlere neden olur.
 
 ## Problemler
-<pre>
-<code>
+
+```java
 public class Notebook	{
 
 		private long id;
@@ -43,8 +46,7 @@ public class Notebook	{
 			return this.model.split("-")[2];
 		}
 }
-</code>
-</pre>
+```
 
 * Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.
 
@@ -65,8 +67,7 @@ Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.
 
 ## Değer Nesnelerinin Kullanımı
 
-<pre>
-<code>
+```java
 public class NotebookModel {
 	final String series;
 	final String subseries;
@@ -93,8 +94,7 @@ public class Notebook {
 	NotebookStatus status;
 	NotebookModel model;
 }
-</code>
-</pre>
+```
 
 Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.
 
@@ -109,8 +109,7 @@ Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerind
 
 Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım. 
 
-<pre>
-<code>
+```java
 
 @Embeddable
 public class NotebookModel {
@@ -152,8 +151,7 @@ public enum NotebookStatus {
 	PRODUCED, SOLD, RETURN;
 }
 
-</code>
-</pre>
+```
 
 Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.
 
@@ -167,18 +165,15 @@ Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gö
 
 * Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için "ilkel" kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.
 
+  ```java
+  amountInvoicedIn(Date start, Date end);
+  amountReceviedIn(Date start, Date end);
+  amountOverdueIn(Date start, Date end);
 
-<pre>
-<code>
-amountInvoicedIn(Date start, Date end);
-amountReceviedIn(Date start, Date end);
-amountOverdueIn(Date start, Date end);
-
-amountInvoicedIn(DateRange range);
-amountReceviedIn(DateRange range);
-amountOverdueIn(DateRange range);
-</code>
-</pre>
+  amountInvoicedIn(DateRange range);
+  amountReceviedIn(DateRange range);
+  amountOverdueIn(DateRange range);
+  ```
 
 
 ## Sonuç

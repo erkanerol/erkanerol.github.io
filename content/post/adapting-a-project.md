@@ -27,13 +27,9 @@ The companies were different. The teams were different. The technology stacks we
 - Don't try to understand everything from day one. There may be thousands lines of code. The stack may be totally new to you. The architecture may be so complicated to understand in a few days. The project may require deep domain knowledge. Nobody expects you to get the everything in a week. Give enough time to yourself. Software is more than the boxes in the white board and it requires huge amount of effort to reveal itself.
 
 - Don't wait for getting everything to get a task. Pick the easiest one and try to do it. For example, adding a new button/endpoint/service/flag which is almost same as one of the existing ones. While doing this task, try to understand which kind of activities you need to finish a task. Implementing production code, implementing unit/integration tests, code review, adding new sections into internal/user documents, doing some configurations in other tools/systems, conducting necessary negotiation with other stakeholders, security scan, bringing it into production (or internal usage) etc. DO NOT rush. Juniors sometimes try to finish the task as soon as possible to show their performance. This is a very common conversation:
-
-
-        Newbie: Hey. I am done😎Only in a half day.
-
-        Veteran: Hımmm. Did you do X?
-
-        Newbie: Not yet😳
+  - Newbie: Hey. I am done😎Only in a half day.
+  - Veteran: Hımmm. Did you do X?
+  - Newbie: Not yet😳
 
 It is ok to make this conversation a few times. However, you should know what to do in order to finish a task after a while. You should be able to finish tasks in every aspects without bothering the other people so much. If your team has a proper, well-written definition of done, you are so lucky :) 
 
