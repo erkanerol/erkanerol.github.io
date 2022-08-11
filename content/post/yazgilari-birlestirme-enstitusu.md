@@ -1,10 +1,7 @@
 +++
 date = "2019-08-10T19:00:00+03:00"
-description = ""
 title = "Yazgıları Birleştirme Enstitüsü"
-categories = ["Freestyle","TR"]
-weight=1
-
+tags = [ "Turkish", "Freestyle"]
 +++
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/28366936&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>

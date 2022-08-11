@@ -1,9 +1,7 @@
 +++
-categories = ["Software","k8s","EN"]
 date = "2020-07-19T21:00:00+03:00"
 title = "I wish pods were fully restartable"
-keywords = ["Software", "k8s", "Kubernetes"]
-weight = 1
+tags = ["English", "Software", "Kubernetes"]
 +++
 
 >+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?

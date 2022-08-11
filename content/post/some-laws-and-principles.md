@@ -1,18 +1,7 @@
 +++
-categories = ["Genel","TR"]
 date = "2017-01-07T13:42:18+03:00"
 title = "Bir takım teoriler, kanunlar ve ilkeler"
-keywords = ["Conway's Law",
-            "Conway'in Kanunu",
-            "Broken Windows Theory",
-            "Kırık Camlar Teorisi",
-            "Peter İlkesi",
-            "Peter Principle",
-            "Pareto İlkesi",
-            "Pareto Principle",
-            "Parkinson Kanunu",
-            "Parkinson's Law"]
-weight = 1
+tags = ["Turkish"]
 +++
 
 Bir şekilde öğrendiğim bir takım teoriler, kanunlar, ilkeler var. Bunları çevremdeki insanlarla paylaştığımda ilgi çektiklerini ve çok bilinmediklerini farkettim. Ben de bir blog yazısı ile bunları kısa kısa ve basit cümleler ile paylaşayım dedim. Bu yazıda 5 tanesine değineceğim. Başlıklara wikipedia linklerini ekledim. Formal şekillerini okumak isteyenler oradan devam edebilir.

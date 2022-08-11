@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+{{ range .Data.Terms.ByCount }}
+    <div class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+        <h2 class="!my-0 pb-1 !leading-none">{{ .Page.Title }}({{ .Count }})</h2>
+        <a class="absolute inset-0" href="{{ .Page.Permalink }}"></a>
+    </div>
+{{ end }}
+
+{{ end }}

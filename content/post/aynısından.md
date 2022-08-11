@@ -1,10 +1,7 @@
 +++
 date = "2017-11-26T20:00:00+03:00"
-description = ""
 title = "Aynısından"
-categories = ["Freestyle","TR"]
-weight=1
-
+tags = ["Turkish", "Freestyle"]
 +++
 
 Kahvaltımı yapmış, odamı toplamıştım. Sonrasında yeni bulaşık makinasının gideri için gerekli parçaları tespit etmiş, nalbura gidip almış, montajını yapmıştım. Makinayı çalıştırmış, lavoba giderini test etmiştim. Her şey olumluydu ve artık sıradaki işime geçebilirdim: **Berbere gitmek.** 

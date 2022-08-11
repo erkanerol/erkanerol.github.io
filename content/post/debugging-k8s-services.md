@@ -1,9 +1,7 @@
 +++
-categories = ["Software","k8s","EN"]
 date = "2021-02-28T16:00:00+03:00"
 title = "Debugging k8s services: 3 tools for 3 scenarios"
-keywords = [ "kubectl", "kubefwd", "telepresence"]
-weight = 1
+tags = ["English", "Software", "Kubernetes"]
 +++
 
 While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.

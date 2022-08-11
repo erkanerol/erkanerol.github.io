@@ -1,11 +1,7 @@
 +++
 date = "2017-03-12T22:24:38+03:00"
-categories = ["Kişisel","TR"]
-keywords = []
-description = ""
 title = "Ustam: Lemi Orhan Ergin"
-weight = 1
-
+tags = ["Turkish", "Freestyle"]
 +++
 
 Aslında bir video çekmekti planım lakin beceremedim bir türlü☹️Ben de yazmaya karar verdim. Umarım hislerimi ve düşüncelerimi düzgün ifade edebilirim.
