@@ -1,9 +1,7 @@
 +++
-categories = ["Software", "EN", "Twitter"]
 date = "2020-08-01T00:00:00+03:00"
 title = "Learning Path: Basics of Container Runtimes"
-keywords = ["Software", "k8s", "Kubernetes", "Container Runtime", "twitter-thread"]
-weight = 1
+tags = ["English", "Software", "Twitter Threads", "Kubernetes", "Containers" ]
 +++
 
 

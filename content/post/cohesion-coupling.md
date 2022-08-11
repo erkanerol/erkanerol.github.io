@@ -1,10 +1,7 @@
 +++
-categories = ["Software","Kavramlar","TR"]
 date = "2016-09-29T22:27:32+03:00"
 title = "Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine"
-keywords = ["Cohesion","Coupling","High Cohesion","Low Coupling"]
-weight = 1
-draft=false
+tags = ["Turkish", "Software", "Kavramlar"]
 +++
 
 

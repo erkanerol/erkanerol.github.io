@@ -1,9 +1,7 @@
 +++
-categories = ["Software","k8s","EN", "Twitter"]
 date = "2020-07-14T22:00:00+03:00"
 title = "Who sets the IP of a pod?"
-keywords = ["Software", "k8s", "Kubernetes", "twitter-thread"]
-weight = 1
+tags = ["English", "Software", "Twitter Threads", "Kubernetes"]
 +++
 
 

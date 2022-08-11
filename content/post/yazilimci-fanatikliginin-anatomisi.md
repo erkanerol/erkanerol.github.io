@@ -1,10 +1,7 @@
 +++
 date = "2017-02-25T20:00:00+03:00"
-keywords = ["Yazılım","Fanatik"]
 title = "Yazılımcı Fanatikliğinin Anatomisi"
-categories = ["Software","TR"]
-draft=false
-weight = 1
+tags = ["Software", "Turkish"]
 +++
 
 ***Feragatname (Disclaimer):*** İşbu blog yazısındaki her şey şahsi görüşlerim ve çıkarımlarımdan ibaret olup, herhangi bir kaynağa dayanmamaktadır. Yazıdaki ölçü vurgusuna dikkat edilmesi önemle rica olunur.

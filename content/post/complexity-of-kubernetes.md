@@ -1,9 +1,7 @@
 +++
-categories = ["Software","k8s","EN"]
 date = "2022-07-04T10:00:00+03:00"
 title = "Thinking about the complexity of the Kubernetes ecosystem"
-keywords = ["Software", "k8s", "Kubernetes", "CNCF"]
-weight = 1
+tags = ["English", "Software", "Kubernetes", "CNCF"]
 +++
 
 > Disclaimer: I am working for [Giant Swarm](https://www.giantswarm.io/product) as a Platform Engineer. My day-to-day work might have influenced my perspective on this subject since it is pretty related to why/how we help our customers.

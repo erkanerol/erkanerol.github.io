@@ -1,9 +1,7 @@
 +++
-categories = ["Software","k8s","EN"]
 date = "2019-08-25T19:00:00+03:00"
 title = "How does 'kubectl exec' work?"
-keywords = ["Software", "k8s", "Kubernetes"]
-weight = 1
+tags = ["English", "Software", "Kubernetes"]
 +++
 
 Last Friday, one of my colleagues approached me and asked a question about how to exec a command in a pod with client-go. I didn't know the answer and I noticed that I had never thought about the mechanism in "kubectl exec". I had some ideas about how it should be, but I wasn't 100% sure. I noted the topic to check again and I have learnt a lot after reading some blogs, docs and source codes. In this blog post, I am going to share my understanding and findings. 

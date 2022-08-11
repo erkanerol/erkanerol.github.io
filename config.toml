@@ -11,27 +11,12 @@ enableRobotsTXT = true
     name = "Erkan Erol"
 
 [taxonomies]
-    # Optional. Use if you want tags and lists.
-    category = "categories"
+    tag = "tags"
 
 [markup.goldmark.renderer]
     unsafe = true
 
 [params]
-
-    # If false display full article contents in blog index.
-    # Otherwise show description and 'read on' link to individual blog post page.
-    # Default (if omitted) is true.
-    truncate = true
-
-    # Used when a given page doesn't set its own.
-    defaultDescription = "Erkan Erol's Blog"
-    defaultKeywords = "software,books,software craftsmanship,erkan erol,blog"
-
-    # Select a syntax highight.
-    # Check the static/css/highlight directory for options.
-    highlight = "monokai"
-
     # Metadata used to drive integrations.
     googleAnalytics = "UA-57796113-2"
 
@@ -52,12 +37,19 @@ enableRobotsTXT = true
     name = "Turkish"
     pre = " "
     weight = -110
-    identifier = "TR"
-    url = "/categories/tr/"
+    identifier = "Turkish"
+    url = "/tags/Turkish/"
 
     [[menu.main]]
     name = "English"
     pre = " "
     weight = -100
-    identifier = "EN"
-    url = "/categories/en/"
+    identifier = "English"
+    url = "/tags/English/"
+
+    [[menu.main]]
+    name = "Tags"
+    pre = " "
+    weight = -100
+    identifier = "Tags"
+    url = "/tags/"
