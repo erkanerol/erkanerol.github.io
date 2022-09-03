@@ -145,11 +145,3 @@ as of now. Are your customers happy with it?
 Yes. No solution in the market can realize all of your dreams. You have to pay the integration cost. By hiring more people or getting a premium consultancy service from another company or living with the products available in the market. Some of the products will restrict you a lot. Some will require another BS degree to be able to use. Some will handle only a portion of your problems and leave the remaining ones to you.
 
 ![image](https://thumbs.gfycat.com/RaggedFrequentKusimanse-size_restricted.gif)
-
-## Feedback
-
-You can contact me via the addresses below if there is something you want to tell me.
-- https://twitter.com/erkan_erol_
-- https://www.linkedin.com/in/erkanerol/
-- erkanerol92 AT gmail DOT com
-
