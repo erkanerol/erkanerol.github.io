@@ -1,6 +1,6 @@
 baseurl = "https://erkanerol.github.io/"
 locale = "en-en"
-title = "Blog"
+title = "Erkan Erol's Blog"
 
 theme = "hugo-paper"
 enableRobotsTXT = true
