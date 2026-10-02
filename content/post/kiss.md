@@ -51,5 +51,5 @@ Basit çözümler daha iyidir çünkü:
 
 1. http://principles-wiki.net/principles:keep_it_simple_stupid
 + https://en.wikipedia.org/wiki/KISS_principle
-+ https://people.apache.org/~fhanik/kiss.html
++ https://web.archive.org/web/20240512040810/https://people.apache.org/~fhanik/kiss.html
 + http://www.pratikprogramci.com/2014/06/01/en-basit-cozumu-olusturma-yetisi-nasil-kazanilir/

@@ -13,7 +13,7 @@ Primitive Obsession ünlü <a href="https://www.amazon.com/Refactoring-Improving
 ![primitive](/img/primitive.jpg)
 
 <center>
-<a href="https://dzone.com/articles/primitive-obsession" target="_blank">Görselin Kaynağı</a>
+<a href="https://web.archive.org/web/20230921100450/https://dzone.com/articles/primitive-obsession" target="_blank">Görselin Kaynağı</a>
 </center>
 <!--more-->
 

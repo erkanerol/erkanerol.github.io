@@ -25,7 +25,7 @@ Bu bahsettiğimiz değişim/gelişim öylesine yakıcıdır ki hayatınızdan, s
 
 Ne diyordu Primefaces ile JavaEE dünyasına damgasını vurmuş Çağatay Çivici Angular2 için çıkardığı PrimeNg'yi tanıtırken?
 
-><a href="http://blog.primefaces.org/?p=4313" target="_blank">***Always bet on Prime!***</a>
+>***Always bet on Prime!***
 
 Yani diyor ki; biz gelişeceğiz, güçleneceğiz. Piyasa bizi kullanacak, bizi bilen yazılımcı değerli olacak. Gidip de başka kütüphanelerle vakit kaybetme. Bize yatır ömrünü/emeğini ve kazan!
 

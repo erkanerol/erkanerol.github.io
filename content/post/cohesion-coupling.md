@@ -46,7 +46,7 @@ Eğer ayırdığımız modüller birbirleriyle çok bağlantılı ise bir nedend
 
 
 <br></br>
-İdeal olan, istediğimiz bu ilişkinin bire bir olmasıdır. Bunun için tek sorumluluk prensibini ( <a href="http://webpro.github.io/programming-principles/#single-responsibility-principle" >Single Responsibility Principle - SRP </a>) iyi uygulamamız gerekir. 
+İdeal olan, istediğimiz bu ilişkinin bire bir olmasıdır. Bunun için tek sorumluluk prensibini ( <a href="https://github.com/webpro/programming-principles#single-responsibility-principle" >Single Responsibility Principle - SRP </a>) iyi uygulamamız gerekir. 
 
 bkz: <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well"> Do One Thing and Do It Well. </a> 
 
@@ -103,7 +103,7 @@ Yalnızca iyi tanımlanmış bir adet işi yapmak üzere işlemlerin bir araya g
 Bu konu epey uzun. Daha çok okumak ve öğrenmek isteyenlere aşağıdaki linkleri verip konuyu kapatalım.
 
 1. <a href="https://codurance.com/software-creation/2016/03/03/cohesion-cornerstone-software-design/">Cohesion - Sandro Mancuso</a>
-* <a href="http://webpro.github.io/programming-principles/#maximise-cohesion">Maximise Cohesion</a>
-* <a href="http://webpro.github.io/programming-principles/#minimise-coupling">Minimise Coupling</a>
+* <a href="https://github.com/webpro/programming-principles#maximise-cohesion">Maximise Cohesion</a>
+* <a href="https://github.com/webpro/programming-principles#minimise-coupling">Minimise Coupling</a>
 * <a href="http://www.cs.toronto.edu/~penny/teaching/csc407-02s/lectures/04structured-design.pdf">Structured Design - CSC407</a>
 * <a href="https://www.amazon.com/Structured-Design-Fundamentals-Discipline-Computer/dp/0138544719">Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design - Yourdon Press , Larry L. Constantine</a>

@@ -31,7 +31,7 @@ Aslında bir video çekmekti planım lakin beceremedim bir türlü☹️Ben de y
 
 ## Gözlem ve Tanışma
 
-Yazılım ustalığı okumalarımda okuduğum, daha önce burada bahsettiğim <a href="https://erkanerol.github.io/post/hevesli-yazilimcinin-rehberi/" target="_blank">Hevesli Yazılım Ustasının Rehberi'ndeki</a> Find Mentors isimli bölümdeki taktiği uyguladım. Lemi abinin düzenlediği etkinliklere katılıp, bir süre gözlem yaptım. O dönem arkadaşlarım tarafından bir miktar sapıklıkla suçlansam da benim için çok faydalı oldu. (Yeri gelmişken itiraf edeyim, onun dikkatini çekmek için etkinlik boyu bekleyip, sonunda güzel sorular sormaya çalışmışlığım vardır🙈) İnsanlara yaklaşımını, samimiyetini, özverisini gözlemleme fırsatım oldu. En son kendime "Oğlum Erkan bu adamla acil beraber çalışman lazım" dedim. Neyse lafı uzatmayayım en son gidip kendimi tanıttım, kartını aldım. ***Hayatta an itibari ile edindiğim en güzel ünvanı almış oldum: "Lemi'nin yanındaki genç eleman"***
+Yazılım ustalığı okumalarımda okuduğum, daha önce burada bahsettiğim Hevesli Yazılım Ustasının Rehberi'ndeki Find Mentors isimli bölümdeki taktiği uyguladım. Lemi abinin düzenlediği etkinliklere katılıp, bir süre gözlem yaptım. O dönem arkadaşlarım tarafından bir miktar sapıklıkla suçlansam da benim için çok faydalı oldu. (Yeri gelmişken itiraf edeyim, onun dikkatini çekmek için etkinlik boyu bekleyip, sonunda güzel sorular sormaya çalışmışlığım vardır🙈) İnsanlara yaklaşımını, samimiyetini, özverisini gözlemleme fırsatım oldu. En son kendime "Oğlum Erkan bu adamla acil beraber çalışman lazım" dedim. Neyse lafı uzatmayayım en son gidip kendimi tanıttım, kartını aldım. ***Hayatta an itibari ile edindiğim en güzel ünvanı almış oldum: "Lemi'nin yanındaki genç eleman"***
 
 <br>
 

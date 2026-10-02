@@ -43,7 +43,7 @@ Konu ile ilgili makaleler:
 
 * [Software Entropy](https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy)
 * [The Broken Windows Principle](https://alexandrebrisebois.wordpress.com/2013/06/08/the-broken-windows-principle/)
-* [Always Fix Broken Windows](http://blog.smartbear.com/lean-software-development/always-fix-broken-windows/) 
+* [Always Fix Broken Windows](https://web.archive.org/web/20160304014645/http://blog.smartbear.com/lean-software-development/always-fix-broken-windows/) 
 
 Ayrıca yazar abimizden bir dörtlük:
 

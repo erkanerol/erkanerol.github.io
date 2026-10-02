@@ -44,7 +44,7 @@ Ayrıca YAGNI kodun kolay değiştirilebilecek şekilde yazılmaması anlamına 
 ## Kaynakça
 
 1. http://martinfowler.com/bliki/Yagni.html
-+ http://webpro.github.io/programming-principles/#yagni
++ https://github.com/webpro/programming-principles#yagni
 + http://www.extremeprogramming.org/rules/early.html
 + http://c2.com/xp/YouArentGonnaNeedIt.html
 

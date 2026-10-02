@@ -198,7 +198,7 @@ Note that your request goes to <b>service-front</b> in k8s, which sends a reques
 
 Basically, <b>telepresence</b> deploys a proxy/fake agent into cluster and opens a two-way tunnel between your local environment and the cluster via that agent. Then you are able to run the <b>middle</b> service in your local machine without adapting the consumers/dependent services.
 
-A detailed explanation about how telepresence works is available here: https://www.telepresence.io/discussion/how-it-works
+A detailed explanation about how telepresence works is available here: https://web.archive.org/web/20210516000724/https://www.telepresence.io/discussion/how-it-works
 
 
 <br>
