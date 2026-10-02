@@ -1,11 +1,4 @@
-<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<title>I wish pods were fully restartable - Blog</title>
-<meta name=theme-color>
-<meta name=description content="
+<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>I wish pods were fully restartable - Blog</title><meta name=theme-color><meta name=description content="
 +Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
 
 
@@ -27,257 +20,36 @@ I don&rsquo;t remember how many times I had this conversation, but I have never 
 
 
 This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-">
-<meta name=author content="Erkan Erol">
-<link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css>
-<script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script>
-<link rel=preload as=image href=https://erkanerol.github.io/theme.png>
-<link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76>
-<link rel=preload as=image href=https://erkanerol.github.io/twitter.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/github.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/instagram.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/rss.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg>
-<link rel=icon href=https://erkanerol.github.io/favicon.ico>
-<link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.0">
-<meta property="og:title" content="I wish pods were fully restartable">
-<meta property="og:description" content="
-+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
-
-
+"><meta name=author content="Erkan Erol"><link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css><script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=preload as=image href=https://erkanerol.github.io/theme.png><link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76><link rel=preload as=image href=https://erkanerol.github.io/twitter.svg><link rel=preload as=image href=https://erkanerol.github.io/github.svg><link rel=preload as=image href=https://erkanerol.github.io/instagram.svg><link rel=preload as=image href=https://erkanerol.github.io/rss.svg><link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg><link rel=icon href=https://erkanerol.github.io/favicon.ico><link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.167.0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KGPMEHXB"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W6KGPMEHXB")}</script><meta property="og:url" content="https://erkanerol.github.io/post/restartable-pods/"><meta property="og:site_name" content="Blog"><meta property="og:title" content="I wish pods were fully restartable"><meta property="og:description" content="+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
 -Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.
-
-
 +How?
-
-
 -Just delete the pod.
-
-
 +Really? May I delete any pod in my cluster?
-
-
 -In theory, you can delete any pod of our application. Nevertheless, be careful :D
-
-I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, I noticed that pods are not fully restartable, they are re-creatable or partially restartable.
-
-
-This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://erkanerol.github.io/post/restartable-pods/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2020-07-19T21:00:00+03:00">
-<meta property="article:modified_time" content="2020-07-19T21:00:00+03:00">
-<meta itemprop=name content="I wish pods were fully restartable">
-<meta itemprop=description content="
-+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
-
-
+I don’t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, I noticed that pods are not fully restartable, they are re-creatable or partially restartable.
+This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_"><meta property="og:locale" content="en_en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-07-19T21:00:00+03:00"><meta property="article:modified_time" content="2020-07-19T21:00:00+03:00"><meta property="article:tag" content="English"><meta property="article:tag" content="Software"><meta property="article:tag" content="Kubernetes"><meta itemprop=name content="I wish pods were fully restartable"><meta itemprop=description content="+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
 -Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.
-
-
 +How?
-
-
 -Just delete the pod.
-
-
 +Really? May I delete any pod in my cluster?
-
-
 -In theory, you can delete any pod of our application. Nevertheless, be careful :D
-
-I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, I noticed that pods are not fully restartable, they are re-creatable or partially restartable.
-
-
-This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-"><meta itemprop=datePublished content="2020-07-19T21:00:00+03:00">
-<meta itemprop=dateModified content="2020-07-19T21:00:00+03:00">
-<meta itemprop=wordCount content="1331">
-<meta itemprop=keywords content="English,Software,Kubernetes,">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="I wish pods were fully restartable">
-<meta name=twitter:description content="
-+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
-
-
+I don’t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, I noticed that pods are not fully restartable, they are re-creatable or partially restartable.
+This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_"><meta itemprop=datePublished content="2020-07-19T21:00:00+03:00"><meta itemprop=dateModified content="2020-07-19T21:00:00+03:00"><meta itemprop=wordCount content="1331"><meta itemprop=keywords content="English,Software,Kubernetes"><meta name=twitter:card content="summary"><meta name=twitter:title content="I wish pods were fully restartable"><meta name=twitter:description content="+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?
 -Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.
-
-
 +How?
-
-
 -Just delete the pod.
-
-
 +Really? May I delete any pod in my cluster?
-
-
 -In theory, you can delete any pod of our application. Nevertheless, be careful :D
-
-I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, I noticed that pods are not fully restartable, they are re-creatable or partially restartable.
-
-
-This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-">
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
-</head>
-<body class="text-black duration-200 ease-out dark:text-white">
-<header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
-<div class="relative z-50 mr-auto flex items-center">
-<a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
-<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a>
-</div>
-<a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a>
-<script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove('not-ready'),10);const setDark=a=>{metaTheme.setAttribute('content',a?'#000':'#fbfbfb'),htmlClass[a?'add':'remove']('dark'),localStorage.setItem('dark',a)},darkScheme=window.matchMedia('(prefers-color-scheme: dark)'),darkVal=localStorage.getItem('dark');setDark(darkVal?darkVal==='true':darkScheme.matches),darkScheme.addEventListener('change',a=>{setDark(a.matches)});const btnDark=document.querySelector('.btn-dark');btnDark.addEventListener('click',()=>{setDark(localStorage.getItem('dark')!=='true')});const btnMenu=document.querySelector('.btn-menu');btnMenu.addEventListener('click',()=>{htmlClass.toggle('open')})</script>
-<div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none">
-<nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
+I don’t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, I noticed that pods are not fully restartable, they are re-creatable or partially restartable.
+This blog post consists of my understanding and my comments. Please ping me if there is something wrong. https://twitter.com/erkan_erol_"></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
+<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a></div><a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a><script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove("not-ready"),10);const setDark=e=>{metaTheme.setAttribute("content",e?"#000":"#fbfbfb"),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)"),darkVal=localStorage.getItem("dark");setDark(darkVal?darkVal==="true":darkScheme.matches),darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")});const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6"><a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
 <a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/english/>English</a>
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a>
-</nav>
-<nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6">
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a>
-</nav>
-</div>
-</header>
-<main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert">
-<article>
-<header class=mb-20>
-<h1 class="!my-0 pb-2.5">I wish pods were fully restartable</h1>
-<div class="text-sm opacity-60">
-<time>Jul 19, 2020</time>
+<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"><article><header class=mb-20><h1 class="!my-0 pb-2.5">I wish pods were fully restartable</h1><div class="text-sm opacity-60"><time>Jul 19, 2020</time>
 <span class=mx-1>&#183;</span>
-<span>Erkan Erol</span>
-</div>
-</header>
-<section><blockquote>
-<p>+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?</p>
-</blockquote>
-<blockquote>
-<p>-Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.</p>
-</blockquote>
-<blockquote>
-<p>+How?</p>
-</blockquote>
-<blockquote>
-<p>-Just delete the pod.</p>
-</blockquote>
-<blockquote>
-<p>+Really? May I delete any pod in my cluster?</p>
-</blockquote>
-<blockquote>
-<p>-In theory, you can delete any pod of our application. Nevertheless, be careful :D</p>
-</blockquote>
-<p>I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, <strong>I noticed that pods are not fully restartable, they are re-creatable or partially restartable.</strong></p>
-<br>
-<blockquote>
-<p>This blog post consists of my understanding and my comments. Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
-</blockquote>
-<h2 id=thinking-out-loud>Thinking out loud</h2>
-<p>What is &ldquo;restart&rdquo;? RE - START. It has &ldquo;re&rdquo; prefix. It means doing something again. So restart means starting again. Not &ldquo;running again&rdquo;. What is the difference?</p>
-<p>We are using &ldquo;rerun&rdquo; for the things which finish in a short period such as cli commands. For example &ldquo;Rerun <code>kubectl delete secrets --all</code> command to ensure that all secrets are deleted.&rdquo; We mostly rerun a thing when some external things have changed and when we want to benefit from its execution for the changed state again.</p>
-<p>We are using &ldquo;restart&rdquo; for the things which run until someone stops them such as daemon processes, computers, phones etc. For example, &ldquo;Is the phone screen frozen? Just restart it.&rdquo;</p>
-<p>When do we restart a thing? Why do we like restarting so much? Or do we like it? We don&rsquo;t like it so much, but we often need it. Right? Why? Why restarting things is the best solution of all times? What is the magic touch?</p>
-<p><u>Let&rsquo;s come to the point. Restarting works since it deletes temporary states inside processes. It works since we are not perfect in managing states and our codes may stick at some states because of unhandled states or some bugs.</u></p>
-<br>
-<h2 id=cloud-native-world>Cloud Native World</h2>
-<p>After decades, there is a consensus in the software industry: Need for restart is inevitable so let&rsquo;s make it less painful.</p>
-<p>From the application point of view, these two attributes are pretty crucial</p>
-<ul>
-<li>Being stateless or having states as minimum as possible (see <a href=https://12factor.net/disposability>Processes</a> )</li>
-<li>Maximize robustness with fast startup and graceful shutdown (see <a href=https://12factor.net/disposability>Disposability</a> )</li>
-</ul>
-<p>From orchestrator point of view, 2 features are must:</p>
-<ul>
-<li>Allow workloads to state their health statuses</li>
-<li>Restart failed/unhealthy workloads.</li>
-</ul>
-<p>All problems seem solved. Right? Run multiple instances, restart unhealthy ones, achieve high availability. PERFECT!</p>
-<p>Additionally, there are always some levels in software architectures and it is better to restart things in higher levels (implies smaller scope) -if possible- to reduce the overhead. Like restarting frozen Chrome instead of restarting PC.</p>
-<br>
-<h2 id=a-short-summary-of-pods-in-kubernetes>A short summary of pods in Kubernetes</h2>
-<p>The main subject of this write-up is pods in Kubernetes. Let&rsquo;s take a closer look at pods. Here are three quotes from <a href=https://kubernetes.io/docs/concepts/workloads/pods/pod/>the official doc</a>:</p>
-<ul>
-<li>
-<p>&ldquo;Pods are the smallest deployable units of computing that can be created and managed in Kubernetes.&rdquo;</p>
-</li>
-<li>
-<p>&ldquo;A Pod is a group of one or more containers (such as Docker containers), with shared storage/network, and a specification for how to run the containers.&rdquo;</p>
-</li>
-<li>
-<p>&ldquo;The shared context of a Pod is a set of Linux namespaces, cgroups, and potentially other facets of isolation&mldr;&rdquo;</p>
-</li>
-</ul>
-<br>
-<p>Shortly, Pod = Shared Context + Containers.
-<img src=/img/pods_simplified.png alt=pods_simplified.png></p>
-<p>Since pods are the smallest and fundamental workloads in Kubernetes, <u>to be able to restart pods is extremely crucial/necessary to reach the level at which we want to be by accepting to spend tremendous effort unrelated to our core application.</u> ( <a href="https://lmgtfy.com/?q=is+kubernetes+too+complicated">See Kubernetes criticisms</a> )</p>
-<br>
-<h2 id=restart-mechanisms-for-pods>Restart Mechanisms for Pods</h2>
-<p>Quote <a href=https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy>the official doc</a>,</p>
-<blockquote>
-<p>A PodSpec has a <b>restartPolicy</b> field with possible values Always, OnFailure, and Never. The default value is Always. <b>restartPolicy</b> applies to all Containers in the Pod.</p>
-</blockquote>
-<p>It seems Kubernetes is able to restart failed containers on behalf of us when they fail. Fine! What about unhealthy ones? We have <a href=https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command>livenessProbe</a></p>
-<blockquote>
-<p>livenessProbe: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its restart policy.</p>
-</blockquote>
-<p><u>Shortly, the containers in pods are restartable</u>. The temporary states inside containers are not a problem in Kubernetes world. Also, it doesn&rsquo;t refresh the shared context so the overhead is so minimal. Everything seems perfect at container level until now.</p>
-<p><u>What about the shared context under the containers? Do we have a mechanism to refresh it in pod level. Unfortunately, NO.</u></p>
-<p>What? What happens when the shared context enters an invalid state somehow? Who is going to take care of it?</p>
-<br>
-<h2 id=controllers>Controllers</h2>
-<p>Quote <a href=https://kubernetes.io/docs/concepts/architecture/controller/>the official doc</a></p>
-<ul>
-<li>&ldquo;In Kubernetes, controllers are control loops that watch the state of your cluster, then make or request changes where needed.&rdquo;</li>
-</ul>
-<p><img src=/img/pods_simplified_with_controller.png alt=pods_simplified_with_controller></p>
-<p><em><strong>My comments&expectations:</strong></em> Wow!!! It seems Kubernetes is designed in such a way that every agent has one job and does it well. There may be some problematic/missing pods in the cluster but we aim to solve this problem by using some controllers. Refreshing the whole pod may not be in the scope of pod controller, but it must be handled by other controllers in higher levels (See <a href=https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering>Fundamental theorem of software engineering</a>).</p>
-<p><em><strong>Reality:</strong></em> There are <a href=https://kubernetes.io/docs/concepts/workloads/controllers/>a bunch of built-in controllers</a> in Kubernetes. StatefulSets for stateful applications, DaemonSets for running an application in every node, ReplicaSets for running multiple instances with same pod spec, Deployments for declarative updates etc. <u> However, none of them has functionality to fix a pod in <b>CrashLoopBackOff</b> state. For them, the state of a pod is &ldquo;given.&rdquo;. The only thing they do is to adapt their behavior according to this fact such as stopping rolling upgrades. BUT THEY DON&rsquo;T TOUCH THE UNHEALTHY PODS. </u></p>
-<p>Don&rsquo;t you believe me? Here is an example: <a href=https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047>https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047</a> After one minute, you are going to observe 3 pods in <b>CrashLoopBackOff</b> state which will stick at this state forever if you don&rsquo;t delete them manually.</p>
-<br>
-<h2 id=comments-and-wishes>Comments and Wishes</h2>
-<p>The error in the example above may seem silly to you but there are a lot of real cases in which people hit similar issues because of different errors in different components: A problem in storage plugin, an anomaly in CNI plugin, an invalid state in shared volumes, etc.</p>
-<p>At the end of the day, there is a state in the shared context of the pod and it is inevitable to do some mistakes that disrupt it. Why don&rsquo;t we have a mechanism to clean it in pod level? Why do we assume that the state won&rsquo;t be broken? Why do we compromise self-healing and expect manual intervention at such a core level?</p>
-<p>Here are my ideas:</p>
-<ul>
-<li>
-<p>Pods can have a restart policy for the whole pod including the shared context. There can be maxRestartCount field like <b>backoffLimit</b> in Jobs to stop restarting repeatedly. I think it is better to restart only failed containers at first and then restart the whole pod if necessary.</p>
-</li>
-<li>
-<p>Now, we mostly run pods via some high-level workloads (e.g. deployments) and what we do is to delete the pod and to allow the high-level controller to recreate them. However, &ldquo;naked pods&rdquo; are also in the game. Recreation can be a solution in higher levels, but it should not be the solution in pod level. Pods can be fully restartable and it can be possible to trigger a restart via the API and a kubectl command.</p>
-</li>
-<li>
-<p>Built-in controllers can watch the state and intervene in the errors with some primitive, retry logic. For example, the deployment controller can delete a pod in <b>CrashLoopBackOff</b> state and recreate it from scratch. Sometimes, to schedule a problematic pod into another node solves a temporary problem in storage plugin and this feature can solve many cases like this.</p>
-</li>
-</ul>
-<br>
-<h2 id=final-words>Final Words</h2>
-<p>Kubernetes community is one of the best tech communities. I know the core team is very open for feedbacks and the community likes talking about possible improvements a lot. I just shared my personal opinions. I hope it will be beneficial to readers and increase awareness about this problem.</p></section>
-<footer class="mt-12 flex flex-wrap">
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/english>English</a>
+<span>Erkan Erol</span></div></header><section><blockquote><p>+Hi Erkan. Pod-X in my cluster is in CrashLoopBackOff. How can I solve this issue?</p></blockquote><blockquote><p>-Ohh:/ Most probably it is because of the known EKS issue. Just restart the pod.</p></blockquote><blockquote><p>+How?</p></blockquote><blockquote><p>-Just delete the pod.</p></blockquote><blockquote><p>+Really? May I delete any pod in my cluster?</p></blockquote><blockquote><p>-In theory, you can delete any pod of our application. Nevertheless, be careful :D</p></blockquote><p>I don&rsquo;t remember how many times I had this conversation, but I have never thought about whether pods are really restartable or not until recently. When I thought about it deeply, <strong>I noticed that pods are not fully restartable, they are re-creatable or partially restartable.</strong></p><br><blockquote><p>This blog post consists of my understanding and my comments. Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p></blockquote><h2 id=thinking-out-loud>Thinking out loud</h2><p>What is &ldquo;restart&rdquo;? RE - START. It has &ldquo;re&rdquo; prefix. It means doing something again. So restart means starting again. Not &ldquo;running again&rdquo;. What is the difference?</p><p>We are using &ldquo;rerun&rdquo; for the things which finish in a short period such as cli commands. For example &ldquo;Rerun <code>kubectl delete secrets --all</code> command to ensure that all secrets are deleted.&rdquo; We mostly rerun a thing when some external things have changed and when we want to benefit from its execution for the changed state again.</p><p>We are using &ldquo;restart&rdquo; for the things which run until someone stops them such as daemon processes, computers, phones etc. For example, &ldquo;Is the phone screen frozen? Just restart it.&rdquo;</p><p>When do we restart a thing? Why do we like restarting so much? Or do we like it? We don&rsquo;t like it so much, but we often need it. Right? Why? Why restarting things is the best solution of all times? What is the magic touch?</p><p><u>Let&rsquo;s come to the point. Restarting works since it deletes temporary states inside processes. It works since we are not perfect in managing states and our codes may stick at some states because of unhandled states or some bugs.</u></p><br><h2 id=cloud-native-world>Cloud Native World</h2><p>After decades, there is a consensus in the software industry: Need for restart is inevitable so let&rsquo;s make it less painful.</p><p>From the application point of view, these two attributes are pretty crucial</p><ul><li>Being stateless or having states as minimum as possible (see <a href=https://12factor.net/disposability>Processes</a> )</li><li>Maximize robustness with fast startup and graceful shutdown (see <a href=https://12factor.net/disposability>Disposability</a> )</li></ul><p>From orchestrator point of view, 2 features are must:</p><ul><li>Allow workloads to state their health statuses</li><li>Restart failed/unhealthy workloads.</li></ul><p>All problems seem solved. Right? Run multiple instances, restart unhealthy ones, achieve high availability. PERFECT!</p><p>Additionally, there are always some levels in software architectures and it is better to restart things in higher levels (implies smaller scope) -if possible- to reduce the overhead. Like restarting frozen Chrome instead of restarting PC.</p><br><h2 id=a-short-summary-of-pods-in-kubernetes>A short summary of pods in Kubernetes</h2><p>The main subject of this write-up is pods in Kubernetes. Let&rsquo;s take a closer look at pods. Here are three quotes from <a href=https://kubernetes.io/docs/concepts/workloads/pods/pod/>the official doc</a>:</p><ul><li><p>&ldquo;Pods are the smallest deployable units of computing that can be created and managed in Kubernetes.&rdquo;</p></li><li><p>&ldquo;A Pod is a group of one or more containers (such as Docker containers), with shared storage/network, and a specification for how to run the containers.&rdquo;</p></li><li><p>&ldquo;The shared context of a Pod is a set of Linux namespaces, cgroups, and potentially other facets of isolation&mldr;&rdquo;</p></li></ul><br><p>Shortly, Pod = Shared Context + Containers.
+<img src=/img/pods_simplified.png alt=pods_simplified.png></p><p>Since pods are the smallest and fundamental workloads in Kubernetes, <u>to be able to restart pods is extremely crucial/necessary to reach the level at which we want to be by accepting to spend tremendous effort unrelated to our core application.</u> ( <a href="https://lmgtfy.com/?q=is+kubernetes+too+complicated">See Kubernetes criticisms</a> )</p><br><h2 id=restart-mechanisms-for-pods>Restart Mechanisms for Pods</h2><p>Quote <a href=https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy>the official doc</a>,</p><blockquote><p>A PodSpec has a <b>restartPolicy</b> field with possible values Always, OnFailure, and Never. The default value is Always. <b>restartPolicy</b> applies to all Containers in the Pod.</p></blockquote><p>It seems Kubernetes is able to restart failed containers on behalf of us when they fail. Fine! What about unhealthy ones? We have <a href=https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command>livenessProbe</a></p><blockquote><p>livenessProbe: Indicates whether the Container is running. If the liveness probe fails, the kubelet kills the Container, and the Container is subjected to its restart policy.</p></blockquote><p><u>Shortly, the containers in pods are restartable</u>. The temporary states inside containers are not a problem in Kubernetes world. Also, it doesn&rsquo;t refresh the shared context so the overhead is so minimal. Everything seems perfect at container level until now.</p><p><u>What about the shared context under the containers? Do we have a mechanism to refresh it in pod level. Unfortunately, NO.</u></p><p>What? What happens when the shared context enters an invalid state somehow? Who is going to take care of it?</p><br><h2 id=controllers>Controllers</h2><p>Quote <a href=https://kubernetes.io/docs/concepts/architecture/controller/>the official doc</a></p><ul><li>&ldquo;In Kubernetes, controllers are control loops that watch the state of your cluster, then make or request changes where needed.&rdquo;</li></ul><p><img src=/img/pods_simplified_with_controller.png alt=pods_simplified_with_controller></p><p><em><strong>My comments&amp;expectations:</strong></em> Wow!!! It seems Kubernetes is designed in such a way that every agent has one job and does it well. There may be some problematic/missing pods in the cluster but we aim to solve this problem by using some controllers. Refreshing the whole pod may not be in the scope of pod controller, but it must be handled by other controllers in higher levels (See <a href=https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering>Fundamental theorem of software engineering</a>).</p><p><em><strong>Reality:</strong></em> There are <a href=https://kubernetes.io/docs/concepts/workloads/controllers/>a bunch of built-in controllers</a> in Kubernetes. StatefulSets for stateful applications, DaemonSets for running an application in every node, ReplicaSets for running multiple instances with same pod spec, Deployments for declarative updates etc. <u>However, none of them has functionality to fix a pod in <b>CrashLoopBackOff</b> state. For them, the state of a pod is &ldquo;given.&rdquo;. The only thing they do is to adapt their behavior according to this fact such as stopping rolling upgrades. BUT THEY DON&rsquo;T TOUCH THE UNHEALTHY PODS.</u></p><p>Don&rsquo;t you believe me? Here is an example: <a href=https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047>https://gist.github.com/erkanerol/528eab81c0db1cdcc3b9a13560d58047</a> After one minute, you are going to observe 3 pods in <b>CrashLoopBackOff</b> state which will stick at this state forever if you don&rsquo;t delete them manually.</p><br><h2 id=comments-and-wishes>Comments and Wishes</h2><p>The error in the example above may seem silly to you but there are a lot of real cases in which people hit similar issues because of different errors in different components: A problem in storage plugin, an anomaly in CNI plugin, an invalid state in shared volumes, etc.</p><p>At the end of the day, there is a state in the shared context of the pod and it is inevitable to do some mistakes that disrupt it. Why don&rsquo;t we have a mechanism to clean it in pod level? Why do we assume that the state won&rsquo;t be broken? Why do we compromise self-healing and expect manual intervention at such a core level?</p><p>Here are my ideas:</p><ul><li><p>Pods can have a restart policy for the whole pod including the shared context. There can be maxRestartCount field like <b>backoffLimit</b> in Jobs to stop restarting repeatedly. I think it is better to restart only failed containers at first and then restart the whole pod if necessary.</p></li><li><p>Now, we mostly run pods via some high-level workloads (e.g. deployments) and what we do is to delete the pod and to allow the high-level controller to recreate them. However, &ldquo;naked pods&rdquo; are also in the game. Recreation can be a solution in higher levels, but it should not be the solution in pod level. Pods can be fully restartable and it can be possible to trigger a restart via the API and a kubectl command.</p></li><li><p>Built-in controllers can watch the state and intervene in the errors with some primitive, retry logic. For example, the deployment controller can delete a pod in <b>CrashLoopBackOff</b> state and recreate it from scratch. Sometimes, to schedule a problematic pod into another node solves a temporary problem in storage plugin and this feature can solve many cases like this.</p></li></ul><br><h2 id=final-words>Final Words</h2><p>Kubernetes community is one of the best tech communities. I know the core team is very open for feedbacks and the community likes talking about possible improvements a lot. I just shared my personal opinions. I hope it will be beneficial to readers and increase awareness about this problem.</p></section><footer class="mt-12 flex flex-wrap"><a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/english>English</a>
 <a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/software>Software</a>
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/kubernetes>Kubernetes</a>
-</footer>
-<nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-<a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/basics-of-container-runtimes/><span class=mr-1.5>←</span><span>Learning Path: Basics of Container Runtimes</span></a>
-<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/><span>Who sets the IP of a pod?</span><span class=ml-1.5>→</span></a>
-</nav>
-</article>
-</main>
-<footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60">
-<div class=mr-auto>
-&copy; 2022
-<a class=link href=https://erkanerol.github.io/>Blog</a>
-</div>
-<a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a>
-</footer>
-</body>
-</html>
+<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/kubernetes>Kubernetes</a></footer><nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]"><a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/basics-of-container-runtimes/><span class=mr-1.5>←</span><span>Learning Path: Basics of Container Runtimes</span></a>
+<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/who-sets-ip-of-a-pod/><span>Who sets the IP of a pod?</span><span class=ml-1.5>→</span></a></nav></article></main><footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"><div class=mr-auto>&copy; 2026
+<a class=link href=https://erkanerol.github.io/>Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a></footer></body></html>

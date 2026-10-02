@@ -1,257 +1,51 @@
-<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<title>Debugging k8s services: 3 tools for 3 scenarios - Blog</title>
-<meta name=theme-color>
-<meta name=description content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
+<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Debugging k8s services: 3 tools for 3 scenarios - Blog</title><meta name=theme-color><meta name=description content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
 
 Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-">
-<meta name=author content="Erkan Erol">
-<link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css>
-<script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script>
-<link rel=preload as=image href=https://erkanerol.github.io/theme.png>
-<link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76>
-<link rel=preload as=image href=https://erkanerol.github.io/twitter.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/github.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/instagram.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/rss.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg>
-<link rel=icon href=https://erkanerol.github.io/favicon.ico>
-<link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.0">
-<meta property="og:title" content="Debugging k8s services: 3 tools for 3 scenarios">
-<meta property="og:description" content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
-
-Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://erkanerol.github.io/post/debugging-k8s-services/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-02-28T16:00:00+03:00">
-<meta property="article:modified_time" content="2021-02-28T16:00:00+03:00">
-<meta itemprop=name content="Debugging k8s services: 3 tools for 3 scenarios">
-<meta itemprop=description content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
-
-Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-"><meta itemprop=datePublished content="2021-02-28T16:00:00+03:00">
-<meta itemprop=dateModified content="2021-02-28T16:00:00+03:00">
-<meta itemprop=wordCount content="990">
-<meta itemprop=keywords content="English,Software,Kubernetes,">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Debugging k8s services: 3 tools for 3 scenarios">
-<meta name=twitter:description content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
-
-Please ping me if there is something wrong. https://twitter.com/erkan_erol_
-">
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
-</head>
-<body class="text-black duration-200 ease-out dark:text-white">
-<header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
-<div class="relative z-50 mr-auto flex items-center">
-<a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
-<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a>
-</div>
-<a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a>
-<script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove('not-ready'),10);const setDark=a=>{metaTheme.setAttribute('content',a?'#000':'#fbfbfb'),htmlClass[a?'add':'remove']('dark'),localStorage.setItem('dark',a)},darkScheme=window.matchMedia('(prefers-color-scheme: dark)'),darkVal=localStorage.getItem('dark');setDark(darkVal?darkVal==='true':darkScheme.matches),darkScheme.addEventListener('change',a=>{setDark(a.matches)});const btnDark=document.querySelector('.btn-dark');btnDark.addEventListener('click',()=>{setDark(localStorage.getItem('dark')!=='true')});const btnMenu=document.querySelector('.btn-menu');btnMenu.addEventListener('click',()=>{htmlClass.toggle('open')})</script>
-<div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none">
-<nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
+"><meta name=author content="Erkan Erol"><link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css><script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=preload as=image href=https://erkanerol.github.io/theme.png><link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76><link rel=preload as=image href=https://erkanerol.github.io/twitter.svg><link rel=preload as=image href=https://erkanerol.github.io/github.svg><link rel=preload as=image href=https://erkanerol.github.io/instagram.svg><link rel=preload as=image href=https://erkanerol.github.io/rss.svg><link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg><link rel=icon href=https://erkanerol.github.io/favicon.ico><link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.167.0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KGPMEHXB"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W6KGPMEHXB")}</script><meta property="og:url" content="https://erkanerol.github.io/post/debugging-k8s-services/"><meta property="og:site_name" content="Blog"><meta property="og:title" content="Debugging k8s services: 3 tools for 3 scenarios"><meta property="og:description" content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
+Please ping me if there is something wrong. https://twitter.com/erkan_erol_"><meta property="og:locale" content="en_en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-02-28T16:00:00+03:00"><meta property="article:modified_time" content="2021-02-28T16:00:00+03:00"><meta property="article:tag" content="English"><meta property="article:tag" content="Software"><meta property="article:tag" content="Kubernetes"><meta itemprop=name content="Debugging k8s services: 3 tools for 3 scenarios"><meta itemprop=description content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
+Please ping me if there is something wrong. https://twitter.com/erkan_erol_"><meta itemprop=datePublished content="2021-02-28T16:00:00+03:00"><meta itemprop=dateModified content="2021-02-28T16:00:00+03:00"><meta itemprop=wordCount content="990"><meta itemprop=keywords content="English,Software,Kubernetes"><meta name=twitter:card content="summary"><meta name=twitter:title content="Debugging k8s services: 3 tools for 3 scenarios"><meta name=twitter:description content="While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.
+Please ping me if there is something wrong. https://twitter.com/erkan_erol_"></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
+<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a></div><a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a><script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove("not-ready"),10);const setDark=e=>{metaTheme.setAttribute("content",e?"#000":"#fbfbfb"),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)"),darkVal=localStorage.getItem("dark");setDark(darkVal?darkVal==="true":darkScheme.matches),darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")});const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6"><a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
 <a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/english/>English</a>
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a>
-</nav>
-<nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6">
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a>
-</nav>
-</div>
-</header>
-<main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert">
-<article>
-<header class=mb-20>
-<h1 class="!my-0 pb-2.5">Debugging k8s services: 3 tools for 3 scenarios</h1>
-<div class="text-sm opacity-60">
-<time>Feb 28, 2021</time>
+<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"><article><header class=mb-20><h1 class="!my-0 pb-2.5">Debugging k8s services: 3 tools for 3 scenarios</h1><div class="text-sm opacity-60"><time>Feb 28, 2021</time>
 <span class=mx-1>&#183;</span>
-<span>Erkan Erol</span>
-</div>
-</header>
-<section><p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.</p>
-<blockquote>
-<p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p>
-</blockquote>
-<br>
-<h2 id=setup>Setup</h2>
-<p>Here is our basic setup to explain the scenarios.</p>
-<p><img src=/img/k8s-services/Setup.png alt=Setup></p>
-<p>We have 3 services. <b>service-front</b> is exposed to the public via an ingress. <b>service-front</b> depends on <b>service-middle</b> and <b>service-middle</b> depends on <b>service-back</b>. The communications are done through k8s services.</p>
-<p>To install this setup, here are the necessary commands:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create ns service-debug
-kubectl -n service-debug run service-back --image<span style=color:#f92672>=</span>erkanerol/service-back:v1 --port<span style=color:#f92672>=</span><span style=color:#ae81ff>8080</span> --expose<span style=color:#f92672>=</span>true --labels<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app=back&#34;</span>
-kubectl -n service-debug run service-middle --image<span style=color:#f92672>=</span>erkanerol/service-middle:v1 --port<span style=color:#f92672>=</span><span style=color:#ae81ff>8081</span> --expose<span style=color:#f92672>=</span>true --labels<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app=middle&#34;</span>
-kubectl -n service-debug run service-front --image<span style=color:#f92672>=</span>erkanerol/service-front:v1 --port<span style=color:#f92672>=</span><span style=color:#ae81ff>8082</span> --expose<span style=color:#f92672>=</span>true --labels<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app=front&#34;</span>
-</code></pre></div><p>Here is the source code of these services: <a href=https://github.com/erkanerol/service-examples-for-blog>https://github.com/erkanerol/service-examples-for-blog</a></p>
-<br>
-<h2 id=tool-1-bkubectl-port-forwardb>Tool 1: <b>kubectl port-forward</b></h2>
-<h4 id=scenario>Scenario:</h4>
-<p>As a developer, I want to send some requests to <b>service-back</b> directly and see the result without touching the other services.</p>
-<h4 id=problem>Problem:</h4>
-<p><b>service-back</b> is not exposed to the public and you cannot send requests to it directly.</p>
-<h4 id=solution>Solution:</h4>
-<p>With <b>kubectl port-forward</b>, it is possible to open a tunnel from your local machine to the <b>service-back</b> in the cluster. See <a href=https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward>https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward</a></p>
-<h4 id=steps>Steps:</h4>
-<ul>
-<li>
-<p>Run the command below in a terminal.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl -n service-debug port-forward service/service-back 8080:8080
-Forwarding from 127.0.0.1:8080 -&gt; <span style=color:#ae81ff>8080</span>
-Forwarding from <span style=color:#f92672>[</span>::1<span style=color:#f92672>]</span>:8080 -&gt; <span style=color:#ae81ff>8080</span>
-</code></pre></div></li>
-<li>
-<p>Then run the curl command below in another terminal to see that you are able to access <b>service-back</b></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl localhost:8080
-Timestamp from back:1614508193
-</code></pre></div></li>
-</ul>
-<br>
-<h4 id=how-does-it-work>How does it work?</h4>
-<p><img src=/img/k8s-services/Level1.png alt=Level1></p>
-<p><b>kubectl</b> starts a process which binds <b>localhost:8080</b>. It listens that port and establishes a connection to api-server, which forwards the requests to <b>service-back</b>.</p>
-<p><br><br></p>
-<h2 id=tool-2-bkubefwdb>Tool 2: <b>kubefwd</b></h2>
-<h4 id=scenario-1>Scenario:</h4>
-<p>As a developer, I want to run <b>service-front</b> in my local machine so that I can put breakpoints in my IDE to debug my application.</p>
-<h4 id=problem-1>Problem:</h4>
-<p><b>service-front</b> is designed to run in Kubernetes and it accesses <b>service-middle</b> via the k8s service. The service name is hardcoded or hard to be configurable or you are too lazy to mock the dependencies in your local machine.</p>
-<h4 id=solution-1>Solution:</h4>
-<p><b>kubefwd</b> is a useful tool for this problem. It does bulk port-forwarding and manages dns entries in your local machine. See <a href=https://github.com/txn2/kubefwd>https://github.com/txn2/kubefwd</a></p>
-<h4 id=steps-1>Steps:</h4>
-<ul>
-<li>
-<p>Run the command below in a terminal</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sudo KUBECONFIG<span style=color:#f92672>=</span>$KUBECONFIG kubefwd svc -n service-debug -l app<span style=color:#f92672>=</span>middle
-</code></pre></div><blockquote>
-<p>Note that <b>kubefwd</b> requires root privileges and it has to be run with <b>sudo</b>. Set <b>KUBECONFIG</b> variable without any home folder reference beforehand.</p>
-</blockquote>
-</li>
-</ul>
-<br>
-<ul>
-<li>
-<p>In another terminal, run <b>front</b> application in your local machine. Note that you can run it in debug mode as well and put breakpoints.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cd /tmp
-$ git clone https://github.com/erkanerol/service-examples-for-blog.git
-$ cd service-examples-for-blog/front
-$ go run main.go
-</code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li>In another terminal, Send a request to <b>front</b> app to see that your front app serves locally and it accesses <b>service-middle</b> in the cluster.
-<pre tabindex=0><code>$ curl localhost:8082
-Response from service middle:'Response from service back:'Timestamp from back:1614513901''
-</code></pre></li>
-</ul>
-<br>
-<h4 id=how-does-it-work-1>How does it work?</h4>
-<p><img src=/img/k8s-services/Level2.png alt=Level2></p>
-<ul>
-<li>As you can see from the logs of <b>kubefwd</b>
-<pre tabindex=0><code>...
-INFO[14:07:38] 'cat /etc/hosts' to see all host entries.    
+<span>Erkan Erol</span></div></header><section><p>While developing/debugging applications that serve services on k8s in production, you need some tools/commands. This blog post explains three different scenarios+tools for you.</p><blockquote><p>Please ping me if there is something wrong. <a href=https://twitter.com/erkan_erol>https://twitter.com/erkan_erol</a>_</p></blockquote><br><h2 id=setup>Setup</h2><p>Here is our basic setup to explain the scenarios.</p><p><img src=/img/k8s-services/Setup.png alt=Setup></p><p>We have 3 services. <b>service-front</b> is exposed to the public via an ingress. <b>service-front</b> depends on <b>service-middle</b> and <b>service-middle</b> depends on <b>service-back</b>. The communications are done through k8s services.</p><p>To install this setup, here are the necessary commands:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>kubectl create ns service-debug
+</span></span><span style=display:flex><span>kubectl -n service-debug run service-back --image<span style=color:#f92672>=</span>erkanerol/service-back:v1 --port<span style=color:#f92672>=</span><span style=color:#ae81ff>8080</span> --expose<span style=color:#f92672>=</span>true --labels<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app=back&#34;</span>
+</span></span><span style=display:flex><span>kubectl -n service-debug run service-middle --image<span style=color:#f92672>=</span>erkanerol/service-middle:v1 --port<span style=color:#f92672>=</span><span style=color:#ae81ff>8081</span> --expose<span style=color:#f92672>=</span>true --labels<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app=middle&#34;</span>
+</span></span><span style=display:flex><span>kubectl -n service-debug run service-front --image<span style=color:#f92672>=</span>erkanerol/service-front:v1 --port<span style=color:#f92672>=</span><span style=color:#ae81ff>8082</span> --expose<span style=color:#f92672>=</span>true --labels<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;app=front&#34;</span>
+</span></span></code></pre></div><p>Here is the source code of these services: <a href=https://github.com/erkanerol/service-examples-for-blog>https://github.com/erkanerol/service-examples-for-blog</a></p><br><h2 id=tool-1-kubectl-port-forward>Tool 1: <b>kubectl port-forward</b></h2><h4 id=scenario>Scenario:</h4><p>As a developer, I want to send some requests to <b>service-back</b> directly and see the result without touching the other services.</p><h4 id=problem>Problem:</h4><p><b>service-back</b> is not exposed to the public and you cannot send requests to it directly.</p><h4 id=solution>Solution:</h4><p>With <b>kubectl port-forward</b>, it is possible to open a tunnel from your local machine to the <b>service-back</b> in the cluster. See <a href=https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward>https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward</a></p><h4 id=steps>Steps:</h4><ul><li><p>Run the command below in a terminal.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl -n service-debug port-forward service/service-back 8080:8080
+</span></span><span style=display:flex><span>Forwarding from 127.0.0.1:8080 -&gt; <span style=color:#ae81ff>8080</span>
+</span></span><span style=display:flex><span>Forwarding from <span style=color:#f92672>[</span>::1<span style=color:#f92672>]</span>:8080 -&gt; <span style=color:#ae81ff>8080</span>
+</span></span></code></pre></div></li><li><p>Then run the curl command below in another terminal to see that you are able to access <b>service-back</b></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>$ curl localhost:8080
+</span></span><span style=display:flex><span>Timestamp from back:1614508193
+</span></span></code></pre></div></li></ul><br><h4 id=how-does-it-work>How does it work?</h4><p><img src=/img/k8s-services/Level1.png alt=Level1></p><p><b>kubectl</b> starts a process which binds <b>localhost:8080</b>. It listens that port and establishes a connection to api-server, which forwards the requests to <b>service-back</b>.</p><p><br><br></p><h2 id=tool-2-kubefwd>Tool 2: <b>kubefwd</b></h2><h4 id=scenario-1>Scenario:</h4><p>As a developer, I want to run <b>service-front</b> in my local machine so that I can put breakpoints in my IDE to debug my application.</p><h4 id=problem-1>Problem:</h4><p><b>service-front</b> is designed to run in Kubernetes and it accesses <b>service-middle</b> via the k8s service. The service name is hardcoded or hard to be configurable or you are too lazy to mock the dependencies in your local machine.</p><h4 id=solution-1>Solution:</h4><p><b>kubefwd</b> is a useful tool for this problem. It does bulk port-forwarding and manages dns entries in your local machine. See <a href=https://github.com/txn2/kubefwd>https://github.com/txn2/kubefwd</a></p><h4 id=steps-1>Steps:</h4><ul><li><p>Run the command below in a terminal</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>$ sudo KUBECONFIG<span style=color:#f92672>=</span>$KUBECONFIG kubefwd svc -n service-debug -l app<span style=color:#f92672>=</span>middle
+</span></span></code></pre></div><blockquote><p>Note that <b>kubefwd</b> requires root privileges and it has to be run with <b>sudo</b>. Set <b>KUBECONFIG</b> variable without any home folder reference beforehand.</p></blockquote></li></ul><br><ul><li><p>In another terminal, run <b>front</b> application in your local machine. Note that you can run it in debug mode as well and put breakpoints.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>$ cd /tmp
+</span></span><span style=display:flex><span>$ git clone https://github.com/erkanerol/service-examples-for-blog.git
+</span></span><span style=display:flex><span>$ cd service-examples-for-blog/front
+</span></span><span style=display:flex><span>$ go run main.go
+</span></span></code></pre></div></li></ul><br><ul><li>In another terminal, Send a request to <b>front</b> app to see that your front app serves locally and it accesses <b>service-middle</b> in the cluster.<pre tabindex=0><code>$ curl localhost:8082
+Response from service middle:&#39;Response from service back:&#39;Timestamp from back:1614513901&#39;&#39;
+</code></pre></li></ul><br><h4 id=how-does-it-work-1>How does it work?</h4><p><img src=/img/k8s-services/Level2.png alt=Level2></p><ul><li>As you can see from the logs of <b>kubefwd</b><pre tabindex=0><code>...
+INFO[14:07:38] &#39;cat /etc/hosts&#39; to see all host entries.    
 INFO[14:07:38] Loaded hosts file /etc/hosts                 
 INFO[14:07:38] HostFile management: Original hosts backup already exists at /root/hosts.original 
 ...
 INFO[14:07:38] Port-Forward: 127.1.27.1 service-middle:8081 to pod service-middle:8081 
 ...
-</code></pre></li>
-</ul>
-<br>
-<ul>
-<li>
-<p>It starts a process that binds <b>127.1.27.1:8081</b> and manipulates the <b>/etc/hosts</b> for <b>service-middle</b></p>
-<pre tabindex=0><code>$ cat /etc/hosts |grep service-middle
+</code></pre></li></ul><br><ul><li><p>It starts a process that binds <b>127.1.27.1:8081</b> and manipulates the <b>/etc/hosts</b> for <b>service-middle</b></p><pre tabindex=0><code>$ cat /etc/hosts |grep service-middle
 127.1.27.1       service-middle.default service-middle.default.svc service-middle.default.svc.cluster.local service-middle.default.minikube service-middle.default.svc.minikube service-middle.default.svc.cluster.minikube service-middle service-middle.service-debug service-middle.service-debug.svc service-middle.service-debug.svc.cluster.local service-middle.service-debug.minikube service-middle.service-debug.svc.minikube service-middle.service-debug.svc.cluster.minikube
-</code></pre></li>
-</ul>
-<p>Then your local <b>front</b> app can access the <b>service-middle</b> like in k8s cluster without any extra effort.</p>
-<br>
-<h2 id=tool-3-btelepresenceb>Tool 3: <b>telepresence</b></h2>
-<h4 id=scenario-2>Scenario:</h4>
-<p>As a developer, I want to run <b>service-middle</b> in my local machine so that I can put breakpoints in my IDE to debug my application.</p>
-<h4 id=problem-2>Problem:</h4>
-<p><b>service-middle</b> is designed to run in Kubernetes. It accesses <b>service-back</b> via k8s services. Also, its consumer <b>service-front</b> is running on k8s. The services are not available in your local machine and it is hard to mock all these environments in your local machine.</p>
-<h4 id=solution-2>Solution:</h4>
-<p><b>telepresence</b> is a useful tool for this problem. See <a href=https://www.telepresence.io/>https://www.telepresence.io/</a></p>
-<h4 id=steps-2>Steps:</h4>
-<ul>
-<li>Delete <b>service-middle</b> from your k8s cluster at first. We will run it locally.
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl -n service-debug delete service service-middle --ignore-not-found<span style=color:#f92672>=</span>true
-kubectl -n service-debug delete pod service-middle --ignore-not-found<span style=color:#f92672>=</span>true
-</code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li>
-<p>Run telepresence for <b>service-middle</b></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>telepresence --namespace service-debug --new-deployment service-middle --expose <span style=color:#ae81ff>8081</span>
-</code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li>
-<p>In another terminal, run <b>middle</b> application in your local machine. Note that you can run it in debug mode as well and put breakpoints.</p>
-<pre tabindex=0><code>$ cd /tmp
+</code></pre></li></ul><p>Then your local <b>front</b> app can access the <b>service-middle</b> like in k8s cluster without any extra effort.</p><br><h2 id=tool-3-telepresence>Tool 3: <b>telepresence</b></h2><h4 id=scenario-2>Scenario:</h4><p>As a developer, I want to run <b>service-middle</b> in my local machine so that I can put breakpoints in my IDE to debug my application.</p><h4 id=problem-2>Problem:</h4><p><b>service-middle</b> is designed to run in Kubernetes. It accesses <b>service-back</b> via k8s services. Also, its consumer <b>service-front</b> is running on k8s. The services are not available in your local machine and it is hard to mock all these environments in your local machine.</p><h4 id=solution-2>Solution:</h4><p><b>telepresence</b> is a useful tool for this problem. See <a href=https://www.telepresence.io/>https://www.telepresence.io/</a></p><h4 id=steps-2>Steps:</h4><ul><li>Delete <b>service-middle</b> from your k8s cluster at first. We will run it locally.<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>kubectl -n service-debug delete service service-middle --ignore-not-found<span style=color:#f92672>=</span>true
+</span></span><span style=display:flex><span>kubectl -n service-debug delete pod service-middle --ignore-not-found<span style=color:#f92672>=</span>true
+</span></span></code></pre></div></li></ul><br><ul><li><p>Run telepresence for <b>service-middle</b></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>telepresence --namespace service-debug --new-deployment service-middle --expose <span style=color:#ae81ff>8081</span>
+</span></span></code></pre></div></li></ul><br><ul><li><p>In another terminal, run <b>middle</b> application in your local machine. Note that you can run it in debug mode as well and put breakpoints.</p><pre tabindex=0><code>$ cd /tmp
 $ git clone https://github.com/erkanerol/service-examples-for-blog.git
 $ cd service-examples-for-blog/middle
 $ go run main.go
-</code></pre></li>
-</ul>
-<br>
-<ul>
-<li>
-<p>In another terminal, run the command below to send a request to <b>service-front</b> via a temporary pod in the cluster.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl -n service-debug run curl -it  --rm<span style=color:#f92672>=</span>true --image<span style=color:#f92672>=</span>curlimages/curl --restart<span style=color:#f92672>=</span>Never -- http://service-front:8082 
-Response from service middle:<span style=color:#e6db74>&#39;Response from service back:&#39;</span>Timestamp from back:1614517363<span style=color:#e6db74>&#39;&#39;</span>pod <span style=color:#e6db74>&#34;curl&#34;</span> deleted
-</code></pre></div></li>
-</ul>
-<p>Note that your request goes to <b>service-front</b> in k8s, which sends a request to <b>service-middle</b> in your local machine, which sends a request to <b>service-back</b> in the cluster.</p>
-<br>
-<h4 id=how-does-it-work-2>How does it work?</h4>
-<p><img src=/img/k8s-services/Level3.png alt=Level3></p>
-<p>Basically, <b>telepresence</b> deploys a proxy/fake agent into cluster and opens a two-way tunnel between your local environment and the cluster via that agent. Then you are able to run the <b>middle</b> service in your local machine without adapting the consumers/dependent services.</p>
-<p>A detailed explanation about how telepresence works is available here: <a href=https://www.telepresence.io/discussion/how-it-works>https://www.telepresence.io/discussion/how-it-works</a></p>
-<br>
-<h2 id=summary>Summary</h2>
-<ul>
-<li>If you need to access a service without exposing it to public, <b>kubectl port-forward</b> is enough.</li>
-<li>If you need to run a service locally for debugging and your service needs to access other services on k8s, <b>kubefwd</b> is enough. It manages DNS entries in your local machine and opens a one-way tunnel from your machine to cluster for the dependencies of your service.</li>
-<li>If you need to run a service locally for debugging and your application has some consumers in the cluster, <b>telepresence</b> is your tool. It opens two-way network channel and it forwards requests from cluster to your local instance as well.</li>
-</ul>
-<p><br><br></p>
-<p>p.s. Admission webhooks in Kubernetes are similar to <b>service-middle</b>. They receive some requests from api-server and they may send some requests to other services in the cluster. Therefore, <b>telepresence</b> is a useful tool for debugging admission webhooks.</p></section>
-<footer class="mt-12 flex flex-wrap">
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/english>English</a>
+</code></pre></li></ul><br><ul><li><p>In another terminal, run the command below to send a request to <b>service-front</b> via a temporary pod in the cluster.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl -n service-debug run curl -it  --rm<span style=color:#f92672>=</span>true --image<span style=color:#f92672>=</span>curlimages/curl --restart<span style=color:#f92672>=</span>Never -- http://service-front:8082 
+</span></span><span style=display:flex><span>Response from service middle:<span style=color:#e6db74>&#39;Response from service back:&#39;</span>Timestamp from back:1614517363<span style=color:#e6db74>&#39;&#39;</span>pod <span style=color:#e6db74>&#34;curl&#34;</span> deleted
+</span></span></code></pre></div></li></ul><p>Note that your request goes to <b>service-front</b> in k8s, which sends a request to <b>service-middle</b> in your local machine, which sends a request to <b>service-back</b> in the cluster.</p><br><h4 id=how-does-it-work-2>How does it work?</h4><p><img src=/img/k8s-services/Level3.png alt=Level3></p><p>Basically, <b>telepresence</b> deploys a proxy/fake agent into cluster and opens a two-way tunnel between your local environment and the cluster via that agent. Then you are able to run the <b>middle</b> service in your local machine without adapting the consumers/dependent services.</p><p>A detailed explanation about how telepresence works is available here: <a href=https://www.telepresence.io/discussion/how-it-works>https://www.telepresence.io/discussion/how-it-works</a></p><br><h2 id=summary>Summary</h2><ul><li>If you need to access a service without exposing it to public, <b>kubectl port-forward</b> is enough.</li><li>If you need to run a service locally for debugging and your service needs to access other services on k8s, <b>kubefwd</b> is enough. It manages DNS entries in your local machine and opens a one-way tunnel from your machine to cluster for the dependencies of your service.</li><li>If you need to run a service locally for debugging and your application has some consumers in the cluster, <b>telepresence</b> is your tool. It opens two-way network channel and it forwards requests from cluster to your local instance as well.</li></ul><p><br><br></p><p>p.s. Admission webhooks in Kubernetes are similar to <b>service-middle</b>. They receive some requests from api-server and they may send some requests to other services in the cluster. Therefore, <b>telepresence</b> is a useful tool for debugging admission webhooks.</p></section><footer class="mt-12 flex flex-wrap"><a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/english>English</a>
 <a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/software>Software</a>
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/kubernetes>Kubernetes</a>
-</footer>
-<nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-<a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/complexity-of-kubernetes/><span class=mr-1.5>←</span><span>Thinking about the complexity of the Kubernetes ecosystem</span></a>
-<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/basics-of-container-runtimes/><span>Learning Path: Basics of Container Runtimes</span><span class=ml-1.5>→</span></a>
-</nav>
-</article>
-</main>
-<footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60">
-<div class=mr-auto>
-&copy; 2022
-<a class=link href=https://erkanerol.github.io/>Blog</a>
-</div>
-<a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a>
-</footer>
-</body>
-</html>
+<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/kubernetes>Kubernetes</a></footer><nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]"><a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/complexity-of-kubernetes/><span class=mr-1.5>←</span><span>Thinking about the complexity of the Kubernetes ecosystem</span></a>
+<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/basics-of-container-runtimes/><span>Learning Path: Basics of Container Runtimes</span><span class=ml-1.5>→</span></a></nav></article></main><footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"><div class=mr-auto>&copy; 2026
+<a class=link href=https://erkanerol.github.io/>Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a></footer></body></html>

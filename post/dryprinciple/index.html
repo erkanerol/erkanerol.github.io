@@ -1,214 +1,87 @@
-<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<title>Dry Prensibi - Blog</title>
-<meta name=theme-color>
-<meta name=description content="
+<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Dry Prensibi - Blog</title><meta name=theme-color><meta name=description content="
 Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
 
 NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.
 Programlama Prensibi
 DRY
 Keep It Dry
-Keep Things Dry">
-<meta name=author content="Erkan Erol">
-<link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css>
-<script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script>
-<link rel=preload as=image href=https://erkanerol.github.io/theme.png>
-<link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76>
-<link rel=preload as=image href=https://erkanerol.github.io/twitter.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/github.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/instagram.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/rss.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg>
-<link rel=icon href=https://erkanerol.github.io/favicon.ico>
-<link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.0">
-<meta property="og:title" content="Dry Prensibi">
-<meta property="og:description" content="
-Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
-
-NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.
-Programlama Prensibi
-DRY
+Keep Things Dry"><meta name=author content="Erkan Erol"><link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css><script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=preload as=image href=https://erkanerol.github.io/theme.png><link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76><link rel=preload as=image href=https://erkanerol.github.io/twitter.svg><link rel=preload as=image href=https://erkanerol.github.io/github.svg><link rel=preload as=image href=https://erkanerol.github.io/instagram.svg><link rel=preload as=image href=https://erkanerol.github.io/rss.svg><link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg><link rel=icon href=https://erkanerol.github.io/favicon.ico><link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.167.0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KGPMEHXB"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W6KGPMEHXB")}</script><meta property="og:url" content="https://erkanerol.github.io/post/dryprinciple/"><meta property="og:site_name" content="Blog"><meta property="og:title" content="Dry Prensibi"><meta property="og:description" content="Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+NOT: Bu yazı The Pragmatic Programmer kitabındaki “The Evils of Duplication” bölümünden yararlanılarak yazılmıştır.
+Programlama Prensibi DRY
 Keep It Dry
-Keep Things Dry">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://erkanerol.github.io/post/dryprinciple/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2016-06-02T20:23:06+03:00">
-<meta property="article:modified_time" content="2016-06-02T20:23:06+03:00">
-<meta itemprop=name content="Dry Prensibi">
-<meta itemprop=description content="
-Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
-
-NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.
-Programlama Prensibi
-DRY
+Keep Things Dry"><meta property="og:locale" content="en_en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-06-02T20:23:06+03:00"><meta property="article:modified_time" content="2016-06-02T20:23:06+03:00"><meta property="article:tag" content="Turkish"><meta property="article:tag" content="Software"><meta property="article:tag" content="Yazılım Prensipleri"><meta itemprop=name content="Dry Prensibi"><meta itemprop=description content="Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+NOT: Bu yazı The Pragmatic Programmer kitabındaki “The Evils of Duplication” bölümünden yararlanılarak yazılmıştır.
+Programlama Prensibi DRY
 Keep It Dry
-Keep Things Dry"><meta itemprop=datePublished content="2016-06-02T20:23:06+03:00">
-<meta itemprop=dateModified content="2016-06-02T20:23:06+03:00">
-<meta itemprop=wordCount content="867">
-<meta itemprop=keywords content="Turkish,Software,Yazılım Prensipleri,">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Dry Prensibi">
-<meta name=twitter:description content="
-Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
-
-NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.
-Programlama Prensibi
-DRY
+Keep Things Dry"><meta itemprop=datePublished content="2016-06-02T20:23:06+03:00"><meta itemprop=dateModified content="2016-06-02T20:23:06+03:00"><meta itemprop=wordCount content="867"><meta itemprop=keywords content="Turkish,Software,Yazılım Prensipleri"><meta name=twitter:card content="summary"><meta name=twitter:title content="Dry Prensibi"><meta name=twitter:description content="Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
+NOT: Bu yazı The Pragmatic Programmer kitabındaki “The Evils of Duplication” bölümünden yararlanılarak yazılmıştır.
+Programlama Prensibi DRY
 Keep It Dry
-Keep Things Dry">
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
-</head>
-<body class="text-black duration-200 ease-out dark:text-white">
-<header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
-<div class="relative z-50 mr-auto flex items-center">
-<a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
-<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a>
-</div>
-<a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a>
-<script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove('not-ready'),10);const setDark=a=>{metaTheme.setAttribute('content',a?'#000':'#fbfbfb'),htmlClass[a?'add':'remove']('dark'),localStorage.setItem('dark',a)},darkScheme=window.matchMedia('(prefers-color-scheme: dark)'),darkVal=localStorage.getItem('dark');setDark(darkVal?darkVal==='true':darkScheme.matches),darkScheme.addEventListener('change',a=>{setDark(a.matches)});const btnDark=document.querySelector('.btn-dark');btnDark.addEventListener('click',()=>{setDark(localStorage.getItem('dark')!=='true')});const btnMenu=document.querySelector('.btn-menu');btnMenu.addEventListener('click',()=>{htmlClass.toggle('open')})</script>
-<div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none">
-<nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
+Keep Things Dry"></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
+<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a></div><a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a><script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove("not-ready"),10);const setDark=e=>{metaTheme.setAttribute("content",e?"#000":"#fbfbfb"),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)"),darkVal=localStorage.getItem("dark");setDark(darkVal?darkVal==="true":darkScheme.matches),darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")});const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6"><a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
 <a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/english/>English</a>
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a>
-</nav>
-<nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6">
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a>
-</nav>
-</div>
-</header>
-<main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert">
-<article>
-<header class=mb-20>
-<h1 class="!my-0 pb-2.5">Dry Prensibi</h1>
-<div class="text-sm opacity-60">
-<time>Jun 2, 2016</time>
+<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"><article><header class=mb-20><h1 class="!my-0 pb-2.5">Dry Prensibi</h1><div class="text-sm opacity-60"><time>Jun 2, 2016</time>
 <span class=mx-1>&#183;</span>
-<span>Erkan Erol</span>
-</div>
-</header>
-<section><blockquote>
-<p>Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p>
-</blockquote>
-<p>NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.</p>
-<h2 id=programlama-prensibi>Programlama Prensibi</h2>
-<p>DRY</p>
-<p>Keep It Dry</p>
-<p>Keep Things Dry</p>
-<h2 id=açılımlar>Açılımlar</h2>
-<p>Don&rsquo;t repeat yourself</p>
-<h2 id=açıklama>Açıklama</h2>
-<p>DRY prensibi yazılımın en temel prensiplerinden biridir. &ldquo;Kendini tekrar etme&rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.</p>
-<p>Programcılar olarak bizler bilgiyi toplar, organize eder, bakımını yapar ve programlarımızda kullanırız. Zaman zaman dökümanlar hazırlarız. Testlerde kontrol amaçlı kullanırız. Fakat maalesef bilgi durağan değildir, zaman içinde sıklıkla değişir. Bizler elimizdeki bilgiler her değiştiğinde yaptığımız işleri gözden geçirmek ve onları bu güncellemeye göre değiştirmek zorundayız. Bu bakım sırasında bilginin sistem içindeki bütün gösterimlerini bulmamız gerekir. Eğer sistem içerisinde değişen bilgilerin bir çok yerde gösterimleri var ise bu bakım kabusa dönüşür. Bu nedenle yazılımın daha güvenilir olması, bakımının kolay yapılabilmesi ve anlaşılması adına şu prensibe ihtiyacımız vardır:</p>
-<p>&ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&rdquo;
-Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir. Şimdi bunu iki örnek ile açıklayalım.</p>
-<p>Birincisi çok basit bir kod tekrar örneği. [4]</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#75715e>// BAD
-</span><span style=color:#75715e></span><span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>eventfade</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
-    <span style=color:#a6e22e>eventfade</span>.<span style=color:#a6e22e>stop</span>();
-}
- 
-<span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>eventhover</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
-    <span style=color:#a6e22e>eventhover</span>.<span style=color:#a6e22e>stop</span>();
-}
- 
-<span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>spans</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
-    <span style=color:#a6e22e>spans</span>.<span style=color:#a6e22e>stop</span>();
-}
- 
-<span style=color:#75715e>// GOOD!!
-</span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> [ <span style=color:#a6e22e>eventfade</span>, <span style=color:#a6e22e>eventhover</span>, <span style=color:#a6e22e>spans</span> ];
- 
-<span style=color:#a6e22e>$</span>.<span style=color:#a6e22e>each</span>( <span style=color:#a6e22e>elems</span>, <span style=color:#66d9ef>function</span>( <span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>elem</span> ) {
-    <span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
-        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>stop</span>();
-    }
-});
-</code></pre></div><p>Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz. Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.</p>
-<p>İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>//BAD
-</span><span style=color:#75715e></span>HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> pages <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span> String<span style=color:#f92672>&gt;();</span>
-pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;mybooks.xhtml&#34;</span><span style=color:#f92672>);</span>
-pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;myauthors.xhtml&#34;</span><span style=color:#f92672>);</span>
-pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;myreaders.xhtml&#34;</span><span style=color:#f92672>);</span>
-pages<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;mylibraries.xhtml&#34;</span><span style=color:#f92672>);</span>
-
-HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> adminAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;();</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;all&#34;</span><span style=color:#f92672>);</span>
-
-HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> registeredUserAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;();</span>
-registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;create&#34;</span><span style=color:#f92672>);</span>
-registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;create&#34;</span><span style=color:#f92672>);</span>
-registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
-registeredUserAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
-
-HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> guestUserAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;();</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;book&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;author&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;reader&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
-adminAuthority<span style=color:#f92672>.</span><span style=color:#a6e22e>put</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;library&#34;</span><span style=color:#f92672>,</span><span style=color:#e6db74>&#34;read&#34;</span><span style=color:#f92672>);</span>
-
-
-
-<span style=color:#75715e>//GOOD
-</span><span style=color:#75715e></span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyEntity</span> <span style=color:#f92672>{</span>
-    String page<span style=color:#f92672>;</span>
-    HashMap<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>,</span>String<span style=color:#f92672>&gt;</span> authorities<span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p>İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.</p>
-<p>DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.</p>
-<p>Tipler, Nedenler ve Çözüm Önerileri</p>
-<h3 id=1-zorla-tekrarlama>1. Zorla Tekrarlama</h3>
-<p>Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.</p>
-<p>a) Bilginin birden fazla gösteriminin zorunlu olması: Bazen yazılımın mimarisi tekrarlamayı sorunlu kılar. Örneğin, server-client yapısı kullandığımızda iki tarafta da aynı bilgiyi kullanmamız gerekir. Bu gibi durumlarda dilin metadata özelliklerini kullanarak kod üreten kodlar geliştirmeye, tekrarlamaları otomotik olarak üretmeye çalışmalıyız.
+<span>Erkan Erol</span></div></header><section><blockquote><p>Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</p></blockquote><p>NOT: Bu yazı The Pragmatic Programmer kitabındaki &ldquo;The Evils of Duplication&rdquo; bölümünden yararlanılarak yazılmıştır.</p><h2 id=programlama-prensibi>Programlama Prensibi</h2><p>DRY</p><p>Keep It Dry</p><p>Keep Things Dry</p><h2 id=açılımlar>Açılımlar</h2><p>Don&rsquo;t repeat yourself</p><h2 id=açıklama>Açıklama</h2><p>DRY prensibi yazılımın en temel prensiplerinden biridir. &ldquo;Kendini tekrar etme&rdquo; anlamına gelen bu prensip kod tekrarlarından sakınılması gerektiğini savunur. The Pragmatic Programmer kitabında DRY olarak isimlendirilmiş ve genişçe açıklanmıştır.</p><p>Programcılar olarak bizler bilgiyi toplar, organize eder, bakımını yapar ve programlarımızda kullanırız. Zaman zaman dökümanlar hazırlarız. Testlerde kontrol amaçlı kullanırız. Fakat maalesef bilgi durağan değildir, zaman içinde sıklıkla değişir. Bizler elimizdeki bilgiler her değiştiğinde yaptığımız işleri gözden geçirmek ve onları bu güncellemeye göre değiştirmek zorundayız. Bu bakım sırasında bilginin sistem içindeki bütün gösterimlerini bulmamız gerekir. Eğer sistem içerisinde değişen bilgilerin bir çok yerde gösterimleri var ise bu bakım kabusa dönüşür. Bu nedenle yazılımın daha güvenilir olması, bakımının kolay yapılabilmesi ve anlaşılması adına şu prensibe ihtiyacımız vardır:</p><p>&ldquo;Her bir bilgi parçacığı sistem içinde tek, anlaşılabilir ve yetkilendirilmiş bir gösterime sahip olmalıdır.&rdquo;
+Aksi halde bir yerde değişiklik yaptığımızda diğer yerlerde de değişiklik yapmayı hatırlamamız gerekir ki bu gereklilik hatalara neden olabilir. Şimdi bunu iki örnek ile açıklayalım.</p><p>Birincisi çok basit bir kod tekrar örneği. [4]</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// BAD
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>eventfade</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>eventfade</span>.<span style=color:#a6e22e>stop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>eventhover</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>eventhover</span>.<span style=color:#a6e22e>stop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>spans</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>spans</span>.<span style=color:#a6e22e>stop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#75715e>// GOOD!!
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> [ <span style=color:#a6e22e>eventfade</span>, <span style=color:#a6e22e>eventhover</span>, <span style=color:#a6e22e>spans</span> ];
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#a6e22e>$</span>.<span style=color:#a6e22e>each</span>( <span style=color:#a6e22e>elems</span>, <span style=color:#66d9ef>function</span>( <span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>elem</span> ) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ( <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>data</span>( <span style=color:#e6db74>&#34;currently&#34;</span> ) <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;showing&#34;</span> ) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>stop</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div><p>Yukarıdaki örnekte bir kontrol ve method çağırma işlemi 3 element içinde ayrı ayrı yapılmış. Diyelim ki biz bu koşulda ikinci bir method çağırma ihtiyacı duyduk. Yapacağımız şey 3 if bloğunun içine de bu çağırma ifadesini eklemek olacaktı. Bu sayının 3 değilde 10 olduğunu düşündüğümüzde bunun hataya ne kadar açık olduğunu görebiliriz. Halbuki ikinci şekildeki gibi yazılsaydı bir satırda değişikliğimizi yapabilirdik. Bu nedenle kodu başlangıçta ikinci şekildeki gibi yazmalıyız. Eğer elementlere özel değişik koşullar eklenirse refactoring yaparak kodu bölmeli ve yine tekrarlama olmadan işimizi halletmeliyiz.</p><p>İkinci olarak daha güzel bir örnek vermek istiyorum. Diyelim ki bir CRUD uygulaması yazıyoruz. Uygulamada 3 tip kullanıcı var: yönetici, kayıtlı kullanıcı ve misafir kullanıcı. Uygulamada 4 tip varlık (entity) ve bunların web sayfaları var.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>//BAD</span>
+</span></span><span style=display:flex><span>HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span> pages <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String, String<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>pages.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;book&#34;</span>,<span style=color:#e6db74>&#34;mybooks.xhtml&#34;</span>);
+</span></span><span style=display:flex><span>pages.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;author&#34;</span>,<span style=color:#e6db74>&#34;myauthors.xhtml&#34;</span>);
+</span></span><span style=display:flex><span>pages.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;reader&#34;</span>,<span style=color:#e6db74>&#34;myreaders.xhtml&#34;</span>);
+</span></span><span style=display:flex><span>pages.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;library&#34;</span>,<span style=color:#e6db74>&#34;mylibraries.xhtml&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span> adminAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;book&#34;</span>,<span style=color:#e6db74>&#34;all&#34;</span>);
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;author&#34;</span>,<span style=color:#e6db74>&#34;all&#34;</span>);
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;reader&#34;</span>,<span style=color:#e6db74>&#34;all&#34;</span>);
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;library&#34;</span>,<span style=color:#e6db74>&#34;all&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span> registeredUserAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>registeredUserAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;book&#34;</span>,<span style=color:#e6db74>&#34;create&#34;</span>);
+</span></span><span style=display:flex><span>registeredUserAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;author&#34;</span>,<span style=color:#e6db74>&#34;create&#34;</span>);
+</span></span><span style=display:flex><span>registeredUserAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;reader&#34;</span>,<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>registeredUserAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;library&#34;</span>,<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span> guestUserAuthority <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;book&#34;</span>,<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;author&#34;</span>,<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;reader&#34;</span>,<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>adminAuthority.<span style=color:#a6e22e>put</span>(<span style=color:#e6db74>&#34;library&#34;</span>,<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//GOOD</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyEntity</span> {
+</span></span><span style=display:flex><span>    String page;
+</span></span><span style=display:flex><span>    HashMap<span style=color:#f92672>&lt;</span>String,String<span style=color:#f92672>&gt;</span> authorities;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>İlk şekilde bir bilginin dörde ayrılıp 4 farklı yerde saklandığını görüyoruz. Bir varlığın web sayfası ve 3 kullanıcı için yetkileri 4 farklı yerde. Yeni bir varlık eklememiz gerektiğinde 4 yerde değişiklik yapmamız zorunlu. Halbuki ikinci şekildeki gibi bir nesne kullansak, uygulamanın her bileşeni bu bilgi içinden kendine lazım olan kısmı alır ve kullanır. Böylece bilginin bir gösterimi olur ki takibi ve bakımı çok daha kolay olur.</p><p>DRY prensibinin açıklamasında sistem kelimesinin kullanılmasının bir anlamı vardır. Tekrarlamanın sadece kodda değil bütün bir sistemde olmaması gerektiğini ifade eder. Yorumlar, testler, dökümanlar vb. bu sisteme dahildir.</p><p>Tipler, Nedenler ve Çözüm Önerileri</p><h3 id=1-zorla-tekrarlama>1. Zorla Tekrarlama</h3><p>Bu tekrarlama tipinde geliştiriciler tekrarlama yapmaktan başka çarelerinin olmadığını düşünürler.</p><p>a) Bilginin birden fazla gösteriminin zorunlu olması: Bazen yazılımın mimarisi tekrarlamayı sorunlu kılar. Örneğin, server-client yapısı kullandığımızda iki tarafta da aynı bilgiyi kullanmamız gerekir. Bu gibi durumlarda dilin metadata özelliklerini kullanarak kod üreten kodlar geliştirmeye, tekrarlamaları otomotik olarak üretmeye çalışmalıyız.
 b) Kodun içinde dökümantasyon: Geliştiriciler zaman zaman iyi kodun çok yorum eklenen kod olduğunu düşünse de iyi kod çok yorum gerektirmez. Özellikle alt düzeylerde çok açık işlemleri yorumlamak tekrarlama olarak düşünülebilir. Bu nedenle sadece gerekli yerlerde yorumlar eklenmelidir.
 c)Kod ve Dökümantasyon: Dökümanlar ve kod çoğu zaman aynı bilginin farklı gösterimlerini içerir ve ikisinden birinde değişiklik yaptığımızda diğerinde de yapmamız gerekir. Bu tip durumlarda değişimleri otomatik olarak diğer tarafa yansıtacak otomasyonlar kullanmalıyız. Javadoc buna güzel bir örnektir.
-d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.</p>
-<h3 id=2-yanlışlıkla-tekrarlama>2. Yanlışlıkla Tekrarlama</h3>
-<p>Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.</p>
-<h3 id=3-sabırsızlıktan-tekrarlama>3. Sabırsızlıktan Tekrarlama</h3>
-<p>Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )</p>
-<h3 id=4-geliştiriciler-arası-tekrarlama>4. Geliştiriciler Arası Tekrarlama</h3>
-<p>Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.</p>
-<h3 id=kaynakça>Kaynakça</h3>
-<ol>
-<li>Hunt, Andrew, and David Thomas. &ldquo;7. The Evils of Duplication.&rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.</li>
-</ol>
-<ul>
-<li><a href=http://www.kurumsaljava.com/2009/11/17/dry/>http://www.kurumsaljava.com/2009/11/17/dry/</a></li>
-<li><a href=https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li>
-<li><a href=https://learn.jquery.com/code-organization/dont-repeat-yourself/>https://learn.jquery.com/code-organization/dont-repeat-yourself/</a></li>
-</ul></section>
-<footer class="mt-12 flex flex-wrap">
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/turkish>Turkish</a>
+d)Dil ile ilgili meseleler: Bazı diller tekrarlamayı zorunlu kılar. Aynı bilgiyi farklı yerlerde kullanmamızı bizden talep eder. C ve C++ dillerindeki başlık(header) dosyaları buna örnektir. Bu gibi durumlarla başa çıkmak kolay değildir. Dile özgü çözümleri araştırmamız ve tekrarlamadan kaynaklı sorunları nasıl hafifleteceğimizi bulmamız gerekir.</p><h3 id=2-yanlışlıkla-tekrarlama>2. Yanlışlıkla Tekrarlama</h3><p>Bu tekrarlama tipinde geliştiriciler tekrarlama yaptığının farkında değildirler. Yukarıda verdiğimiz örnekler bu kategoride değerlendirilebilir. Yazılımın genel prensiplerine uyarak ve takım içinde birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz.</p><h3 id=3-sabırsızlıktan-tekrarlama>3. Sabırsızlıktan Tekrarlama</h3><p>Bu tekrarlama tipinde geliştiriciler tembellik eder ve tekrarlamayı daha kolay bulurlar. Bu tekrarlamaların kısa vadede zaman kazandırsa da uzun vadede büyük sorunlara yol açtığı açıktır. Bilinçlenme, disiplinli kod geliştirme ve takım içinde kodların gözden geçirilmesi ile çözülebilir. (Aptallığın lüzumu yok :D )</p><h3 id=4-geliştiriciler-arası-tekrarlama>4. Geliştiriciler Arası Tekrarlama</h3><p>Bu tekrarlama tipinde farklı geliştiriciler bir bilgiyi farklı yerlerde tekrarlarlar. Geliştiriciler arasındaki iletişim yeterince kuvvetli olmadığında bu sorun ortaya çıkabilir. İletişimi kuvvetlendirerek, birbirimizin kodlarını gözden geçirerek bu sorunu çözebiliriz. Ayrıca yazılım mimarisinin hatalı olması da geliştiricileri buna zorlayabilir. Anlaşılabilir tasarım, iyi bir teknik lider, görevlerin iyi bir şekilde ayrıştırılması bu sorunun başlıca çözümlerindendir.</p><h3 id=kaynakça>Kaynakça</h3><ol><li>Hunt, Andrew, and David Thomas. &ldquo;7. The Evils of Duplication.&rdquo; The Pragmatic Programmer: From Journeyman to Master. Reading, MA: Addison-Wesley, 2000. N. pag. Print.</li></ol><ul><li><a href=http://www.kurumsaljava.com/2009/11/17/dry/>http://www.kurumsaljava.com/2009/11/17/dry/</a></li><li><a href=https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></li><li><a href=https://learn.jquery.com/code-organization/dont-repeat-yourself/>https://learn.jquery.com/code-organization/dont-repeat-yourself/</a></li></ul></section><footer class="mt-12 flex flex-wrap"><a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/turkish>Turkish</a>
 <a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/software>Software</a>
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/yaz%C4%B1l%C4%B1m-prensipleri>Yazılım Prensipleri</a>
-</footer>
-<nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-<a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/cohesion-coupling/><span class=mr-1.5>←</span><span>Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine</span></a>
-<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/yagniprinciple/><span>YAGNI Prensibi</span><span class=ml-1.5>→</span></a>
-</nav>
-</article>
-</main>
-<footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60">
-<div class=mr-auto>
-&copy; 2022
-<a class=link href=https://erkanerol.github.io/>Blog</a>
-</div>
-<a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a>
-</footer>
-</body>
-</html>
+<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/yaz%C4%B1l%C4%B1m-prensipleri>Yazılım Prensipleri</a></footer><nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]"><a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/cohesion-coupling/><span class=mr-1.5>←</span><span>Yazılım Bağlamında Cohesion ve Coupling Kavramları Üzerine</span></a>
+<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/yagniprinciple/><span>YAGNI Prensibi</span><span class=ml-1.5>→</span></a></nav></article></main><footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"><div class=mr-auto>&copy; 2026
+<a class=link href=https://erkanerol.github.io/>Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a></footer></body></html>

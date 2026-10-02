@@ -1,247 +1,107 @@
-<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<title>Primitive Takıntısı ve Değer Nesneleri - Blog</title>
-<meta name=theme-color>
-<meta name=description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
+<!doctype html><html class="not-ready text-sm lg:text-base" lang=en-en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Primitive Takıntısı ve Değer Nesneleri - Blog</title><meta name=theme-color><meta name=description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
 
 
 Görselin Kaynağı
-">
-<meta name=author content="Erkan Erol">
-<link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css>
-<script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script>
-<link rel=preload as=image href=https://erkanerol.github.io/theme.png>
-<link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76>
-<link rel=preload as=image href=https://erkanerol.github.io/twitter.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/github.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/instagram.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/rss.svg>
-<link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg>
-<link rel=icon href=https://erkanerol.github.io/favicon.ico>
-<link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.0">
-<meta property="og:title" content="Primitive Takıntısı ve Değer Nesneleri">
-<meta property="og:description" content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
-
-
-Görselin Kaynağı
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://erkanerol.github.io/post/primitive_obsession/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2017-03-25T00:37:43+03:00">
-<meta property="article:modified_time" content="2017-03-25T00:37:43+03:00">
-<meta itemprop=name content="Primitive Takıntısı ve Değer Nesneleri">
-<meta itemprop=description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
-
-
-Görselin Kaynağı
-"><meta itemprop=datePublished content="2017-03-25T00:37:43+03:00">
-<meta itemprop=dateModified content="2017-03-25T00:37:43+03:00">
-<meta itemprop=wordCount content="921">
-<meta itemprop=keywords content="Turkish,Software,">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Primitive Takıntısı ve Değer Nesneleri">
-<meta name=twitter:description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
-
-
-Görselin Kaynağı
-">
-<script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-57796113-2','auto'),ga('send','pageview')</script>
-</head>
-<body class="text-black duration-200 ease-out dark:text-white">
-<header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
-<div class="relative z-50 mr-auto flex items-center">
-<a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
-<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a>
-</div>
-<a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a>
-<script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove('not-ready'),10);const setDark=a=>{metaTheme.setAttribute('content',a?'#000':'#fbfbfb'),htmlClass[a?'add':'remove']('dark'),localStorage.setItem('dark',a)},darkScheme=window.matchMedia('(prefers-color-scheme: dark)'),darkVal=localStorage.getItem('dark');setDark(darkVal?darkVal==='true':darkScheme.matches),darkScheme.addEventListener('change',a=>{setDark(a.matches)});const btnDark=document.querySelector('.btn-dark');btnDark.addEventListener('click',()=>{setDark(localStorage.getItem('dark')!=='true')});const btnMenu=document.querySelector('.btn-menu');btnMenu.addEventListener('click',()=>{htmlClass.toggle('open')})</script>
-<div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none">
-<nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
+"><meta name=author content="Erkan Erol"><link rel="preload stylesheet" as=style href=https://erkanerol.github.io/main.min.css><script defer src=https://erkanerol.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=preload as=image href=https://erkanerol.github.io/theme.png><link rel=preload as=image href=https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76><link rel=preload as=image href=https://erkanerol.github.io/twitter.svg><link rel=preload as=image href=https://erkanerol.github.io/github.svg><link rel=preload as=image href=https://erkanerol.github.io/instagram.svg><link rel=preload as=image href=https://erkanerol.github.io/rss.svg><link rel=preload as=image href=https://erkanerol.github.io/linkedin.svg><link rel=icon href=https://erkanerol.github.io/favicon.ico><link rel=apple-touch-icon href=https://erkanerol.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.167.0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-W6KGPMEHXB"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-W6KGPMEHXB")}</script><meta property="og:url" content="https://erkanerol.github.io/post/primitive_obsession/"><meta property="og:site_name" content="Blog"><meta property="og:title" content="Primitive Takıntısı ve Değer Nesneleri"><meta property="og:description" content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
+Görselin Kaynağı"><meta property="og:locale" content="en_en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-03-25T00:37:43+03:00"><meta property="article:modified_time" content="2017-03-25T00:37:43+03:00"><meta property="article:tag" content="Turkish"><meta property="article:tag" content="Software"><meta itemprop=name content="Primitive Takıntısı ve Değer Nesneleri"><meta itemprop=description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
+Görselin Kaynağı"><meta itemprop=datePublished content="2017-03-25T00:37:43+03:00"><meta itemprop=dateModified content="2017-03-25T00:37:43+03:00"><meta itemprop=wordCount content="921"><meta itemprop=keywords content="Turkish,Software"><meta name=twitter:card content="summary"><meta name=twitter:title content="Primitive Takıntısı ve Değer Nesneleri"><meta name=twitter:description content="Primitive Obsession ünlü Refactoring kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.
+Görselin Kaynağı"></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold" href=https://erkanerol.github.io/>Blog</a>
+<a class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"></a></div><a class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"></a><script>const metaTheme=document.querySelector('meta[name="theme-color"]'),htmlClass=document.documentElement.classList;setTimeout(()=>htmlClass.remove("not-ready"),10);const setDark=e=>{metaTheme.setAttribute("content",e?"#000":"#fbfbfb"),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)"),darkVal=localStorage.getItem("dark");setDark(darkVal?darkVal==="true":darkScheme.matches),darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")});const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6"><a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/turkish/>Turkish</a>
 <a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/english/>English</a>
-<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a>
-</nav>
-<nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6">
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a>
-<a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a>
-</nav>
-</div>
-</header>
-<main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert">
-<article>
-<header class=mb-20>
-<h1 class="!my-0 pb-2.5">Primitive Takıntısı ve Değer Nesneleri</h1>
-<div class="text-sm opacity-60">
-<time>Mar 25, 2017</time>
+<a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/tags/>Tags</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/erkan_erol_ target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/erkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./instagram.svg) href=https://instagram.com/theerkanerol target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=https://erkanerol.github.io/index.xml target=_blank></a><a class="h-8 w-8 [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com//in/erkanerol target=_blank></a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-20 pb-32 dark:prose-invert"><article><header class=mb-20><h1 class="!my-0 pb-2.5">Primitive Takıntısı ve Değer Nesneleri</h1><div class="text-sm opacity-60"><time>Mar 25, 2017</time>
 <span class=mx-1>&#183;</span>
-<span>Erkan Erol</span>
-</div>
-</header>
-<section><p>Primitive Obsession ünlü <a href=https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672 target=_blank>Refactoring</a> kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.</p>
-<p><img src=/img/primitive.jpg alt=primitive></p>
-<center>
-<a href=https://dzone.com/articles/primitive-obsession target=_blank>Görselin Kaynağı</a>
-</center>
-<br>
-<h2 id=tanımlar>Tanımlar</h2>
-<p>Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu &ldquo;takıntı&rdquo; zamanla çeşitli problemlere neden olur.</p>
-<h2 id=problemler>Problemler</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span>	<span style=color:#f92672>{</span>
-
-		<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>long</span> id<span style=color:#f92672>;</span>
-		<span style=color:#66d9ef>private</span> Date productionDate<span style=color:#f92672>;</span>
-		<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> status<span style=color:#f92672>;</span> <span style=color:#75715e>// 0=PRODUCED, 1=SOLD, 2=RETURN
-</span><span style=color:#75715e></span>		<span style=color:#66d9ef>private</span> String model<span style=color:#f92672>;</span> <span style=color:#75715e>// XSI-Q2TU-17-1
-</span><span style=color:#75715e></span>		
-
-		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getSeries</span><span style=color:#f92672>(){</span>
-			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>model</span><span style=color:#f92672>.</span><span style=color:#a6e22e>split</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;-&#34;</span><span style=color:#f92672>)[</span>0<span style=color:#f92672>];</span>
-		<span style=color:#f92672>}</span>
-
-		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getModelYear</span><span style=color:#f92672>(){</span>
-			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>model</span><span style=color:#f92672>.</span><span style=color:#a6e22e>split</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;-&#34;</span><span style=color:#f92672>)[</span>2<span style=color:#f92672>];</span>
-		<span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><ul>
-<li>
-<p>Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.</p>
-</li>
-<li>
-<p>İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri türlerinde yapmanız gerekir. Buradaki örnekte Notebook&rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.</p>
-</li>
-<li>
-<p>Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.</p>
-</li>
-</ul>
-<h2 id=çare-değer-nesneleri>Çare Değer Nesneleri!</h2>
-<p>Bu sorunun çözümü değer nesnelerinin (value objects) kullanımıdır. Bu kavramı Eric Evans <a href=https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215 target=_blank>Domanin-Driven Design</a> isimli kitabında oldukça ayrıntılı bir şekilde açıklamıştır. Evvela bu kavramı kısaca anlamaya çalışalım.</p>
-<p>Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.</p>
-<ol>
-<li><em><strong>Services:</strong></em> Bu nesneler günlük hayattaki varlıklara ve değerlere işaret etmeyen işçi nesnelerdir. Parser, formatter, controller gibi sınıflara ait nesneler bu gruba girer.</li>
-<li><em><strong>Entities:</strong></em> Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id&rsquo;ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id&rsquo;leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.</li>
-<li><em><strong>Value Object:</strong></em> Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.</li>
-</ol>
-<h2 id=değer-nesnelerinin-kullanımı>Değer Nesnelerinin Kullanımı</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NotebookModel</span> <span style=color:#f92672>{</span>
-	<span style=color:#66d9ef>final</span> String series<span style=color:#f92672>;</span>
-	<span style=color:#66d9ef>final</span> String subseries<span style=color:#f92672>;</span>
-	<span style=color:#66d9ef>final</span> Year year<span style=color:#f92672>;</span>
-	<span style=color:#66d9ef>final</span> Month month<span style=color:#f92672>;</span>
-		
-	<span style=color:#66d9ef>public</span> <span style=color:#a6e22e>NotebookModel</span><span style=color:#f92672>(</span>String series<span style=color:#f92672>,</span> String subseries<span style=color:#f92672>,</span> Year year<span style=color:#f92672>,</span> Month month<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-		<span style=color:#66d9ef>super</span><span style=color:#f92672>();</span>
-		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>series</span> <span style=color:#f92672>=</span> series<span style=color:#f92672>;</span>
-		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>subseries</span> <span style=color:#f92672>=</span> subseries<span style=color:#f92672>;</span>
-		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>year</span> <span style=color:#f92672>=</span> year<span style=color:#f92672>;</span>
-		<span style=color:#66d9ef>this</span><span style=color:#f92672>.</span><span style=color:#a6e22e>month</span> <span style=color:#f92672>=</span> month<span style=color:#f92672>;</span>
-	<span style=color:#f92672>}</span>
-	
-<span style=color:#f92672>}</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> NotebookStatus <span style=color:#f92672>{</span>
-	PRODUCED<span style=color:#f92672>,</span> SOLD<span style=color:#f92672>,</span> RETURN<span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span> <span style=color:#f92672>{</span>
-	<span style=color:#66d9ef>long</span> id<span style=color:#f92672>;</span>
-	Date productionDate<span style=color:#f92672>;</span>
-	NotebookStatus status<span style=color:#f92672>;</span>
-	NotebookModel model<span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p>Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.</p>
-<p>Değer nesneleri <a href=http://wiki.c2.com/?ValueObjectsShouldBeImmutable target=_blank>genellikle</a> NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
-Ancak bu zorunluluk <a href=http://wiki.c2.com/?ValueObjectsCanBeMutable target=_blank>değildir</a> .</p>
-<p><a href=http://www.jbrains.ca/ target=_blank>JbRainsberger</a> değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &ldquo;çekici&rdquo; olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.</p>
-<h2 id=veritabanlarında-tutma-problemi>Veritabanlarında tutma problemi</h2>
-<p>Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.</p>
-<p>Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>
-<span style=color:#a6e22e>@Embeddable</span>
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NotebookModel</span> <span style=color:#f92672>{</span>
-  
-  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_SERIES&#34;</span><span style=color:#f92672>)</span>
-  String series<span style=color:#f92672>;</span>
-  
-  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_SUBSERIES&#34;</span><span style=color:#f92672>)</span>
-  String subseries<span style=color:#f92672>;</span>
-  
-  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_YEAR&#34;</span><span style=color:#f92672>)</span>
-  Year year<span style=color:#f92672>;</span>
-  
-  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_MONTH&#34;</span><span style=color:#f92672>)</span>
-  Month month<span style=color:#f92672>;</span>
-  
-<span style=color:#f92672>}</span>
-
-<span style=color:#a6e22e>@Entity</span>
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span> <span style=color:#f92672>{</span>
-  
-  <span style=color:#a6e22e>@Id</span>
-  <span style=color:#a6e22e>@GeneratedValue</span><span style=color:#f92672>(</span>strategy<span style=color:#f92672>=</span>GenerationType<span style=color:#f92672>.</span><span style=color:#a6e22e>AUTO</span><span style=color:#f92672>)</span>
-  Long id<span style=color:#f92672>;</span>
-  
-  <span style=color:#a6e22e>@Temporal</span><span style=color:#f92672>(</span>TemporalType<span style=color:#f92672>.</span><span style=color:#a6e22e>TIMESTAMP</span><span style=color:#f92672>)</span>
-  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;PRODUCTION_DATE&#34;</span><span style=color:#f92672>)</span>
-  Date productionDate<span style=color:#f92672>;</span>
-  
-  <span style=color:#a6e22e>@Enumerated</span><span style=color:#f92672>(</span>EnumType<span style=color:#f92672>.</span><span style=color:#a6e22e>STRING</span><span style=color:#f92672>)</span>
-  <span style=color:#a6e22e>@Column</span><span style=color:#f92672>(</span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;STATUS&#34;</span><span style=color:#f92672>)</span>
-  NotebookStatus status<span style=color:#f92672>;</span>
-  
-  <span style=color:#a6e22e>@Embedded</span>
-  NotebookModel model<span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> NotebookStatus <span style=color:#f92672>{</span>
-	PRODUCED<span style=color:#f92672>,</span> SOLD<span style=color:#f92672>,</span> RETURN<span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-
-</code></pre></div><p>Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.</p>
-<blockquote>
-<p>JPA ile immutable bir sınıfı embeddable yapmak biraz zor olabilir çünkü JPA default constructor ve setter kullanıyor. Ayrıntılı bilgiye <a href="https://www.google.com.tr/search?q=immutable+embeddable+in+jpa" target=_blank>buradan</a> erişebilirsiniz.</p>
-</blockquote>
-<h2 id=eklemeler>Eklemeler</h2>
-<ul>
-<li>
-<p>Liste olarak tutulması gereken bilgileri bir arada tutmak da bu kod kokusu kapsamındadır. Örneğin yetkili kullanıcıların id listesini &ldquo;1,4,5,6,7&rdquo; gibi virgüllerle ayrılmış string olarak tutmamalısınız. Bu tip kullanımlar başlangıçta performans getirir gibi gözükse de zaman içinde ciddi sıkıntılara neden olurlar.</p>
-</li>
-<li>
-<p>Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için &ldquo;ilkel&rdquo; kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>amountInvoicedIn<span style=color:#f92672>(</span>Date start<span style=color:#f92672>,</span> Date end<span style=color:#f92672>);</span>
-amountReceviedIn<span style=color:#f92672>(</span>Date start<span style=color:#f92672>,</span> Date end<span style=color:#f92672>);</span>
-amountOverdueIn<span style=color:#f92672>(</span>Date start<span style=color:#f92672>,</span> Date end<span style=color:#f92672>);</span>
-
-amountInvoicedIn<span style=color:#f92672>(</span>DateRange range<span style=color:#f92672>);</span>
-amountReceviedIn<span style=color:#f92672>(</span>DateRange range<span style=color:#f92672>);</span>
-amountOverdueIn<span style=color:#f92672>(</span>DateRange range<span style=color:#f92672>);</span>
-</code></pre></div></li>
-</ul>
-<h2 id=sonuç>Sonuç</h2>
-<p>Örneklerin hepsini bir arada düşündüğümüzde sorunun sadece dildeki primitive veri türlerini kullanma takıntısı olmadığını anlarız. Asıl sorun karmaşık bir bilgiyi görece ilkel veri türleri ile ifade etmeye çalışmaktır. Dediğimiz gibi. Çare değer nesneleri!</p></section>
-<footer class="mt-12 flex flex-wrap">
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/turkish>Turkish</a>
-<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/software>Software</a>
-</footer>
-<nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-<a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/><span class=mr-1.5>←</span><span>Aynısından</span></a>
-<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/lemi/><span>Ustam: Lemi Orhan Ergin</span><span class=ml-1.5>→</span></a>
-</nav>
-</article>
-</main>
-<footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60">
-<div class=mr-auto>
-&copy; 2022
-<a class=link href=https://erkanerol.github.io/>Blog</a>
-</div>
-<a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a>
-</footer>
-</body>
-</html>
+<span>Erkan Erol</span></div></header><section><p>Primitive Obsession ünlü <a href=https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672 target=_blank>Refactoring</a> kitabındaki kod kokularından biridir. Yazılımcıların karmaşık şeyleri ilkel veri türleri ile ifade etmeye çalışmasını ifade eder. Bu yazıda bu sorunu ve çözümünü ele alacağız.</p><p><img src=/img/primitive.jpg alt=primitive></p><center><a href=https://dzone.com/articles/primitive-obsession target=_blank>Görselin Kaynağı</a></center><br><h2 id=tanımlar>Tanımlar</h2><p>Programlama dilleri genellikle ilkel veri türlerini temel olarak verirler. int, char, boolean ve -bazı dillerde- string gibi. Bunlara primitives yani ilkeller diyoruz. Bir de bunları kullanarak daha karmaşık veri türleri oluşturmaya olanak tanırlar. Class, struct, object gibi. Yalnız bu ikinci grup ek dosya oluşturma, tanımlama yapma gibi ek maaliyetler getirdiği için yazılımcılar bunları kullanmayı çok istemezler. Genellikle tembellikten ve biraz da yanlış düşünmekten (karmaşıklığın artacağını düşünürler) bunlar yerine olabildiğince ilkel veri türlerini kullanırlar. Bu &ldquo;takıntı&rdquo; zamanla çeşitli problemlere neden olur.</p><h2 id=problemler>Problemler</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span>	{
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>long</span> id;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>private</span> Date productionDate;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>private</span> <span style=color:#66d9ef>int</span> status; <span style=color:#75715e>// 0=PRODUCED, 1=SOLD, 2=RETURN</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>private</span> String model; <span style=color:#75715e>// XSI-Q2TU-17-1</span>
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getSeries</span>(){
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>model</span>.<span style=color:#a6e22e>split</span>(<span style=color:#e6db74>&#34;-&#34;</span>)<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>public</span> String <span style=color:#a6e22e>getModelYear</span>(){
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>model</span>.<span style=color:#a6e22e>split</span>(<span style=color:#e6db74>&#34;-&#34;</span>)<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><ul><li><p>Karmaşık bir şeyi ilkel bir veri türü ile göstermeye çalıştığınızda değerleri sınırlandırmakta zorlanırsınız. Örneğin ürünün durumu için PRODUCED, SOLD, RETURN gibi bir enum oluşturmak yerine bir int değeri (0=PRODUCED, 1=SOLD, 2=RETURN) kullanırsanız, bu alana yanlışlıkla anlamsız bir değer (örneğin 25) verilmesini engellemek için fazladan çaba sarf edersiniz.</p></li><li><p>İlkel veri türleri için gereken bir takım özel işlemleri içinde bulundukları karmaşık veri türlerinde yapmanız gerekir. Buradaki örnekte Notebook&rsquo;un model numarası string olarak tutulmuş. Fakat görüldüğü üzere bu alan aslında düz bir metinden daha karmaşık bir bilgiyi içeriyor. Model serisini ve yılını almak için eklenen özel metodlar burada Notebook sınıfının üzerinde bir yük. Bu tip alanların sayısı artıkça ana sınıf çok uzun ve karmaşık bir hale gelecektir.</p></li><li><p>Yine bu örnekteki gibi kullanımlarda bilginin önce birleştirilmesi ve beraber tutulması, sonra her seferinde bölünüp kullanılması da sorunlu bir durum.</p></li></ul><h2 id=çare-değer-nesneleri>Çare Değer Nesneleri!</h2><p>Bu sorunun çözümü değer nesnelerinin (value objects) kullanımıdır. Bu kavramı Eric Evans <a href=https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215 target=_blank>Domanin-Driven Design</a> isimli kitabında oldukça ayrıntılı bir şekilde açıklamıştır. Evvela bu kavramı kısaca anlamaya çalışalım.</p><p>Kitapta bütün nesneler üçe ayrılmış: Services, Entities, Value Objects.</p><ol><li><em><strong>Services:</strong></em> Bu nesneler günlük hayattaki varlıklara ve değerlere işaret etmeyen işçi nesnelerdir. Parser, formatter, controller gibi sınıflara ait nesneler bu gruba girer.</li><li><em><strong>Entities:</strong></em> Üzerinde çalıştığımız alan üzerindeki varlıklardır. Örneğin, bir teknoloji mağazası envanteri ile ilgili yazılım geliştiriyorsak ürün, bölüm, raf gibi sınıflarımız olur. Buradaki her bir nesne gerçekte bir varlığa karşılık gelir. Genellikle bunları ayırmak için id&rsquo;ler kullanırız. İki nesnenin bütün özellikleri aynı olsa bile id&rsquo;leri farklı ise bunların farklı varlıkları işaret ettiğini bilir, bu nesneler eşit değildir deriz.</li><li><em><strong>Value Object:</strong></em> Değer nesneleri ise adı üstünde değer tutmak için kullanılır. Özelliklerindeki değerleri aynı olan nesneler eşit kabul edilir. Örneğin tarih sınıfını ele alalım. İki tarih nesnesinin bütün özellikleri (yıl, ay, gün) eşitse bu iki nesne aynı tarihi ifade eder diyebilir miyiz? Evet diyebiliriz.</li></ol><h2 id=değer-nesnelerinin-kullanımı>Değer Nesnelerinin Kullanımı</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NotebookModel</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>final</span> String series;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>final</span> String subseries;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>final</span> Year year;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>final</span> Month month;
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#a6e22e>NotebookModel</span>(String series, String subseries, Year year, Month month) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>super</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>series</span> <span style=color:#f92672>=</span> series;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>subseries</span> <span style=color:#f92672>=</span> subseries;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>year</span> <span style=color:#f92672>=</span> year;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>month</span> <span style=color:#f92672>=</span> month;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> NotebookStatus {
+</span></span><span style=display:flex><span>	PRODUCED, SOLD, RETURN;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>long</span> id;
+</span></span><span style=display:flex><span>	Date productionDate;
+</span></span><span style=display:flex><span>	NotebookStatus status;
+</span></span><span style=display:flex><span>	NotebookModel model;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Örnekteki gibi karmaşık bilgileri değer nesneleri olarak tuttuğumuzda ana sınıfı temiz tutmuş oluruz. Ayrıca bu karmaşık bilginin içindeki alt bilgilere de daha doğru yoldan ulaşma fırsatımız olur.</p><p>Değer nesneleri <a href=http://wiki.c2.com/?ValueObjectsShouldBeImmutable target=_blank>genellikle</a> NotebookModel örneğindeki gibi immutable olarak kullanılırlar. Nesnenin ilk oluşturulma anında değerler verilir ve sonradan bu değerler değişmez. Böylece herhangi bir anda eşit olan iki nesnenin her daim eşit olacağını varsayabilir ve ortak olarak kullanabiliriz.
+Ancak bu zorunluluk <a href=http://wiki.c2.com/?ValueObjectsCanBeMutable target=_blank>değildir</a> .</p><p><a href=http://www.jbrains.ca/ target=_blank>JbRainsberger</a> değer nesneleri ile ilgili önemli bir özelliğe dikkat çeker. Değer nesneleri için kullandığımız sınıflar &ldquo;çekici&rdquo; olmaya adaydırlar. Kendilerine ilişkin kodları ana sınıfın üzerinden çekerler. Önceki örnekte kullandığımız yardımcı metodları üzerine alır örneğin. Bu kodun odaklı olması açısından kritik önem arzeder.</p><h2 id=veritabanlarında-tutma-problemi>Veritabanlarında tutma problemi</h2><p>Varlıklar genellikle veri tabanlarında saklanırlar. Veri tabanı işlemlerinde değer nesnelerinin kullanımı zorluk çıkarabilir. İlişkisel veri tabanı kullandığımızda bunları ayrı tablolara koymak istemeyiz çünkü değerleri varlık nesnesinin içine taşımak için ekstra JOIN yapmamız gerekir ki bu da performans açısından istemediğimiz bir durumdur.</p><p>Veritabanına saklama işlemlerinde değer nesnelerinin içindeki alanları ana sınıfın alanları olarak tabloda saklayabiliriz. Yaygın kullanılan ORM kütüphaneleri buna olanak tanımaktadır. Bir JPA örneği ile açıklayalım.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Embeddable</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>NotebookModel</span> {
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Column</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_SERIES&#34;</span>)
+</span></span><span style=display:flex><span>  String series;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Column</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_SUBSERIES&#34;</span>)
+</span></span><span style=display:flex><span>  String subseries;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Column</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_YEAR&#34;</span>)
+</span></span><span style=display:flex><span>  Year year;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Column</span>(name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;MODEL_MONTH&#34;</span>)
+</span></span><span style=display:flex><span>  Month month;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Entity</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Notebook</span> {
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Id</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@GeneratedValue</span>(strategy<span style=color:#f92672>=</span>GenerationType.<span style=color:#a6e22e>AUTO</span>)
+</span></span><span style=display:flex><span>  Long id;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Temporal</span>(TemporalType.<span style=color:#a6e22e>TIMESTAMP</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Column</span>(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;PRODUCTION_DATE&#34;</span>)
+</span></span><span style=display:flex><span>  Date productionDate;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Enumerated</span>(EnumType.<span style=color:#a6e22e>STRING</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Column</span>(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;STATUS&#34;</span>)
+</span></span><span style=display:flex><span>  NotebookStatus status;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>@Embedded</span>
+</span></span><span style=display:flex><span>  NotebookModel model;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> NotebookStatus {
+</span></span><span style=display:flex><span>	PRODUCED, SOLD, RETURN;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Bu örnekte NotebookModel nesnesinin alanları Notebook nesnesinin tablosuna gömülür. Böylece veri tabanı işlemlerinde performans kaybı yaşamadan, kodumuzu temiz tutmuş oluruz.</p><blockquote><p>JPA ile immutable bir sınıfı embeddable yapmak biraz zor olabilir çünkü JPA default constructor ve setter kullanıyor. Ayrıntılı bilgiye <a href="https://www.google.com.tr/search?q=immutable+embeddable+in+jpa" target=_blank>buradan</a> erişebilirsiniz.</p></blockquote><h2 id=eklemeler>Eklemeler</h2><ul><li><p>Liste olarak tutulması gereken bilgileri bir arada tutmak da bu kod kokusu kapsamındadır. Örneğin yetkili kullanıcıların id listesini &ldquo;1,4,5,6,7&rdquo; gibi virgüllerle ayrılmış string olarak tutmamalısınız. Bu tip kullanımlar başlangıçta performans getirir gibi gözükse de zaman içinde ciddi sıkıntılara neden olurlar.</p></li><li><p>Metod çağırırken kullanılan parametrelerde de ilkellik takıntısından kurtulmak gerekir. Parametreler anlamlı bir bütünü ifade ediyor ise değer nesneleri kullanılmalıdır. Aşağıdaki örnekteki tarih sınıfı aslında bir çok dilde primitive değildir. Fakat örnekte görüleceği üzere aktarılmak istenen bilgi için &ldquo;ilkel&rdquo; kalmıştır. Anlamı tek sınıfta toparlamakta fayda vardır.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-java data-lang=java><span style=display:flex><span>amountInvoicedIn(Date start, Date end);
+</span></span><span style=display:flex><span>amountReceviedIn(Date start, Date end);
+</span></span><span style=display:flex><span>amountOverdueIn(Date start, Date end);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>amountInvoicedIn(DateRange range);
+</span></span><span style=display:flex><span>amountReceviedIn(DateRange range);
+</span></span><span style=display:flex><span>amountOverdueIn(DateRange range);
+</span></span></code></pre></div></li></ul><h2 id=sonuç>Sonuç</h2><p>Örneklerin hepsini bir arada düşündüğümüzde sorunun sadece dildeki primitive veri türlerini kullanma takıntısı olmadığını anlarız. Asıl sorun karmaşık bir bilgiyi görece ilkel veri türleri ile ifade etmeye çalışmaktır. Dediğimiz gibi. Çare değer nesneleri!</p></section><footer class="mt-12 flex flex-wrap"><a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/turkish>Turkish</a>
+<a class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]" href=https://erkanerol.github.io/tags/software>Software</a></footer><nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]"><a class="flex w-1/2 items-center p-6 pr-3 no-underline" href=https://erkanerol.github.io/post/ayn%C4%B1s%C4%B1ndan/><span class=mr-1.5>←</span><span>Aynısından</span></a>
+<a class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline" href=https://erkanerol.github.io/post/lemi/><span>Ustam: Lemi Orhan Ergin</span><span class=ml-1.5>→</span></a></nav></article></main><footer class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"><div class=mr-auto>&copy; 2026
+<a class=link href=https://erkanerol.github.io/>Blog</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>▷ Paper 6</a></footer></body></html>
