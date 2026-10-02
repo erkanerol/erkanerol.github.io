@@ -26,10 +26,6 @@ enableRobotsTXT = true
     twitter = "erkan_erol_"
     instagram= "theerkanerol"
 
-    avatar="https://www.gravatar.com/avatar/321108fd00753fd95baeddbc3abc8a76"
-    name="Erkan Erol"
-    bio="Software Crafter"
-
     # Other social-like sidebar links
     rss = true  # switch to true to enable RSS icon link
 
