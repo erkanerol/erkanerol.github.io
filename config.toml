@@ -1,14 +1,12 @@
 baseurl = "https://erkanerol.github.io/"
-languageCode = "en-en"
+locale = "en-en"
 title = "Blog"
 
 theme = "hugo-paper"
-paginate = 10
-
 enableRobotsTXT = true
 
-[author]
-    name = "Erkan Erol"
+[pagination]
+    pagerSize = 10
 
 [taxonomies]
     tag = "tags"
@@ -16,9 +14,11 @@ enableRobotsTXT = true
 [markup.goldmark.renderer]
     unsafe = true
 
+[services.googleAnalytics]
+    id = "G-W6KGPMEHXB"
+
 [params]
-    # Metadata used to drive integrations.
-    googleAnalytics = "UA-57796113-2"
+    author = { name = "Erkan Erol" }
 
     # Sidebar social links, these must be full URLs.
     github = "erkanerol"

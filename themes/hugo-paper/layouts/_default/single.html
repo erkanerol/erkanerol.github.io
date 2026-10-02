@@ -9,9 +9,9 @@
       {{ if .Date }}
       <time>{{ .Date | time.Format ":date_medium" }}</time>
       {{ end }}<!---->
-      {{ if or .Params.Author site.Author.name }}
+      {{ if or .Params.Author site.Params.author.name }}
       <span class="mx-1">&middot;</span>
-      <span>{{ .Params.Author | default site.Author.name }}</span>
+      <span>{{ .Params.Author | default site.Params.author.name }}</span>
       {{ end }}
     </div>
     {{ end }}
@@ -52,10 +52,10 @@
   {{ end }}
 
   <!-- Disqus -->
-  {{ if and site.DisqusShortname (not (eq .Params.comments false)) }}
+  {{ if and site.Config.Services.Disqus.Shortname (not (eq .Params.comments false)) }}
   <div id="disqus_thread"></div>
   <script>
-    const disqusShortname = '{{ site.DisqusShortname }}';
+    const disqusShortname = '{{ site.Config.Services.Disqus.Shortname }}';
     const script = document.createElement('script');
     script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
     script.setAttribute('data-timestamp', +new Date());
